@@ -1,0 +1,63 @@
+<?php 
+class Pages_model extends Model {
+
+	/**
+     * Constructor, létrehozza az adatbáziskapcsolatot
+     */
+	function __construct()
+	{
+		parent::__construct();
+	}
+	
+	public function all_pages()
+	{
+		// a query tulajdonság ($this->query) tartalmazza a query objektumot
+		$this->query->set_table(array('pages')); 
+		$this->query->set_columns(array('page_id', 'page_title', 'page_metatitle', 'page_metadescription')); 
+		$result = $this->query->select(); 
+	
+		return $result;
+	}
+	
+	public function update_page($id)
+	{
+		$data['page_body'] = $_POST['page_body'];
+		$data['page_metatitle'] = $_POST['page_metatitle'];
+		$data['page_metadescription'] = $_POST['page_metadescription'];
+		$data['page_metakeywords'] = $_POST['page_metakeywords'];
+
+		// új adatok beírása az adatbázisba (update) a $data tömb tartalmazza a frissítendő adatokat 
+		$this->query->reset();
+		$this->query->set_table(array('pages'));
+		$this->query->set_where('page_id', '=', $id);
+		$result = $this->query->update($data);
+				
+		if($result) {
+            Message::set('success', 'feedback_page_update_success');
+			return true;
+		}
+		else {
+            Message::set('error', 'feedback_unknown_error');
+			return false;
+		}
+
+	}
+	
+	/**
+	 *	Egy oldal adatait kérdezi le az adatbázisból (pages tábla)
+	 *
+	 *	@param	$id String or Integer
+	 *	@return	az adatok tömbben
+	 */
+	public function page_data_query($id)
+	{
+		$this->query->reset();
+		$this->query->set_table(array('pages'));
+		$this->query->set_columns(array('page_id', 'page_title', 'page_body', 'page_friendlyurl', 'page_metatitle', 'page_metadescription', 'page_metakeywords'));
+		$this->query->set_where('page_id', '=', $id);
+		
+		return $this->query->select();
+	}
+	
+}
+?>
