@@ -31,12 +31,6 @@ class Paginator {
 	 */
 	private $page_id;
 	
-	/**
-	 *	Szűrés utáni elemek száma
-	 *
-	 */
-	private $record_filtered; 
-
 
 	/**
 	 * CONSTRUCTOR
@@ -50,7 +44,7 @@ class Paginator {
 		$this->pagename = $pagename;
 		$this->limit = $limit;
 		$this->stages = $stages;
-		$this->set_page_id();
+		$this->_set_page_id();
 	}	
 	
 	
@@ -75,7 +69,7 @@ class Paginator {
 	/**
 	 * Beállítja a page_id tulajdonság értékét (az oldal számát)
 	 */
-	private function set_page_id(){
+	private function _set_page_id(){
 		$this->page_id = (int) (!isset($_GET[$this->pagename]) ? 1 : $_GET[$this->pagename]); 
 		$this->page_id = ($this->page_id == 0 ? 1 : $this->page_id);
 	}	
@@ -89,14 +83,22 @@ class Paginator {
 		$this->total_pages = $total_pages;
 	}
 
+
 	/**
-	 * A tábla összes rekordjának a számát adja meg a $total_pages tulajdonságnak 
-	 *
-	 * @param integer	$total_pages
+	 *	Link létrehozása, amihez kapcsolódik az oldalszámláló (page=2)
 	 */
-	public function set_record_filtered($record){
-		$this->record_filtered = $record;
+	private function _get_path($uri_path, $query_string)
+	{
+		if($query_string == ''){
+			return $uri_path . '?'; 
+		} else {
+			$path = $uri_path . '?' . $query_string . '&';
+			//kivesszük a path-ból a $this->pagename elemet, hogy ne legyen az url-ben többször
+			$path = preg_replace("~($this->pagename=\d\&)?~", '', $path);
+			return $path;
+		}		
 	}
+
 	
 	/**
 	 * oldalszámozás megjelenítése 
@@ -105,18 +107,16 @@ class Paginator {
 	 * @param string $ext optionally pass in extra parameters to the GET
 	 * @return string returns the html menu
 	*/
-	public function page_links($path = '?', $ext = null)
+	public function page_links($uri_path, $query_string)
 	{
+		// útvonal létrehozása, ehhez fog csatlakozni a pl.: pagename=23	
+		$path = $this->_get_path($uri_path, $query_string);
+		
 		// Initial page num setup
 		$prev = $this->page_id - 1;	
 		$next = $this->page_id + 1;							
 		$lastpage = ceil($this->total_pages/$this->limit);		
 		$LastPagem1 = $lastpage - 1;					
-
-//var_dump($this->limit);		
-//var_dump($this->record_filtered);		
-//var_dump($lastpage);		
-		
 		
 		$paginate = '';
 		//csak akkor fűzi hozzá a string-hez a többi elemet, ha az utolsó oldalon legalább 1 elem van
