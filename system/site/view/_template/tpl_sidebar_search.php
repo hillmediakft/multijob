@@ -4,6 +4,7 @@
 
 <div class="property-filter pull-right">
 	<div class="content">
+	
 		<form method="GET" action="munkak" name="sidebar_search_form" id="sidebar_search_form">
 			
 			<div id="county_div" class="location control-group">
@@ -11,7 +12,7 @@
 					Megye
 				</label>
 				<div class="controls">
-					<select data-status="false" data-placeholder="Válasszon..." name="megye" id="county_select" class="chosen-select">
+					<select data-placeholder="Válasszon..." name="megye" id="county_select" class="chosen-select">
 					</select>
 				</div><!-- /.controls -->
 			</div><!-- /.control-group -->
@@ -22,7 +23,7 @@
 					Kerület
 				</label>
 				<div class="controls">
-					<select disabled data-status="false" data-placeholder="Válasszon..." name="kerulet" id="district_select" class="chosen-select">
+					<select disabled data-placeholder="Válasszon..." name="kerulet" id="district_select" class="chosen-select">
 					</select>
 				</div><!-- /.controls -->
 			</div><!-- /.control-group -->
@@ -32,7 +33,7 @@
 					Város
 				</label>
 				<div class="controls">
-					<select disabled data-status="false" data-placeholder="Válasszon..." name="varos" id="city_select" class="chosen-select">
+					<select disabled data-placeholder="Válasszon..." name="varos" id="city_select" class="chosen-select">
 					</select>
 				</div><!-- /.controls -->
 			</div><!-- /.control-group -->
@@ -43,7 +44,7 @@
 					Munka típusa
 				</label>
 				<div class="controls">
-					<select data-status="false" data-placeholder="Válasszon..." name="kategoria" id="job_category_select" class="chosen-select">
+					<select data-placeholder="Válasszon..." name="kategoria" id="job_category_select" class="chosen-select">
 					</select>
 				</div><!-- /.controls -->
 			</div><!-- /.control-group -->

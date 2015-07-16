@@ -672,15 +672,16 @@ class Jobs_model extends Model {
 		$this->query->reset();	
 		// a query tulajdonság ($this->query) tartalmazza a query objektumot
 		$this->query->set_table(array('jobs')); 
-		$this->query->set_columns(array(
-			'jobs.job_id',
-			'jobs.job_title',
-			'jobs.job_status',
-			'jobs.job_create_timestamp',
-			'jobs.job_update_timestamp',
-			'employer.employer_name',
-			'jobs_list.job_list_name'
-		)); 
+		$this->query->set_columns('SQL_CALC_FOUND_ROWS 
+			`jobs`.`job_id`,
+			`jobs`.`job_title`,
+			`jobs`.`job_status`,
+			`jobs`.`job_create_timestamp`,
+			`jobs`.`job_update_timestamp`,
+			`employer`.`employer_name`,
+			`jobs_list`.`job_list_name`'
+		); 		
+		
 		$this->query->set_join('left', 'employer', 'jobs.job_employer_id', '=', 'employer.employer_id'); 
 		$this->query->set_join('left', 'jobs_list', 'jobs.job_category_id', '=', 'jobs_list.job_list_id'); 
 		
@@ -715,9 +716,10 @@ class Jobs_model extends Model {
 			$this->query->set_orderby(array($order), $dir); 
 		}
 
+		// lekérdezés
 		$result = $this->query->select();
-		// visszaadott eredmények száma
-		$filtered_records = count($result);
+		// szűrés utáni visszaadott eredmények száma
+		$filtered_records = $this->query->found_rows(); 
 		
 		// ebbe a tömbbe kerülnek az elküldendő adatok
 		$data = array();

@@ -8,7 +8,7 @@
  *	debug(); paraméter opcionalis - true|false (default false)
  *	reset(); nincs paraméter (visszaállítja a tulajdonságok alapértékét)	
  *	count(); paraméter: tábla neve (string) - Lekérdezi a paraméterben megadott tábla rekordjainak számát	
- *		
+ *	found_rows();	visszaadja az előző SELECT SQL_CALC_FOUND_ROWS opcióval lekérdezett sorok számát (akkor kell, ha limit van beállítva)	
  *
  *	Táblák megadása (string) (vesszővel elválsztva az oszlopnevek), vagy (array)
  *	1. (string) ebben az esteben nem lesz automatikusan backtick-elve a táblanév!! 	
@@ -283,17 +283,7 @@ class Query {
 			$this->table = implode(',', $tablename);
 		}
 		elseif(is_string($tablename)) {
-/*
-			$tablename = str_replace(' ','', $tablename);
-			$temp_arr = explode(",", $tablename);
-			foreach($temp_arr as &$value) {
-				$value = "`" . $value . "`"; 
-			}
-			$this->table = implode(',', $temp_arr);
-			unset($temp_arr);
-*/			
 			$this->table = $tablename;
-			
 		}
 		else {
 			throw new Exception('Nem megfelelo tipusu parameter lett atadva a query osztaly set_table() metodusanak!');
@@ -836,6 +826,19 @@ class Query {
 	public function count($table)
 	{
 		$sth = $this->connect->query("SELECT COUNT(*) FROM `" . $table . "`"); 
+		$result = $sth->fetch(PDO::FETCH_NUM);
+		return (int)$result[0];
+	}
+
+	/**
+	 *	SQL_CALC_FOUND_ROWS lekérdezés után
+	 *	visszaadja LIMIT-el lekérdezett, de összes rekord számát
+	 *
+	 *	@return	integer
+	 */
+	public function found_rows()
+	{
+		$sth = $this->connect->query("SELECT FOUND_ROWS()"); 
 		$result = $sth->fetch(PDO::FETCH_NUM);
 		return (int)$result[0];
 	}

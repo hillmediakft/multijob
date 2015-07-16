@@ -29,6 +29,8 @@ class Munkak extends Controller {
 		// paginátor objektum létrehozása (paraméter neve, limit)
 		$pagine = new Paginator('oldal', 3);
 		
+
+
 		// szűrési feltételeknek megfelelő összes rekord száma
 		$filter_count = $this->munkak_model->jobs_filter_count_query();
 		$pagine->set_total($filter_count);
@@ -38,8 +40,8 @@ class Munkak extends Controller {
 		
 		//var_dump($this->registry);
 
-		// lapozó linkek (2 paraméter: uri_path, query_string)
-		$this->view->pagine_links = $pagine->page_links($this->registry->uri_path, $this->registry->query_string);
+		// lapozó linkek
+		$this->view->pagine_links = $pagine->page_links($this->registry->uri_path);
 	
 //$this->view->debug(true); 
 	

@@ -27,9 +27,14 @@ class Paginator {
 	private $total_pages;
 
 	/**
-	 *	Ez a tulajdonság tartalmazza az oldal számát
+	 *	oldal száma
 	 */
 	private $page_id;
+
+	/**
+	 *	query string
+	 */
+	private $querystring;
 	
 
 	/**
@@ -83,34 +88,43 @@ class Paginator {
 		$this->total_pages = $total_pages;
 	}
 
-
 	/**
-	 *	Link létrehozása, amihez kapcsolódik az oldalszámláló (page=2)
+	 *	Link létrehozása, amihez kapcsolódik az oldalszámláló paraméter (page=2)
 	 */
-	private function _get_path($uri_path, $query_string)
+	private function _get_path($uri_path)
 	{
-		if($query_string == ''){
-			return $uri_path . '?'; 
+		$this->querystring = '?';
+		// ha van query string
+		if($_GET) {
+			$params = $_GET;
+			if(isset($params[$this->pagename])) {
+				unset($params[$this->pagename]);
+			}
+			foreach($params as $k => $v) {
+				$this->querystring .= $k . '=' . $v . '&';
+			} 
+			unset($params);
+			return $uri_path . $this->querystring;
 		} else {
-			$path = $uri_path . '?' . $query_string . '&';
-			//kivesszük a path-ból a $this->pagename elemet, hogy ne legyen az url-ben többször
-			$path = preg_replace("~($this->pagename=\d\&)?~", '', $path);
-			return $path;
-		}		
+			// ha nincs query string		
+			return $uri_path . $this->querystring;
+		}
+	
 	}
+
 
 	
 	/**
 	 * oldalszámozás megjelenítése 
 	 *
-	 * @param string $path optionally set the path for the link
+	 * @param string $uri_path 		set the path for the link
 	 * @param string $ext optionally pass in extra parameters to the GET
 	 * @return string returns the html menu
 	*/
-	public function page_links($uri_path, $query_string)
+	public function page_links($uri_path)
 	{
 		// útvonal létrehozása, ehhez fog csatlakozni a pl.: pagename=23	
-		$path = $this->_get_path($uri_path, $query_string);
+		$path = $this->_get_path($uri_path);
 		
 		// Initial page num setup
 		$prev = $this->page_id - 1;	
