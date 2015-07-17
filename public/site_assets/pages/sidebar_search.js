@@ -7,19 +7,37 @@ var sidebarSearch = function () {
 		});
 	}
 */
+
+	var county_select = $("#county_select");
+	var district_select = $("#district_select");
+	var city_select = $("#city_select");
+	var job_category_select = $("#job_category_select");
+
 	var search_parts = {
 		megye: '',
 		kerulet: '',
 		varos: '',
 		kategoria: '' 
 	};
+	
+	var fieldStatus = function(){
+		
+		this.input = {
+			megye: false,
+			kerulet: false,
+			varos: false,
+			kategoria: false 
+		};
+		
+		this.set_input = function($name, $data){
+			this.input[$name] = $data;
+		}
+		
+		this.get_input = function($name){
+			return this.input[$name];
+		}
 
-	var field_status = {
-		megye: false,
-		kerulet: false,
-		varos: false,
-		kategoria: false 
-	};
+	}
 
 	var check_search_input = function(){
 
@@ -53,14 +71,14 @@ var sidebarSearch = function () {
 				}
 			});
 
-			//console.log(search_parts);
+			console.log(search_parts);
 			
 		}
 
 	}
 
 	
-	var ajax_county_query = function(){
+	var ajax_county_query = function(field){
 		$.ajax({
 			type: "post",
 			url: "ajax_request/ajax_county_list",
@@ -68,22 +86,24 @@ var sidebarSearch = function () {
 			//complete: function() {},
 			success: function(data) {
 					//console.log(data);
-					$("#county_select").html(data);
+					$(county_select).html(data);
+					
 					// mező státszának beállítása (true : már van benne adat)
-					field_status.megye = true;
+					field.set_input('megye', true);
+					
 					// aktív elem beállítása
 					if(search_parts.megye != '') {
-						$("#county_select").val(search_parts.megye);
+						$(county_select).val(search_parts.megye);
 					}
 					//a chosen 1.0 feletti verzió (chosen:updated)
-					// $("#county_select").trigger("chosen:updated");
-					$("#county_select").trigger("liszt:updated");
+					// $(county_select).trigger("chosen:updated");
+					$(county_select).trigger("liszt:updated");
 
 			}
 		});	
 	}
 
-	var ajax_district_query = function(){
+	var ajax_district_query = function(field){
 		$.ajax({
 			type: "post",
 			url: "ajax_request/ajax_district_list",
@@ -91,19 +111,23 @@ var sidebarSearch = function () {
 			//complete: function() {},
 			success: function(data) {
 					//console.log(data);
-					$("#district_select").html(data);
+					$(district_select).html(data);
+					
 					// mező státszának beállítása (true : már van benne adat)
-					field_status.kerulet = true;
+					field.set_input('kerulet', true);
+									
 					// aktív elem beállítása
 					if(search_parts.kerulet != '') {
-						$("#district_select").val(search_parts.kerulet);					
+						$(district_select).val(search_parts.kerulet);					
 					}
-					$("#district_select").trigger("liszt:updated");
+					
+					$(district_select).prop('disabled', false);
+					$(district_select).trigger("liszt:updated");
 				}
 		});	
 	}
 
-	var ajax_city_query = function($county_id){
+	var ajax_city_query = function($county_id, field){
 		$.ajax({
 			type: "post",
 			url: "ajax_request/ajax_city_list",
@@ -112,19 +136,23 @@ var sidebarSearch = function () {
 			// complete: function() {},
 			success: function(data) {
 					//console.log(data);
-					$("#city_select").html(data);
+					$(city_select).html(data);
+					
 					// mező státszának beállítása (true : már van benne adat)
-					field_status.varos = true;
+					field.set_input('varos', true);
+					
 					// aktív elem beállítása
 					if(search_parts.varos != '') {
-						$("#city_select").val(search_parts.varos);					
-					}					
-					$("#city_select").trigger("liszt:updated");
+						$(city_select).val(search_parts.varos);					
+					}
+
+					$(city_select).prop('disabled', false);
+					$(city_select).trigger("liszt:updated");
 			}
 		});	
 	}
 
-	var ajax_category_query = function(){
+	var ajax_category_query = function(field){
 		$.ajax({
 			type: "post",
 			url: "ajax_request/ajax_job_category_list",
@@ -132,90 +160,96 @@ var sidebarSearch = function () {
 			// complete: function() {},
 			success: function(data) {
 					//console.log(data);
-					$("#job_category_select").html(data);
+					$(job_category_select).html(data);
+					
 					// mező státszának beállítása (true : már van benne adat)
-					field_status.kategoria = true;
+					field.set_input('kategoria', true);
+					
 					// aktív elem beállítása
 					if(search_parts.kategoria != '') {
-						$("#job_category_select").val(search_parts.kategoria);					
+						$(job_category_select).val(search_parts.kategoria);					
 					}					
-					// $("#job_category_select").trigger("chosen:updated");
-					$("#job_category_select").trigger("liszt:updated");
+					// $(job_category_select).trigger("chosen:updated");
+					$(job_category_select).trigger("liszt:updated");
 				}
 		});	
 	}
 	
-	
-	
 
 	var locationsInput = function(){
-
-		//$county_select = $("#county_select");
-		//$district_select = $("#district_select");
-		//$city_select = $("#city_select");
 		
 		// beállítja a search_parts objektum értékeit a query string alapján
 		check_search_input();
 		
+		// létrehozunk egy fieldStatus objektumot
+		var field = new fieldStatus();
+		
 	// megvizsgáljuk, hogy vannak e keresési feltételek a query string-ben
-	// ha van keresési feltétel betöltjök az option listát
+	// ha van keresési feltétel betöltjük az option listákat
 		if(search_parts.megye != ''){
-			ajax_county_query();
-		}
-		if(search_parts.kerulet != ''){
-			ajax_district_query();
-			$("#district_select").prop('disabled', false);
-		}
-		if(search_parts.varos != ''){
-			ajax_city_query(search_parts.megye);
-			$("#city_select").prop('disabled', false);
+			ajax_county_query(field);
+			
+			if(search_parts.megye == 5){
+				ajax_district_query(field);
+			} else {
+				ajax_city_query(search_parts.megye, field);
+			}
 		}
 		if(search_parts.kategoria != ''){
-			ajax_category_query();
+			ajax_category_query(field);
 		}
+	
+		console.log(field);
 
 	
 		// behívja megyék listáját (ha az üres /csak az első klikkelésig lesz üres/)
 		$("#county_div a.chzn-single").on('click', function(){
 			// ha az option lista üres
-			if(field_status.megye === false){
-				ajax_county_query();
+			if(field.get_input('megye') === false){
+				ajax_county_query(field);
 			}			
 		});
 		
 		// ha változik a megye kiválasztott elem
-		$("#county_select").chosen().change(function(e){
+		$(county_select).chosen().change(function(e){
 			//console.log(e);
 			// megadja a megye id-jét
-			// $county_id = e.target.value;
-			$county_id = $("#county_select").val();
+			$county_id = $(county_select).val();
 			console.log($county_id);
 			
-			// ha Budapest van kiválasztva
-			if($county_id == 5){
-				
-				$("#city_select").prop('disabled', true);
-				$("#city_select").html('');
-				$("#city_select").trigger("liszt:updated");
-				
-				// ha üres az option lista akkor lekérdezzük a kerületeket
-				if(field_status.kerulet === false){
-					ajax_district_query();
-				}
-				
-				// a kerület listáról levesszük a disabled-et és updateljük a chosen-t
-				$("#district_select").prop('disabled', false);
-				$("#district_select").trigger("liszt:updated");					
-			
+			if($county_id == ''){
+				$(city_select).prop('disabled', true);
+				$(city_select).html('');
+				$(city_select).trigger("liszt:updated");
+				$(district_select).prop('disabled', true);
+				$(district_select).html('');
+				$(district_select).trigger("liszt:updated");
 			} else {
-				// ha nem Budapest van kiválasztva
-				$("#district_select").prop('disabled', true);
-				$("#district_select").val('');
-				$("#district_select").trigger("liszt:updated");
+				// ha Budapest van kiválasztva
+				if($county_id == 5){
+					$(city_select).prop('disabled', true);
+					$(city_select).html('');
+					$(city_select).trigger("liszt:updated");
+					
+					// ha üres az option lista akkor lekérdezzük a kerületeket
+					if(field.get_input('kerulet') === false){
+						ajax_district_query(field);
+					}
+					
+					// a kerület listáról levesszük a disabled-et és updateljük a chosen-t
+					$(district_select).prop('disabled', false);
+					$(district_select).trigger("liszt:updated");					
+				
+				} else {
+					// ha nem Budapest van kiválasztva
+					$(district_select).prop('disabled', true);
+					$(district_select).val('');
+					$(district_select).trigger("liszt:updated");
 
-				$("#city_select").prop('disabled', false);
-				//$("#city_select").trigger("liszt:updated");
-				ajax_city_query($county_id);
+					$(city_select).prop('disabled', false);
+					//$(city_select).trigger("liszt:updated");
+					ajax_city_query($county_id, field);
+				}
 			}
 			
 		});	
@@ -223,33 +257,10 @@ var sidebarSearch = function () {
 		// munka kategóriák behívása
 		$("#job_category_div a.chzn-single").on('click', function(){
 			// ha az option lista üres
-			if(field_status.kategoria === false){
-				ajax_category_query();
+			if(field.get_input('kategoria') === false){
+				ajax_category_query(field);
 			}			
 		});	
-		
-		
-		
-		
-		/*
-		$("#sidebar_search_form").submit(function(e){
-			e.preventDefault();
-			console.log(e);
-			
-			$county = $("#county_select").val();
-			$city = $("#city_select").val();
-			$district = $("#district_select").val();
-			$category = $("#job_category_select").val();
-			
-			console.log($county);
-			console.log($city);
-			console.log($district);
-			console.log($category);
-			
-			
-			
-		});
-		*/
 	
 	}
 
