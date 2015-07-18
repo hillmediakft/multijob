@@ -20,13 +20,13 @@ class home_model extends Model {
 		$this->query->reset();
 		$this->query->set_table(array('jobs'));
 		$this->query->set_columns(array(
-			'job_id',
-			'job_title',
-			'job_pay',
-			'city_name',
-			'district_name',
-			'job_list_name',
-			'job_list_photo'
+			'jobs.job_id',
+			'jobs.job_title',
+			'jobs.job_pay',
+			'city_list.city_name',
+			'district_list.district_name',
+			'jobs_list.job_list_name',
+			'jobs_list.job_list_photo'
 		));
 		//$this->query->set_orderby(array('slider_order'));
 		$this->query->set_join('left', 'jobs_list', 'jobs.job_category_id', '=', 'jobs_list.job_list_id');

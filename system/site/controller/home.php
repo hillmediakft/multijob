@@ -22,22 +22,16 @@ class Home extends Controller {
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/sidebar_search.js');
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/home.js');
 
-		
-		//$this->view->county_list = $this->home_model->county_list_query();
-		//$this->view->district_list = $this->home_model->district_list_query();
+	// lekérdezések
 		$this->view->settings = $this->home_model->get_settings(); 
 		$this->view->sliders = $this->home_model->slider_query(); 
-		$this->view->jobs_data = $this->home_model->jobs_query(9); 
-
+		// legújabb munkák
+		$this->view->latest_jobs = $this->home_model->jobs_query(9); 
 		
 //$this->view->debug(true); 
-	
-		
-		
+
 		$this->view->render('home/tpl_home');
 	}
-	
-	
 	
 	
 }

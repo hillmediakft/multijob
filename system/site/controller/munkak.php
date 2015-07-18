@@ -23,25 +23,20 @@ class Munkak extends Controller {
 
 		// alapbeállítások lekérdezése
 		$this->view->settings = $this->munkak_model->get_settings();
-
+		// 3 legfrissebb munka
+		$this->view->latest_jobs = $this->munkak_model->jobs_query(3);
 		
-		include(LIBS . '/pagine_class.php');
-		// paginátor objektum létrehozása (paraméter neve, limit)
-		$pagine = new Paginator('oldal', 3);
-		
-
-
-		// szűrési feltételeknek megfelelő összes rekord száma
-		$filter_count = $this->munkak_model->jobs_filter_count_query();
-		$pagine->set_total($filter_count);
-		
-		// adatok lekérdezése limittel
-		$this->view->jobs_data = $this->munkak_model->jobs_query( $pagine->get_limit(), $pagine->get_offset() ); 
-		
-		//var_dump($this->registry);
-
-		// lapozó linkek
-		$this->view->pagine_links = $pagine->page_links($this->registry->uri_path);
+		// paginator
+			include(LIBS . '/pagine_class.php');
+			// paginátor objektum létrehozása (paraméter neve, limit)
+			$pagine = new Paginator('oldal', 3);
+			// adatok lekérdezése limittel
+			$this->view->jobs_data = $this->munkak_model->jobs_filter_query( $pagine->get_limit(), $pagine->get_offset() ); 
+			// szűrési feltételeknek megfelelő összes rekord száma
+			$filter_count = $this->munkak_model->jobs_filter_count_query();
+			$pagine->set_total($filter_count);
+			// lapozó linkek
+			$this->view->pagine_links = $pagine->page_links($this->registry->uri_path);
 	
 //$this->view->debug(true); 
 	

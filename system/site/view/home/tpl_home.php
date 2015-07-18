@@ -52,7 +52,7 @@
                         <div class="row">
                             
 							
-							<?php foreach($jobs_data as $value) { ?>
+							<?php foreach($latest_jobs as $value) { ?>
                             <div class="property span3">
                                 <div class="image">
                                     <div class="content">

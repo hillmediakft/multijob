@@ -27,28 +27,47 @@ class Model {
 		$this->connect = db::close_connect();
 	}
 
-		
+	
+/*
+*/	
 	
 	/**
 	 * Adat lekérdezése egy táblából 
 	 *
-	 * @param	string	$table		(tábla neve)
-	 * @param	array	$columns	(visszaadandó oszlopok nevei)
+	 *	PÉLDA:
+	 *	$args = array(
+	 *		'table' => array('jobs'),
+	 *		'columns' => array('jobs', 'users', 'slider'),
+	 *		'limit' => 5,
+	 *		'offset' => 3,
+	 *		'orderby' => array(array(vezeteknev), DESC)
+	 *	);
+	 * 
+	 * @param	array	$args		egy tömb, amiben megadjuk a lekérdezés paramétereit
 	 * @return 	array
 	 */
-	public function get_data($table, $columns = array())
+	public function get_data($args = array())
 	{
 		$this->query->reset(); 
 		$this->query->set_table(array($table)); 
-			if(is_array($columns)) {
-				if (!empty($columns)){
-					$this->query->set_columns($columns); 
-				} else {
-					$this->query->set_columns('*'); 
-				}
-			} else {
-				throw new Exception('Hiba: get_data() metodus - a 2. parameter nem tomb!');
-			}
+		if(isset($args['table'])){
+			$this->query->set_table($args['table']); 
+		}
+		if(isset($args['columns'])){
+			$this->query->set_columns($args['columns']); 
+		} else {
+			$this->query->set_columns('*'); 
+		}
+		if(isset($args['limit'])){
+			$this->query->set_limit($args['limit']); 
+		}
+		if(isset($args['offset'])){
+			$this->query->set_offset($args['offset']); 
+		}
+		if(isset($args['orderby'])){
+			$this->query->set_orderby($args['orderby']); 
+		}
+			
 		return $this->query->select();
 	}	
 	

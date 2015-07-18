@@ -12,7 +12,7 @@
                         
 						<?php
 						$i = 0;
-						foreach($jobs_data as $value) { ?>
+						foreach($latest_jobs as $value) { ?>
 						<div class="property">
                             <div class="image">
                                 <a href="#"></a>
