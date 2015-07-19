@@ -26,7 +26,7 @@ class Eloregisztracio extends Controller {
 
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'plugins/jquery.blockui.min.js');
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/modal_handler.js');
-		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/sidebar_search.js');
+		//$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/sidebar_search.js');
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/eloregisztracio.js');
 		
 		// alapbeállítások lekérdezése
@@ -34,20 +34,7 @@ class Eloregisztracio extends Controller {
 		// 3 legfrissebb munka
 		$this->view->latest_jobs = $this->eloregisztracio_model->jobs_query(3);		
 		
-		
-		//$this->view->css_link[] = $this->make_link('css', ADMIN_ASSETS, 'plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css');
-		// az oldalspecifikus javascript linkeket berakjuk a view objektum js_link tulajdonságába (ami egy tömb)
-		
-		//$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'plugins/jquery.blockui.min.js');
-		//$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/modal_handler.js');
-
-		//$this->view->sliders = $this->home_model->slider_query(); 
-		//$this->view->jobs_data = $this->home_model->jobs_query(); 
-
-		
 //$this->view->debug(true); 
-	
-		
 		
 		$this->view->render('eloregisztracio/tpl_eloregisztracio');
 	}	
