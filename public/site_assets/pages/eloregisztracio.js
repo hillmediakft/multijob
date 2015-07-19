@@ -1,5 +1,5 @@
 /*
-var Home_page = function () {
+var preRegister = function () {
 
 
     return {
@@ -18,6 +18,6 @@ jQuery(document).ready(function() {
 	
 	modalHandler.init();
 	sidebarSearch.init();
-	//Home_page.init();
+	//preRegister.init();
 	
 });

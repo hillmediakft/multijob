@@ -8,6 +8,18 @@ class Settings_model extends Model {
 	{
 		parent::__construct();
 	}
+
+	/**
+	 * Oldal szintű beállítások lekérdezése a settings táblából
+	 *
+	 * @return array a beállítások tömbje
+	 */
+	public function get_settings()
+	{
+		$this->query->set_table(array('settings')); 
+		$this->query->set_columns('*'); 
+		return $this->query->select(); 
+	}
 	
 	/**
 	 * Oldal szintű beállítások módosításának elmentése

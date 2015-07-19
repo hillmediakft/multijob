@@ -28,9 +28,6 @@ class Model {
 	}
 
 	
-/*
-*/	
-	
 	/**
 	 * Adat lekérdezése egy táblából 
 	 *
@@ -70,24 +67,6 @@ class Model {
 			
 		return $this->query->select();
 	}	
-	
-	/**
-	 * Oldal szintű beállítások lekérdezése a settings táblából
-	 *
-	 * @return array a beállítások tömbje
-	 */
-	public function get_settings()
-	{
-		$this->query->set_table(array('settings')); 
-		$this->query->set_columns('*'); 
-		$result = $this->query->select(); 
-		return $result[0];
-	}	
-	
-	
-	
-	
-	
 	
 	
 	

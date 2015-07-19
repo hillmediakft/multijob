@@ -1,9 +1,14 @@
 <?php 
-class Ajax_request_model Extends Model {
+class Ajax_request_model Extends Site_model {
 
 	function __construct()
 	{
 		parent::__construct();
+	}
+
+	function __destruct()
+	{
+		parent::__destruct();
 	}
 	
 	

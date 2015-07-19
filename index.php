@@ -11,6 +11,7 @@ include_once('system/core/base_config.php');
 include_once(CORE.'/application.php');
 include_once(CORE.'/controller.php');
 include_once(CORE.'/model.php');
+include_once(CORE.'/model_site.php');
 include_once(CORE.'/view.php');
 
 include_once(LIBS.'/registry_class.php');

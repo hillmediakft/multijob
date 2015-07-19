@@ -1,5 +1,5 @@
 <?php 
-class feliratkozas_model extends Model {
+class Feliratkozas_model extends Site_model {
 
 	/**
      * Constructor, létrehozza az adatbáziskapcsolatot
@@ -8,6 +8,11 @@ class feliratkozas_model extends Model {
 	{
 		parent::__construct();
 	}
+	
+	function __destruct()
+	{
+		parent::__destruct();
+	}	
 
 	/**
 	 *	Ellenőrzi a felhasználótól kapott adatokat

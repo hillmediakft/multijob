@@ -115,65 +115,9 @@
                 </div>
                 <div class="sidebar span3">
                     
-                        <div class="title">
-                            <h2>Keresés</h2>
-                        </div><!-- /.title -->                    
-                    
-                    <div class="property-filter pull-right">
-                        <div class="content">
-                            <form method="get" action="?">
-                                <div class="location control-group">
-                                    <label class="control-label" for="inputLocation">
-                                        Megye
-                                    </label>
-                                    <div class="controls">
-                                        <select id="inputLocation">
-                                            <option id="malibu">Pest</option>
-                                            <option id="palo-alto">Nógrád</option>
-                                        </select>
-                                    </div><!-- /.controls -->
-                                </div><!-- /.control-group -->
+                    <!-- KERESŐ DOBOZ -->
+					<?php include('system/site/view/_template/tpl_sidebar_search.php'); ?>               
 
-                                <div class="type control-group">
-                                    <label class="control-label" for="inputType">
-                                        Város
-                                    </label>
-                                    <div class="controls">
-                                        <select id="inputType">
-                                            <option id="apartment">Budapest</option>
-                                            <option id="condo">Pécs</option>
-                                        </select>
-                                    </div><!-- /.controls -->
-                                </div><!-- /.control-group -->
-
-                                <div class="type control-group">
-                                    <label class="control-label" for="inputType">
-                                        Munka típusa
-                                    </label>
-                                    <div class="controls">
-                                        <select id="inputType2">
-                                            <option id="apartment">Irodai</option>
-                                            <option id="condo">Fizikai</option>
-                                        </select>
-                                    </div><!-- /.controls -->
-                                </div><!-- /.control-group -->
-
-
-
-                                <div class="form-actions">
-                                    <input type="submit" value="Keresés" class="btn btn-primary btn-large">
-                                </div><!-- /.form-actions -->
-                            </form>
-                        </div><!-- /.content -->
-                    </div><!-- /.property-filter -->                   
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     <div class="widget our-agents">
                         <div class="title">

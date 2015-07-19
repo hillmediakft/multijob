@@ -1,11 +1,16 @@
 <?php 
 
-class user_model extends Model {
+class user_model extends Site_model {
 
 	function __construct()
 	{
 		parent::__construct();
 	}
+	
+	function __destruct()
+	{
+		parent::__destruct();
+	}	
 
 	/**
 	 *	Felhasználók listája (lekérdezés)
