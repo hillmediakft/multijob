@@ -3256,7 +3256,8 @@ iframe.map {
     color: #ddd;
     width: 100%}
 #footer-wrapper .widget.properties .property {
-    background-color: transparent;
+    /* background-color: transparent; */
+    background-color: #282828;
 }
 #footer-wrapper .widget.properties .property .price {
     color: #fff;

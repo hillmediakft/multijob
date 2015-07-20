@@ -19,6 +19,7 @@ class Site_model extends Model {
 	 */
 	public function get_settings()
 	{
+		$this->query->reset();
 		$this->query->set_table(array('settings')); 
 		$this->query->set_columns('*'); 
 		$result = $this->query->select(); 

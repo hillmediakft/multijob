@@ -4,14 +4,14 @@
         <div id="main">
 
 			<div class="list-your-property-form">
-				<h2 class="page-header">Regisztrációs adatlap</h2>
+				<h2 class="page-header">Regisztrációs adatlap már ki lett töltve</h2>
 			
 				<div class="content">
 				
 					<div class="row">
 						<div class="span8">
 							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ullamcorper libero sed ante auctor vel gravida nunc placerat. Suspendisse molestie posuere sem, in viverra dolor venenatis sit amet. Aliquam gravida nibh quis justo pulvinar luctus. Phasellus a malesuada massa.
+								Itt lehet egy gomb, hogy update és átmegy az update oldalra, vagy egyből betölthetjük a formot a meglévő adatokkal........ Etiam ullamcorper libero sed ante auctor vel gravida nunc placerat. Suspendisse molestie posuere sem, in viverra dolor venenatis sit amet. Aliquam gravida nibh quis justo pulvinar luctus. Phasellus a malesuada massa.
 							</p>
 						</div><!-- /.span8 -->
 					</div><!-- /.row -->				
@@ -150,7 +150,7 @@
 							</div>
 						
 							<div class="span12">
-								<button type="submit" name="pre_register_submit" class="btn btn-primary" id="pre_register_submit">Adatlap küldése</button>
+								<!-- <button type="submit" name="pre_register_update" class="btn btn-primary" id="pre_register_update">Adatlap küldése</button> -->
 							</div>
 					
 
