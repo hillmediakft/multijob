@@ -83,7 +83,7 @@
 
                                         <div class="info">
                                             <div class="site-email">
-                                                <a href="mailto:<?php echo $settings['email'];?>"><?php echo $settings['email'];?></a>
+                                                <?php echo Util::safe_mailto($settings['email']);?>
                                             </div><!-- /.site-email -->
 
                                             <div class="site-phone">

@@ -69,7 +69,7 @@
                                 </tr>
                                 <tr>
                                     <th class="email">E-mail:</th>
-                                    <td><a href="mailto:<?php echo $settings['email'];?>"><?php echo $settings['email'];?></a></td>
+                                    <td><?php echo Util::safe_mailto($settings['email']);?></td>
                                 </tr>
                                
                             </tbody>
