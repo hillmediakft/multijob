@@ -177,13 +177,8 @@ HTML;
      */
     public function renderFeedbackMessages()
     {
-		// echo out the feedback messages (errors and success messages etc.),
-		// they are in $_SESSION["feedback_positive"] and $_SESSION["feedback_negative"]
+		// echo out the feedback messages
 		require 'system/' . $this->area . '/view/_template/feedback.php';
-
-        // delete these messages (as they are not needed anymore and we want to avoid to show them twice
-        Session::set('feedback_positive', null);
-        Session::set('feedback_negative', null);
 	}
 } // end class
 ?>

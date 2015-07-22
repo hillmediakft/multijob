@@ -2,7 +2,6 @@ var preRegister = function () {
 
 	/**
 	 *	Form validátor
-	 *	(ha minden rendben indítja a send_data() metódust ami ajax-al küldi az adatokat)
 	 */
     var handleValidation = function() {
 
@@ -96,7 +95,7 @@ var preRegister = function () {
         //main function to initiate the module
         init: function () {
 		
-			//handleValidation();
+			handleValidation();
 			
         }
     };

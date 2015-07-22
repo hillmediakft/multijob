@@ -9,11 +9,13 @@ class Util
      * @return bool False if $location is not set
      */
     public static function redirect($location, $status = 302) {
-		if ( !$location ) {
-			return false;
+		$registry = Registry::get_instance();
+		
+		if ($location == '') {
+			header("Location: " . $registry->site_url, true, $status);
+			exit;
 		}
 		
-		$registry = Registry::get_instance();
 		header("Location: " . $registry->site_url . $location, true, $status);
 		exit;
     }

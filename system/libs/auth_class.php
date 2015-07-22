@@ -6,13 +6,15 @@
 */
 class Auth
 {
-    public static function handleLogin()
+    public static function handleLogin($target_url = null)
     {
 		$registry = Registry::get_instance();
 	
 		$logged_in = ($registry->area == 'site') ? 'user_site_logged_in' : 'user_logged_in';
-		$target_url = ($registry->area == 'site') ? 'users/login' : 'admin/login';
-		
+		if(is_null($target_url)) {
+			$target_url = ($registry->area == 'admin') ? 'login' : '';
+		}
+
 		// initialize the session
         Session::init();
 		
@@ -20,10 +22,9 @@ class Auth
         // redirect user to login page
         if (!isset($_SESSION[$logged_in])) {
             Session::destroy();
-			header('location: ' . BASE_URL . $target_url);
+			header('location: ' . $registry->site_url . $target_url);
 			exit;
         }
-
     }
 } //osztály vége
 ?>

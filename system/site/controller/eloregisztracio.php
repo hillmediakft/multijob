@@ -9,15 +9,26 @@ class Eloregisztracio extends Controller {
 	
 	public function index()
 	{
+		Auth::handleLogin();
+				
 		// lekérdezzük, hogy kitöltötte-e már az előregisztrációt a bejelentkezett user (return bool)
 		$result_prereg = $this->eloregisztracio_model->check_preregister();
-		
-		
-		if(!empty($_POST) && isset($_POST['pre_register_submit'])){
-			$result = $this->eloregisztracio_model->pre_register();	
+				
+		if($result_prereg === false && isset($_POST['pre_register_submit'])){
+			$result = $this->eloregisztracio_model->pre_register('insert');	
 			
 			if($result){
-				Util::redirect('home');
+				Util::redirect('');
+			} else {
+				Util::redirect('eloregisztracio');
+			}
+		
+		}
+		if($result_prereg === true && isset($_POST['pre_register_update'])){
+			$result = $this->eloregisztracio_model->pre_register('update');	
+			
+			if($result){
+				Util::redirect('');
 			} else {
 				Util::redirect('eloregisztracio');
 			}
@@ -44,11 +55,14 @@ class Eloregisztracio extends Controller {
 		// 3 legfrissebb munka
 		$this->view->latest_jobs = $this->eloregisztracio_model->jobs_query(3);		
 		
-//$this->view->debug(true); 
 		
 		if($result_prereg){
+			$this->view->prereg_data = $this->eloregisztracio_model->get_prereg_data();		
+//$this->view->debug(true); 
 			$this->view->render('eloregisztracio/tpl_eloregisztracio_update');
 		} else {
+//$this->view->debug(true); 
+
 			$this->view->render('eloregisztracio/tpl_eloregisztracio');
 		}
 		

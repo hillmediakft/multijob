@@ -24,8 +24,12 @@
 							</div>
 						</div>
 					</div>
-					
-					
+					<div class="row">
+						<div class="span12">
+							<?php $this->renderFeedbackMessages(); ?>
+						</div>
+					</div>
+
 					<form action="" method="POST" id="pre_register_form" name="pre_register_form">	
 						<div class="row">
 						
@@ -150,7 +154,7 @@
 							</div>
 						
 							<div class="span12">
-								<button type="submit" name="pre_register_submit" class="btn btn-primary" id="pre_register_submit">Adatlap küldése</button>
+								<button type="submit" name="pre_register_submit" value="submitted" class="btn btn-primary" id="pre_register_submit">Adatlap küldése</button>
 							</div>
 					
 
