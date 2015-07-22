@@ -106,7 +106,7 @@ class Util
      * @param	mixed	$attributes: attribútumok
      * @return	string
      */
-    public static function safe_mailto($email, $icon = false, $title = '', $attributes = '') {
+    public static function safe_mailto($email, $title = '', $attributes = '') {
         $title = (string) $title;
 
         if ($title == "") {
@@ -138,11 +138,9 @@ class Util
                 }
             }
         }
-        if ($icon) {
-            $x[] = '><i class="fa fa-envelope fa-fw"></i> ';
-        } else {
-            $x[] = '>';
-        }
+
+        $x[] = '>';
+
         $temp = array();
         for ($i = 0; $i < strlen($title); $i++) {
             $ordinal = ord($title[$i]);
@@ -172,7 +170,7 @@ class Util
         $x = array_reverse($x);
         ob_start();
         ?><script type="text/javascript">
-                    //<![CDATA[
+        //<![CDATA[
                     var l = new Array();
         <?php
         $i = 0;
@@ -185,7 +183,7 @@ class Util
                         else
                             document.write(unescape(l[i]));
                     }
-                    //]]>
+        //]]>
         </script><?php
         $buffer = ob_get_contents();
         ob_end_clean();
