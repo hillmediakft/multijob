@@ -45,17 +45,18 @@ class Eloregisztracio_model extends Site_model {
 		} 
 
 		// insert-nél a submit gomb
-		if(isset($data['pre_register_submit'])){
+		if(empty($data['pre_register_submit'])){
 			unset($data['pre_register_submit']);
 		}
 		
 	
 		$data['school_type'] = (int)$data['school_type'];
 		$data['user_id'] = (int)Session::get('user_site_id');	
+		//$data['birth_time'] = null;	
 
 
-	 // var_dump($data);
-	 // die('xxxx');
+	    //var_dump($data);
+	    //die('xxxx');
 
 	
 	
