@@ -11,11 +11,11 @@
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
     <link rel="stylesheet" href="<?php echo SITE_CSS;?>bootstrap.css" type="text/css">
     <link rel="stylesheet" href="<?php echo SITE_CSS;?>bootstrap-responsive.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo SITE_CSS;?>messages_mod.css" type="text/css">
     <link rel="stylesheet" href="<?php echo SITE_ASSETS;?>plugins/chosen/chosen.css" type="text/css">
     <link rel="stylesheet" href="<?php echo SITE_ASSETS;?>plugins/bootstrap-fileupload/bootstrap-fileupload.css" type="text/css">
     <link rel="stylesheet" href="<?php echo SITE_ASSETS;?>plugins/jquery-ui-1.10.2.custom/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css">
     <link rel="stylesheet" href="<?php echo SITE_CSS;?>realia-blue.css" type="text/css" id="color-variant-default">
+    <link rel="stylesheet" href="<?php echo SITE_CSS;?>modositas.css" type="text/css">
   
 	
 
@@ -108,24 +108,20 @@
                         <div class="navigation clearfix-normal">
 
                             <ul class="nav">
-                                <li class="menuparent">
-                                    <span class="menuparent nolink active">Munkáink</span>
-                                    <ul>
-                                        <li><a href="#">Menü 1</a></li>
-                                        <li><a href="index.html">Menü 2</a></li>
-                                        
-                                    </ul>
+								<li>
+									<a href="" class="no_arrow <?php echo ($this->registry->controller == 'home' && $this->registry->action == 'index') ? 'active' : ''; ?>">Kezdőoldal</a>
+								</li>
+								<li>
+                                    <a href="munkak" class="no_arrow <?php echo ($this->registry->controller == 'munkak' && $this->registry->action == 'index') ? 'active' : ''; ?>">Munkák</a>
                                 </li>
                                 <li>
-                                    <a href="#">Rólunk</a>
-  
+                                    <a href="rolunk" class="no_arrow <?php echo ($this->registry->controller == 'rolunk' && $this->registry->action == 'index') ? 'active' : ''; ?>">Rólunk</a>
                                 </li>
                                 <li class="menuparent">
                                     <span class="menuparent nolink">Feltételek</span>
                                     <ul>
                                         <li><a href="#">Menü 1</a></li>
                                         <li><a href="#">Menü 2</a></li>
-
                                     </ul>
                                 </li>
                                 <li class="menuparent">
@@ -136,8 +132,9 @@
 
                                     </ul>
                                 </li>
-                                <li><a href="#">Kapcsolat</a></li>
-                            </ul><!-- /.nav -->
+                                <li><a href="home">Kapcsolat</a></li>
+                            
+							</ul><!-- /.nav -->
 
 
 <!--

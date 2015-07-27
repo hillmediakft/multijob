@@ -456,19 +456,6 @@ iframe.map {
     padding: 7px 14px;
 }
 
-	.pagination ul li span {
-		-webkit-border-radius: 0px;
-		-moz-border-radius: 0px;
-		border-radius: 0px;
-		-webkit-box-shadow: 0px 1px 1px rgba(1, 1, 1, 0.25);
-		-moz-box-shadow: 0px 1px 1px rgba(1, 1, 1, 0.25);
-		box-shadow: 0px 1px 1px rgba(1, 1, 1, 0.25);
-		background-color: #fff;
-		border: 0px;
-		margin: 0px 5px;
-		padding: 7px 14px;
-	}
-
 .pagination ul li a:hover {
     background-color: #06a7ea;
     color: #fff;
@@ -493,12 +480,6 @@ iframe.map {
     -moz-border-radius: 0px;
     border-radius: 0px;
 }
-
-	.pagination ul li:first-child span, .pagination ul li:last-child span {
-		-webkit-border-radius: 0px;
-		-moz-border-radius: 0px;
-		border-radius: 0px;
-	}
 
 /* pagination end */
 
@@ -1501,7 +1482,6 @@ iframe.map {
     color: #06a7ea;
     text-decoration: none;
 }
-
 
 .navigation-wrapper .navigation .nav li.menuparent>.nolink, .navigation-wrapper .navigation .nav li.menuparent>a {
     background-image: url("../image/arrow-bottom-black.png");

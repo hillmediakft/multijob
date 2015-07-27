@@ -14,9 +14,7 @@ class Pages_model extends Model {
 		// a query tulajdonság ($this->query) tartalmazza a query objektumot
 		$this->query->set_table(array('pages')); 
 		$this->query->set_columns(array('page_id', 'page_title', 'page_metatitle', 'page_metadescription')); 
-		$result = $this->query->select(); 
-	
-		return $result;
+		return $this->query->select(); 
 	}
 	
 	public function update_page($id)
@@ -31,13 +29,17 @@ class Pages_model extends Model {
 		$this->query->set_table(array('pages'));
 		$this->query->set_where('page_id', '=', $id);
 		$result = $this->query->update($data);
-				
-		if($result) {
-            Message::set('success', 'feedback_page_update_success');
+			
+		if($result == 1) {
+            Message::set('success', 'page_update_success');
 			return true;
 		}
-		else {
-            Message::set('error', 'feedback_unknown_error');
+		if($result == 0) {
+            Message::set('warning', 'Nem történt módosítás');
+			return true;
+		}
+		if($result === false) {
+            Message::set('error', 'unknown_error');
 			return false;
 		}
 

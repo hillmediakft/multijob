@@ -181,11 +181,11 @@
 					</a>
 					<ul class="sub-menu">
 						
-<!-- OLDALAK LISTÁJA 						
+					
 						<li class="<?php //echo ($this->registry->controller == 'pages') ? 'active' : '';?>">
 							<a href="admin/pages">Oldalak listája</a>
 						</li>
--->
+
 						<li class="<?php echo ($this->registry->controller == 'content') ? 'active' : '';?>">
 							<a href="admin/content">Egyéb tartalom</a>
 						</li>

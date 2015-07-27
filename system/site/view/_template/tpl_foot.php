@@ -21,7 +21,7 @@
                             <div class="wrapper">
                                 <div class="title">
                                     <h3>
-                                        <a href="#"><?php echo $value['job_title']; ?></a>
+                                        <a href="munka/<?php echo Replacer::filterName($value['job_title']);?>/<?php echo $value['job_id'];?>"><?php echo $value['job_title']; ?></a>
                                     </h3>
                                 </div><!-- /.title -->
                                 <div class="location">

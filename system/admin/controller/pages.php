@@ -24,12 +24,11 @@ class Pages extends Controller {
 	}
 	
 	/**
-	 *	Felhasználó adatainak módosítása
-	 *
+	 *	Oldal adatainak módosítása
 	 */
 	public function edit()
 	{
-		$id = (int)$this->registry->params;
+		$id = (int)$this->registry->params['id'];
 
 		if(isset($_POST['submit_update_page'])) {
 			
@@ -39,7 +38,7 @@ class Pages extends Controller {
 				Util::redirect('pages');
 			}
 			else {
-				Util::redirect('pages');
+				Util::redirect('pages/edit/' . $id);
 			}
 		}	
 		

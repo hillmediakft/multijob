@@ -54,5 +54,22 @@ class Site_model extends Model {
 		return $this->query->select();
 	}
 	
+	/**
+	 *	Oldal tartalmak lekérdezése
+	 *
+	 *	@param	integer	$id 	(page_id az oldal id-je a pages táblában)
+	 *	@return array
+	 */
+	public function get_page_data($id)
+	{
+		$this->query->reset();		
+		$this->query->set_table(array('pages'));		
+		$this->query->set_columns('*');
+		$this->query->set_where('page_id', '=', $id);
+		$result = $this->query->select();
+		return $result[0];
+	}	
+	
+	
 }
 ?>
