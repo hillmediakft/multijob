@@ -91,6 +91,7 @@ class Router
 
 			//Eltávolítja a $matches tömb első elemét (a teljes egyezés pl. 'home/rolunk/param/2'), maradnak a résszminták: pl. home, rolunk, param, 2
 			array_shift($matches);
+			
 			// átalakítjuk a $_map stringet tömbbé a / jel mentén: $1/$2 
 			$_map = explode('/', $_map);
 
@@ -129,7 +130,7 @@ class Router
 	}
 
 	/**
-	 * Az URL paramétereket tartalmazóó tömböt asszociatív tömbbé alakítja, a $_route tömbben 
+	 * Az URL paramétereket tartalmazó tömböt asszociatív tömbbé alakítja, a $_route tömbben 
 	 * lévő paraméter nevekkel. H a $_routes tömb üres, akkor a paraméterekből kulcs -> érték
 	 * párokat képez. Ha csak eg yparaméter van, azt id -> érték formában adja vissza
 	 *

@@ -18,7 +18,7 @@ class Eloregisztracio extends Controller {
 			$result = $this->eloregisztracio_model->pre_register('insert');	
 			
 			if($result){
-				Util::redirect('');
+				Util::redirect('munkak');
 			} else {
 				Util::redirect('eloregisztracio');
 			}
@@ -28,7 +28,7 @@ class Eloregisztracio extends Controller {
 			$result = $this->eloregisztracio_model->pre_register('update');	
 			
 			if($result){
-				Util::redirect('');
+				Util::redirect('munkak');
 			} else {
 				Util::redirect('eloregisztracio');
 			}

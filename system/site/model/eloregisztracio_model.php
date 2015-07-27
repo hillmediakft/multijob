@@ -55,44 +55,82 @@ class Eloregisztracio_model extends Site_model {
 			}
 		} 
 
-	// adatok feldolgozása	
+		$error_count = 0;
+		
+	//validálás	
+		// üzenet elem első része
+		$message_first_part = array(
+			'name' => 'A név mező',
+			'mother_name' => 'Az anyja leánykori neve',
+			'birth_place' => 'A születési hely',
+			'birth_time' => 'A születési idő',
+			'nationality' => 'Az állampolgárság',
+			'student_card_number' => 'A diákigazolvány szám',
+			'taj_number' => 'A TAJ szám',
+			'tax_id' => 'Az adóazonosító jel',
+			'bank_account_number' => 'A bankszámla száma',
+			'bank_name' => 'A számlavezető bank neve',
+			'permanent_address' => 'Az állandó lakcím'
+		);
+		// üzenetek második része
+		$message_second_part = array(
+			'field_empty' => ' nem lehet üres.',
+			'illegal_char' => ' nem megengedett karaktert tartalmaz.'
+		);
+		
+		// hibák keresése
+		foreach($message_first_part as $key => $value) {
+			if(is_null($data[$key])){
+				$error_count++;
+				Message::set('error', $value . $message_second_part['field_empty']);
+			}
+			if(preg_match('~[\"\']+~', $data[$key])){
+				$error_count++;
+				Message::set('error', $value . $message_second_part['illegal_char']);
+			}
+		} 	
+
+		// ha van hiba
+		if($error_count > 0){
+			return false;		
+		} else {
+		// ha nincs hiba	
+		
+		// adatok feldolgozása	
+			$data['school_type'] = (int)$data['school_type'];
+			$data['user_id'] = (int)Session::get('user_site_id');	
+
 			
-		$data['school_type'] = (int)$data['school_type'];
-		$data['user_id'] = (int)Session::get('user_site_id');	
-		//$data['birth_time'] = null;	
+		// adatbázis műveletek
+			if($mode == 'insert'){
+				$this->query->reset();
+				$this->query->set_table(array('pre_register_user'));
+				$result = $this->query->insert($data);
+				
+				if($result) {
+					Message::set('success', 'Az előregisztráció megtörtént.');
+					return true;				
+				} else {
+					Message::set('error', 'A regisztráció nem sikerült, próbálja újra!');
+					return false;
+				}
+			}
+			if($mode == 'update'){
+				$this->query->reset();
+				$this->query->set_table(array('pre_register_user'));
+				$this->query->set_where('user_id', '=', $data['user_id']);
+				$result = $this->query->update($data);			
 
-
-	    //var_dump($data);
-	    //die('xxxx');
-
-	
-	
-	// adatbázis műveletek
-		if($mode == 'insert'){
-			$this->query->reset();
-			$this->query->set_table(array('pre_register_user'));
-			$result = $this->query->insert($data);
-			
-			if($result) {
-				return true;				
-			} else {
-				Message::set('error', 'A regisztráció nem sikerült, próbálja újra!');
-				return false;
+				if($result == 1) {
+					Message::set('success', 'Az előregisztráció adatainak módosítása megtörtént.');
+					return true;				
+				} else {
+					Message::set('error', 'Az adatok módosítása nem sikerült, próbálja újra!');
+					return false;
+				}
 			}
 		}
-		if($mode == 'update'){
-			$this->query->reset();
-			$this->query->set_table(array('pre_register_user'));
-			$this->query->set_where('user_id', '=', $data['user_id']);
-			$result = $this->query->update($data);			
-
-			if($result == 1) {
-				return true;				
-			} else {
-				Message::set('error', 'Az adatok módosítása nem sikerült, próbálja újra!');
-				return false;
-			}
-		}
+		
 	}
 	
 	public function get_prereg_data()

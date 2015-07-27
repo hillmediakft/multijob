@@ -20,6 +20,11 @@ class Application {
 		// router betöltése (controller, action és paraméterek megadása)
 		$this->load_router();
         
+		
+		//var_dump($this->registry);
+		//die('');
+		
+		
 		// controller file betöltése és a megfelelő action behívása
 		$this->load_controller();
 	}

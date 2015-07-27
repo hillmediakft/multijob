@@ -1,0 +1,80 @@
+/*
+	Üzenet elemek módosítása	
+*/
+#feedback_message .alert {
+  margin-top: 20px;
+}
+
+
+.alert {
+  padding: 20px 45px 20px 24px;
+  margin-bottom: 10px;
+  text-shadow: none;
+  background-color: #FFFFFF;
+  border: 1px solid #d8d8d8;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+}
+
+.alert,
+.alert h4 {
+  color: #707070;
+}
+
+.alert h4 {
+  margin: 0;
+}
+
+.alert .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  line-height: 20px;
+}
+
+.alert-success {
+  color: #0584b8;
+  background-color: #FFFFFF;
+  border-color: #0584b8;
+}
+
+.alert-success h4 {
+  color: #707070;
+}
+
+.alert-danger,
+.alert-error {
+  color: #b94a48;
+  background-color: #FFFFFF;
+  border-color: #b94a48;
+}
+
+.alert-danger h4,
+.alert-error h4 {
+  color: #b94a48;
+}
+
+.alert-info {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.alert-info h4 {
+  color: #3a87ad;
+}
+
+.alert-block {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.alert-block > p,
+.alert-block > ul {
+  margin-bottom: 0;
+}
+
+.alert-block p + p {
+  margin-top: 5px;
+}

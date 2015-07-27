@@ -16,17 +16,12 @@
 						</div><!-- /.span8 -->
 					</div><!-- /.row -->				
 					
-					<div class="row">
-						<div class="span4">
-							<div id="validator_error" class="alert alert-danger" style="display:none;">
-								<!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
-								<span></span>
-							</div>
-						</div>
-					</div>
+					<!-- ÜZENETEK -->	
 					<div class="row">
 						<div class="span12">
-							<?php $this->renderFeedbackMessages(); ?>
+							<div id="validator_error">
+								<?php $this->renderFeedbackMessages(); ?>
+							</div>
 						</div>
 					</div>
 

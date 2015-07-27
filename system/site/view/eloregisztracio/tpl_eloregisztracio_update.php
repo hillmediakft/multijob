@@ -16,19 +16,14 @@
 						</div><!-- /.span8 -->
 					</div><!-- /.row -->				
 					
+					<!-- ÜZENETEK -->	
 					<div class="row">
-						<div class="span4">
-							<div id="validator_error" class="alert alert-danger" style="display:none;">
-								<!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
-								<span></span>
+						<div class="span12">
+							<div id="validator_error">
+								<?php $this->renderFeedbackMessages(); ?>
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="span12">
-							<?php $this->renderFeedbackMessages(); ?>
-						</div>
-					</div>					
 					
 					<form action="" method="POST" id="pre_register_form" name="pre_register_form">	
 						<div class="row">

@@ -5,12 +5,10 @@ var preRegister = function () {
 	 */
     var handleValidation = function() {
 
-		console.log('validátor indul');
-		
+		//console.log('validátor indul');
+
 		var form1 = $('#pre_register_form');
 		var error1 = $('#validator_error');
-		var error1_span = $('#validator_error > span');
-		//var success1 = $('.alert-success', form1);
 
 		form1.validate({
 			errorElement: 'span', //default input error message container
@@ -19,7 +17,7 @@ var preRegister = function () {
 			//ignore: "", // validate all fields including form hidden input
 			rules: {
 				name: {
-					required: true
+					required: true,
 				},
 				mother_name: {
 					required: true
@@ -28,8 +26,7 @@ var preRegister = function () {
 					required: true
 				},
 				birth_time: {
-					required: true,
-					dateISO: true
+					required: true
 				},
 				nationality: {
 					required: true
@@ -59,11 +56,15 @@ var preRegister = function () {
 			
 			},
 			// az invalidHandler akkor aktiválódik, ha elküldjük a formot és hiba van
+						
+
 			invalidHandler: function (event, validator) { //display error alert on form submit              
 				var errors = validator.numberOfInvalids();
-				error1_span.html(errors + ' mezőt nem megfelelően töltött ki!');
-				error1.show();
-					//error1.delay(4000).fadeOut('slow');
+				
+				$error_number = errors + ' mezőt nem megfelelően töltött ki!';
+				$error_message = '<div class="alert alert-danger"><button class="close" data-dismiss="alert" type="button">×</button>' + $error_number + '</div>';
+				error1.html($error_message);
+				//error1.delay(4000).fadeOut('slow');
 
 			},
 
@@ -81,7 +82,7 @@ var preRegister = function () {
 			},
 
 			submitHandler: function (form) {
-				error1.hide();
+				//error1.hide();
 				//console.log('form küldése!');	
 				form.submit();
 			}

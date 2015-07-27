@@ -17,6 +17,8 @@
 	 */
 	
 	$routes = array(
+	'(munka)/:title/:id/?' => array('munka', 'munka_name', 'munka_id'),
+	
 	//feliratkozás hírlevélre visszaigazolás
 	'(feliratkozas)/:id/:hash/?' => array('feliratkozas', 'user_id', 'user_activation_verification_code'),
 	// regisztráció visszaigazolás

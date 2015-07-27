@@ -24,7 +24,7 @@ include_once(LIBS.'/util_class.php');
 include_once(LIBS.'/session_class.php');
 include_once(LIBS.'/auth_class.php');
 include_once(LIBS.'/message_class.php');
-//include_once(LIBS.'/language_class.php');
+include_once(LIBS.'/replacer_class.php');
 
 // checking for minimum PHP version
 if (version_compare(PHP_VERSION, '5.3.7', '<')) {

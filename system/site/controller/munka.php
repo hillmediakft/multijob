@@ -1,10 +1,10 @@
 <?php 
-class Munkak extends Controller {
+class Munka extends Controller {
 
 	function __construct()
 	{
 		parent::__construct();
-		$this->loadModel('munkak_model');
+		$this->loadModel('munka_model');
 	}
 
 	public function index()
@@ -19,28 +19,18 @@ class Munkak extends Controller {
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'plugins/jquery.blockui.min.js');
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/modal_handler.js');
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/sidebar_search.js');
-		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/munkak.js');
+		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/munka.js');
 
 		// alapbeállítások lekérdezése
-		$this->view->settings = $this->munkak_model->get_settings();
+		$this->view->settings = $this->munka_model->get_settings();
 		// 3 legfrissebb munka
-		$this->view->latest_jobs = $this->munkak_model->jobs_query(3);
+		$this->view->latest_jobs = $this->munka_model->jobs_query(3);
+		// munka adatok lekérdezése
+		$this->view->job_data = $this->munka_model->get_job($this->registry->params['munka_id']);
 		
-		// paginator
-			include(LIBS . '/pagine_class.php');
-			// paginátor objektum létrehozása (paraméter neve, limit)
-			$pagine = new Paginator('oldal', 3);
-			// adatok lekérdezése limittel
-			$this->view->jobs_data = $this->munkak_model->jobs_filter_query( $pagine->get_limit(), $pagine->get_offset() ); 
-			// szűrési feltételeknek megfelelő összes rekord száma
-			$filter_count = $this->munkak_model->jobs_filter_count_query();
-			$pagine->set_total($filter_count);
-			// lapozó linkek
-			$this->view->pagine_links = $pagine->page_links($this->registry->uri_path);
-	
 //$this->view->debug(true); 	
 
-		$this->view->render('munkak/tpl_munkak');	
+		$this->view->render('munka/tpl_munka');	
 	}
 
 	

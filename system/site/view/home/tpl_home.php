@@ -56,7 +56,7 @@
                             <div class="property span3">
                                 <div class="image">
                                     <div class="content">
-                                        <a href="#"></a>
+                                        <a href="munka/<?php echo Replacer::filterName($value['job_title']);?>/<?php echo $value['job_id'];?>"></a>
                                         <img src="<?php echo Config::get('jobphoto.upload_path') . $value['job_list_photo'];?>" alt="">
                                     </div><!-- /.content -->
 

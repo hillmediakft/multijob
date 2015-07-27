@@ -14,65 +14,22 @@
 	        <div class="row">
                 <div class="span9">
                     
-                    <h1 class="page-header">Munk√°k</h1>
+                    <h1 class="page-header">Munka rÈszletek</h1>
                     
-                 
-                    <div class="properties-grid">
-                        <div class="row">
-
-							<?php
-							if(!empty($jobs_data)) {
-								foreach($jobs_data as $value) { ?>
-								<div class="property span3">
-									<div class="image">
-										<div class="content">
-											<a href="munka/<?php echo Replacer::filterName($value['job_title']);?>/<?php echo $value['job_id'];?>"></a>
-											<img src="<?php echo Config::get('jobphoto.upload_path') . $value['job_list_photo'];?>" alt="">
-										</div><!-- /.content -->
-
-										<div class="price"><?php echo $value['job_pay']; ?></div><!-- /.price -->
-										<div class="reduced"><?php echo $value['job_list_name']; ?></div><!-- /.reduced -->
-									</div><!-- /.image -->
-
-									<div class="title">
-										<h2><a href="#"><?php echo $value['job_title']; ?></a></h2>
-									</div><!-- /.title -->
-
-									<div class="location">
-										<?php 
-										$location = $value['city_name'];
-										if(!empty($value['district_name'])){
-											$location .=', ' . $value['district_name'] . ' ker√ºlet'; 
-										}
-										echo $location;
-										?>
-									</div><!-- /.location -->
-								</div><!-- /.property -->
-							<?php 
-								}
-							} else { ?>
-								<div class="span9">
-									<h2 class="text-center">Nincs tal√°lat</h2>
-								</div>
-							<?php } ?>
-							
-                        </div><!-- /.row -->
-                    </div><!-- /.properties-grid -->
-
-					<div class="pagination pagination-centered">
-						<?php echo $pagine_links; ?>
+					<div class="property-deteil">
+					ASDasd
 					</div>
 
                 </div>
                 <div class="sidebar span3">
               
-          			<!-- KERES≈ê DOBOZ -->
+          			<!-- KERES’ DOBOZ -->
 					<?php include('system/site/view/_template/tpl_sidebar_search.php'); ?>                  
 
                     
                     <div class="widget our-agents">
                         <div class="title">
-                            <h2>Koll√©g√°ink</h2>
+                            <h2>KollÈg·ink</h2>
                         </div><!-- /.title -->
 
                         
@@ -90,7 +47,7 @@
                                 <div class="image">
                                     <img src="<?php echo SITE_IMAGE;?>photos/agent.png" alt="">
                                 </div><!-- /.image -->
-                                <div class="name">Cserepes Vir√°g</div><!-- /.name -->
+                                <div class="name">Cserepes Vir·g</div><!-- /.name -->
                                 <div class="phone">111-222-333</div><!-- /.phone -->
                                 <div class="email"><a href="mailto:virag@example.com">virag@example.com</a></div><!-- /.email -->
                             </div><!-- /.agent -->

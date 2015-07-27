@@ -15,7 +15,7 @@
 						foreach($latest_jobs as $value) { ?>
 						<div class="property">
                             <div class="image">
-                                <a href="#"></a>
+                                <a href="munka/<?php echo Replacer::filterName($value['job_title']);?>/<?php echo $value['job_id'];?>"></a>
                                 <img src="<?php echo Config::get('jobphoto.upload_path') . $value['job_list_photo'];?>" alt="">
                             </div><!-- /.image -->
                             <div class="wrapper">
