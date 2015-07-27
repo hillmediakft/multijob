@@ -96,7 +96,7 @@ class Slider_model extends Model {
 		$result = $this->query->update($data);
 		
 		// ha sikeres az adatbázisba írás
-		if($result) {
+		if($result == 1) {
 			// megvizsgáljuk, hogy létezik-e új feltöltött kép
 			if($new_picture) {
 				//régi képek törlése
