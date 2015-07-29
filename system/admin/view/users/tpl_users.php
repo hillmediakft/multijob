@@ -27,84 +27,6 @@
 			<div class="row">
 				<div class="col-md-12">
 					<!-- BEGIN EXAMPLE TABLE PORTLET-->
-
-				<!-- KERESŐ DOBOZ 
-					<div class="portlet box blue-hoki">
-						<div class="portlet-title">
-							<div class="caption"><i class="fa fa-search"></i>Keresés</div>
-								<div class="tools">
-									<a class="expand" href="javascript:;" data-original-title="" title=""> </a>
-								</div>
-						</div>
-						<div class="portlet-body form" id="search-portlet" style="display:none;">
-
-							<form class="horizontal-form" method="POST" id="users_search_form" action="admin/users">
-								<div class="form-body">
-									<div class="row">
-										<div class="col-md-2">
-											<div class="form-group">
-												<label class="control-label">Felhasználó név</label>
-												<input type="text" placeholder="" class="form-control input-sm" name="firstName" id="firstName">
-											</div>
-										</div>
-							
-										<div class="col-md-2">
-											<div class="form-group">
-												<label class="control-label">Név</label>
-												<input type="text" placeholder="" class="form-control input-sm" name="lastName" id="lastName">
-											</div>
-										</div>
-							
-										<div class="col-md-2">
-											<div class="form-group">
-												<label class="control-label">E-mail</label>
-												<input type="text" placeholder="" class="form-control input-sm" name="email"id="email">
-											</div>
-										</div>
-								
-										<div class="col-md-2">
-											<div class="form-group">
-												<label class="control-label">Telefon</label>
-												<input type="text" placeholder="" class="form-control input-sm" id="phone" id="phone">
-											</div>
-										</div>
-						
-										<div class="col-md-2">
-											<div class="form-group">
-												<label class="control-label">Jogosultság</label>
-												<select name="user_role" id="user_role" class="form-control input-sm">
-													<option value="">válasszon</option>
-													<option value="1">Szuper admin</option>
-													<option value="2">Admin</option>
-													<option value="3">User</option>
-												</select>
-											</div>
-										</div>
-							
-										<div class="col-md-2">
-											<div class="form-group">
-												<label class="control-label">Státusz</label>
-												<select name="user_status" id="user_status" class="form-control input-sm">
-													<option value="">válasszon</option>
-													<option value="1">Aktív</option>
-													<option value="0">Inaktív</option>
-												</select>
-											</div>
-										</div>
-									</div>
-						
-								</div>
-								<div class="form-actions right">
-									<button class="btn default" id="reset_search_form" type="button">Törlés</button>
-									<button class="btn blue" name="search_submit" type="submit"><i class="fa fa-check"></i> Keresés</button>
-								</div>
-							</form>
-
-						</div>
-					</div>
-				KERESŐ DOBOZ VÉGE -->	
-					
-						
 						
 				<!-- ÜZENETEK -->
 				<div id="ajax_message">
@@ -121,7 +43,7 @@
 							<div class="caption"><i class="fa fa-user"></i>Felhasználók</div>
 							
 								<div class="actions">
-									<a href="admin/users/new_user" class="btn blue btn-sm"><i class="fa fa-plus"></i> Új felhasználó</a>
+									<a href="admin/users/new_user" class="btn blue-steel btn-sm"><i class="fa fa-plus"></i> Új felhasználó</a>
 									<button class="btn red btn-sm" name="del_user_submit" type="submit"><i class="fa fa-trash"></i> Csoportos törlés</button>
 									<div class="btn-group">
 										<a data-toggle="dropdown" href="#" class="btn btn-sm default">
@@ -156,7 +78,7 @@
 										<th>Telefon</th>
 										<th>Jogosultság</th>
 										<th>Státusz</th>
-										<th></th>
+										<th style="width:0px;"></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -182,9 +104,8 @@
 										<td>									
 											<div class="actions">
 												<div class="btn-group">
-													<a class="btn btn-sm green" href="#" data-toggle="dropdown" <?php echo (($value['user_role_id'] == 1) || Session::get('user_role_id') == $value['user_role_id']) ? 'disabled' : '';?>>
-														<i class="fa fa-cogs"></i> Műveletek
-														<i class="fa fa-angle-down"></i>
+													<a class="btn btn-sm grey-steel" href="#" title="műveletek" data-toggle="dropdown" <?php echo (($value['user_role_id'] == 1) || Session::get('user_role_id') == $value['user_role_id']) ? 'disabled' : '';?>>
+														<i class="fa fa-cogs"></i>
 													</a>
 													<ul class="dropdown-menu pull-right">
 														

@@ -41,7 +41,7 @@
 								Kezdőoldali slider kezelése
 							</div>
 							<div class="actions">
-								<a class="btn blue btn-sm" href="admin/slider/new_slide"><i class="fa fa-plus"></i> Slide hozzáadása</a>
+								<a class="btn blue-steel btn-sm" href="admin/slider/new_slide"><i class="fa fa-plus"></i> Slide hozzáadása</a>
 							</div>
 							<!--
 							<div class="tools">
@@ -82,9 +82,8 @@
 										<td>									
 											<div class="actions">
 												<div class="btn-group">
-													<a class="btn btn-sm green" href="#" data-toggle="dropdown">
-														<i class="fa fa-cogs"></i> Műveletek
-														<i class="fa fa-angle-down"></i>
+													<a class="btn btn-sm grey-steel" title="Műveletek" href="#" data-toggle="dropdown">
+														<i class="fa fa-cogs"></i>
 													</a>
 													<ul class="dropdown-menu pull-right">
 														<li><a href="admin/slider/edit/<?php echo $value['id'];?>"><i class="fa fa-pencil"></i> Szerkeszt</a></li>

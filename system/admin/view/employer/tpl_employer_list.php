@@ -30,7 +30,7 @@
 							<div class="caption"><i class="fa fa-cogs"></i>Munkaadók listája</div>
 							
 								<div class="actions">
-									<a href="admin/employer/insert" class="btn blue btn-sm"><i class="fa fa-plus"></i> Új munkaadó</a>
+									<a href="admin/employer/insert" class="btn blue-steel btn-sm"><i class="fa fa-plus"></i> Új munkaadó</a>
 									<div class="btn-group">
 										<a data-toggle="dropdown" href="#" class="btn btn-sm default">
 											<i class="fa fa-wrench"></i> Eszközök <i class="fa fa-angle-down"></i>
@@ -62,7 +62,7 @@
 										<th>E-mail</th>
 										<th title="Munkák száma ennél a munkaadónál">Munkák</th>
 										<th>Státusz</th>
-										<th style="max-width:120px;"></th>
+										<th style="width:0px;"></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -94,9 +94,8 @@
 										<td>									
 											<div class="actions">
 												<div class="btn-group">
-													<a class="btn btn-sm green" href="#" data-toggle="dropdown" <?php echo ((Session::get('user_role_id') >= 2)) ? 'disabled' : '';?>>
-														<i class="fa fa-cogs"></i> Műveletek
-														<i class="fa fa-angle-down"></i>
+													<a class="btn btn-sm grey-steel" title="Műveletek" href="#" data-toggle="dropdown" <?php echo ((Session::get('user_role_id') >= 2)) ? 'disabled' : '';?>>
+														<i class="fa fa-cogs"></i>
 													</a>
 													<ul class="dropdown-menu pull-right">
 														

@@ -3,9 +3,11 @@
 		<div class="page-content">
 				<!-- BEGIN PAGE HEADER-->
 					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+					<!--
 					<h3 class="page-title">
 						Oldalak <small>kezelése</small>
 					</h3>
+					-->
 					<div class="page-bar">
 						<ul class="page-breadcrumb">
 							<li>
@@ -13,7 +15,9 @@
 								<a href="admin/home">Kezdőoldal</a> 
 								<i class="fa fa-angle-right"></i>
 							</li>
-							<li><a href="#">Oldalak</a></li>
+							<li>
+							    <span>Oldalak</span>
+				            </li>
 						</ul>
 					</div>
 					<!-- END PAGE TITLE & BREADCRUMB-->
@@ -31,28 +35,8 @@
 						<div class="portlet">
 							<div class="portlet-title">
 								<div class="caption"><i class="fa fa-file"></i>Szerkeszthető oldalak</div>
-								<!--
-								<div class="tools">
-									<a href="javascript:;" class="collapse"></a>
-									<a href="#portlet-config" data-toggle="modal" class="config"></a>
-									<a href="javascript:;" class="reload"></a>
-									<a href="javascript:;" class="remove"></a>
-								</div>
-								-->
 							</div>
 							<div class="portlet-body">
-								<div class="table-toolbar">
-
-									<div class="btn-group pull-right">
-										<button class="btn dropdown-toggle" data-toggle="dropdown">Eszközök <i class="fa fa-angle-down"></i>
-										</button>
-										<ul class="dropdown-menu pull-right">
-											<li><a href="#">Nyomtatás</a></li>
-											<li><a href="#">Mentés PDF</a></li>
-											<li><a href="#">Mentés Excel</a></li>
-										</ul>
-									</div>
-								</div>
 								<table class="table table-striped table-bordered table-hover" id="users">
 									<thead>
 										<tr class="heading">
@@ -60,7 +44,7 @@
 											<th>Oldal</th>
 											<th>Cím (meta title)</th>
 											<th>Leírás (meta description)</th>
-											<th style="width:110px"></th>
+											<th style="width:0px"></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -78,8 +62,8 @@
 
 				<td>									
 					
-					<a class="btn btn-sm green" href="<?php echo $this->registry->site_url . 'pages/edit/' . $value['page_id'];?>">
-						<i class="fa fa-pencil"></i> Szerkeszt
+					<a class="btn btn-sm grey-steel" href="<?php echo $this->registry->site_url . 'pages/edit/' . $value['page_id'];?>">
+						<i class="fa fa-cogs"></i>
 					</a>
 
 				</td>

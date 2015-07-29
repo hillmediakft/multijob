@@ -306,26 +306,26 @@
 						</li>						
 					</ul>
 				</li>
--->				
 				
-				<li class="last <?php echo ($this->registry->controller == 'blog') ? 'active' : '';?>">
+				<li class="last <?php //echo ($this->registry->controller == 'blog') ? 'active' : '';?>">
 					<a href="javascript:;">
 						<i class="fa fa-suitcase"></i> 
 						<span class="title">Blog</span>
 						<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
-						<li class="<?php echo ($this->registry->controller == 'blog' && $this->registry->action == 'index') ? 'active' : '';?>">
+						<li class="<?php //echo ($this->registry->controller == 'blog' && $this->registry->action == 'index') ? 'active' : '';?>">
 							<a href="admin/blog">Bejegyzések</a>
 						</li>
-						<li class="<?php echo ($this->registry->controller == 'blog' && $this->registry->action == 'new_blog') ? 'active' : '';?>">
+						<li class="<?php //echo ($this->registry->controller == 'blog' && $this->registry->action == 'new_blog') ? 'active' : '';?>">
 							<a href="admin/blog/insert">Új bejegyzés</a>
 						</li>
-						<li class="<?php echo ($this->registry->controller == 'blog' && $this->registry->action == 'category') ? 'active' : '';?>">
+						<li class="<?php //echo ($this->registry->controller == 'blog' && $this->registry->action == 'category') ? 'active' : '';?>">
 							<a href="admin/blog/category">Kategóriák</a>
 						</li>
 					</ul>
 				</li>				
+-->				
 				
 			</ul>
 			<!-- END SIDEBAR MENU -->
