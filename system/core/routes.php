@@ -17,7 +17,13 @@
 	 */
 	
 	$routes = array(
+	// munka részletek
 	'(munka)/:title/:id/?' => array('munka', 'munka_name', 'munka_id'),
+
+	// feltétekek menü
+	'(feltetelek)/(munkavallalas)/?' => array('feltetelek/munkavallalas'),
+	'(feltetelek)/(kilepes)/?' => array('feltetelek/kilepes'),
+	'(feltetelek)/(kifizetes)/?' => array('feltetelek/kifizetes'),
 	
 	//feliratkozás hírlevélre visszaigazolás
 	'(feliratkozas)/:id/:hash/?' => array('feliratkozas', 'user_id', 'user_activation_verification_code'),

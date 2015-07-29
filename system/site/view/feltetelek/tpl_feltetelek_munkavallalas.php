@@ -13,11 +13,13 @@
 		
 	        <div class="row">
                 <div class="span9">
-                    <h1 class="page-header">Rólunk pár szó</h1>
-					<hr/>
-					<div class="content-box">
-						<?php echo $content['page_body']; ?>
-					</div>
+						<h1 class="page-header">A munkavállalás feltételei</h1>
+						<hr/>
+					<!-- <div class="property-detail">-->
+						<div class="content-box">
+							<?php echo $content['page_body']; ?>
+						</div>
+					<!-- </div>-->
                 </div>
                 <div class="sidebar span3">
           			<!-- KERESŐ DOBOZ -->

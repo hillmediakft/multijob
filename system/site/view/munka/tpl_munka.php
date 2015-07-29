@@ -15,30 +15,49 @@
                 <div class="span9">
 					
                     <h1 class="page-header">Munka részletek</h1>
-                    
-					<div class="property-detail">
+                    <hr/>
 					
-						<h1><?php echo $job_data['job_title']; ?></h1>
+					<div class="content-box">
+					
+						<h2><?php echo $job_data['job_title']; ?></h2>
 						
-						<p>
-							<strong>Diákmunka ideje: </strong><?php echo $job_data['job_description']; ?>
-						</p>
-						<p>
-							<strong>Diákmunka ideje: </strong><?php echo $job_data['job_description']; ?>
-						</p>
-						<p>
-							<strong>Fizetés: </strong><?php echo $job_data['job_pay']; ?>
-						</p>
-						
-						<h2>Munka feltételek</h2>
-						
-						<div class="row">
-							<div class="span4">
-								<?php echo $job_data['job_conditions']; ?>
-							</div>
-						</div>
+							<p>
+								<strong>Munka típusa: </strong><?php echo $job_data['job_list_name']; ?>
+							</p>
+							<p>
+								<strong>Leírás: </strong><?php echo $job_data['job_description']; ?>
+							</p>
+							<p>
+								<strong>Diákmunka ideje: </strong><?php echo $job_data['job_working_hours']; ?>
+							</p>
+							<p>
+								<strong>Fizetés: </strong><?php echo $job_data['job_pay']; ?>
+							</p>
+							<p>
+								<strong>Munkavégzés helye: </strong>
+								<?php if($job_data['county_name'] == 'Budapest') {
+									echo 'Budapest, ' . $job_data['district_name'] . ' kerület';
+								} else {
+									echo $job_data['city_name'];
+								}
+								?>
+							</p>
+							
+							<?php if(!empty($job_data['job_conditions'])) { ?>
+							<p>
+								<strong>Munka feltételek: </strong>
+								<div>
+									<?php echo $job_data['job_conditions']; ?>
+								</div>
+							</p>
+							<?php } ?>
 					
 					</div>
+					
+					<br /><hr/>
+					<button class="btn btn-primary" type="button" name="jelentkezes">Jelentkezés</button>
+					
+					
 
                 </div>
                 <div class="sidebar span3">

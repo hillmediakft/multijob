@@ -118,21 +118,30 @@
                                     <a href="rolunk" class="no_arrow <?php echo ($this->registry->controller == 'rolunk' && $this->registry->action == 'index') ? 'active' : ''; ?>">Rólunk</a>
                                 </li>
                                 <li class="menuparent">
-                                    <span class="menuparent nolink">Feltételek</span>
+                                    <span class="menuparent nolink <?php echo ($this->registry->controller == 'feltetelek') ? 'active' : ''; ?>">Feltételek</span>
                                     <ul>
-                                        <li><a href="#">Menü 1</a></li>
-                                        <li><a href="#">Menü 2</a></li>
+                                        <li><a href="feltetelek/munkavallalas">Munkavállalási feltételek</a></li>
+                                        <li><a href="feltetelek/kilepes">Kilépési feltételek</a></li>
+                                        <li><a href="feltetelek/kifizetes">Pénzkifizetési feltételek</a></li>
                                     </ul>
+                                </li>
+								<li>
+                                    <a href="kollegak" class="no_arrow <?php echo ($this->registry->controller == 'kollegak' && $this->registry->action == 'index') ? 'active' : ''; ?>">Kollégáink</a>
+                                </li>
+								<li>
+                                    <a href="irodak" class="no_arrow <?php echo ($this->registry->controller == 'irodak' && $this->registry->action == 'index') ? 'active' : ''; ?>">Irodáink</a>
                                 </li>
                                 <li class="menuparent">
                                     <span class="menuparent nolink">Cégeknek</span>
                                     <ul>
-                                        <li><a href="#">Menü 1</a></li>
-                                        <li><a href="#">Menü 2</a></li>
+                                        <li><a href="#">Cégbemutató</a></li>
+                                        <li><a href="#">Ajánlatkérés</a></li>
 
                                     </ul>
                                 </li>
-                                <li><a href="home">Kapcsolat</a></li>
+                                <li>
+									<a href="kapcsolat">Kapcsolat</a>
+								</li>
                             
 							</ul><!-- /.nav -->
 

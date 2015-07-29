@@ -182,7 +182,7 @@
 					<ul class="sub-menu">
 						
 					
-						<li class="<?php //echo ($this->registry->controller == 'pages') ? 'active' : '';?>">
+						<li class="<?php echo ($this->registry->controller == 'pages') ? 'active' : '';?>">
 							<a href="admin/pages">Oldalak listája</a>
 						</li>
 

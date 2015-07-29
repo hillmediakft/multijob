@@ -42,13 +42,13 @@ CKEDITOR.stylesSet.add( 'default', [
 			border: '1px solid #ccc'
 		}
 	},
-
+/*
 	{
 		name: 'jose Container',
 		element: 'div',
 		attributes: { 'class': 'proba' }
 	},
-
+*/
 	/* Inline Styles */
 
 	// These are core styles available as toolbar buttons. You may opt enabling

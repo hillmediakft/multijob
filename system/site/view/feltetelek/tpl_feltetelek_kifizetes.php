@@ -13,8 +13,9 @@
 		
 	        <div class="row">
                 <div class="span9">
-                    <h1 class="page-header">Rólunk pár szó</h1>
+                    <h1 class="page-header">Pénzkifizetés feltételei</h1>
 					<hr/>
+					
 					<div class="content-box">
 						<?php echo $content['page_body']; ?>
 					</div>
