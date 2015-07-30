@@ -154,6 +154,22 @@ div.feltetelek ul li {
     padding-right: 15px;
 }
 
+.job-detail .btn-primary {
+    color: #fff;
+    background-color: #0581b5;    
+    transition: background-color 0.2s ease-in 0s;
+}
+.job-detail .btn-primary:hover {
+    background-color: #045e83;    
+}
+
+
+
+
+
+
+
+
 
 
 

@@ -1,3 +1,4 @@
+/*
 var Kollegak_page = function () {
 
 
@@ -11,12 +12,12 @@ var Kollegak_page = function () {
 
 	
 }();
-
+*/
 
 jQuery(document).ready(function() {    
 	
 	modalHandler.init();
 	sidebarSearch.init();
-	Kollegak_page.init();
+	//Kollegak_page.init();
 	
 });

@@ -81,7 +81,7 @@ var modalHandler = function () {
 			
 		});
 
-	}
+	};
 	
 
 	var handle_register_modal = function(){
@@ -179,7 +179,7 @@ var modalHandler = function () {
 		});
 		
 	
-	}
+	};
 
 	var handle_subscribe_modal = function(){
 	/*
@@ -316,7 +316,7 @@ var modalHandler = function () {
 		});
 
 	
-	}
+	};
 	
 	return {
  

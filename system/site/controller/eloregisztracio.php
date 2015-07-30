@@ -35,18 +35,16 @@ class Eloregisztracio extends Controller {
 		
 		}
 		
-		$this->view->head = 'Ez az index header tartalom.';
-		$this->view->content = 'Ez a Home tartalom............ Iaculis et dui ullamcorper, non egestas condimentum dui phasellus. Sit non mattis a, leo in imperdiet erat nec pulvinar.';
-		$this->view->foot = 'Ez az index  footer tartalom.';
-		
 		//validátor
+        /*
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'plugins/jquery-validation/jquery.validate.min.js');
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'plugins/jquery-validation/additional-methods.min.js');
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'plugins/jquery-validation/localization/messages_hu.js');
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'plugins/jquery-validation/localization/methods_hu.js');
-		
+        
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'plugins/jquery.blockui.min.js');
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/modal_handler.js');
+		*/
 		//$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/sidebar_search.js');
 		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/eloregisztracio.js');
 		

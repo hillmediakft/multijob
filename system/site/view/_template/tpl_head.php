@@ -16,14 +16,11 @@
     <link rel="stylesheet" href="<?php echo SITE_ASSETS;?>plugins/jquery-ui-1.10.2.custom/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css">
     <link rel="stylesheet" href="<?php echo SITE_CSS;?>realia-blue.css" type="text/css" id="color-variant-default">
     <link rel="stylesheet" href="<?php echo SITE_CSS;?>modositas.css" type="text/css">
-  
-	
 
 	<!-- OLDALSPECIFIKUS CSS LINKEK -->
 	<?php if(isset($this->css_link)){
 		foreach($this->css_link as $value) { echo $value; }
 	} ?>
-		
 		
 </head>
 <body>
@@ -70,12 +67,10 @@
                                             <a href="#nav" class="hidden-desktop" id="btn-nav">Toggle navigation</a>
 
                                             <div class="logo">
-                                                <a href="#" title="Home">
+                                                <a href="" title="Kezdőoldal">
                                                     <img src="<?php echo SITE_IMAGE;?>logo.png" alt="Home">
                                                 </a>
                                             </div><!-- /.logo -->
-
- 
 
                                             <div class="site-slogan">
                                                 <span>Munkalehetőségek<br>diákoknak</span>
@@ -132,10 +127,10 @@
                                     <a href="irodak" class="no_arrow <?php echo ($this->registry->controller == 'irodak' && $this->registry->action == 'index') ? 'active' : ''; ?>">Irodáink</a>
                                 </li>
                                 <li class="menuparent">
-                                    <span class="menuparent nolink">Cégeknek</span>
+                                    <span class="menuparent nolink <?php echo ($this->registry->controller == 'cegek') ? 'active' : ''; ?>">Cégeknek</span>
                                     <ul>
-                                        <li><a href="#">Cégbemutató</a></li>
-                                        <li><a href="#">Ajánlatkérés</a></li>
+                                        <li><a href="cegek/cegbemutato">Cégbemutató</a></li>
+                                        <li><a href="cegek/ajanlatkeres">Ajánlatkérés</a></li>
 
                                     </ul>
                                 </li>

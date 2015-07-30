@@ -70,6 +70,44 @@ class Site_model extends Model {
 		return $result[0];
 	}	
 	
+    
+    /**
+     * E-mail küldés
+	 *
+     * @param string 	$from_name 				küldő neve
+     * @param string	$from_email 			küldő email cim
+     * @param string 	$message 				üzenet
+     * @param string 	$to_email              	címzett email
+     * @param string 	$to_name              	címzett neve
+     * @param string 	$subject              	levél tárgya
+     *
+     * @return boolean
+     */
+    public function send_email($from_email, $from_name, $message, $to_email, $to_name, $subject)
+    {
+		// Email kezelő osztály behívása
+		include(LIBS . '/simple_mail_class.php');
+		
+        // Létrehozzuk a SimpleMail objektumot
+		$mail = new SimpleMail();
+		$mail->setTo($to_email, $to_name)
+			 ->setSubject($subject)
+			 ->setFrom($from_email, $from_name)
+			 ->addMailHeader('Reply-To', $from_email, $from_name)
+			 ->addGenericHeader('MIME-Version', '1.0')
+			 ->addGenericHeader('Content-Type', 'text/html; charset="utf-8"')
+			 ->addGenericHeader('X-Mailer', 'PHP/' . phpversion())
+			 ->setMessage($message)
+			 ->setWrap(78);
+  
+        // final sending and check
+        if($mail->send()) {
+            return true;
+        } else {
+            return false;
+        }
+    }    
+    
 	
 }
 ?>

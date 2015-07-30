@@ -18,7 +18,7 @@
 
 				<div class="control-group">
 					<label for="user_password" class="control-label">Jelszó</label>
-					<input type="password" name="user_password" class="form-control input-xlarge"/>
+					<input type="password" name="user_password" class="form-control input-xlarge" />
 				</div>	
 			</form>	
 

@@ -16,12 +16,13 @@ class Cegek extends Controller {
     
     public function cegbemutato()
     {
-        
+        die('work in progress  dd.');
     }
     
     
     public function ajanlatkeres()
     {
+        die('work in progress.');
         
     }
     

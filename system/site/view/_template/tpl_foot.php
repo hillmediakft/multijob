@@ -101,14 +101,14 @@
                     </div><!-- /.title -->
 
                     <div class="content">
-                        <form method="post">
+                        <form name="footer_message_form" id="footer_message_form" method="post" action="">
                             <div class="control-group">
-                                <label class="control-label" for="inputName">
+                                <label class="control-label" for="name">
                                     Név
                                     <span class="form-required" title="This field is required.">*</span>
                                 </label>
                                 <div class="controls">
-                                    <input type="text" id="inputName">
+                                    <input type="text" id="footer_msg_name" name="from_name" required>
                                 </div><!-- /.controls -->
                             </div><!-- /.control-group -->
 
@@ -118,23 +118,25 @@
                                     <span class="form-required" title="This field is required.">*</span>
                                 </label>
                                 <div class="controls">
-                                    <input type="text" id="inputEmail">
+                                    <input type="text" id="footer_msg_email" name="from_email" required>
                                 </div><!-- /.controls -->
                             </div><!-- /.control-group -->
 
                             <div class="control-group">
-                                <label class="control-label" for="inputMessage">
+                                <label class="control-label" for="message">
                                     Üzenet
                                     <span class="form-required" title="This field is required.">*</span>
                                 </label>
 
                                 <div class="controls">
-                                    <textarea id="inputMessage"></textarea>
+                                    <textarea id="footer_msg_message" name="message" required></textarea>
                                 </div><!-- /.controls -->
                             </div><!-- /.control-group -->
-
+                            
+                                <input type="hidden" name="to_code" value="to_code" />
+                            
                             <div class="form-actions">
-                                <input type="submit" class="btn btn-primary arrow-right" value="Küldés">
+                                <button type="submit" id="footer_msg_send_button" class="btn btn-primary arrow-right">Küldés</button>
                             </div><!-- /.form-actions -->
                         </form>
                     </div><!-- /.content -->
@@ -183,7 +185,23 @@
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-ui-1.10.2.custom/js/jquery-ui-1.10.2.custom.min.js"></script>
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/chosen/chosen.jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/iosslider/_src/jquery.iosslider.min.js"></script>
-<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+
+<!--
+<script type="text/javascript" src="<?php //echo SITE_ASSETS; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+-->
+
+<!-- Form validátor -->
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-validation/additional-methods.min.js"></script>
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-validation/localization/messages_hu.js"></script>
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-validation/localization/methods_hu.js"></script>
+<!-- Block UI -->
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery.blockui.min.js"></script>
+<!-- Modal handler -->
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>pages/modal_handler.js"></script>
+<!-- üzenet küldés a footerből -->
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>pages/send_email_footer.js"></script>
+
 <script type="text/javascript" src="<?php echo SITE_JS; ?>realia.js"></script>
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->

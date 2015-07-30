@@ -1,5 +1,5 @@
 <?php 
-class Ajax_request Extends Controller {
+class Ajax_request extends Controller {
 
 	function __construct()
 	{
@@ -101,7 +101,41 @@ class Ajax_request Extends Controller {
 		}
 	}	
 	
-	
+    /**
+     *  AJAX Email küldés
+     *
+     */
+	public function ajax_send_email()
+    {
+        if(Util::is_ajax()){
+            
+            $from_email = $_POST['from_email'];
+            $from_name = $_POST['from_name'];
+            $message = $_POST['message'];
+            $to_email = 'mandro1@freemail.hu';
+            $to_name = 'mandro1';
+            $subject = 'Ez egy teszt üzenet';
+            
+            $result = $this->ajax_request_model->send_email($from_email, $from_name, $message, $to_email, $to_name, $subject);    
+        
+            if($result) {
+                $message = array(
+                    'status' => 'success',
+                    'message' => 'Üzenet elküldve!'
+                );
+                echo json_encode($message);
+            } else{
+                $message = array(
+                    'status' => 'error',
+                    'message' => 'Az üzenet küldése sikertelen!'
+                );
+                echo json_encode($message);
+            }
+  
+        } else {
+                Util::redirect('error');
+        }
+    }
 	
 	
 }
