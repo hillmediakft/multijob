@@ -125,14 +125,35 @@ div.feltetelek ul li {
 	line-height: 22px;
 }
 
-/*
-.content-box ul.job-details {
-	padding:0;
-	margin:0;
-	list-style-type: none;
+
+.job-detail {
+    background-color: #fff;
+    padding: 20px;
+    overflow: hidden;
 }
-.content-box ul.job-details li {
-	list-style-type: none;
-	line-height: 28px;
+
+.job-detail h1, .job-detail h2, .job-detail h3, .job-detail h4, .job-detail h5, .job-detail h6 {
+    margin-top: 0px;
+    margin-bottom: 20px;
 }
-*/
+
+.job-detail .overview-right {
+    /*background-color: #f3c406;*/
+    /*color: #000;*/
+    border: 1px solid #b5b5b5;
+    margin: 0px 0px 10px 30px;
+    padding: 20px;
+}
+.job-detail .overview-right h2 {
+    clear: both;
+    line-height: 1;
+    margin: 0px 0px 20px 0px;
+}
+.job-detail .overview-right table th {
+    text-align: left;
+    padding-right: 15px;
+}
+
+
+
+

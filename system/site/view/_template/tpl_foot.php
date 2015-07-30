@@ -84,13 +84,13 @@
 
                     <div class="content">
                         <ul class="menu nav">
-                            <li class="first leaf"><a href="#">Hogyan dolgozunk</a></li>
-                            <li class="leaf"><a href="#">Jelentkezési feltételek</a></li>
-                            <li class="leaf"><a href="#">Regsiztráció</a></li>
-                            <li class="leaf"><a href="#">Gyakori kérdések</a></li>
-                            <li class="leaf"><a href="#">Cégeknek</a></li>
-                            <li class="leaf"><a href="x">Irodáink</a></li>
-                            <li class="last leaf"><a href="#">Egyéb infó</a></li>
+                            <li class="first leaf"><a href="rolunk">Rólunk pár szó</a></li>
+                            <li class="leaf"><a href="feltetelek/munkavallalas">Munkavállalási feltételek</a></li>
+                            <li class="leaf"><a href="feltetelek/kifizetes">Pénzkifizetési feltételek</a></li>
+                            <li class="leaf"><a href="feltetelek/kilepes">Kilépési feltételek</a></li>
+                            <li class="leaf"><a href="kollegak">Kollégáink</a></li>
+                            <li class="leaf"><a href="irodak">Irodáink</a></li>
+                            <li class="last leaf"><a href="munkak">Aktuális munkák</a></li>
                         </ul>
                     </div><!-- /.content -->
                 </div><!-- /.widget -->
