@@ -143,7 +143,7 @@
 				-ms-animation: bubblingG 1s infinite alternate;
 				-o-border-radius: 50px;
 				-o-animation: bubblingG 1s infinite alternate;
-				border-radius: 50px;
+				border-radius: 50px !important;
 				animation: bubblingG 1s infinite alternate;
 				
 			}
