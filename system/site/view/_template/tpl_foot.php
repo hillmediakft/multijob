@@ -100,6 +100,11 @@
                         <h2 class="block-title">Írj nekünk!</h2>
                     </div><!-- /.title -->
 
+                    <div id="footer_message_feedback">
+                        <div class="alert alert-success" style="display:none;"></div>
+                        <div class="alert alert-danger" style="display:none;"></div>
+                    </div>
+
                     <div class="content" style="position:relative;">
                         <form name="footer_message_form" id="footer_message_form" method="post" action="">
                             <div class="control-group">
@@ -140,7 +145,6 @@
                             </div><!-- /.form-actions -->
                             
                         </form>
-                        <div id="footer_message_feedback" style="position:absolute; bottom:-3px"></div>
                     </div><!-- /.content -->
                 </div><!-- /.widget -->
             </div><!-- /.row -->

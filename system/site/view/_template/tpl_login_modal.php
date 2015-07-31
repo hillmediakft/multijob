@@ -6,10 +6,12 @@
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<h4 class="modal-title" id="modal_login_label">Bejelentkezés</h4>
 		</div>
+		
+			<form action="" method="POST" id="login_form" name="login_form">	
+		
 		<div class="modal-body">
 		
 			<div id="message_login"></div>
-			<form action="" method="POST" id="login_form" name="login_form">	
 
 				<div class="control-group">
 					<label for="user_name" class="control-label">Felhasználó név</label>
@@ -20,13 +22,14 @@
 					<label for="user_password" class="control-label">Jelszó</label>
 					<input type="password" name="user_password" class="form-control input-xlarge" />
 				</div>	
-			</form>	
 
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-primary" id="login_submit">Bejelentkezés</button>
+			<button type="submit" class="btn btn-primary" id="login_submit">Bejelentkezés</button>
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Bezár</button>
 		</div>
+			
+			</form>	
 			
 	</div>
   </div>

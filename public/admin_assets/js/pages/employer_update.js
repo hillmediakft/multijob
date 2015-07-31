@@ -78,6 +78,10 @@ var employerUpdate = function () {
 		$('div.alert').delay( 3000 ).slideUp( 750 );						 		
 	}
 
+    var ckeditorInit = function () {
+		//CKEDITOR.replace( 'employer_remark');							
+		CKEDITOR.replace( 'employer_remark', {customConfig: 'config_minimal1.js'});	
+	}      
 	
     return {
 
@@ -87,6 +91,7 @@ var employerUpdate = function () {
 
 			handleValidation();
 			hideAlert();
+            ckeditorInit();
 
 			
         }

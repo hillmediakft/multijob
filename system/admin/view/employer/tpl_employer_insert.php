@@ -91,12 +91,6 @@
 										<div class="form-group">
 											<label for="employer_remark" class="control-label">Megjegyzés</label>
 											<textarea name="employer_remark" id="employer_remark" placeholder="" class="form-control input-xlarge" rows="10"></textarea>
-											<?php if(isset($ckeditor) && $ckeditor === true) { ?>
-											<script>
-												//CKEDITOR.replace( 'employer_remark' );
-												CKEDITOR.replace( 'employer_remark', {customConfig: 'config_minimal1.js'});
-											</script>
-											<?php } ?>										
 										</div>										
 									<!-- MUNKAADÓ STÁTUSZ -->	
 										<div class="form-group">

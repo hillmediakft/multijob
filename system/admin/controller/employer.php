@@ -56,11 +56,9 @@ class Employer extends Controller {
 		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation-new/jquery.validate.min.js');
 		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation-new/additional-methods.min.js');
 		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation-new/localization/messages_hu.js');
-		
+    //ckEditor
+		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/ckeditor/ckeditor.js');        
 		$this->view->js_link[] = $this->make_link('js', ADMIN_JS, 'pages/employer_insert.js');
-		
-		// ck_editor bekapcsolása
-		$this->view->ckeditor = true;
 
 //$this->view->debug(true);
 
@@ -94,11 +92,9 @@ class Employer extends Controller {
 		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation-new/jquery.validate.min.js');
 		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation-new/additional-methods.min.js');
 		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation-new/localization/messages_hu.js');
-
+    //ckEditor
+		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/ckeditor/ckeditor.js');
 		$this->view->js_link[] = $this->make_link('js', ADMIN_JS, 'pages/employer_update.js');
-
-		// ck_editor bekapcsolása
-		$this->view->ckeditor = true;
 
 		$this->view->employer_data = $this->employer_model->all_employer_query($this->registry->params['id']);
 

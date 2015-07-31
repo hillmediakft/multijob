@@ -26,12 +26,13 @@ var send_email_footer = function () {
                     success: function(respond){
 
                         if(respond.status == 'success'){
-                            $("#footer_message_feedback").html(respond.message);
                             document.getElementById("footer_message_form").reset();
-
+                            $("#footer_message_feedback > div.alert-success").html(respond.message).show();
+                            $("#footer_message_feedback > div.alert-success").delay(3000).fadeOut(500);
                         } 
                         if(respond.status == 'error') {
-                            $("#footer_message_feedback").html(respond.message);
+                            $("#footer_message_feedback > div.alert-danger").html(respond.message).show();
+                            $("#footer_message_feedback > div.alert-danger").delay(3000).fadeOut(500);
                         }
 
                     },
@@ -44,7 +45,6 @@ var send_email_footer = function () {
         });  
 
     };
-
     
     return {
         //main function to initiate the module
@@ -55,5 +55,4 @@ var send_email_footer = function () {
         }
     };
 
-	
 }();

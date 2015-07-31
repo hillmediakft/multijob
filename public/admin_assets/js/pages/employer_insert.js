@@ -79,6 +79,11 @@ var employerInsert = function () {
 	}
 
 	
+    var ckeditorInit = function () {
+		//CKEDITOR.replace( 'employer_remark');							
+		CKEDITOR.replace( 'employer_remark', {customConfig: 'config_minimal1.js'});	
+	}    
+    
     return {
 
         //main function to initiate the module
@@ -87,7 +92,7 @@ var employerInsert = function () {
 
 			handleValidation();
 			hideAlert();
-
+            ckeditorInit();    
 			
         }
 
