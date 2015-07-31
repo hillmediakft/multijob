@@ -68,12 +68,6 @@
                                     <div class="form-group">
                                         <label for="page_body">Tartalom</label>
                                         <textarea type="text" name="page_body" class="form-control"><?php echo $data_arr[0]['page_body'] ?></textarea>
-                                        <?php if(isset($ckeditor) && $ckeditor === true) { ?>
-                                        <script type="text/javascript">
-                                            //CKEDITOR.replace( 'page_body' );
-                                            CKEDITOR.replace( 'page_body', {customConfig: 'config_minimal2.js'});
-                                        </script>
-                                        <?php } ?>		
                                     </div>
 
 							    </div> <!-- END USER GROUPS PORTLET BODY-->

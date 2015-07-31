@@ -100,7 +100,7 @@
                         <h2 class="block-title">Írj nekünk!</h2>
                     </div><!-- /.title -->
 
-                    <div class="content">
+                    <div class="content" style="position:relative;">
                         <form name="footer_message_form" id="footer_message_form" method="post" action="">
                             <div class="control-group">
                                 <label class="control-label" for="name">
@@ -138,7 +138,9 @@
                             <div class="form-actions">
                                 <button type="submit" id="footer_msg_send_button" class="btn btn-primary arrow-right">Küldés</button>
                             </div><!-- /.form-actions -->
+                            
                         </form>
+                        <div id="footer_message_feedback" style="position:absolute; bottom:-3px"></div>
                     </div><!-- /.content -->
                 </div><!-- /.widget -->
             </div><!-- /.row -->

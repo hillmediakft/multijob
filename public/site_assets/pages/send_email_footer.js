@@ -3,7 +3,7 @@ var send_email_footer = function () {
     var send_mail_trigger = function (){
 
         $("#footer_message_form").on('submit', function(e){
-
+            
             e.preventDefault();
             
             var $data = $("#footer_message_form").serialize();
@@ -25,16 +25,13 @@ var send_email_footer = function () {
                     },
                     success: function(respond){
 
-                        console.log(respond);
-
                         if(respond.status == 'success'){
-                            console.log(respond.message);
+                            $("#footer_message_feedback").html(respond.message);
+                            document.getElementById("footer_message_form").reset();
 
                         } 
                         if(respond.status == 'error') {
-
-                            console.log(respond.message);
-      
+                            $("#footer_message_feedback").html(respond.message);
                         }
 
                     },

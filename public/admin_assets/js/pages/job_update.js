@@ -148,6 +148,11 @@ var updateJob = function () {
 		
 	
 	}
+    
+	var ckeditorInit = function () {
+		CKEDITOR.replace( 'job_description', {customConfig: 'config_minimal1.js'});	
+		CKEDITOR.replace( 'job_conditions', {customConfig: 'config_minimal1.js'});	
+	}    
 
     return {
         //main function to initiate the module
@@ -156,6 +161,7 @@ var updateJob = function () {
 			hideAlert();
 			handleDatePickers();
 			locationsInput();
+            ckeditorInit();
         }
     };
 

@@ -49,11 +49,8 @@ class Pages extends Controller {
 		$this->view->description = 'Oldal szerkesztése description';
 		
 		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/bootbox/bootbox.min.js');
-		//$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/ckeditor/ckeditor.js');
+		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/ckeditor/ckeditor.js');
 		$this->view->js_link[] = $this->make_link('js', ADMIN_JS, 'pages/edit_page.js');
-		
-		// ck_editor bekapcsolása
-		$this->view->ckeditor = true;
 				
 		// visszadja a szerkesztendő oldal adatait egy tömbben (page_id, page_title ... stb.)
 		$this->view->data_arr = $this->pages_model->page_data_query($id);

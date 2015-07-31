@@ -103,7 +103,11 @@ class Jobs extends Controller {
 		//$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation/dist/additional-methods.min.js');
 		//$this->view->js_link[] = $this->make_link('js', ADMIN_JS, 'form-validation.js');
 		//$this->view->js_link[] = $this->make_link('js', ADMIN_JS, 'pages/common.js');
-	//datepicker	
+	
+    //ckEditor
+		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/ckeditor/ckeditor.js');
+      
+        //datepicker	
 		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js');
 		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/bootstrap-datepicker/js/locales/bootstrap-datepicker.hu.js');
 	//form validator	
@@ -114,7 +118,7 @@ class Jobs extends Controller {
 		$this->view->js_link[] = $this->make_link('js', ADMIN_JS, 'pages/new_job.js');
 		
 		// ck_editor bekapcsolása
-		$this->view->ckeditor = true;
+		//$this->view->ckeditor = true;
 				
 		// munka kategóriák lekérdezése az option listához
 		$this->view->jobs_list = $this->jobs_model->job_list_query();
@@ -164,8 +168,9 @@ class Jobs extends Controller {
 		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation-new/additional-methods.min.js');
 		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation-new/localization/messages_hu.js');
 	
-		// ck_editor bekapcsolása
-		$this->view->ckeditor = true;		
+    //ckEditor
+		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/ckeditor/ckeditor.js');
+      		
 		
 		// a módosítandó munka adatai
 		$this->view->actual_job = $this->jobs_model->one_job_query($this->registry->params['id']);

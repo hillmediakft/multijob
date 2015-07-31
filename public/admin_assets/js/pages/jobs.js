@@ -523,7 +523,6 @@ var Jobs = function () {
 			$('#modal_container').html('');    
 		});
 	}	
-
 	
 	
     return {

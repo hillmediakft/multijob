@@ -109,14 +109,14 @@ class Ajax_request extends Controller {
     {
         if(Util::is_ajax()){
             
-            $from_email = $_POST['from_email'];
-            $from_name = $_POST['from_name'];
-            $message = $_POST['message'];
+            $from_email = strip_tags($_POST['from_email']);
+            $from_name = strip_tags($_POST['from_name']);
+            $message = strip_tags($_POST['message']);
             $to_email = 'mandro1@freemail.hu';
             $to_name = 'mandro1';
             $subject = 'Ez egy teszt üzenet';
             
-            $result = $this->ajax_request_model->send_email($from_email, $from_name, $message, $to_email, $to_name, $subject);    
+            $result = $this->ajax_request_model->send_email($from_email, $from_name, $subject, $message, $to_email, $to_name);    
         
             if($result) {
                 $message = array(

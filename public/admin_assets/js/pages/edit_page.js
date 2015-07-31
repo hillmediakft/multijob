@@ -26,8 +26,8 @@ var EditPage = function () {
 	}	
 	
 	var ckeditorInit = function () {
-//		CKEDITOR.replace( 'page_body', {customConfig: 'config_custom2.js'});	
-		CKEDITOR.replace( 'page_body');							
+		//CKEDITOR.replace( 'page_body');							
+		CKEDITOR.replace( 'page_body', {customConfig: 'config_minimal2.js'});	
 	}
 
     return {

@@ -83,7 +83,7 @@ class Site_model extends Model {
      *
      * @return boolean
      */
-    public function send_email($from_email, $from_name, $message, $to_email, $to_name, $subject)
+    public function send_email($from_email, $from_name, $subject, $message, $to_email, $to_name)
     {
 		// Email kezelő osztály behívása
 		include(LIBS . '/simple_mail_class.php');

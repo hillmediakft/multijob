@@ -72,12 +72,6 @@
 										<div class="form-group">
 											<label for="job_description" class="control-label">Leírás</label>
 											<textarea name="job_description" id="job_description" placeholder="" class="form-control input-xlarge" rows="10"><?php echo $actual_job[0]['job_description']; ?></textarea>
-											<?php if(isset($ckeditor) && $ckeditor === true) { ?>
-											<script>
-												//CKEDITOR.replace( 'job_description' );
-												CKEDITOR.replace( 'job_description', {customConfig: 'config_minimal1.js'});
-											</script>
-											<?php } ?>										
 										</div>										
 									<!-- MUNKA KATEGÓRIA -->	
 										<div class="form-group">
@@ -140,12 +134,6 @@
 										<div class="form-group">
 											<label for="job_conditions" class="control-label">Munkához szükséges feltételek</label>
 											<textarea name="job_conditions" id="job_conditions" placeholder="" class="form-control input-xlarge"><?php echo $actual_job[0]['job_conditions']; ?></textarea>
-											<?php if(isset($ckeditor) && $ckeditor === true) { ?>
-											<script>
-												//CKEDITOR.replace( 'job_conditions' );
-												CKEDITOR.replace( 'job_conditions', {customConfig: 'config_minimal1.js'});
-											</script>
-											<?php } ?>								
 										</div>										
 									<!-- LEJÁRAT DÁTUMA DATEPICKER JS PLUGIN-NAL-->	
 										<div class="form-group">
