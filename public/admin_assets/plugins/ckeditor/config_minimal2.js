@@ -18,14 +18,29 @@ CKEDITOR.editorConfig = function( config ) {
 		//csak a 'kicseréli a jelenlegi tartalmat' checkbox állapotát állítja be
 		//config.templates_replaceContent = false;
 
+
+    // külső css file megadása - egy file
+        //config.contentsCss = '/../bootstrap/css/bootstrap.css';
+        //config.contentsCss = 'public/admin_assets/plugins/bootstrap/css/bootstrap.css';
+    
+    // külső css file megadása - több file tömbben
+        config.contentsCss = [
+            'public/site_assets/css/bootstrap.css',
+            'public/site_assets/css/realia-blue.css'
+        ];    
+    
+    
+    
 	config.toolbar = [
-		{ name: 'alap_formazas', items: [ 'Source', 'Bold', 'Italic', 'Underline', 'RemoveFormat' ] },
+		{ name: 'alap_formazas', items: [ 'Bold', 'Italic', 'Underline', 'RemoveFormat' ] },
 		{ name: 'igazitas', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
 		{ name: 'listak', items: [ 'BulletedList', 'NumberedList' ] },
 		{ name: 'visszavonas', items: [ 'Undo', 'Redo' ] },
 		{ name: 'linkek', items: [ 'Link', 'Unlink' ] },
 		{ name: 'tools', items: [ 'HorizontalRule', 'SpecialChar', 'Table' ] },
-		{ name: 'formazas', items: [ 'Format', 'Styles' ] }
+		{ name: 'formazas', items: [ 'Format', 'Styles', 'FontSize' ] },
+		{ name: 'source', items: [ 'Source' ] },
+		{ name: 'templates', items: [ 'Templates' ] }
 	];	
 
 	// Gombok eltávolítása az eszköztárból

@@ -18,7 +18,8 @@ class Settings_model extends Model {
 	{
 		$this->query->set_table(array('settings')); 
 		$this->query->set_columns('*'); 
-		return $this->query->select(); 
+		$result = $this->query->select();
+        return $result[0];
 	}
 	
 	/**
@@ -31,6 +32,8 @@ class Settings_model extends Model {
 		$data['ceg'] = $_POST['setting_ceg'];
 		$data['cim'] = $_POST['setting_cim'];
 		$data['email'] = $_POST['setting_email'];
+		$data['email_ceges'] = $_POST['setting_email_ceges'];
+		$data['email_diak'] = $_POST['setting_email_diak'];
 		$data['tel'] = $_POST['setting_tel'];
 		
 

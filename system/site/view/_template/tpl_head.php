@@ -130,8 +130,11 @@
                                     <span class="menuparent nolink <?php echo ($this->registry->controller == 'cegek') ? 'active' : ''; ?>">Cégeknek</span>
                                     <ul>
                                         <li><a href="cegek/cegbemutato">Cégbemutató</a></li>
-                                        <li><a href="cegek/ajanlatkeres">Ajánlatkérés</a></li>
-
+                                        <li><a href="cegek/munkaero-kolcsonzes">Munkaerő-kölcsönzés</a></li>
+                                        <li><a href="cegek/rehabilitacios-uzletag">Rehabilitációs üzletág</a></li>
+                                        <li><a href="cegek/referenciak">Referenciák</a></li>
+                                        <li><a href="cegek/szolgaltatasaink">Szolgáltatásaink</a></li>
+                                        <li><a href="cegek/szemelyzeti-tanacsadas">Személyzeti tanácsadás</a></li>
                                     </ul>
                                 </li>
                                 <li>

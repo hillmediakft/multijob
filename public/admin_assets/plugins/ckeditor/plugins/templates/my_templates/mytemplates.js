@@ -8,27 +8,82 @@ CKEDITOR.addTemplates("default",
 	
 	templates:
 		[
-			{
-				title:"Kep és cím 8888",
-				image:"template1.gif",
-				description:"Lorem ipsum dolor.",
+            {
+				title:"cim - 2 oszlop - lablec",
+				//image:"template2.gif",
+				description:"Cím, szövegtest, lábszöveg",
 				html:
-				'<h3>Ez itt a cím helye</h3>' + 
-				'<div class="proba" style="margin-right:10px;">lorem</div>' +
-				'<div class="proba">ipsum dolor</div>' + 
-				'<p>Type the text here</p>'
+                    '<div><h3>Cím helye</h3></div>' +
+                
+                    '<div class="row-fluid">' +
+                        '<div class="span6">' +
+                            '<div>Szöveg helye</div>' +
+                        '</div>' +
+                        '<div class="span6">' +
+                            '<div>Szöveg helye</div>' +
+                        '</div>' +
+                    '</div>' +
+
+                    '<div style="margin-top:30px; text-align:center;">' +
+                        '<div><p>Lorem ipsum dolor sit amet.</p></div>' +
+                    '</div>'
+
 			},
-			{
-				title:"Furcsa sablon 8888",
-				image:"template2.gif",
-				description:"A template that defines two colums, each one with a title, and some text.",
-				html:'<table cellspacing="0" cellpadding="0" style="width:100%" border="0"><tr><td style="width:50%"><h3>Title 1</h3></td><td></td><td style="width:50%"><h3>Title 2</h3></td></tr><tr><td>Text 1</td><td></td><td>Text 2</td></tr></table><p>More text goes here.</p>'
-			},
-			{
-				title:"Szöveg és tábla 8888",
-				image:"template3.gif",
-				description:"A title with some text and a table.",
-				html:'<div style="width: 80%"><h3>Title goes here</h3><table style="width:150px;float: right" cellspacing="0" cellpadding="0" border="1"><caption style="border:solid 1px black"><strong>Table title</strong></caption><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></table><p>Type the text here</p></div>'
+            
+            {
+				title:"2 oszlop",
+				//image:"template2.gif",
+				description:"2 oszlop elem",
+				html:
+                    '<div class="row-fluid">' +
+                        '<div class="span6">' +
+                            '<div>Szöveg helye</div>' +
+                        '</div>' +
+                        '<div class="span6">' +
+                            '<div>Szöveg helye</div>' +
+                        '</div>' +
+                    '</div>'
+			},            
+            
+            {
+				title:"3 oszlop",
+				//image:"template2.gif",
+				description:"3 oszlop elem",
+				html:
+                    '<div class="row-fluid">' +
+                        '<div class="span4">' +
+                            '<div>Szöveg helye</div>' +
+                        '</div>' +
+                        '<div class="span4">' +
+                            '<div>Szöveg helye</div>' +
+                        '</div>' +
+                        '<div class="span4">' +
+                            '<div>Szöveg helye</div>' +
+                        '</div>' +
+                    '</div>'
+			}, 
+            
+            {
+				title:"4 oszlop",
+				//image:"template2.gif",
+				description:"4 oszlop elem",
+				html:
+                    '<div class="row-fluid">' +
+                        '<div class="span3">' +
+                            '<div>Szöveg helye</div>' +
+                        '</div>' +
+                        '<div class="span3">' +
+                            '<div>Szöveg helye</div>' +
+                        '</div>' +
+                        '<div class="span3">' +
+                            '<div>Szöveg helye</div>' +
+                        '</div>' +
+                        '<div class="span3">' +
+                            '<div>Szöveg helye</div>' +
+                        '</div>' +
+                    '</div>'
 			}
+        
+
 		]
 });

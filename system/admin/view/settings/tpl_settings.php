@@ -41,22 +41,32 @@
 
                                 <div class="form-group">
                                     <label for="settings_ceg">Cég</label>	
-                                    <input type='text' name='setting_ceg' class='form-control input-large' value="<?php echo (empty($settings)) ? "" : $settings[0]['ceg']; ?>"/>
+                                    <input type='text' name='setting_ceg' class='form-control input-large' value="<?php echo (empty($settings['ceg'])) ? "" : $settings['ceg']; ?>"/>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="settings_cim">Cím</label>	
-                                    <input type='text' name='setting_cim' class='form-control input-large' value="<?php echo (empty($settings)) ? "" : $settings[0]['cim']; ?>"/>
+                                    <input type='text' name='setting_cim' class='form-control input-large' value="<?php echo (empty($settings['cim'])) ? "" : $settings['cim']; ?>"/>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="settings_tel">Telefonszám</label>	
-                                    <input type='text' name='setting_tel' class='form-control input-large' value="<?php echo (empty($settings)) ? "" : $settings[0]['tel']; ?>"/>
+                                    <input type='text' name='setting_tel' class='form-control input-large' value="<?php echo (empty($settings['tel'])) ? "" : $settings['tel']; ?>"/>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="settings_email">E-mail</label>	
-                                    <input type='text' name='setting_email' class='form-control input-large' value="<?php echo (empty($settings)) ? "" : $settings[0]['email']; ?>"/>
+                                    <input type='text' name='setting_email' class='form-control input-large' value="<?php echo (empty($settings['email'])) ? "" : $settings['email']; ?>"/>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="setting_email_ceges">E-mail céges</label>	
+                                    <input type='text' name='setting_email_ceges' class='form-control input-large' value="<?php echo (empty($settings['email_ceges'])) ? "" : $settings['email_ceges']; ?>"/>
+                                </div>
+                                   
+                                <div class="form-group">
+                                    <label for="setting_email_diak">E-mail diák</label>	
+                                    <input type='text' name='setting_email_diak' class='form-control input-large' value="<?php echo (empty($settings['email_diak'])) ? "" : $settings['email_diak']; ?>"/>
                                 </div>
 								
 							</div> <!-- END USER GROUPS PORTLET BODY-->

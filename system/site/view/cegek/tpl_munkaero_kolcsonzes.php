@@ -13,10 +13,11 @@
 		
 	        <div class="row">
                 <div class="span9">
-                    <h1 class="page-header">Kollégáink</h1>
+                    <h1 class="page-header">Munkaerő-kölcsönzés</h1>
 					<hr/>
+					
 					<div class="content-box">
-				        <?php echo $content['page_body']; ?>
+						<?php echo $content['page_body']; ?>
 					</div>
                 </div>
                 <div class="sidebar span3">
