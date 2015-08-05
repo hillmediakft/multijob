@@ -7,7 +7,7 @@
     <title>Multijob</title>
     
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
     <link rel="stylesheet" href="<?php echo SITE_CSS;?>bootstrap.css" type="text/css">
     <link rel="stylesheet" href="<?php echo SITE_CSS;?>bootstrap-responsive.css" type="text/css">
