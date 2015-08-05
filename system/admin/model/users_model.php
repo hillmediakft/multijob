@@ -43,7 +43,7 @@ class Users_model extends Model {
             Message::set('error', 'username_too_short_or_too_long');
 			$error_counter += 1;
         }
-		if (!preg_match('/^[\_a-záöőüűóúéíÁÖŐÜŰÓÚÉÍ\d]{2,64}$/i', $_POST['name'])) {
+		if (!preg_match('/^[\_\sa-záöőüűóúéíÁÖŐÜŰÓÚÉÍ\d]{2,64}$/i', $_POST['name'])) {
 			Message::set('error', 'username_does_not_fit_pattern');
             $error_counter += 1;
         }	
@@ -57,7 +57,7 @@ class Users_model extends Model {
 			Message::set('error', 'userfirstname_too_short_or_too_long');
             $error_counter += 1;
 		}
-		if (!preg_match('/^[a-záöőüűóúéíÁÖŐÜŰÓÚÉÍ]{2,64}$/i', $_POST['first_name'])) {
+		if (!preg_match('/^[\_\sa-záöőüűóúéíÁÖŐÜŰÓÚÉÍ]{2,64}$/i', $_POST['first_name'])) {
 			Message::set('error', 'userfirstname_does_not_fit_pattern');
             $error_counter += 1;
 		}	
@@ -71,7 +71,7 @@ class Users_model extends Model {
 			Message::set('error', 'userlastname_too_short_or_too_long');
             $error_counter += 1;
 		}
-		if (!preg_match('/^[a-záöőüűóúéíÁÖŐÜŰÓÚÉÍ]{2,64}$/i', $_POST['last_name'])) {
+		if (!preg_match('/^[\_\sa-záöőüűóúéíÁÖŐÜŰÓÚÉÍ]{2,64}$/i', $_POST['last_name'])) {
 			Message::set('error', 'userlastname_does_not_fit_pattern');
             $error_counter += 1;		
 		}		
