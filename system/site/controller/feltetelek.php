@@ -4,6 +4,7 @@ class Feltetelek extends Controller {
 	function __construct()
 	{
 		parent::__construct();
+        Auth::handleExpire();
 		$this->loadModel('feltetelek_model');
 	}
 

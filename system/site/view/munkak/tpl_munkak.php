@@ -2,15 +2,7 @@
 <div id="content">
     <div class="container">
         <div id="main">
-
-			<div class="row">
-				<div class="span12">
-					<div id="feedback_message">
-						<?php $this->renderFeedbackMessages(); ?>
-					</div>
-				</div>
-			</div>		
-		
+	
 	        <div class="row">
                 <div class="span9">
                     

@@ -20,33 +20,33 @@
 <div class="login">
 	<h1>Admin bejelentkezés</h1>
 	
-			<div style="color:red">
-				<!-- echo out the system feedback (error and success messages) -->
-				<?php $this->renderFeedbackMessages();?>
-			</div>
-			
-				<!-- login form box -->
-				<form method="post" action="<?php echo BASE_URL . 'admin/login';?>" name="loginform">
-					<div class="form-group" style="margin-bottom:8px;">	
-						<label for="login_input_username">Felhasználónév</label>
-						<input id="login_input_username" class="form-control" type="text" name="user_name">
-					</div>
-					<div class="form-group" style="margin-bottom:8px;">
-						<label for="login_input_password">Jelszó</label>
-						<input id="login_input_password" class="form-control" type="password" name="user_password" autocomplete="off">
-					</div>
-				
-					<div class="form-group" style="margin-bottom:15px;">
-						
-						<input class="remember-me-checkbox" type="checkbox" name="user_rememberme">
-						Emlékezz rám
-					</div>
-					
-					
-					<div class="form-group text-center">
-						<input class="btn btn-info" type="submit"  name="submit_login" value="Bejelentkezés" />
-					</div>
-				</form>
+        <div>
+            <!-- echo out the system feedback (error and success messages) -->
+            <?php $this->renderFeedbackMessages();?>
+        </div>
+
+        <!-- login form box -->
+        <form method="post" action="<?php echo BASE_URL . 'admin/login';?>" name="loginform">
+            <div class="form-group" style="margin-bottom:8px;">	
+                <label for="login_input_username">Felhasználónév</label>
+                <input id="login_input_username" class="form-control" type="text" name="user_name">
+            </div>
+            <div class="form-group" style="margin-bottom:8px;">
+                <label for="login_input_password">Jelszó</label>
+                <input id="login_input_password" class="form-control" type="password" name="user_password" autocomplete="off">
+            </div>
+
+            <div class="form-group" style="margin-bottom:15px;">
+
+                <input class="remember-me-checkbox" type="checkbox" name="user_rememberme">
+                Emlékezz rám
+            </div>
+
+
+            <div class="form-group text-center">
+                <input class="btn btn-info" type="submit"  name="submit_login" value="Bejelentkezés" />
+            </div>
+        </form>
 
 </div>
 </body>

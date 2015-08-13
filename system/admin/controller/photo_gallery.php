@@ -4,6 +4,7 @@ class Photo_gallery extends Controller {
 	function __construct()
 	{
 		parent::__construct();
+        Auth::handleLogin();
 		$this->loadModel('photo_gallery_model');
 	}
 

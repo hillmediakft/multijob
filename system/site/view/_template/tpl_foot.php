@@ -138,7 +138,7 @@
                                 </div><!-- /.controls -->
                             </div><!-- /.control-group -->
                             
-                                <input type="hidden" name="to_code" value="to_code" />
+                                <input type="hidden" name="area" value="diak" />
                             
                             <div class="form-actions">
                                 <button type="submit" id="footer_msg_send_button" class="btn btn-primary arrow-right">Küldés</button>
@@ -196,6 +196,8 @@
 <script type="text/javascript" src="<?php //echo SITE_ASSETS; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
 -->
 
+<!-- Minden oldalon szükséges scriptek pl: hideAlert() -->
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>pages/common_functions.js"></script>
 <!-- Form validátor -->
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-validation/additional-methods.min.js"></script>

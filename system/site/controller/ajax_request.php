@@ -13,8 +13,6 @@ class Ajax_request extends Controller {
 		Util::redirect('error');
 	}
 	
-	
-	
 	/**
 	 *	Város lista
 	 *
@@ -109,12 +107,25 @@ class Ajax_request extends Controller {
     {
         if(Util::is_ajax()){
             
+            // settings adatok lekérdezése az adatbázisból
+            $data = $this->ajax_request_model->get_settings();
+                        
             $from_email = strip_tags($_POST['from_email']);
             $from_name = strip_tags($_POST['from_name']);
             $message = strip_tags($_POST['message']);
-            $to_email = 'mandro1@freemail.hu';
-            $to_name = 'mandro1';
-            $subject = 'Ez egy teszt üzenet';
+            
+            if(isset($_POST['area']) && $_POST['area'] == 'diak'){
+                $to_email = $data['email_diak'];
+            }
+            elseif (isset($_POST['area']) && $_POST['area'] == 'ceg') {
+                $to_email = $data['email_ceges'];
+            }
+            else {
+                $to_email = $data['email'];
+            }
+            
+            $to_name = $data['ceg'];
+            $subject = 'Üzenet érkezett';
             
             $result = $this->ajax_request_model->send_email($from_email, $from_name, $subject, $message, $to_email, $to_name);    
         

@@ -4,6 +4,7 @@ class Settings extends Controller {
 	function __construct()
 	{
 		parent::__construct();
+        Auth::handleLogin();
 		$this->loadModel('settings_model');
 	}
 

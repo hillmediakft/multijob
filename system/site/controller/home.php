@@ -4,6 +4,7 @@ class Home extends Controller {
 	function __construct()
 	{
 		parent::__construct();
+        Auth::handleExpire();
 		$this->loadModel('home_model');
 	}
 

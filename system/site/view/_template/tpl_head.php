@@ -60,6 +60,15 @@
                 <div id="header">
                     <div id="header-inner">
                         <div class="container">
+                           
+                        <div class="row">
+                            <div class="span12">
+                                <div id="feedback_message">
+                                    <?php $this->renderFeedbackMessages(); ?>
+                                </div>
+                            </div>
+                        </div>
+                                                      
                             <div class="navbar">
                                 <div class="navbar-inner">
                                     <div class="row">

@@ -12,7 +12,8 @@ class Controller {
 	function __construct()
 	{
 		Session::init();
-		$this->registry = Registry::get_instance();
+        
+        $this->registry = Registry::get_instance();
 		// létrehozzuk a view objektumot és hozzárendeljük a $view tulajdonsághoz
 		$this->view = new View();
 	}

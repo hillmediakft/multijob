@@ -73,4 +73,9 @@ $config['user'] = array(
 	'upload_path' => UPLOADS . 'user_photo/',
 	'default_photo' => 'user_placeholder.png'
 );
+
+$config['session'] = array(
+    'expire_time' => 30,
+    'last_activity_name' => 'last_activity' // A $_SESSION['last_activity'] elem fogja tárolni az utolsó aktivitás idejét
+);
 ?>

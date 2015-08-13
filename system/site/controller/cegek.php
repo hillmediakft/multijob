@@ -4,6 +4,7 @@ class Cegek extends Controller {
     function __construct()
 	{
 		parent::__construct();
+        Auth::handleExpire();
 		$this->loadModel('cegek_model');
 	}
 
@@ -21,7 +22,8 @@ class Cegek extends Controller {
 
 		// alapbeállítások lekérdezése
 		$this->view->settings = $this->cegek_model->get_settings();
-		// 3 legfrissebb munka
+        
+        // 3 legfrissebb munka
 		$this->view->latest_jobs = $this->cegek_model->jobs_query(3);
 		// oldal tartalmának lekérdezése (paraméter a pages tábla page_id)
 		$this->view->content = $this->cegek_model->get_page_data(7); 

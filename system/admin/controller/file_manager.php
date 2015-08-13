@@ -4,6 +4,7 @@ class File_manager extends Controller {
 	function __construct()
 	{
 		parent::__construct();
+        Auth::handleLogin();
 	}
 
 	public function index()

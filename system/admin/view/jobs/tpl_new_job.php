@@ -28,8 +28,9 @@
 				<div class="col-md-12">
 						
 					<!-- ÜZENETEK -->
-					<div id="message"></div> 
-					<?php $this->renderFeedbackMessages(); ?>			
+					<div id="message">
+					    <?php $this->renderFeedbackMessages(); ?>			
+					</div> 
 
 					<form action="" method="POST" id="new_job">	
 						

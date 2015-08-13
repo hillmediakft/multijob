@@ -4,6 +4,7 @@ class Kollegak extends Controller {
 	function __construct()
 	{
 		parent::__construct();
+        Auth::handleExpire();
 		$this->loadModel('kollegak_model');
 	}
 

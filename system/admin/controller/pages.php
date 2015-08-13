@@ -5,10 +5,11 @@ class Pages extends Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->loadModel('pages_model');
+        Auth::handleLogin();
+        $this->loadModel('pages_model');
 	}
 
-		public function index()
+	public function index()
 	{
 		
 		// adatok bevitele a view objektumba

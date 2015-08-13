@@ -47,9 +47,11 @@ class Munkak_model extends Site_model {
 		if(!is_null($offset)){
 			$this->query->set_offset($offset);
 		}
-		
+        
 		$this->query->set_orderby(array('job_id'), 'DESC');
 		
+        $this->query->set_where('job_status', '=', 1);
+				
 		if(isset($params['megye']) && !empty($params['megye'])){
 			$this->query->set_where('job_county_id', '=', $params['megye']);
 		}

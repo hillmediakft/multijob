@@ -4,6 +4,7 @@ class Newsletter extends Controller {
 	function __construct()
 	{
 		parent::__construct();
+        Auth::handleLogin();
 		$this->loadModel('newsletter_model');
 	}
 

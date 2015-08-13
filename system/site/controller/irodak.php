@@ -4,6 +4,7 @@ class Irodak extends Controller {
 	function __construct()
 	{
 		parent::__construct();
+        Auth::handleExpire();
 		$this->loadModel('irodak_model');
 	}
 

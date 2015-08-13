@@ -5,6 +5,7 @@ class Content extends Controller {
 	function __construct()
 	{
 		parent::__construct();
+		Auth::handleLogin();
 		$this->loadModel('content_model');
 	
 	}
@@ -12,7 +13,6 @@ class Content extends Controller {
 		public function index()
 	{
 		
-		Auth::handleLogin();
 
 		// adatok bevitele a view objektumba
 		$this->view->title = 'Egyéb tartalom oldal';

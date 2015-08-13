@@ -4,6 +4,7 @@ class Rolunk extends Controller {
 	function __construct()
 	{
 		parent::__construct();
+        Auth::handleExpire();
 		$this->loadModel('rolunk_model');
 	}
 

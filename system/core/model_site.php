@@ -50,6 +50,8 @@ class Site_model extends Model {
 			$this->query->set_limit($limit);
 		}
 		$this->query->set_orderby(array('job_id'), 'DESC');
+        
+        $this->query->set_where('job_status', '=', 1);
 		
 		return $this->query->select();
 	}

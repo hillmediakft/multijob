@@ -4,6 +4,7 @@ class Munkak extends Controller {
 	function __construct()
 	{
 		parent::__construct();
+        Auth::handleExpire();
 		$this->loadModel('munkak_model');
 	}
 

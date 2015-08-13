@@ -4,6 +4,7 @@ class Blog extends Controller {
 	function __construct()
 	{
 		parent::__construct();
+        Auth::handleLogin();
 		$this->loadModel('blog_model');
 	}
     

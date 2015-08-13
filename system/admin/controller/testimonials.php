@@ -4,6 +4,7 @@ class Testimonials extends Controller {
 	function __construct()
 	{
 		parent::__construct();
+        Auth::handleLogin();
 		$this->loadModel('testimonials_model');
 	}
 
