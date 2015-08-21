@@ -86,7 +86,7 @@ class Login_model extends Model
             // login process, write the user data into session
             Session::init();
             Session::set('user_logged_in', true);
-            Session::set('last_activity', time()); // bejelentkezés, illetve utolsó aktivitás ideje
+            Session::set('user_last_activity', time()); // bejelentkezés, illetve utolsó aktivitás ideje
             Session::set('user_id', $result->user_id);
             Session::set('user_name', $result->user_name);
             Session::set('user_email', $result->user_email);

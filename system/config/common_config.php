@@ -75,7 +75,9 @@ $config['user'] = array(
 );
 
 $config['session'] = array(
-    'expire_time' => 30,
-    'last_activity_name' => 'last_activity' // A $_SESSION['last_activity'] elem fogja tárolni az utolsó aktivitás idejét
+    'expire_time_admin' => 3600,
+    'expire_time_site' => 3600
+   // 'last_activity_name_admin' => 'user_last_activity', // A $_SESSION['last_activity'] elem fogja tárolni az utolsó aktivitás idejét
+   // 'last_activity_name_site' => 'user_site_last_activity' // A $_SESSION['last_activity'] elem fogja tárolni az utolsó aktivitás idejét
 );
 ?>

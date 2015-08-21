@@ -171,8 +171,26 @@
 					</ul>
 				</li>
 			<!-- CÉGEK MENÜ VÉGE -->
-
 			
+			<!-- ELŐREGISZTRÁCIÓ -->
+				<li class="<?php echo ($this->registry->controller == 'pre_register') ? 'active' : '';?>">
+					<a href="admin/pre_register">
+						<i class="fa fa-cogs"></i> 
+						<span class="title">Előregisztráció</span>
+					</a>
+				</li>		
+			<!-- ELŐREGISZTRÁCIÓ VÉGE -->
+
+			<!-- SITE USERS tábla -->
+				<li class="<?php echo ($this->registry->controller == 'register_subscribe') ? 'active' : '';?>">
+					<a href="admin/register_subscribe">
+						<i class="fa fa-cogs"></i> 
+						<span class="title">Regisztráltak</span>
+					</a>
+				</li>		
+			<!-- ELŐREGISZTRÁCIÓ VÉGE -->
+			
+			<!-- SZERKESZTHETŐ OLDALAK -->
 				<li class="<?php echo ($this->registry->controller == 'pages' || $this->registry->controller == 'content') ? 'active' : '';?>">
 					<a href="javascript:;">
 					<i class="fa fa-file"></i> 
@@ -191,6 +209,8 @@
 						</li>
 					</ul>
 				</li>
+				
+			<!-- ADMIN USERS -->	
 				<li class="<?php echo ($this->registry->controller == 'users') ? 'active' : '';?>">
 					<a href="javascript:;">
 					<i class="fa fa-users"></i> 
@@ -264,6 +284,8 @@
 					</a>
 
 				</li>
+				
+			<!-- ALAP BEÁLLÍTÁSOK -->	
 				<li class="<?php echo ($this->registry->controller == 'settings') ? 'active' : '';?>">
 					<a href="javascript:;">
 					<i class="fa fa-cogs"></i> 

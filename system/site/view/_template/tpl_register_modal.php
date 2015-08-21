@@ -7,10 +7,11 @@
 			<h4 class="modal-title" id="modal_register_label">Regisztráció</h4>
 		</div>
 		
-			<form action="" method="POST" id="register_form" name="register_form">	
 		
 		<div class="modal-body">
 			<div id="message_register"></div>
+
+			<form action="" method="POST" id="register_form" name="register_form">	
 				<div class="control-group">
 					<label for="user_name" class="control-label">Felhasználó név</label>
 					<input type="text" name="user_name" placeholder="minimum hat karakter, ékezetek nélkül" class="form-control input-xlarge" />
@@ -35,6 +36,7 @@
 				</div>
 				<!-- Ezt majd css-ben kell eltüntetni!! -->
 				<!-- <input type="hidden"  name="security_name" />-->
+			</form>	
   
 		</div>
 		<div class="modal-footer">
@@ -42,7 +44,6 @@
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Bezár</button>
 		</div>
 			
-			</form>	
 
 	</div>
   </div>

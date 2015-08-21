@@ -19,9 +19,8 @@ class Regisztracio extends Controller {
 				$this->view->message = Message::send('account_activation_failed');
 			}
 
-			$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'plugins/jquery.blockui.min.js');
-			$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/modal_handler.js');
-		
+			$this->view->settings = $this->regisztracio_model->get_settings();
+			
 			$this->view->render('regisztracio/tpl_regisztracio', true);
 
   
@@ -40,7 +39,7 @@ class Regisztracio extends Controller {
 			$respond = $this->regisztracio_model->register_user();
 			echo $respond;
 			exit();
-
+			
 		} else {
 			Util::redirect('error');
 		}	

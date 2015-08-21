@@ -1378,7 +1378,7 @@ iframe.map {
     padding: 0px;
     right: 15px;
     position: absolute;
-    z-index: 99999;
+    z-index: 1030; /* módisítva: 9999 -ről a modal miatt */
 }
 .slider-wrapper .images .navigation li {
     -webkit-border-radius: 50%;

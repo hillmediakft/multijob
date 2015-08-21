@@ -138,7 +138,7 @@ class user_model extends Site_model {
 				// login process, write the user data into session
 				Session::init();
 				Session::set('user_site_logged_in', true);
-                Session::set('last_activity', time()); // bejelentkezés, illetve utolsó aktivitás ideje
+                Session::set('user_site_last_activity', time()); // bejelentkezés, illetve utolsó aktivitás ideje
 				Session::set('user_site_id', $result->user_id);
 				Session::set('user_site_name', $result->user_name);
 				Session::set('user_site_email', $result->user_email);

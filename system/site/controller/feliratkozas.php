@@ -23,9 +23,9 @@ class Feliratkozas extends Controller {
 				$this->view->message = Message::send('A feliratkozás nem sikerült!');
 			}
 
-			$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'plugins/jquery.blockui.min.js');
-			$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/modal_handler.js');
 
+			$this->view->settings = $this->feliratkozas_model->get_settings(); 
+			
 			$this->view->render('feliratkozas/tpl_feliratkozas', true);
 			
 		} else {

@@ -93,14 +93,14 @@
 								</div>
 
 								<div class="control-group">
-									<label for="bank_account_number" class="control-label">Bankszámla száma</label>
+									<label for="bank_account_number" class="control-label">Bankszámla száma <span class="form-required">*</span></label>
 									<div class="controls">
 										<input type="text" name="bank_account_number" />
 									</div>
 								</div>
 
 								<div class="control-group">
-									<label for="bank_name" class="control-label">Számlavezető bank neve</label>
+									<label for="bank_name" class="control-label">Számlavezető bank neve <span class="form-required">*</span></label>
 									<div class="controls">
 										<input type="text" name="bank_name" />
 									</div>
@@ -118,7 +118,7 @@
 								</div>
 
 								<div class="control-group">
-									<label for="contact_address" class="control-label">Elérhetőségi cím <span class="form-required">*</span></label>
+									<label for="contact_address" class="control-label">Elérhetőségi cím</label>
 									<div class="controls">
 										<input type="text" name="contact_address" />
 									</div>

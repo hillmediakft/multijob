@@ -4,6 +4,7 @@ class Ajax_request extends Controller {
 	function __construct()
 	{
 		parent::__construct();
+		Auth::handleExpire();
 		$this->loadModel('ajax_request_model');
 	}
 

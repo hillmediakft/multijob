@@ -6,12 +6,12 @@
     <base href="<?php echo BASE_URL;?>">
     <title>Multijob - hitelesítés</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
     <link rel="stylesheet" href="<?php echo SITE_CSS;?>bootstrap.css" type="text/css">
     <link rel="stylesheet" href="<?php echo SITE_CSS;?>bootstrap-responsive.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo SITE_ASSETS;?>plugins/chosen/chosen.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo SITE_ASSETS;?>plugins/jquery-ui-1.10.2.custom/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css">
+    <!-- <link rel="stylesheet" href="<?php //echo SITE_ASSETS;?>plugins/chosen/chosen.css" type="text/css"> -->
+    <!-- <link rel="stylesheet" href="<?php //echo SITE_ASSETS;?>plugins/jquery-ui-1.10.2.custom/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css"> -->
 	<link rel="stylesheet" href="<?php echo SITE_CSS;?>realia-blue.css" type="text/css" id="color-variant-default">
   
 	<!-- OLDALSPECIFIKUS CSS LINKEK -->
@@ -69,11 +69,11 @@
 
 											<div class="info">
 												<div class="site-email">
-													<a href="mailto:info@multijobisz.hu">info@multijobisz.hu</a>
+													<?php echo Util::safe_mailto($settings['email']);?>
 												</div><!-- /.site-email -->
 
 												<div class="site-phone">
-													<span>555-666-777</span>
+													<span><?php echo $settings['tel']?></span>
 												</div><!-- /.site-phone -->
 											</div><!-- /.info -->
 
@@ -129,6 +129,16 @@
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
 -->
 
+
+<!-- Form validátor -->
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-validation/additional-methods.min.js"></script>
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-validation/localization/messages_hu.js"></script>
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-validation/localization/methods_hu.js"></script>
+<!-- Modal handler -->
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>pages/modal_handler.js"></script>
+
+
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <?php
 if (isset($this->js_link)) {
@@ -137,6 +147,12 @@ if (isset($this->js_link)) {
     }
 }
 ?>
+
+<script type="text/javascript">
+	jQuery(document).ready(function() {    
+		modalHandler.init();
+	});
+</script>
 
 </body>
 </html>

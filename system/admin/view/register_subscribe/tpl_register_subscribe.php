@@ -9,9 +9,7 @@
 				<li>
 					<i class="fa fa-home"></i>
 					<a href="admin/home">Kezdőoldal</a> 
-					<i class="fa fa-angle-right"></i>
 				</li>
-				<li><a href="admin/jobs">Munkák listája</a></li>
 			</ul>
 		</div>
 		<!-- END PAGE TITLE & BREADCRUMB-->
@@ -21,42 +19,31 @@
 		<!-- BEGIN PAGE CONTENT-->
 		<div class="row">
 			<div class="col-md-12">
-
-				<!-- RÉSZLETEK MEGJELENÍTÉSE MODAL -->	
-				<div class="modal" id="ajax_modal" tabindex="-1" role="dialog">
-					<div class="modal-dialog">
-						<div class="modal-content" id="modal_container"></div>
-					</div>
-				</div>	
-				<!-- RÉSZLETEK MEGJELENÍTÉSE MODAL END -->	
-			
-				<!-- echo out the system feedback (error and success messages) -->
-				<?php $this->renderFeedbackMessages(); ?>				
-							
+				
 					<div class="portlet">
 						<div class="portlet-title">
-							<div class="caption"><i class="fa fa-cogs"></i>Munkák listája</div>
+							<div class="caption"><i class="fa fa-cogs"></i>Regisztrált és feliratkozott felhasználók</div>
 							<div class="actions">
-								<a href="admin/jobs/new_job" class="btn blue-steel btn-sm"><i class="fa fa-plus"></i> Új munka</a>
-								<!-- <button class="btn red btn-sm" name="delete_job_submit" value="submit" type="submit"><i class="fa fa-trash"></i> Csoportos törlés</button> -->
 								<div class="btn-group">
 									<a data-toggle="dropdown" href="#" class="btn btn-sm default">
 										<i class="fa fa-wrench"></i> Eszközök <i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="dropdown-menu pull-right">
 										<li>
-											<a href="#" id="print_jobs"><i class="fa fa-print"></i> Nyomtat </a>
+											<a href="#" id="print_register"><i class="fa fa-print"></i> Nyomtat </a>
 										</li>
 										<li>
-											<a href="#" id="export_jobs"><i class="fa fa-file-excel-o"></i> Export CSV </a>
+											<a href="#" id="export_register"><i class="fa fa-file-excel-o"></i> Export CSV </a>
 										</li>
 									</ul>
 								</div>
 							</div>
 						</div>
 						<div class="portlet-body">
-<!-- *************************** JOBS TÁBLA *********************************** -->						
+<!-- *************************** regisztráltak TÁBLA *********************************** -->						
 							
+		<!-- echo out the system feedback (error and success messages) -->
+		<?php $this->renderFeedbackMessages(); ?>				
 		<div id="ajax_message"></div> 						
 				
 							
@@ -66,14 +53,12 @@
 								</span>
 								<select class="table-group-action-input form-control input-inline input-small input-sm">
 									<option value="">Válasszon</option>
-									<option value="group_make_active">Aktív</option>
-									<option value="group_make_inactive">Inaktív</option>
 									<option value="group_delete">Töröl</option>
 								</select>
 								<button class="btn btn-sm grey-cascade table-group-action-submit" title="Csoportos művelet végrehajtása"><i class="fa fa-check"></i> Csoportművelet</button>
 							</div>							
 
-							<table class="table table-striped table-bordered table-hover" id="jobs">
+							<table class="table table-striped table-bordered table-hover" id="register_subscribe_table">
 								<thead>
 									<tr role="row" class="heading">
 										<th width="1%">
@@ -83,22 +68,19 @@
 											#id
 										</th>
 										<th width="15%">
-											Megnevezés
+											Név
 										</th>
 										<th width="15%">
-											Kategória
+											E-mail
 										</th>
 										<th width="10%">
-											Cég neve
+											Status
 										</th>
 										<th width="10%">
-											Létrehozva
-										</th>
-										<th width="15%">
-											Módosítva
+											Típus
 										</th>
 										<th width="10%">
-											Státusz
+											Hírlevél
 										</th>
 										<th width="1%">
 											
@@ -108,37 +90,34 @@
 										<td>
 										</td>
 										<td>
-											<input type="text" class="form-control form-filter input-sm" name="search_job_id">
+											<input type="text" class="form-control form-filter input-sm" name="search_user_id">
 										</td>
 										<td>
-											<input type="text" class="form-control form-filter input-sm" name="search_job_title">
+											<input type="text" class="form-control form-filter input-sm" name="search_name">
 										</td>
 										<td>
-											<select name="search_job_category" class="form-control form-filter input-sm">
-												<option value="">Válasszon</option>
-												<?php foreach($job_list as $value) { ?>
-												<option value="<?php echo $value['job_list_id']; ?>"><?php echo $value['job_list_name']; ?></option>
-												<?php }	?>
-											</select>
-										</td>
-										<td>
-											<select name="search_employer" class="form-control form-filter input-sm">
-												<option value="">Válasszon</option>
-												<?php foreach($employer_list as $value) { ?>
-												<option value="<?php echo $value['employer_id']; ?>"><?php echo $value['employer_name']; ?></option>
-												<?php }	?>
-											</select>
-										</td>
-										<td>
-										</td>
-										<td>
+											<input type="text" class="form-control form-filter input-sm" name="search_email">
 										</td>
 										<td>
 											<select name="search_status" class="form-control form-filter input-sm">
 												<option value="">Válasszon</option>
 												<option value="1">Aktív</option>
 												<option value="0">Inaktív</option>
-											</select>
+											</select>								
+										</td>
+										<td>
+											<select name="search_provider_type" class="form-control form-filter input-sm">
+												<option value="">Válasszon</option>
+												<option value="default">Regisztrált</option>
+												<option value="news_only">Feliratkozott</option>
+											</select>											
+										</td>
+										<td>
+											<select name="search_newsletter" class="form-control form-filter input-sm">
+												<option value="">Válasszon</option>
+												<option value="1">Kér hírlevelet</option>
+												<option value="0">Nem kér hírlevelet</option>
+											</select>												
 										</td>
 										<td>
 											<div style="width:80px">

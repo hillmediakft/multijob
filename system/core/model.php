@@ -46,7 +46,7 @@ class Model {
 	public function get_data($args = array())
 	{
 		$this->query->reset(); 
-		$this->query->set_table(array($table)); 
+		
 		if(isset($args['table'])){
 			$this->query->set_table($args['table']); 
 		}

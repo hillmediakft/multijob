@@ -24,7 +24,6 @@ class Irodak extends Controller {
 
 		$this->view->render('irodak/tpl_irodak');				
 	}
-	
-	
+
 }
 ?>

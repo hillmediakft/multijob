@@ -519,6 +519,11 @@ var Jobs = function () {
 
 
 	var handle_modal = function() {
+		// amikor megjelenik a modal
+		$('#ajax_modal').on('show.bs.modal', function () {
+			$('body').addClass('modal-open-noscroll');    
+		});
+		// amikor eltűnik a modal
 		$('#ajax_modal').on('hidden.bs.modal', function () {
 			$('#modal_container').html('');    
 		});

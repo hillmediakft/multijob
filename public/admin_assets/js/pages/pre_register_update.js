@@ -1,20 +1,24 @@
-var preRegister = function () {
+var updatePrereg = function () {
 
 	/**
 	 *	Form validátor
 	 */
     var handleValidation = function() {
+		console.log('start handleValidation');
+        // for more info visit the official plugin documentation: 
+            // http://docs.jquery.com/Plugins/Validation
 
-		//console.log('validátor indul');
-
-		var form1 = $('#pre_register_form');
-		var error1 = $('#validator_error');
+		var form1 = $('#update_prereg');
+		var error1 = $('.alert-danger', form1);
+		var error1_span = $('.alert-danger > span', form1);
+		var success1 = $('.alert-success', form1);
+		//var success1_span = $('.alert-success > span', form1);
 
 		form1.validate({
 			errorElement: 'span', //default input error message container
-			errorClass: 'help-block', // default input error message class
+			errorClass: 'help-block help-block-error', // default input error message class
 			focusInvalid: true, // do not focus the last invalid input
-			//ignore: "", // validate all fields including form hidden input
+			//ignore: "input[name='img']",
 			rules: {
 				name: {
 					required: true,
@@ -56,51 +60,53 @@ var preRegister = function () {
 				email_address: {
 					email: true
 				}
-			
 			},
 			// az invalidHandler akkor aktiválódik, ha elküldjük a formot és hiba van
-						
-
 			invalidHandler: function (event, validator) { //display error alert on form submit              
-				var errors = validator.numberOfInvalids();
 				
-				$error_number = errors + ' mezőt nem megfelelően töltött ki!';
-				$error_message = '<div class="alert alert-danger"><button class="close" data-dismiss="alert" type="button">×</button>' + $error_number + '</div>';
-				error1.html($error_message);
-				//error1.delay(4000).fadeOut('slow');
-
+				//success1.hide();
+				var errors = validator.numberOfInvalids();
+				error1_span.html(errors + ' mezőt nem megfelelően töltött ki!');
+				error1.show();
+				error1.delay(3000).slideUp(750);
 			},
 
 			highlight: function (element) { // hightlight error inputs
-				$(element).closest('.control-group').addClass('error'); // set error class to the control group                   
+				$(element).closest('.form-group').addClass('has-error'); // set error class to the control group                   
 			},
 
 			unhighlight: function (element) { // revert the change done by hightlight
-				$(element).closest('.control-group').removeClass('error'); // set error class to the control group                   
+				$(element).closest('.form-group').removeClass('has-error'); // set error class to the control group                   
 			},
 
 			success: function (label) {
+				console.log('success');
 				//label.closest('.form-group').removeClass('has-error').addClass("has-success"); // set success class to the control group
-				label.closest('.control-group').removeClass('error'); // set success class to the control group
+				label.closest('.form-group').removeClass('has-error'); // set success class to the control group
 			},
 
 			submitHandler: function (form) {
-				//error1.hide();
-				//console.log('form küldése!');	
+				//console.log('submitHandler');
+				error1.hide();
+				//success1.show();
+
+				//adatok elküldése "normál" küldéssel
 				form.submit();
+				//alert('form küldése teszt!');
 			}
 		});
-    };
+    }
 
 
-
+	var hideAlert = function () {
+		$('div.alert').delay( 2500 ).slideUp( 750 );						 		
+	}
 
     return {
         //main function to initiate the module
         init: function () {
-		
 			handleValidation();
-			
+			hideAlert();
         }
     };
 
@@ -109,9 +115,9 @@ var preRegister = function () {
 
 
 jQuery(document).ready(function() {    
-	
-	modalHandler.init();
-	//sidebarSearch.init();
-	preRegister.init();
-	
+	Metronic.init(); // init metronic core componets
+	Layout.init(); // init layout
+	QuickSidebar.init(); // init quick sidebar
+	Demo.init(); // init demo features	
+	updatePrereg.init();	
 });

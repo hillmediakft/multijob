@@ -193,7 +193,10 @@ div.feltetelek ul li {
 }
 
 
-
+/* modal-al kapcsolatos szabályok */
+.modal-open {
+	overflow-y: hidden !important;
+}
 
 
 

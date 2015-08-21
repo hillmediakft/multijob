@@ -6,7 +6,7 @@
     <base href="<?php echo BASE_URL;?>">
     <title>Multijob - hitelesítés</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
     <link rel="stylesheet" href="<?php echo SITE_CSS;?>bootstrap.css" type="text/css">
     <link rel="stylesheet" href="<?php echo SITE_CSS;?>bootstrap-responsive.css" type="text/css">
@@ -31,13 +31,16 @@
 						<div class="row">
 							<div class="span12">
 
-
 								<div class="account pull-right">
 									<ul class="nav nav-pills">
+										<li>&nbsp;</li>		
+							<!-- 
 										<li><a data-toggle="modal" data-target="#modal_login" href="javascript:;">Bejelentkezés</a></li>
 										<li><a data-toggle="modal" data-target="#modal_register" href="javascript:;">Regisztráció</a></li>
+							-->
 									</ul>
 								</div>
+								
 							</div><!-- /.span12 -->
 						</div><!-- /.row -->
 					</div><!-- /.container -->
@@ -69,11 +72,11 @@
 
 											<div class="info">
 												<div class="site-email">
-													<a href="mailto:info@multijobisz.hu">info@multijobisz.hu</a>
+													<?php echo Util::safe_mailto($settings['email']);?>
 												</div><!-- /.site-email -->
 
 												<div class="site-phone">
-													<span>555-666-777</span>
+													<span><?php echo $settings['tel']?></span>
 												</div><!-- /.site-phone -->
 											</div><!-- /.info -->
 
@@ -116,20 +119,20 @@
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=true"></script>
 <script type="text/javascript" src="<?php echo SITE_JS; ?>jquery.js"></script>
-<script type="text/javascript" src="<?php echo SITE_JS; ?>jquery.ezmark.js"></script>
+<!-- <script type="text/javascript" src="<?php //echo SITE_JS; ?>jquery.ezmark.js"></script> -->
 <script type="text/javascript" src="<?php echo SITE_JS; ?>bootstrap.min.js"></script>
 <!--
-<script type="text/javascript" src="<?php echo SITE_JS; ?>retina.js"></script>
-<script type="text/javascript" src="<?php echo SITE_JS; ?>realia.js"></script>
-<script type="text/javascript" src="<?php echo SITE_JS; ?>jquery.currency.js"></script>
-<script type="text/javascript" src="<?php echo SITE_JS; ?>jquery.cookie.js"></script>
-<script type="text/javascript" src="<?php echo SITE_JS; ?>carousel.js"></script>
-<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-ui-1.10.2.custom/js/jquery-ui-1.10.2.custom.min.js"></script>
-<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/chosen/chosen.jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo SITE_JS; ?>gmap3.min.js"></script>
-<script type="text/javascript" src="<?php echo SITE_JS; ?>gmap3.infobox.min.js"></script>
-<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/iosslider/_src/jquery.iosslider.min.js"></script>
-<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="<?php //echo SITE_JS; ?>retina.js"></script>
+<script type="text/javascript" src="<?php //echo SITE_JS; ?>realia.js"></script>
+<script type="text/javascript" src="<?php //echo SITE_JS; ?>jquery.currency.js"></script>
+<script type="text/javascript" src="<?php //echo SITE_JS; ?>jquery.cookie.js"></script>
+<script type="text/javascript" src="<?php //echo SITE_JS; ?>carousel.js"></script>
+<script type="text/javascript" src="<?php //echo SITE_ASSETS; ?>plugins/jquery-ui-1.10.2.custom/js/jquery-ui-1.10.2.custom.min.js"></script>
+<script type="text/javascript" src="<?php //echo SITE_ASSETS; ?>plugins/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="<?php //echo SITE_JS; ?>gmap3.min.js"></script>
+<script type="text/javascript" src="<?php //echo SITE_JS; ?>gmap3.infobox.min.js"></script>
+<script type="text/javascript" src="<?php //echo SITE_ASSETS; ?>plugins/iosslider/_src/jquery.iosslider.min.js"></script>
+<script type="text/javascript" src="<?php //echo SITE_ASSETS; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
 -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <?php
@@ -141,9 +144,11 @@ if (isset($this->js_link)) {
 ?>
 
 <script type="text/javascript">
+/*
 $(document).ready(function() {    
 	$('input[type="checkbox"]').ezMark();
 });
+*/
 </script>
 
 </body>

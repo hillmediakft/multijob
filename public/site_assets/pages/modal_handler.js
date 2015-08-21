@@ -99,7 +99,11 @@ var modalHandler = function () {
 			$("#message_login").html('');
 		});		
 
-		//$("#login_submit").on('click', function(){ });
+		
+	// Login form elküldése ha ráklikkelünk a login_submit gombra
+		$("#login_submit").on('click', function(){
+			$("#login_form").submit();
+		});
 	};
 	
     
@@ -127,12 +131,14 @@ var modalHandler = function () {
             },
             success: function(respond){
                 if(respond.status == 'success'){
-                    $success_messages = '';
+                    
+					$success_messages = '';
                     $.each( respond.message, function( index, value ){
                         //console.log(index + ' : ' + value);
                         $success_messages += value + "<br />"; 
                     });
-                    //$success_messages += '<br />';
+                    
+					//$success_messages += '<br />';
                     $("#register_submit").hide();
                     $("#register_form").hide();
                     $("#message_register").html($success_messages);
@@ -153,14 +159,19 @@ var modalHandler = function () {
         });        
     };
 
+	
+	/**
+	 *	A regisztrációs modal megjelenéséhez,
+	 *	illetve eltűnéséhez kapcsolódó események
+	 */
 	var handle_register_modal = function(){
 
 	// amikor megjelenik a modal
 		$('#modal_register').on('shown.bs.modal', function () {
 			//$('#modal_register').focus()
-            
+			
             // register form validálás
-            console.log('register validátor indul');
+            //console.log('register validátor indul');
 
             $('#register_form').validate({
                 errorElement: 'span', //default input error message container
@@ -202,11 +213,13 @@ var modalHandler = function () {
                 submitHandler: function (form) {
                     console.log('form küldése!');	
                     // form adatok küldése
-                    send_register_data();
+					send_register_data();
                 }
             });           
 			
 		});
+		
+	
 
 	// amikor eltűnik a modal
 		$('#modal_register').on('hidden.bs.modal', function () {
@@ -223,8 +236,11 @@ var modalHandler = function () {
 			
 		});
 
-        // ha ráklikkelünk a küldésre
-		//$("#register_submit").on('click', function(){ });
+	// Regisztrációs form elküldése ha ráklikkelünk a register_submit gombra
+		$("#register_submit").on('click', function(){
+			$("#register_form").submit();
+		});		
+		
 	};
 
     
@@ -290,7 +306,14 @@ var modalHandler = function () {
 	// amikor megjelenik a modal
 		$('#modal_subscribe').on('shown.bs.modal', function () {
 			//$('#myInput').focus()
-
+			
+			/*
+			// a body scroll letiltása (a body szélesség megtartásával)
+			var oldWidth = $('body').innerWidth();
+			$('body').addClass('modal-open');
+			$('body').width(oldWidth);			
+			*/
+			
             // register form validálás
             console.log('subscribe validátor indul');
 
@@ -333,6 +356,13 @@ var modalHandler = function () {
 	// amikor eltűnik a modal
 		$('#modal_subscribe').on('hidden.bs.modal', function () {
 			//$('#modal_subscribe').focus()
+			
+			/*
+			// a body scroll engedélyezése
+			$('body').removeClass('modal-open');
+			$('body').width("auto");			
+			*/
+			
 			// form adatok törlése
 			document.getElementById("subscribe_form").reset();
 			// üzenetek törlése
@@ -343,13 +373,16 @@ var modalHandler = function () {
 			$("#info_subscribe").show();
 		});		
 	
-		//$("#subscribe_submit").on('click', function(){});
+	// Feliratkozás form elküldése ha ráklikkelünk a subscribe_submit gombra
+		$("#subscribe_submit").on('click', function(){
+			$("#subscribe_form").submit();
+		});
 	};
 	
 	return {
  
 		//main method to initiate page
-		init: function () {           
+		init: function () {
 			handle_login_modal();
 			handle_register_modal();
 			handle_subscribe_modal();
