@@ -22,9 +22,19 @@
 	<?php if(isset($this->css_link)){
 		foreach($this->css_link as $value) { echo $value; }
 	} ?>
-		
+	
 </head>
 <body>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v2.4";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
 <div id="wrapper-outer" >
     <div id="wrapper">
         <div id="wrapper-inner">
@@ -99,7 +109,7 @@
                                             </div><!-- /.site-phone -->
                                         </div><!-- /.info -->
 
-                                        <a class="btn btn-primary btn-large list-your-property arrow-right" href="#">Most akarok dolgozni!</a>
+                                        <a class="btn btn-primary btn-large list-your-property arrow-right" href="munkak">Legfrissebb munkák!</a>
                                     </div><!-- /.row -->
                                 </div><!-- /.navbar-inner -->
                             </div><!-- /.navbar -->

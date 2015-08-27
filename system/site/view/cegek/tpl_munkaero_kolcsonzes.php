@@ -24,7 +24,10 @@
           			<!-- KERESŐ DOBOZ -->
 					<?php include('system/site/view/_template/tpl_sidebar_search.php'); ?>                  
           			<!-- KOLLÉGÁINK DOBOZ -->
-					<?php include('system/site/view/_template/tpl_sidebar_kollegaink.php'); ?>                  
+					<?php //include('system/site/view/_template/tpl_sidebar_kollegaink.php'); ?>
+					<!-- FACEBOOK DOBOZ -->
+					<?php include('system/site/view/_template/tpl_facebook_box.php'); ?> 
+					
                 </div>
             </div>
     
