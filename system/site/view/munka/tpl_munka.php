@@ -55,7 +55,7 @@
                             
                         </div>	-->
 
-                        <h2><i class="fa fa-info-circle fa-fw"></i> <?php echo $job_data['job_title']; ?></h2>
+                        <h2><i class="fa fa-check-square"></i> <?php echo $job_data['job_title']; ?></h2>
 						<table class="table table-striped">
 							<tbody>
 								<tr>                        
