@@ -59,42 +59,61 @@
 						<table class="table table-striped">
 							<tbody>
 								<tr>                        
-									<td><i class="fa fa-cogs fa-fw"></i><strong> Munka típusa: </strong></td>
+									<td><i class="fa fa-cogs fa-fw"></i><strong> Kategória: </strong></td>
 									<td><?php echo $job_data['job_list_name']; ?></td>
 								</tr>
 								<tr>                        
-									<td><i class="fa fa-file fa-fw"></i> <strong>Leírás: </strong></td>
+									<td><i class="fa fa-file fa-fw"></i> <strong> Leírás: </strong></td>
 									<td><?php echo $job_data['job_description']; ?></td>
 								</tr>
-						</tbody>
-						</table>
-
-
-                        <p>
-                            <i class="fa fa-clock-o fa-fw"></i><strong>Diákmunka ideje: </strong><?php echo $job_data['job_working_hours']; ?>
-                        </p>
-                        <p>
-                            <i class="fa fa-money fa-fw"></i> <strong>Fizetés: </strong><?php echo $job_data['job_pay']; ?>
-                        </p>
-                        <p>
-                            <i class="fa fa-map-marker fa-fw"></i> <strong>Munkavégzés helye: </strong>
-                            <?php if($job_data['county_name'] == 'Budapest') {
+								<tr>                        
+									<td><i class="fa fa-clock-o fa-fw"></i><strong> Munka ideje: </strong></td>
+									<td><?php echo $job_data['job_working_hours']; ?></td>
+								</tr>						
+								<tr>                        
+									<td><i class="fa fa-money fa-fw"></i> <strong> Fizetés: </strong></td>
+									<td><?php echo $job_data['job_pay']; ?></td>
+								</tr>
+								<tr>                        
+									<td><i class="fa fa-map-marker fa-fw"></i> <strong> Helye: </strong></td>
+									<td><?php if($job_data['county_name'] == 'Budapest') {
                                 echo 'Budapest, ' . $job_data['district_name'] . ' kerület';
                             } else {
                                 echo $job_data['city_name'];
                             }
-                            ?>
-                        </p>
+                            ?></td>
+								</tr>
+								
+							<?php if(!empty($job_data['job_conditions'])) { ?>	
+								<tr>                        
+									<td> <i class="fa fa-exclamation-triangle fa-fw"></i> <strong>Feltételek: </strong></td>
+									<td> <?php echo $job_data['job_conditions']; ?></td>
+								</tr>
+							<?php } ?>	
+							
+								
+								
+						</tbody>
+						</table>
+						
+
+						
+						<div class="widget our-agents">
+							<div class="content">
+								<div class="agent">
+								
+								<p>A részletekkel kapcsolatban keresd kollégánkat:</p>
+									<div class="image">
+										<img alt="" src="public/site_assets/image/photos/agent.png">
+									</div><!-- /.image -->
+									<div class="name"> Gipsz jakab</div><!-- /.name -->
+									<div class="phone"><i class="fa fa-phone fa-fw"></i> 333-666-777</div><!-- /.phone -->
+									<div class="email"><i class="fa fa-envelope fa-fw"></i> <a href="mailto:jakab@example.com">jakab@example.com</a></div><!-- /.email -->
+								</div><!-- /.agent -->
 
 
-                        <?php if(!empty($job_data['job_conditions'])) { ?>
-                        <p>
-                            <i class="fa fa-exclamation-triangle fa-fw"></i> <strong>Munka feltételek: </strong>
-                        </p>
-                        <div>
-                            <?php echo $job_data['job_conditions']; ?>
-                        </div>
-                        <?php } ?>
+							</div>
+						</div>
 
                     <br /><br />
                     <button class="btn btn-primary" type="button" name="jelentkezes">Jelentkezés</button>

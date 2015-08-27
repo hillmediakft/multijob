@@ -198,9 +198,20 @@ div.feltetelek ul li {
 	overflow-y: hidden !important;
 }
 
-/* munka részletek ikonok */
+/* munka részletek */
 .job-detail i {
 color: #a9a9a9;
+}
+
+.job-detail .table-striped tbody > tr > td:first-child {
+    width: 130px;
+}
+
+.job-detail .widget.our-agents .agent {
+    background-color: #f2f2f2;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    padding: 10px 15px;
 }
 
 
