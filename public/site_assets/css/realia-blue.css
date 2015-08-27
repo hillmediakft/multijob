@@ -3279,8 +3279,7 @@ iframe.map {
     background-repeat: repeat-x;
     background-size: 270px 1px;
     color: #06a7ea;
-    list-style: disc;
-    list-style-position: inside;
+    list-style: none;
     padding: 6px 0px;
 }
 @media (-webkit-min-device-pixel-ratio: 2),  (-moz-min-device-pixel-ratio: 2) {
@@ -3345,7 +3344,7 @@ iframe.map {
 }
 #footer-wrapper #footer-top table.contact th {
     background-repeat: no-repeat;
-    color: #06a7ea;
+    color: #909090;
     font-weight: bold;
     padding: 0px 10px 10px 30px;
     text-align: right;
