@@ -1823,6 +1823,7 @@ iframe.map {
 .properties-grid .property .image {
     overflow: hidden;
     position: relative;
+    background: #000;
 }
 .properties-grid .property .image a {
     -webkit-transition: background-color 0.2s ease-in;
@@ -1846,7 +1847,9 @@ iframe.map {
 }
 .properties-grid .property .image img {
     height: auto;
-    width: 100%}
+    width: 100%;
+    opacity: 0.7;
+}
 .properties-grid .property h2 {
     line-height: 22px;
     margin: 10px 0px 0px 0px;
@@ -1872,7 +1875,7 @@ iframe.map {
 .properties-grid .property .price {
     background-color: #f3c406;
     color: #fff;
-    font-size: 18px;
+    font-size: 15px;
     padding: 5px 16px;
     position: absolute;
     right: 0px;
@@ -1881,7 +1884,7 @@ iframe.map {
 .properties-grid .property .reduced {
     background-color: #313131;
     color: #fff;
-    font-size: 18px;
+    font-size: 14px;
     padding: 5px 16px;
     position: absolute;
     left: 0px;
