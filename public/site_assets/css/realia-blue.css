@@ -3252,7 +3252,7 @@ iframe.map {
     margin-bottom: 0px;
 }
 }#footer-wrapper {
-    background-color: #000;
+    background-color: #181818;
     color: #ddd;
     width: 100%}
 #footer-wrapper .widget.properties .property {
@@ -3265,7 +3265,7 @@ iframe.map {
 #footer-wrapper #footer-top {
     background-color: #333;
     padding-top: 20px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 #footer-wrapper #footer-top h2 {
     color: #ddd;
@@ -3406,7 +3406,7 @@ iframe.map {
 #footer-wrapper #footer {
     border: 0px;
     margin-top: 0px;
-    padding: 25px 0px;
+    padding: 10px 0px;
 }
 #footer-wrapper #footer #footer-inner p {
     margin: 0px;
