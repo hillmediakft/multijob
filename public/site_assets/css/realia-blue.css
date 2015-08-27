@@ -258,6 +258,8 @@ form.contact-form .email {
 }
 .sidebar h2 {
     color: #707070;
+	background: rgba(255, 255, 255, 0.5);
+	padding: 0px 10px;
 
 }
 
@@ -265,6 +267,8 @@ form.contact-form .email {
     color: #707070;
 	font-size: 15px;
 	font-weight: 400;
+	background: rgba(255, 255, 255, 0.5);
+	padding: 10px 10px;
 }
 
 .sidebar .title {

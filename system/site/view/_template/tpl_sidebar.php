@@ -58,6 +58,8 @@
 	</div><!-- /.content -->
 </div><!-- /.property-filter --> 
 
+<div class="clearfix"></div>
+
 <div class="title">
 	<h5>Csatlakozz hozzánk a Facebookon</h5>
 </div><!-- /.title --> 
