@@ -198,6 +198,11 @@ div.feltetelek ul li {
 	overflow-y: hidden !important;
 }
 
+/* munka részletek ikonok */
+.job-detail i {
+color: #a9a9a9;
+}
+
 
 
 

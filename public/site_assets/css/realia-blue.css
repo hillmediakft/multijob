@@ -1812,6 +1812,7 @@ iframe.map {
     margin-bottom: 30px;
     padding-bottom: 10px;
     position: relative;
+    height: 270px;
 }
 .properties-grid .property:after {
     height: 0;

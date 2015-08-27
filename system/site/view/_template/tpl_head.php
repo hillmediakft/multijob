@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
     <link rel="stylesheet" href="<?php echo SITE_CSS;?>bootstrap.css" type="text/css">
     <link rel="stylesheet" href="<?php echo SITE_CSS;?>bootstrap-responsive.css" type="text/css">
+	<link rel='stylesheet' href='<?php echo SITE_ASSETS; ?>fonts/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
     <link rel="stylesheet" href="<?php echo SITE_ASSETS;?>plugins/chosen/chosen.css" type="text/css">
     <link rel="stylesheet" href="<?php echo SITE_ASSETS;?>plugins/bootstrap-fileupload/bootstrap-fileupload.css" type="text/css">
     <link rel="stylesheet" href="<?php echo SITE_ASSETS;?>plugins/jquery-ui-1.10.2.custom/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css">

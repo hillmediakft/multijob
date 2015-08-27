@@ -18,7 +18,7 @@
 					
                     <div class="job-detail">
 
-                         <div class="pull-right overview-right">
+                   <!--      <div class="pull-right overview-right">
                             <div class="row">
                                 <div class="span4">
                                     <h2>Munkaadó adatai</h2>
@@ -50,26 +50,34 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <!-- /.span2 -->
+                                
                             </div>
-                            <!-- /.row -->
-                        </div>	
+                            
+                        </div>	-->
 
-                        <h2><?php echo $job_data['job_title']; ?></h2>
+                        <h2><i class="fa fa-info-circle fa-fw"></i> <?php echo $job_data['job_title']; ?></h2>
+						<table class="table table-striped">
+							<tbody>
+								<tr>                        
+									<td><i class="fa fa-cogs fa-fw"></i><strong> Munka típusa: </strong></td>
+									<td><?php echo $job_data['job_list_name']; ?></td>
+								</tr>
+								<tr>                        
+									<td><i class="fa fa-file fa-fw"></i> <strong>Leírás: </strong></td>
+									<td><?php echo $job_data['job_description']; ?></td>
+								</tr>
+						</tbody>
+						</table>
+
+
                         <p>
-                            <strong>Munka típusa: </strong><?php echo $job_data['job_list_name']; ?>
+                            <i class="fa fa-clock-o fa-fw"></i><strong>Diákmunka ideje: </strong><?php echo $job_data['job_working_hours']; ?>
                         </p>
                         <p>
-                            <strong>Leírás: </strong><?php echo $job_data['job_description']; ?>
+                            <i class="fa fa-money fa-fw"></i> <strong>Fizetés: </strong><?php echo $job_data['job_pay']; ?>
                         </p>
                         <p>
-                            <strong>Diákmunka ideje: </strong><?php echo $job_data['job_working_hours']; ?>
-                        </p>
-                        <p>
-                            <strong>Fizetés: </strong><?php echo $job_data['job_pay']; ?>
-                        </p>
-                        <p>
-                            <strong>Munkavégzés helye: </strong>
+                            <i class="fa fa-map-marker fa-fw"></i> <strong>Munkavégzés helye: </strong>
                             <?php if($job_data['county_name'] == 'Budapest') {
                                 echo 'Budapest, ' . $job_data['district_name'] . ' kerület';
                             } else {
@@ -81,7 +89,7 @@
 
                         <?php if(!empty($job_data['job_conditions'])) { ?>
                         <p>
-                            <strong>Munka feltételek: </strong>
+                            <i class="fa fa-exclamation-triangle fa-fw"></i> <strong>Munka feltételek: </strong>
                         </p>
                         <div>
                             <?php echo $job_data['job_conditions']; ?>
