@@ -119,7 +119,7 @@
 									<a href="" class="no_arrow <?php echo ($this->registry->controller == 'home' && $this->registry->action == 'index') ? 'active' : ''; ?>">Kezdőoldal</a>
 								</li>
 								<li>
-                                    <a href="munkak" class="no_arrow <?php echo ($this->registry->controller == 'munkak' && $this->registry->action == 'index') ? 'active' : ''; ?>">Munkák</a>
+                                    <a href="munkak" class="no_arrow <?php echo (($this->registry->controller == 'munkak' || $this->registry->controller == 'munka') && $this->registry->action == 'index') ? 'active' : ''; ?>">Munkák</a>
                                 </li>
                                 <li>
                                     <a href="rolunk" class="no_arrow <?php echo ($this->registry->controller == 'rolunk' && $this->registry->action == 'index') ? 'active' : ''; ?>">Rólunk</a>
