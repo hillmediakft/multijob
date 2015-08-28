@@ -17,17 +17,6 @@
 				</div><!-- /.controls -->
 			</div><!-- /.control-group -->
 
-
-			<div id="district_div" class="type control-group">
-				<label class="control-label" for="inputType">
-					Kerület
-				</label>
-				<div class="controls">
-					<select disabled data-placeholder="Válasszon..." name="kerulet" id="district_select" class="chosen-select">
-					</select>
-				</div><!-- /.controls -->
-			</div><!-- /.control-group -->
-
 			<div id="city_div" class="type control-group">
 				<label class="control-label" for="inputType">
 					Város
@@ -38,6 +27,15 @@
 				</div><!-- /.controls -->
 			</div><!-- /.control-group -->
 
+			<div id="district_div" class="type control-group">
+				<label class="control-label" for="inputType">
+					Kerület
+				</label>
+				<div class="controls">
+					<select disabled data-placeholder="Válasszon..." name="kerulet" id="district_select" class="chosen-select">
+					</select>
+				</div><!-- /.controls -->
+			</div><!-- /.control-group -->			
 			
 			<div id="job_category_div" class="type control-group">
 				<label class="control-label" for="inputType">

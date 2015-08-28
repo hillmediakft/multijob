@@ -68,6 +68,11 @@
                                     <label for="setting_email_diak">E-mail diák</label>	
                                     <input type='text' name='setting_email_diak' class='form-control input-large' value="<?php echo (empty($settings['email_diak'])) ? "" : $settings['email_diak']; ?>"/>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="setting_email_diak">Facebook link</label>	
+                                    <input type='text' name='setting_facebook_link' class='form-control input-large' value="<?php echo (empty($settings['facebook_link'])) ? "" : $settings['facebook_link']; ?>"/>
+                                </div>
 								
 							</div> <!-- END USER GROUPS PORTLET BODY-->
 						</div> <!-- END USER GROUPS PORTLET-->

@@ -35,6 +35,7 @@ class Settings_model extends Model {
 		$data['email_ceges'] = $_POST['setting_email_ceges'];
 		$data['email_diak'] = $_POST['setting_email_diak'];
 		$data['tel'] = $_POST['setting_tel'];
+		$data['facebook_link'] = $_POST['setting_facebook_link'];
 		
 
 		// új adatok beírása az adatbázisba (update) a $data tömb tartalmazza a frissítendő adatokat 

@@ -4,14 +4,7 @@
 </div>
 -->
 
-<div>
-	<div class="fb-page" data-href="https://www.facebook.com/facebook" data-width="260" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"></div>
-</div>
-
-
-<!-- 
-<div class="fb-page" data-href="https://www.facebook.com/imdb" 
-  data-width="340" data-hide-cover="false" data-show-facepile="true"
-  data-show-posts="false"></div>
--->
+<?php if(!empty($settings['facebook_link']) || $settings['facebook_link'] != ''){ ?>
+	<div class="fb-page" data-href="<?php echo $settings['facebook_link']; ?>" data-width="260" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"></div>
+<?php }?>
   
