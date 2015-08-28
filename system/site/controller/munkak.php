@@ -21,7 +21,7 @@ class Munkak extends Controller {
 		// paginator
 			include(LIBS . '/pagine_class.php');
 			// paginátor objektum létrehozása (paraméter neve, limit)
-			$pagine = new Paginator('oldal', 3);
+			$pagine = new Paginator('oldal', 9);
 			// adatok lekérdezése limittel
 			$this->view->jobs_data = $this->munkak_model->jobs_filter_query( $pagine->get_limit(), $pagine->get_offset() ); 
 			// szűrési feltételeknek megfelelő összes rekord száma
