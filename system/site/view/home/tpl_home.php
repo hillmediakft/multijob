@@ -56,7 +56,7 @@
             <div class="row">
                 <div class="span9">
                     
-                    <h1 class="page-header">Legfrissebb munkáink <a class="btn btn-secondary arrow-right pull-right" href="<?php echo BASE_URL;?>munkak">Megnézem az összes munkát</a></h1>
+                    <h1 class="page-header">Új munkáink <a class="btn btn-secondary arrow-right pull-right" href="<?php echo BASE_URL;?>munkak">Megnézem az összes munkát</a></h1>
 
                     <div class="properties-grid">
                         <div class="row">
