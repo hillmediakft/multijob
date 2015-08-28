@@ -199,7 +199,7 @@ var sidebarSearch = function () {
 			ajax_category_query(field);
 		}
 	
-		console.log(field);
+		//console.log(field);
 
 	
 		// behívja megyék listáját (ha az üres /csak az első klikkelésig lesz üres/)

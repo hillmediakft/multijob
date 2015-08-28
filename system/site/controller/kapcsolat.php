@@ -11,7 +11,7 @@ class Kapcsolat extends Controller {
 	public function index()
 	{
 
-		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/common.js');
+		$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/kapcsolat.js');
 
 		// alapbeállítások lekérdezése
 		$this->view->settings = $this->kapcsolat_model->get_settings();

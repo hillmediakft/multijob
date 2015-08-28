@@ -17,6 +17,15 @@
 				</div><!-- /.controls -->
 			</div><!-- /.control-group -->
 
+			<div id="city_div" class="type control-group">
+				<label class="control-label" for="inputType">
+					Város
+				</label>
+				<div class="controls">
+					<select disabled data-placeholder="Válasszon..." name="varos" id="city_select" class="chosen-select">
+					</select>
+				</div><!-- /.controls -->
+			</div><!-- /.control-group -->
 
 			<div id="district_div" class="type control-group">
 				<label class="control-label" for="inputType">
@@ -28,17 +37,6 @@
 				</div><!-- /.controls -->
 			</div><!-- /.control-group -->
 
-			<div id="city_div" class="type control-group">
-				<label class="control-label" for="inputType">
-					Város
-				</label>
-				<div class="controls">
-					<select disabled data-placeholder="Válasszon..." name="varos" id="city_select" class="chosen-select">
-					</select>
-				</div><!-- /.controls -->
-			</div><!-- /.control-group -->
-
-			
 			<div id="job_category_div" class="type control-group">
 				<label class="control-label" for="inputType">
 					Munka típusa
@@ -49,8 +47,6 @@
 				</div><!-- /.controls -->
 			</div><!-- /.control-group -->
 
-
-
 			<div class="form-actions">
 				<input type="submit" id="submit_search_sidebar" value="Keresés" class="btn btn-primary btn-large">
 			</div><!-- /.form-actions -->
@@ -60,23 +56,27 @@
 
 <div class="clearfix"></div>
 
+<!-- FACEBOOK BOX -->
 <div class="title">
 	<h5>Csatlakozz hozzánk a Facebookon</h5>
-</div><!-- /.title --> 
-
-<!-- 
+</div>
 <div class="facebook-frame">
-	<div class="fb-like-box" data-href="https://www.facebook.com/MultiJobDiakmunka" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+	<?php if(isset($settings['facebook_link']) && (!empty($settings['facebook_link']) || $settings['facebook_link'] != '')){ ?>
+		<div class="fb-page" data-href="<?php echo $settings['facebook_link']; ?>" 
+		data-width="270" 
+		data-height="320" 
+		data-small-header="false" 
+		data-adapt-container-width="true" 
+		data-hide-cover="false" 
+		data-show-facepile="true" 
+		data-show-posts="true"></div>
+	<?php }?>
 </div>
--->
 
-<div>
-	<div class="fb-page" data-href="https://www.facebook.com/facebook" data-width="260" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
-</div>
 
 <div class="title">
 	<h5>Töltsd le a mobil applikációnkat</h5>
-</div><!-- /.title --> 
+</div>
 <a target="_blank" title="App" href="https://play.google.com/store/apps/details?id=Multi.Job&feature=search_result#?t=W251bGwsMSwyLDEsIk11bHRpLkpvYiJd">
-<img style="width:100%" src="<?php echo SITE_IMAGE;?>multijob_app.jpg" alt="Mobil applikáció">
+	<img style="width:100%" src="<?php echo SITE_IMAGE;?>multijob_app.jpg" alt="Mobil applikáció">
 </a>

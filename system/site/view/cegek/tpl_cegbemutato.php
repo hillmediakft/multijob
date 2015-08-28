@@ -21,10 +21,7 @@
 					</div>
                 </div>
                 <div class="sidebar span3">
-          			<!-- KERESŐ DOBOZ -->
 					<?php include('system/site/view/_template/tpl_sidebar.php'); ?>                  
-          			<!-- KOLLÉGÁINK DOBOZ 
-					<?php // include('system/site/view/_template/tpl_sidebar_kollegaink.php'); ?>  --> 
                 </div>
             </div>
     

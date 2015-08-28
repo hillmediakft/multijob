@@ -30,7 +30,7 @@
 														<h2><?php echo $value['title']; ?></h2>
 														<div class="clearfix"></div>
 														<h3><?php echo $value['text']; ?></h3>
-														<a href="<?php echo (!empty($value['target_url'])) ? $value['target_url'] : '#'; ?>">Tovább</a>
+														<a href="<?php echo (!empty($value['target_url']) || $value['target_url'] != '') ? $value['target_url'] : '#'; ?>">Tovább</a>
 													</div><!-- /.price -->
 
 												</div><!-- /.slider-info -->
@@ -40,9 +40,19 @@
                                 </div><!-- .iosSlider -->
 
                                 <ul class="navigation">
-                                    <li class="active"><a>1</a></li>
-                                    <li><a>2</a></li>
-                                    <li><a>3</a></li>
+									<?php 
+										$count = count($sliders); 
+										if($count > 0){
+											$i = 1;
+											for($i; ($count + 1) > $i; $i++) { ?>
+												<li <?php echo ($i == 1) ? 'class="active"' : ''; ?>><a><?php echo $i; ?></a></li>
+									<?php 	} 	
+										}
+									?>
+								
+                                <!-- <li class="active"><a>1</a></li>
+                                    <li><a>2</a></li> 
+									<li><a>3</a></li> -->
                                 </ul><!-- /.navigation-->
                             </div><!-- /.images -->
 
@@ -98,13 +108,8 @@
 
                 </div>
                 <div class="sidebar span3">
-					<!-- KERESŐ DOBOZ -->
-					<?php include('system/site/view/_template/tpl_sidebar_search.php'); ?>                  
-          			<!-- KOLLÉGÁINK DOBOZ -->
-					<?php //include('system/site/view/_template/tpl_sidebar_kollegaink.php'); ?>   
-         			<!-- FACEBOOK DOBOZ -->
-					<?php include('system/site/view/_template/tpl_facebook_box.php'); ?>   
-                </div>
+					<?php include('system/site/view/_template/tpl_sidebar.php'); ?>                  
+                 </div>
             </div>
     
         </div>

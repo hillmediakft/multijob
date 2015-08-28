@@ -1,3 +1,4 @@
+/*
 var Munka_page = function () {
 
 
@@ -11,12 +12,13 @@ var Munka_page = function () {
 
 	
 }();
-
+*/
 
 jQuery(document).ready(function() {    
-	
+
+    common_functions.init();	
 	modalHandler.init();
 	sidebarSearch.init();
-	Munka_page.init();
+	//Munka_page.init();
 	
 });

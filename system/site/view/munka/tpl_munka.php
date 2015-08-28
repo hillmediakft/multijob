@@ -18,43 +18,6 @@
 					
                     <div class="job-detail">
 
-                   <!--      <div class="pull-right overview-right">
-                            <div class="row">
-                                <div class="span4">
-                                    <h2>Munkaadó adatai</h2>
-
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <th>Cég neve:</th>
-                                                <td><?php echo $job_data['employer_name']; ?></td>
-                                            </tr>
-                                            <?php if(!empty($job_data['employer_contact_person'])) { ?>   
-                                            <tr>
-                                                <th>Kapcsolat:</th>
-                                                <td><?php echo $job_data['employer_contact_person']; ?></td>
-                                            </tr>
-                                            <?php } ?>
-                                            <?php if(!empty($job_data['employer_contact_tel'])) { ?>
-                                            <tr>
-                                                <th>Telefon:</th>
-                                                <td><?php echo $job_data['employer_contact_tel']; ?></td>
-                                            </tr>
-                                            <?php } ?>
-                                            <?php if(!empty($job_data['employer_contact_email'])) { ?>
-                                            <tr>
-                                                <th>Email:</th>
-                                                <td><?php echo $job_data['employer_contact_email']; ?></td>
-                                            </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                
-                            </div>
-                            
-                        </div>	-->
-
                         <h2><i class="fa fa-check-square"></i> <?php echo $job_data['job_title']; ?></h2>
 						<table class="table table-striped">
 							<tbody>
@@ -123,10 +86,7 @@
 
                 </div>
                <div class="sidebar span3">
-          			<!-- KERESŐ DOBOZ -->
 					<?php include('system/site/view/_template/tpl_sidebar.php'); ?>                  
-          			<!-- KOLLÉGÁINK DOBOZ 
-					<?php // include('system/site/view/_template/tpl_sidebar_kollegaink.php'); ?>  --> 
                 </div>
             </div>
     

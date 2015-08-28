@@ -1,3 +1,4 @@
+/*
 var Munkak_page = function () {
 
 
@@ -11,12 +12,13 @@ var Munkak_page = function () {
 
 	
 }();
-
+*/
 
 jQuery(document).ready(function() {    
-	
+
+    common_functions.init();	
 	modalHandler.init();
 	sidebarSearch.init();
-	Munkak_page.init();
+	//Munkak_page.init();
 	
 });

@@ -1,3 +1,4 @@
+/*
 var Rolunk_page = function () {
 
 
@@ -11,12 +12,13 @@ var Rolunk_page = function () {
 
 	
 }();
-
+*/
 
 jQuery(document).ready(function() {    
-	
+
+    common_functions.init();	
 	modalHandler.init();
 	sidebarSearch.init();
-	Rolunk_page.init();
+	// Rolunk_page.init();
 	
 });
