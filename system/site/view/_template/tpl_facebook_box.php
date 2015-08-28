@@ -5,7 +5,7 @@
 -->
 
 <div>
-	<div class="fb-page" data-href="https://www.facebook.com/facebook" data-width="260" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"></div>
+	<div class="fb-page" data-href="https://www.facebook.com/facebook" data-width="260" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
 </div>
 
 

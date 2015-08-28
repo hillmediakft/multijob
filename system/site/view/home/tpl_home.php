@@ -27,7 +27,9 @@
 
 												<div class="slider-info">
 													<div class="price">
-														<h2><?php echo $value['text']; ?></h2>
+														<h2><?php echo $value['title']; ?></h2>
+														<div class="clearfix"></div>
+														<h3><?php echo $value['text']; ?></h3>
 														<a href="<?php echo (!empty($value['target_url'])) ? $value['target_url'] : '#'; ?>">Tovább</a>
 													</div><!-- /.price -->
 

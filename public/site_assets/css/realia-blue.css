@@ -1299,7 +1299,7 @@ iframe.map {
 }
 .slider-wrapper .slider-info h3 {
     color: #ffffff;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1;
     margin: 0px 0px 10px 0px;
 }
@@ -1321,7 +1321,7 @@ iframe.map {
     float: left;
     font-size: 24px;
     line-height: 1;
-    margin: 0px;
+    margin-bottom: 10px;
     padding: 0px;
 }
 .slider-wrapper .slider-info .price a {
