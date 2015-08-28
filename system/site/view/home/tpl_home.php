@@ -27,7 +27,9 @@
 
 												<div class="slider-info">
 													<div class="price">
-														<h2><?php echo $value['text']; ?></h2>
+														<h2><?php echo $value['title']; ?></h2>
+														<div class="clearfix"></div>
+														<h3><?php echo $value['text']; ?></h3>
 														<a href="<?php echo (!empty($value['target_url'])) ? $value['target_url'] : '#'; ?>">Tovább</a>
 													</div><!-- /.price -->
 
@@ -56,7 +58,7 @@
             <div class="row">
                 <div class="span9">
                     
-                    <h1 class="page-header">Legfrissebb munkáink <a class="btn btn-secondary arrow-right pull-right" href="<?php echo BASE_URL;?>munkak">Megnézem az összes munkát</a></h1>
+                    <h1 class="page-header">Új munkáink <a class="btn btn-secondary arrow-right pull-right" href="<?php echo BASE_URL;?>munkak">Megnézem az összes munkát</a></h1>
 
                     <div class="properties-grid">
                         <div class="row">

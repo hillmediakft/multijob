@@ -204,9 +204,7 @@
 							<a href="admin/pages">Oldalak listája</a>
 						</li>
 
-						<li class="<?php echo ($this->registry->controller == 'content') ? 'active' : '';?>">
-							<a href="admin/content">Egyéb tartalom</a>
-						</li>
+
 					</ul>
 				</li>
 				

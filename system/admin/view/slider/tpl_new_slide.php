@@ -99,6 +99,13 @@
 											-->
 											<textarea name="slider_text" id="slider_text" placeholder="" class="form-control input-xlarge"></textarea>
 										</div>
+										
+										<div class="form-group">
+											<label for="slider_link" class="control-label">Slide link</label>
+											<!--<input type="text" name="slider_text" id="slider_text" placeholder="A slide szövege" class="form-control input-xlarge" />
+											-->
+											<input type="text" name="slider_link" id="slider_link" placeholder="" class="form-control input-xlarge" />
+										</div>
 										<div class="form-group">
 											<label for="slider_status">Slide státusz</label>
 											<select name="slider_status" class="form-control input-xlarge">

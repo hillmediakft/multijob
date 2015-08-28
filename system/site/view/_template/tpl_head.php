@@ -160,7 +160,7 @@
                                     </ul>
                                 </li>
                                 <li>
-									<a href="kapcsolat">Kapcsolat</a>
+									<a class="no_arrow <?php echo ($this->registry->controller == 'kapcsolat' && $this->registry->action == 'index') ? 'active' : ''; ?>" href="kapcsolat">Kapcsolat</a>
 								</li>
                             
 							</ul><!-- /.nav -->

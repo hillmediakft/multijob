@@ -36,6 +36,7 @@ var NewJob = function () {
 				job_employer_id: {
 					required: true
 				}
+
 			},
 			// az invalidHandler akkor aktiválódik, ha elküldjük a formot és hiba van
 			invalidHandler: function (event, validator) { //display error alert on form submit              

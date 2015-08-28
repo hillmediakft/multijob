@@ -84,13 +84,13 @@
 
                     <div class="content">
                         <ul class="menu nav">
-                            <li class="first leaf"><a href="rolunk">Rólunk pár szó</a></li>
-                            <li class="leaf"><a href="feltetelek/munkavallalas">Munkavállalási feltételek</a></li>
-                            <li class="leaf"><a href="feltetelek/kifizetes">Pénzkifizetési feltételek</a></li>
-                            <li class="leaf"><a href="feltetelek/kilepes">Kilépési feltételek</a></li>
-                            <li class="leaf"><a href="kollegak">Kollégáink</a></li>
-                            <li class="leaf"><a href="irodak">Irodáink</a></li>
-                            <li class="last leaf"><a href="munkak">Aktuális munkák</a></li>
+                            <li class="first leaf"><a href="rolunk"><i class="fa fa-angle-right"></i>  Rólunk pár szó</a></li>
+                            <li class="leaf"><a href="feltetelek/munkavallalas"><i class="fa fa-angle-right"></i>  Munkavállalási feltételek</a></li>
+                            <li class="leaf"><a href="feltetelek/kifizetes"><i class="fa fa-angle-right"></i>  Pénzkifizetési feltételek</a></li>
+                            <li class="leaf"><a href="feltetelek/kilepes"><i class="fa fa-angle-right"></i>  Kilépési feltételek</a></li>
+                            <li class="leaf"><a href="kollegak"><i class="fa fa-angle-right"></i>  Kollégáink</a></li>
+                            <li class="leaf"><a href="irodak"><i class="fa fa-angle-right"></i>  Irodáink</a></li>
+                            <li class="last leaf"><a href="munkak"><i class="fa fa-angle-right"></i>  Aktuális munkák</a></li>
                         </ul>
                     </div><!-- /.content -->
                 </div><!-- /.widget -->

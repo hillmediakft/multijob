@@ -147,10 +147,10 @@
 														<input type="radio" name="user_group" value="2" checked />
 														Adminisztrátor - széles körű jogkör
 														</label>  
-														<label>
+											<!--			<label>
 														<input type="radio" name="user_group" value="3" />
 														Regisztrált felhasználó - korlátozott jogkör
-														</label>  
+														</label>   --> 
 													</div>
 												</div>
 										</div>

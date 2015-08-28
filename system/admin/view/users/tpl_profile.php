@@ -178,10 +178,10 @@
 													<input type="radio" name="user_group" value="2" <?php echo ($data_arr[0]['user_role_id'] == 2) ? 'checked' : '';?> />
 													Adminisztrátor - széles körű jogkör
 													</label>  
-													<label>
-													<input type="radio" name="user_group" value="3" <?php echo ($data_arr[0]['user_role_id'] == 3) ? 'checked' : '';?> />
+										<!--			<label>
+													<input type="radio" name="user_group" value="3" <?php //echo ($data_arr[0]['user_role_id'] == 3) ? 'checked' : '';?> />
 													Regisztrált felhasználó - korlátozott jogkör
-													</label>  
+													</label>    -->
 												</div>
 											</div>
 										</div>
