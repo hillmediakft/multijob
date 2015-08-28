@@ -88,6 +88,7 @@ class Slider_model extends Model {
 		
 		$data['text'] = htmlentities($_POST['slider_text'], ENT_QUOTES, "UTF-8");
 		$data['title'] = htmlentities($_POST['slider_title'], ENT_QUOTES, "UTF-8");
+		$data['target_url'] = $_POST['slider_link'];
 
 		// új adatok beírása az adatbázisba (update) a $data tömb tartalmazza a frissítendő adatokat 
 		$this->query->reset();
@@ -173,6 +174,7 @@ class Slider_model extends Model {
 		//$data['target_url'] = "";
 		$data['text'] = htmlentities($_POST['slider_text'], ENT_QUOTES, "UTF-8");
 		$data['title'] = htmlentities($_POST['slider_title'], ENT_QUOTES, "UTF-8");
+		$data['target_url'] = $_POST['slider_link'];
 		
 	// adatbázis lekérdezés	
 		$this->query->reset();

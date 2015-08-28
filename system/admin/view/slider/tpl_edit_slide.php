@@ -97,6 +97,11 @@
 												<input type="text" name="slider_text" id="slider_text" placeholder="A slide szövege" class="form-control input-xlarge" value="<?php echo $slider[0]['text'];?>"/>
 											</div>
 											
+											<div class="form-group">
+												<label for="slider_link" class="control-label">Slide link</label>
+												<input type="text" name="slider_link" id="slider_link" placeholder="A slide linkje" class="form-control input-xlarge" value="<?php echo $slider[0]['target_url'];?>"/>
+											</div>											
+											
 										<!--Státusz beállítása-->
 											<div class="form-group">
 												<label for="slider_status">Slide státusz</label>
