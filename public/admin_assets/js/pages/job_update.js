@@ -32,6 +32,9 @@ var updateJob = function () {
 				},
 				job_city_id: {
 					required: true
+				},
+				job_employer_id: {
+					required: true
 				}
 
 			},
