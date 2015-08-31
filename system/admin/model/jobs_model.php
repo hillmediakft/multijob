@@ -241,6 +241,11 @@ class Jobs_model extends Model {
 				$data['job_expiry_timestamp'] = strtotime($data['job_expiry_timestamp']);
 			}	
 
+			// munkaadó ha nincs megadva
+			if($data['job_employer_id'] == ''){
+				$data['job_employer_id'] = NULL;
+			}
+			
 			//létrehozás dátuma timestamp
 			$data['job_create_timestamp'] = time();
 			
@@ -299,6 +304,11 @@ class Jobs_model extends Model {
 				$data['job_expiry_timestamp'] = strtotime($data['job_expiry_timestamp']);
 			}	
 
+			// munkaadó ha nincs megadva
+			if($data['job_employer_id'] == ''){
+				$data['job_employer_id'] = NULL;
+			}
+			
 			// módosítás dátuma timestamp formátumban
 			$data['job_update_timestamp'] = time();
 			

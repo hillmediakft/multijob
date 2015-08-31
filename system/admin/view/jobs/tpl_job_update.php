@@ -123,7 +123,7 @@
 										</div>	
 									<!-- CÉG MEGADÁSA -->	
 										<div class="form-group">
-											<label for="job_employer_id" class="control-label">Cég kiválasztása <span class="required">*</span></label>
+											<label for="job_employer_id" class="control-label">Cég kiválasztása</label>
 											<select name="job_employer_id" class="form-control input-xlarge">
 												<?php foreach($employer_list as $value) { ?>
 												<option value="<?php echo $value['employer_id']; ?>" <?php echo ($value['employer_id'] == $actual_job[0]['job_employer_id'] ? 'selected' : ''); ?>><?php echo $value['employer_name']; ?></option>
