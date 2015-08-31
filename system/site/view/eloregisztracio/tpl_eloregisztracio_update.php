@@ -125,7 +125,7 @@
 								</div>
 								
 								<div class="control-group">
-									<label for="email_address" class="control-label">E-mail cím</label>
+									<label for="email_address" class="control-label">E-mail cím <span class="form-required">*</span></label>
 									<div class="controls">
 										<input type="text" name="email_address" value="<?php echo $prereg_data['email_address']; ?>"/>
 									</div>
@@ -143,6 +143,14 @@
 											<option id="kozepiskola" value="2" <?php echo ($prereg_data['school_type'] == 2) ? 'selected' : ''; ?>>Középiskola</option>
 											<option id="foiskola" value="3" <?php echo ($prereg_data['school_type'] == 3) ? 'selected' : ''; ?>>Főiskola / egyetem</option>
 										</select>
+									</div>
+								</div>
+								
+								<div class="control-group">
+									<label for="school_data" class="control-label">Jelenlegi oktatási intézmény neve, címe <span class="form-required">*</span></label>
+									<div class="controls">
+										<!-- <input type="text" name="school_data" /> -->
+										<textarea name="school_data" style="height:60px;"><?php echo $prereg_data['school_data']; ?></textarea>
 									</div>
 								</div>
 								

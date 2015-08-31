@@ -54,7 +54,11 @@ var preRegister = function () {
 					required: true
 				},
 				email_address: {
+					required: true,
 					email: true
+				},
+				school_data: {
+					required: true
 				}
 			
 			},

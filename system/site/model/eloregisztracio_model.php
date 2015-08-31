@@ -70,7 +70,9 @@ class Eloregisztracio_model extends Site_model {
 			'tax_id' => 'Az adóazonosító jel',
 			'bank_account_number' => 'A bankszámla száma',
 			'bank_name' => 'A számlavezető bank neve',
-			'permanent_address' => 'Az állandó lakcím'
+			'permanent_address' => 'Az állandó lakcím',
+			'email_address' => 'Az e-mail cím',
+			'school_data' => 'Az iskola adatai'
 		);
 		// üzenetek második része
 		$message_second_part = array(

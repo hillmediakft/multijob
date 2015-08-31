@@ -125,7 +125,7 @@
 								</div>
 								
 								<div class="control-group">
-									<label for="email_address" class="control-label">E-mail cím</label>
+									<label for="email_address" class="control-label">E-mail cím <span class="form-required">*</span></label>
 									<div class="controls">
 										<input type="text" name="email_address" />
 									</div>
@@ -133,7 +133,7 @@
 							
 							
 								<div style="height:4px"></div>
-								<h3><strong>4.</strong> <span>Iskolai végzettség</span></h3>
+								<h3><strong>4.</strong> <span>Iskola adatok</span></h3>
 															
 								<div class="control-group">
 									<label for="school_type" class="control-label">Legmagasabb iskolai végzettség <span class="form-required">*</span></label>
@@ -143,6 +143,14 @@
 											<option id="kozepiskola" value="2">Középiskola</option>
 											<option id="foiskola" value="3">Főiskola / egyetem</option>
 										</select>
+									</div>
+								</div>
+								
+								<div class="control-group">
+									<label for="school_data" class="control-label">Jelenlegi oktatási intézmény neve, címe <span class="form-required">*</span></label>
+									<div class="controls">
+										<!-- <input type="text" name="school_data" /> -->
+										<textarea name="school_data" style="height:60px;"></textarea>
 									</div>
 								</div>
 								
