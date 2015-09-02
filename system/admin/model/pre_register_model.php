@@ -177,6 +177,7 @@ class Pre_register_model extends Model {
 						<li><a data-toggle="modal" data-target="#ajax_modal" href="' . $this->registry->site_url . 'pre_register/ajax_view_prereg/' . $value['user_id'] . '"><i class="fa fa-eye"></i> Részletek</a></li>';
 		//'<li><a href="javascript:;" class="modal_trigger" rel="' . $value['job_id'] . '"><i class="fa fa-eye"></i> Részletek</a></li>';				
 						
+				$temp['menu'] .= '<li><a href="javascript:;" id="szerzodes_print_2" data-id="' . $value['user_id'] . '"><i class="fa fa-print"></i> Szerződés nyomtatása</a></li>'; 		
 				$temp['menu'] .= (Session::get('user_role_id') < 3) ? '<li><a href="' . $this->registry->site_url . 'pre_register/update/' . $value['user_id'] . '"><i class="fa fa-pencil"></i> Szerkeszt</a></li>' : ''; 		
 				$temp['menu'] .= (Session::get('user_role_id') < 3) ? '<li><a href="javascript:;" class="delete_prereg_class" data-id="' . $value['user_id'] . '"> <i class="fa fa-trash"></i> Töröl</a></li>' : '';		
 

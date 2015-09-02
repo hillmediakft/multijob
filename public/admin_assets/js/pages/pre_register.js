@@ -238,7 +238,16 @@ var PreRegister = function () {
 	 *	Belépési nyilatkozat ablak megnyitása (gombok kezelése)
 	 */
 	var new_print_window = function() {
+		/*
 		$('#modal_container').on('click','#szerzodes_print_1', function(){
+			//var $host = window.location.hostname;
+			//console.log($host);
+			$id = $(this).attr('data-id');
+			//console.log($id);
+			var $print_window = window.open("admin/pre_register/belepesi_nyilatkozat/" + $id, "Belépési nyilatkozat");
+		});
+		*/
+		$('body').on('click','#szerzodes_print_1, #szerzodes_print_2', function(){
 			//var $host = window.location.hostname;
 			//console.log($host);
 			$id = $(this).attr('data-id');

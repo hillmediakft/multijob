@@ -60,6 +60,10 @@
 		<dd><?php echo $content['email_address'];?></dd>
 		<div style="border-top:1px solid #E5E5E5; margin: 8px 0px;"></div>
 
+		<dt style="font-size:100%; color:grey;">Mobiltelefon:</dt>
+		<dd><?php echo $content['telefon_number'];?></dd>
+		<div style="border-top:1px solid #E5E5E5; margin: 8px 0px;"></div>
+
 		<dt style="font-size:100%; color:grey;">Iskola végzettség:</dt>
 		<dd>
 		<?php

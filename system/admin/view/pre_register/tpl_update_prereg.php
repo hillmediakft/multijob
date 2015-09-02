@@ -132,8 +132,14 @@
 										</div>
 									<!-- EMAIL CÍM -->	
 										<div class="form-group">
-											<label for="email_address" class="control-label">E-mail cím</label>
+											<label for="email_address" class="control-label">E-mail cím <span class="required">*</span></label>
 											<input type="text" name="email_address" id="email_address" class="form-control input-xlarge" value="<?php echo $content['email_address']; ?>"/>
+										</div>
+
+									<!-- MOBILTELEFON -->	
+										<div class="form-group">
+											<label for="telefon_number" class="control-label">Mobiltelefon:</label>
+											<input type="text" name="telefon_number" id="telefon_number" class="form-control input-xlarge" value="<?php echo $content['telefon_number']; ?>"/>
 										</div>
 										
 										<hr/>
