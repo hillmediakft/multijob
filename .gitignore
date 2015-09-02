@@ -48,3 +48,6 @@ Temporary Items
 system/config/db_local.php
 system/config/db_online.php
 system/config/email.php
+system/libs/tfpdf/font/unifont/arial.mtx.php
+system/libs/tfpdf/font/unifont/arialb.mtx.php
+system/libs/tfpdf/font/unifont/arial_i.mtx.php

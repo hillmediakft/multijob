@@ -13,7 +13,7 @@ $desc=array (
 );
 $up=-106;
 $ut=73;
-$ttffile='D:\wamp\www\_pelda\PDF_generate\tfpdf/font/unifont/arial_i.ttf';
+$ttffile='D:\wamp\www\multijob\system\libs\tfpdf/font/unifont/arial_i.ttf';
 $originalsize=46056;
 $fontkey='arialitalic';
 ?>
