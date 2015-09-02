@@ -218,7 +218,7 @@ var PreRegister = function () {
 		newWin.document.write(divToPrint.outerHTML);
 		newWin.print();
 		newWin.close();
-		})
+		});
 	
 	}
 
@@ -234,6 +234,19 @@ var PreRegister = function () {
 		});
 	}	
 	
+	/**
+	 *	Belépési nyilatkozat ablak megnyitása (gombok kezelése)
+	 */
+	var new_print_window = function() {
+		$('#modal_container').on('click','#szerzodes_print_1', function(){
+			//var $host = window.location.hostname;
+			//console.log($host);
+			$id = $(this).attr('data-id');
+			//console.log($id);
+			var $print_window = window.open("admin/pre_register/belepesi_nyilatkozat/" + $id, "Belépési nyilatkozat");
+		});
+	}
+	
 	
     return {
 
@@ -248,6 +261,7 @@ var PreRegister = function () {
 			hideAlert();
 			printTable();
 			handle_modal();
+			new_print_window();
 	
         }
 

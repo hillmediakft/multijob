@@ -59,6 +59,9 @@ var updatePrereg = function () {
 				},
 				email_address: {
 					email: true
+				},
+				school_data: {
+					required: true
 				}
 			},
 			// az invalidHandler akkor aktiválódik, ha elküldjük a formot és hiba van

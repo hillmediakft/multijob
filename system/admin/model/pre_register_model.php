@@ -19,7 +19,6 @@ class Pre_register_model extends Model {
 		return $result[0];
 	}
 	
-	
 	/**
 	 *	Előregisztrációk törlése
 	 *
@@ -231,7 +230,9 @@ class Pre_register_model extends Model {
 			'tax_id' => 'Az adóazonosító jel',
 			'bank_account_number' => 'A bankszámla száma',
 			'bank_name' => 'A számlavezető bank neve',
-			'permanent_address' => 'Az állandó lakcím'
+			'permanent_address' => 'Az állandó lakcím',
+			'email_address' => 'Az e-mail cím',
+			'school_data' => 'A jelenlegi oktatási intézmény adatai'
 		);
 		// üzenetek második része
 		$message_second_part = array(

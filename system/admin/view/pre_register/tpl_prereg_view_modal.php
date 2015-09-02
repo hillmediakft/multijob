@@ -74,11 +74,15 @@
 			}
 		?>
 		</dd>
+		<div style="border-top:1px solid #E5E5E5; margin: 8px 0px;"></div>		
+		
+		<dt style="font-size:100%; color:grey;">Jelenlegi oktatási <br /> intézmény adatai:</dt>
+		<dd><?php echo $content['school_data'];?></dd>
 		
 	</dl>	
 </div>	 
 <div class="modal-footer">
 	<button onclick="window.location.href = 'admin/pre_register/update/<?php echo $content['user_id'];?>';" type="button" class="btn blue">Adatok módosítása</button>
-	<button type="button" class="btn blue">Szerződés nyomtatása</button>
+	<button type="button" class="btn blue" id="szerzodes_print_1" data-id="<?php echo $content['user_id'];?>">Szerződés nyomtatása</button>
 	<button type="button" class="btn default" data-dismiss="modal">Bezár</button>
 </div>

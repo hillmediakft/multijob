@@ -147,6 +147,12 @@
 												<option id="foiskola" value="3" <?php echo ($content['school_type'] == 3) ? 'selected' : ''; ?>>Főiskola / egyetem</option>
 											</select>
 										</div>
+
+									<!-- Jelenlegi iskola adatai -->	
+										<div class="form-group">
+											<label for="school_data" class="control-label">Jelenelegi oktatási intézmény adatai <span class="required">*</span></label>
+											<input type="text" name="school_data" id="school_data" class="form-control input-xlarge" value="<?php echo $content['school_data']; ?>"/>
+										</div>										
 	
 										
 									</div>
