@@ -79,7 +79,7 @@
 						</div>
 
                     <br /><br />
-                    <button class="btn btn-primary" type="button" name="jelentkezes">Jelentkezés</button>
+                    <button class="btn btn-primary" type="button" name="jelentkezes" <?php echo (Session::get('user_site_logged_in') === true) ? "" : "disabled"; ?>>Jelentkezés</button>
 
                     </div>	
 					
