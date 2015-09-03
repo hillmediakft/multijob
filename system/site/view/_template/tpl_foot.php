@@ -2,55 +2,54 @@
     <div id="footer-top">
         <div id="footer-top-inner" class="container">
             <div class="row">
-
-                <div class="widget properties span3">
+                
+				<div class="widget properties span3">
                     <div class="title">
                         <h2>Legfrissebbek</h2>
                     </div><!-- /.title -->
 
                     <div class="content">
-
-                        <?php
-                        $i = 0;
-                        foreach ($latest_jobs as $value) {
-                            ?>
-                            <div class="property">
-                                <div class="image">
-                                    <a href="munka/<?php echo Replacer::filterName($value['job_title']); ?>/<?php echo $value['job_id']; ?>"></a>
-                                    <img src="<?php echo Config::get('jobphoto.upload_path') . $value['job_list_photo']; ?>" alt="">
-                                </div><!-- /.image -->
-                                <div class="wrapper">
-                                    <div class="title">
-                                        <h3>
-                                            <a href="munka/<?php echo Replacer::filterName($value['job_title']); ?>/<?php echo $value['job_id']; ?>"><?php echo $value['job_title']; ?></a>
-                                        </h3>
-                                    </div><!-- /.title -->
-                                    <div class="location">
-                                        <?php
-                                        $location = $value['city_name'];
-                                        if (!empty($value['district_name'])) {
-                                            $location .=', ' . $value['district_name'] . ' kerület';
-                                        }
-                                        echo $location;
-                                        ?>
-                                    </div><!-- /.location -->
-
-                                </div><!-- /.wrapper -->
-                            </div><!-- /.property -->
-                            <?php
-                            $i++;
-                            if ($i >= 3) {
-                                break;
-                            }
-                        }
-                        ?>
-
-                    </div><!-- /.content -->
+                        
+						<?php
+						$i = 0;
+						foreach($latest_jobs as $value) { ?>
+						<div class="property">
+                            <div class="image">
+                                <a href="munka/<?php echo Replacer::filterName($value['job_title']);?>/<?php echo $value['job_id'];?>"></a>
+                                <img src="<?php echo Config::get('jobphoto.upload_path') . $value['job_list_photo'];?>" alt="">
+                            </div><!-- /.image -->
+                            <div class="wrapper">
+                                <div class="title">
+                                    <h3>
+                                        <a href="munka/<?php echo Replacer::filterName($value['job_title']);?>/<?php echo $value['job_id'];?>"><?php echo $value['job_title']; ?></a>
+                                    </h3>
+                                </div><!-- /.title -->
+                                <div class="location">
+									<?php 
+									$location = $value['city_name'];
+									if(!empty($value['district_name'])){
+										$location .=', ' . $value['district_name'] . ' kerület'; 
+									}
+									echo $location;
+									?>
+								</div><!-- /.location -->
+                                
+                            </div><!-- /.wrapper -->
+                        </div><!-- /.property -->
+						<?php 
+							$i++;
+							if($i >= 3){
+								break;
+							}
+						} 
+						?>
+                    
+					</div><!-- /.content -->
                 </div><!-- /.properties-small -->
-
-
-
-
+				
+				
+				
+				
 
                 <div class="widget span3">
                     <div class="title">
@@ -62,17 +61,17 @@
                             <tbody>
                                 <tr>
                                     <th class="address">Cím:</th>
-                                    <td><?php echo $settings['cim']; ?><br></td>
+  									<td><?php echo $settings['cim'];?><br></td>
                                 </tr>
                                 <tr>
                                     <th class="phone">Telefon:</th>
-                                    <td><?php echo $settings['tel']; ?></td>
+                                    <td><?php echo $settings['tel'];?></td>
                                 </tr>
                                 <tr>
                                     <th class="email">E-mail:</th>
-                                    <td><?php echo Util::safe_mailto($settings['email']); ?></td>
+                                    <td><?php echo Util::safe_mailto($settings['email']);?></td>
                                 </tr>
-
+                               
                             </tbody>
                         </table>
                     </div><!-- /.content -->
@@ -138,13 +137,13 @@
                                     <textarea id="footer_msg_message" name="message" required></textarea>
                                 </div><!-- /.controls -->
                             </div><!-- /.control-group -->
-
-                            <input type="hidden" name="area" value="diak" />
-
+                            
+                                <input type="hidden" name="area" value="diak" />
+                            
                             <div class="form-actions">
                                 <button type="submit" id="footer_msg_send_button" class="btn btn-primary arrow-right">Küldés</button>
                             </div><!-- /.form-actions -->
-
+                            
                         </form>
                     </div><!-- /.content -->
                 </div><!-- /.widget -->
@@ -194,7 +193,7 @@
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/iosslider/_src/jquery.iosslider.min.js"></script>
 
 <!--
-<script type="text/javascript" src="<?php //echo SITE_ASSETS;  ?>plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="<?php //echo SITE_ASSETS; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
 -->
 
 <!-- Minden oldalon szükséges scriptek pl: hideAlert() -->
@@ -210,7 +209,7 @@
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>pages/modal_handler.js"></script>
 <!-- üzenet küldés a footerből -->
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>pages/send_email_footer.js"></script>
-<script src="<?php echo SITE_ASSETS; ?>plugins/jQuery.mmenu-master/dist/js/jquery.mmenu.min.all.js"></script>
+
 <script type="text/javascript" src="<?php echo SITE_JS; ?>realia.js"></script>
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
