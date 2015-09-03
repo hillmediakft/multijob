@@ -1435,7 +1435,8 @@ iframe.map {
 .slider-wrapper .images .iosSlider .slider {
     height: 345px;
 }
-}@media (max-width: 767px) {
+}
+@media (max-width: 767px) {
     .slider-wrapper .images .iosSlider {
     height: 180px;
 }
@@ -1447,7 +1448,23 @@ iframe.map {
     opacity: 0 !important;
     visibility: hidden;
 }
-}#navigation {
+}
+
+@media (max-width: 480px) {
+    .slider-wrapper {
+    display: none;
+}
+.slider-wrapper .images .iosSlider .slider {
+    height: 180px;
+}
+.slider-wrapper .images .iosSlider .slider-info {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden;
+}
+}
+
+#navigation {
     background-color: rgba(255, 255, 255, 0.5);
 }
 .navigation-wrapper .navigation {

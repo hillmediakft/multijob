@@ -12,6 +12,23 @@ $(document).ready(function() {
     InitPalette();
 });
 
+jQuery(document).ready(function( $ ) {
+      $("#mobile_menu").mmenu({
+        // options
+        "offCanvas": {
+            "position": "right"
+        },    
+        "extensions": ["widescreen", "border-full","pageshadow"],
+        }, {
+         // configuration
+         classNames: {
+            vertical: "expand"
+         }
+      });
+});
+
+
+
 function InitPalette() {
     if ($.cookie('palette') == 'true') {
         $('.palette').addClass('open');
