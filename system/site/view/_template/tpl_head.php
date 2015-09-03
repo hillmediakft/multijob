@@ -46,13 +46,13 @@
 
                             <div class="account pull-right">
                                 <ul class="nav nav-pills">
-                                    <?php if(Session::get('user_site_logged_in')) {?>
-										<li><a href="eloregisztracio">Előregisztráció</a></li>
-                                    <?php }?>
-									
+                                    <?php //if(Session::get('user_site_logged_in')) {?>
+										<!-- <li><a href="eloregisztracio">Előregisztráció</a></li> -->
+                                    <?php //}?>
 									<li><a data-toggle="modal" data-target="#modal_subscribe" href="javascript:;">Feliratkozás hírlevélre</a></li>
-                                    <li><a data-toggle="modal" data-target="#modal_register" href="javascript:;">Regisztráció</a></li>
-                                    
+									<?php if(empty(Session::get('user_site_logged_in')) || Session::get('user_site_logged_in') === false) {?>
+										<li><a data-toggle="modal" data-target="#modal_register" href="javascript:;">Regisztráció</a></li>
+                                    <?php }?>
 									<?php if(Session::get('user_site_logged_in')){ ?>
 										<li><span>Bejelentkezve <?php echo Session::get('user_site_name');?>&nbsp; &raquo; </span><a style="float: left; padding-left: 0px;" href="felhasznalok/kijelentkezes">Kijelentkezés</a></li>
 									<?php } else { ?>
@@ -108,9 +108,18 @@
                                                 <span><?php echo $settings['tel']?></span>
                                             </div><!-- /.site-phone -->
                                         </div><!-- /.info -->
-
-                                        <a class="btn btn-primary btn-large list-your-property arrow-right" href="munkak">Legfrissebb munkák!</a>
-                                    </div><!-- /.row -->
+										
+										<?php if(Session::get('user_site_logged_in')) { ?>
+											<a class="btn btn-primary btn-large list-your-property arrow-right" href="eloregisztracio">Adatlap kitöltése</a>
+										<?php } else {?>
+											<a class="btn btn-primary btn-large list-your-property arrow-right" href="munkak">Legfrissebb munkák!</a>
+										<?php }?>
+										
+										
+										
+                                    
+									
+									</div><!-- /.row -->
                                 </div><!-- /.navbar-inner -->
                             </div><!-- /.navbar -->
                         </div><!-- /.container -->

@@ -23,6 +23,8 @@
 				</div>	
 			</form>	
 
+			<a href="javascript:;" title="Új jelszó kérése" id="new_pw_button">Elfelejtett jelszó!</a>
+			
 		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-primary" id="login_submit">Bejelentkezés</button>

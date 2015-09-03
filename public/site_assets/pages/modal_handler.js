@@ -104,6 +104,12 @@ var modalHandler = function () {
 		$("#login_submit").on('click', function(){
 			$("#login_form").submit();
 		});
+
+	// Ha ráklikkelaz elfelejett jelszó linkre
+		$("#new_pw_button").on('click', function(e){
+			e.preventDefault();
+			$("#modal_login").modal('hide');
+		});
 	};
 	
     
