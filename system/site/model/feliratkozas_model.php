@@ -125,7 +125,7 @@ class Feliratkozas_model extends Site_model {
 				
 				$messages[] = Message::send('A feliratkozás sikerült.');
 				$messages[] = Message::send('verification_mail_sending_successful');
-				$messages[] = Message::send('Please click the VERIFICATION LINK within that mail.');
+				$messages[] = Message::send('click_verification_link');
 				
 				return json_encode(array(
 					"status" => 'success',
