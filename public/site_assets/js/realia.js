@@ -11,7 +11,7 @@ $(document).ready(function() {
 	InitTabs();
     InitPalette();
 });
-
+/*
 jQuery(document).ready(function( $ ) {
       $("#mobile_menu").mmenu({
         // options
@@ -26,7 +26,7 @@ jQuery(document).ready(function( $ ) {
          }
       });
 });
-
+*/
 
 
 function InitPalette() {

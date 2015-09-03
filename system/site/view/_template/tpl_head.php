@@ -1,3 +1,4 @@
+<?php $logged_in = Session::get('user_site_logged_in'); ?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -46,14 +47,12 @@
 
                             <div class="account pull-right">
                                 <ul class="nav nav-pills">
-                                    <?php //if(Session::get('user_site_logged_in')) {?>
-										<!-- <li><a href="eloregisztracio">Előregisztráció</a></li> -->
-                                    <?php //}?>
 									<li><a data-toggle="modal" data-target="#modal_subscribe" href="javascript:;">Feliratkozás hírlevélre</a></li>
-									<?php if(empty(Session::get('user_site_logged_in')) || Session::get('user_site_logged_in') === false) {?>
+									
+									<?php if(!isset($logged_in) || $logged_in === false) { ?>
 										<li><a data-toggle="modal" data-target="#modal_register" href="javascript:;">Regisztráció</a></li>
                                     <?php }?>
-									<?php if(Session::get('user_site_logged_in')){ ?>
+									<?php if($logged_in === true){ ?>
 										<li><span>Bejelentkezve <?php echo Session::get('user_site_name');?>&nbsp; &raquo; </span><a style="float: left; padding-left: 0px;" href="felhasznalok/kijelentkezes">Kijelentkezés</a></li>
 									<?php } else { ?>
 										<li><a data-toggle="modal" data-target="#modal_login" href="javascript:;">Bejelentkezés</a></li>
@@ -109,7 +108,7 @@
                                             </div><!-- /.site-phone -->
                                         </div><!-- /.info -->
 										
-										<?php if(Session::get('user_site_logged_in')) { ?>
+										<?php if($logged_in) { ?>
 											<a class="btn btn-primary btn-large list-your-property arrow-right" href="eloregisztracio">Adatlap kitöltése</a>
 										<?php } else {?>
 											<a class="btn btn-primary btn-large list-your-property arrow-right" href="munkak">Legfrissebb munkák!</a>
