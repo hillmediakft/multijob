@@ -1,25 +1,25 @@
 <?php
-$msg['unknown_error'] = 'Unknown error occurred!';
-$msg['password_wrong_3_times'] = 'You have typed in a wrong password 3 or more times already. Please wait 30 seconds to try again.';
-$msg['account_not_activated_yet'] = 'Your account is not activated yet. Please click on the confirm link in the mail.';
-$msg['password_wrong'] = 'Password was wrong.';
-$msg['user_does_not_exist'] = 'This user does not exist.';
+$msg['unknown_error'] = 'Ismeretlen hiba történt!';
+$msg['password_wrong_3_times'] = '3 alkalommal rossz jelszót adott meg, 30 másodperc múlva próbálkozhat újra!';
+$msg['account_not_activated_yet'] = 'A fiókja még nem lett aktiválva, kattintson a visszaigazoló e-mailben található linkre az aktiváláshoz!';
+$msg['password_wrong'] = 'Hibás jelszó!';
+$msg['user_does_not_exist'] = 'Nem létező felhasználó!';
 // The 'login failed'-message is a security improved feedback that doesn't show a potential attacker if the user exists or not
-$msg['login_failed'] = 'Login failed.';
+$msg['login_failed'] = 'Hibás bejelentkezés!';
 
-$msg['username_field_empty'] = 'Username field was empty.';
-$msg['userfirstname_field_empty'] = 'User firstname field was empty.';
-$msg['userlastname_field_empty'] = 'User lastname field was empty.';
-$msg['userphone_field_empty'] = 'User phone field was empty.';
-$msg['password_field_empty'] = 'Password field was empty.';
-$msg['email_field_empty'] = 'Email and passwords fields were empty.';
+$msg['username_field_empty'] = 'A felhasználó név mező üresen maradt!';
+$msg['userfirstname_field_empty'] = 'A vezetéknév mező üresen maradt!';
+$msg['userlastname_field_empty'] = 'A keresztnév mező üresen maradt!';
+$msg['userphone_field_empty'] = 'A telefonszám mező üresen maradt!';
+$msg['password_field_empty'] = 'A jelszó mező üresen maradt!';
+$msg['email_field_empty'] = 'Az e-mail mező üresen maradt!';
 
-$msg['email_and_password_fields_empty'] = 'Email field was empty.';
-$msg['username_same_as_old_one'] = 'Sorry, that username is the same as your current one. Please choose another one.';
-$msg['username_already_taken'] = 'Sorry, that username is already taken. Please choose another one.';
-$msg['user_email_already_taken'] = 'Sorry, that email is already in use. Please choose another one.';
-$msg['username_change_successful'] = 'Your username has been changed successfully.';
-$msg['username_and_password_field_empty'] = 'Username and password fields were empty.';
+$msg['email_and_password_fields_empty'] = 'Az e-mail és jelszó mező üresen maradt!';
+$msg['username_same_as_old_one'] = 'A felhasználó név ugyanaz, mint a régi. Válassz másikat!';
+$msg['username_already_taken'] = 'A felhasználó név már foglalt. Válassz másikat!';
+$msg['user_email_already_taken'] = 'Az e-mail cím már foglalt. Válassz másikat!';
+$msg['username_change_successful'] = 'A felhasználó nevet módosítottuk!';
+$msg['username_and_password_field_empty'] = 'A felhasználó név és jelszó mezők üresen maradtak!';
 
 $msg['username_does_not_fit_pattern'] = 'Username does not fit the name scheme: only a-Z and numbers are allowed, 2 to 64 characters.';
 $msg['userfirstname_does_not_fit_pattern'] = 'User firstname does not fit the name scheme: only a-Z and numbers are allowed, 2 to 64 characters.';
@@ -38,16 +38,17 @@ $msg['userfirstname_too_short_or_too_long'] = 'User firstname cannot be shorter 
 $msg['userlastname_too_short_or_too_long'] = 'User lastname cannot be shorter than 2 or longer than 64 characters.';
 
 $msg['email_too_long'] = 'Email cannot be longer than 64 characters.';
-$msg['account_successfully_created'] = 'Your account has been created successfully.';
+$msg['account_successfully_created'] = 'A felhasználói fiók sikeresen létrehozva';
 
-$msg['user_successfully_created'] = 'User created successfully.';
+$msg['user_successfully_created'] = 'A felhasználó sikeresen létrehozva!';
+$msg['click_verification_link'] = 'A feliratkozás aktiválásához kattints az e-mailben található visszaigazolási linkre!';
 
-$msg['verification_mail_sending_failed'] = 'Sorry, we could not send you an verification mail. Your account has NOT been created.';
-$msg['account_creation_failed'] = 'Sorry, your registration failed. Please go back and try again.';
-$msg['verification_mail_sending_error'] = 'Verification mail could not be sent due to: ';
-$msg['verification_mail_sending_successful'] = 'A verification mail has been sent successfully.';
-$msg['account_activation_successful'] = 'Activation was successful! You can now log in.';
-$msg['account_activation_failed'] = 'Sorry, no such id/verification code combination here...';
+$msg['verification_mail_sending_failed'] = 'Sajnos nem tudtuk a visszaigazoló e-mailt elküldeni, így a fiókot nem tudtuk lérehozni!';
+$msg['account_creation_failed'] = 'Sikertelen regisztráció!';
+$msg['verification_mail_sending_error'] = 'A visszaigazoló e-mail üzenetet nem tudtuk elküldeni. A hiba oka: ';
+$msg['verification_mail_sending_successful'] = 'Visszaigazoló e-mail üzenet elküldve.';
+$msg['account_activation_successful'] = 'Sikeres aktiválás!';
+$msg['account_activation_failed'] = 'Hiba: nem létező azonosító/visszaigazoló kód!';
 $msg['avatar_upload_successful'] = 'Avatar upload was successful.';
 $msg['avatar_upload_wrong_type'] = 'Only JPEG and PNG files are supported.';
 $msg['avatar_upload_too_small'] = 'Avatar source file\'s width/height is too small. Needs to be 100x100 pixel minimum.';
