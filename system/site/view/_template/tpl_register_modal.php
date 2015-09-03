@@ -5,10 +5,15 @@
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<h4 class="modal-title" id="modal_register_label">Regisztráció</h4>
-		</div>
+		<p>Miután regisztráltál, weblapunk összes funkcióját használhatod!</p> 
+                </div>
 		
-		
+            		
 		<div class="modal-body">
+                    
+                   
+                    
+                    
 			<div id="message_register"></div>
 
 			<form action="" method="POST" id="register_form" name="register_form">	
@@ -37,7 +42,7 @@
 				<!-- Ezt majd css-ben kell eltüntetni!! -->
 				<!-- <input type="hidden"  name="security_name" />-->
 			</form>	
-  
+                        <p> FIGYELEM! A regisztráció nem azonos a szövetkezetbe való belépéssel!</p> 
 		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-primary" id="register_submit">Regisztrálok</button>

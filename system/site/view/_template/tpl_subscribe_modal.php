@@ -3,13 +3,13 @@
     <div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<h4 class="modal-title" id="modal_subscribe_label">Feliratkozás</h4>
+			<h4 class="modal-title" id="modal_subscribe_label">Feliratkozás hírlevélre</h4>
 		</div>
 		
 		
 		<div class="modal-body">
 			
-			<div id="info_subscribe">Adja meg az e-mail címét, amelyre a hírlevelet kapni szeretné.<br />Ezután küldünk önnek egy levelet, aminek segítségével megerősítheti feliratkozási szándékát.<br /><br /></div>
+			<div id="info_subscribe">Add meg az e-mail címed, amelyre a hírlevelet kapni szeretnéd.<br />Ezután küldünk egy visszaigazoló e-mailt, aminek segítségével (a visszaigazoló linkre kattintva)  megerősítheted feliratkozási szándékod.<br /><br /></div>
 			<div id="message_subscribe"></div>
 
 			<form action="" method="post" name="subscribe_form" id="subscribe_form">
