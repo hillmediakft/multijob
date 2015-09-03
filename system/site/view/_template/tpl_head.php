@@ -1,191 +1,273 @@
 <!DOCTYPE html>
 <html lang="hu">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="<?php echo BASE_URL;?>">
-    <title>Multijob</title>
-    
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <base href="<?php echo BASE_URL; ?>">
+        <title>Multijob</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
-    <link rel="stylesheet" href="<?php echo SITE_CSS;?>bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo SITE_CSS;?>bootstrap-responsive.css" type="text/css">
-	<link rel='stylesheet' href='<?php echo SITE_ASSETS; ?>fonts/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
-    <link rel="stylesheet" href="<?php echo SITE_ASSETS;?>plugins/chosen/chosen.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo SITE_ASSETS;?>plugins/bootstrap-fileupload/bootstrap-fileupload.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo SITE_ASSETS;?>plugins/jquery-ui-1.10.2.custom/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo SITE_CSS;?>realia-blue.css" type="text/css" id="color-variant-default">
-    <link rel="stylesheet" href="<?php echo SITE_CSS;?>modositas.css" type="text/css">
 
-	<!-- OLDALSPECIFIKUS CSS LINKEK -->
-	<?php if(isset($this->css_link)){
-		foreach($this->css_link as $value) { echo $value; }
-	} ?>
-	
-</head>
-<body>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
+        <link rel="stylesheet" href="<?php echo SITE_CSS; ?>bootstrap.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo SITE_CSS; ?>bootstrap-responsive.css" type="text/css">
+        <link rel='stylesheet' href='<?php echo SITE_ASSETS; ?>fonts/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+        <link rel="stylesheet" href="<?php echo SITE_ASSETS; ?>plugins/chosen/chosen.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo SITE_ASSETS; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo SITE_ASSETS; ?>plugins/jquery-ui-1.10.2.custom/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo SITE_CSS; ?>realia-blue.css" type="text/css" id="color-variant-default">
+        <link rel="stylesheet" href="<?php echo SITE_CSS; ?>modositas.css" type="text/css">
+        <!-- Include jQuery.mmenu .css files -->
+        <link type="text/css" href="<?php echo SITE_ASSETS; ?>plugins/jQuery.mmenu-master/dist/css/jquery.mmenu.all.css" rel="stylesheet" />
 
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v2.4";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
+        <!-- OLDALSPECIFIKUS CSS LINKEK -->
+        <?php
+        if (isset($this->css_link)) {
+            foreach ($this->css_link as $value) {
+                echo $value;
+            }
+        }
+        ?>
 
-<div id="wrapper-outer" >
-    <div id="wrapper">
-        <div id="wrapper-inner">
-            <!-- BREADCRUMB -->
-            <div class="breadcrumb-wrapper">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">
+    </head>
+    <body>
 
-                            <div class="account pull-right">
-                                <ul class="nav nav-pills">
-                                    <?php if(Session::get('user_site_logged_in')) {?>
-										<li><a href="eloregisztracio">Előregisztráció</a></li>
-                                    <?php }?>
-									
-									<li><a data-toggle="modal" data-target="#modal_subscribe" href="javascript:;">Feliratkozás hírlevélre</a></li>
-                                    <li><a data-toggle="modal" data-target="#modal_register" href="javascript:;">Regisztráció</a></li>
-                                    
-									<?php if(Session::get('user_site_logged_in')){ ?>
-										<li><span>Bejelentkezve <?php echo Session::get('user_site_name');?>&nbsp; &raquo; </span><a style="float: left; padding-left: 0px;" href="felhasznalok/kijelentkezes">Kijelentkezés</a></li>
-									<?php } else { ?>
-										<li><a data-toggle="modal" data-target="#modal_login" href="javascript:;">Bejelentkezés</a></li>
-									<?php } ?>	
-									
-                                </ul>
-                            </div>
-                        </div><!-- /.span12 -->
-                    </div><!-- /.row -->
-                </div><!-- /.container -->
-            </div><!-- /.breadcrumb-wrapper -->
+        <div id="fb-root"></div>
+        <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v2.4";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
 
-            <!-- HEADER -->
-            <div id="header-wrapper">
-                <div id="header">
-                    <div id="header-inner">
+        <div id="wrapper-outer" >
+            <div id="wrapper">
+                <div id="wrapper-inner">
+                    <!-- BREADCRUMB -->
+                    <div class="breadcrumb-wrapper">
                         <div class="container">
-                          
-<!-- ÜZENETEK						  
-                        <div class="row">
-                            <div class="span12">
-                                <div id="feedback_message">
-                                    <?php //$this->renderFeedbackMessages(); ?>
-                                </div>
-                            </div>
-                        </div>
--->						
-                                                      
-                            <div class="navbar">
-                                <div class="navbar-inner">
-                                    <div class="row">
-                                        <div class="logo-wrapper span4">
-                                            <a href="#nav" class="hidden-desktop" id="btn-nav">Toggle navigation</a>
+                            <div class="row">
+                                <div class="span12">
 
-                                            <div class="logo">
-                                                <a href="" title="Kezdőoldal">
-                                                    <img src="<?php echo SITE_IMAGE;?>logo.png" alt="Home">
-                                                </a>
-                                            </div><!-- /.logo -->
+                                    <div class="account pull-right">
+                                        <ul class="nav nav-pills">
+                                            <?php if (Session::get('user_site_logged_in')) { ?>
+                                                <li><a href="eloregisztracio">Előregisztráció</a></li>
+                                            <?php } ?>
 
-                                            <div class="site-slogan">
-                                                <span>Munkalehetőségek<br>diákoknak</span>
-                                            </div><!-- /.site-slogan -->
-                                        </div><!-- /.logo-wrapper -->
+                                            <li><a data-toggle="modal" data-target="#modal_subscribe" href="javascript:;">Feliratkozás hírlevélre</a></li>
+                                            <li><a data-toggle="modal" data-target="#modal_register" href="javascript:;">Regisztráció</a></li>
 
-                                        <div class="info">
-                                            <div class="site-email">
-                                                <?php echo Util::safe_mailto($settings['email']);?>
-                                            </div><!-- /.site-email -->
+                                            <?php if (Session::get('user_site_logged_in')) { ?>
+                                                <li><span>Bejelentkezve <?php echo Session::get('user_site_name'); ?>&nbsp; &raquo; </span><a style="float: left; padding-left: 0px;" href="felhasznalok/kijelentkezes">Kijelentkezés</a></li>
+                                            <?php } else { ?>
+                                                <li><a data-toggle="modal" data-target="#modal_login" href="javascript:;">Bejelentkezés</a></li>
+                                            <?php } ?>	
 
-                                            <div class="site-phone">
-                                                <span><?php echo $settings['tel']?></span>
-                                            </div><!-- /.site-phone -->
-                                        </div><!-- /.info -->
-
-                                        <a class="btn btn-primary btn-large list-your-property arrow-right" href="munkak">Legfrissebb munkák!</a>
-                                    </div><!-- /.row -->
-                                </div><!-- /.navbar-inner -->
-                            </div><!-- /.navbar -->
+                                        </ul>
+                                    </div>
+                                </div><!-- /.span12 -->
+                            </div><!-- /.row -->
                         </div><!-- /.container -->
-                    </div><!-- /#header-inner -->
-                </div><!-- /#header -->
-            </div><!-- /#header-wrapper -->
+                    </div><!-- /.breadcrumb-wrapper -->
 
-            <!-- NAVIGATION -->
-            <div id="navigation">
-                <div class="container">
-                    <div class="navigation-wrapper">
-                        <div class="navigation clearfix-normal">
+                    <!-- HEADER -->
+                    <div id="header-wrapper">
+                        <div id="header">
+                            <div id="header-inner">
+                                <div class="container">
 
-                            <ul class="nav">
-								<li>
-									<a href="" class="no_arrow <?php echo ($this->registry->controller == 'home' && $this->registry->action == 'index') ? 'active' : ''; ?>">Kezdőoldal</a>
-								</li>
-								<li>
-                                    <a href="munkak" class="no_arrow <?php echo (($this->registry->controller == 'munkak' || $this->registry->controller == 'munka') && $this->registry->action == 'index') ? 'active' : ''; ?>">Munkák</a>
-                                </li>
-                                <li>
-                                    <a href="rolunk" class="no_arrow <?php echo ($this->registry->controller == 'rolunk' && $this->registry->action == 'index') ? 'active' : ''; ?>">Rólunk</a>
-                                </li>
-                                <li class="menuparent">
-                                    <span class="menuparent nolink <?php echo ($this->registry->controller == 'feltetelek') ? 'active' : ''; ?>">Feltételek</span>
-                                    <ul>
-                                        <li><a href="feltetelek/munkavallalas">Munkavállalási feltételek</a></li>
-                                        <li><a href="feltetelek/kilepes">Kilépési feltételek</a></li>
-                                        <li><a href="feltetelek/kifizetes">Pénzkifizetési feltételek</a></li>
-                                    </ul>
-                                </li>
-								<li>
-                                    <a href="kollegak" class="no_arrow <?php echo ($this->registry->controller == 'kollegak' && $this->registry->action == 'index') ? 'active' : ''; ?>">Kollégáink</a>
-                                </li>
-								<li>
-                                    <a href="irodak" class="no_arrow <?php echo ($this->registry->controller == 'irodak' && $this->registry->action == 'index') ? 'active' : ''; ?>">Irodáink</a>
-                                </li>
-                                <li class="menuparent">
-                                    <span class="menuparent nolink <?php echo ($this->registry->controller == 'cegek') ? 'active' : ''; ?>">Cégeknek</span>
-                                    <ul>
-                                        <li><a href="cegek/cegbemutato">Cégbemutató</a></li>
-                                        <li><a href="cegek/munkaero-kolcsonzes">Munkaerő-kölcsönzés</a></li>
-                                        <li><a href="cegek/rehabilitacios-uzletag">Rehabilitációs üzletág</a></li>
-                                        <li><a href="cegek/referenciak">Referenciák</a></li>
-                                        <li><a href="cegek/szolgaltatasaink">Szolgáltatásaink</a></li>
-                                        <li><a href="cegek/szemelyzeti-tanacsadas">Személyzeti tanácsadás</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-									<a class="no_arrow <?php echo ($this->registry->controller == 'kapcsolat' && $this->registry->action == 'index') ? 'active' : ''; ?>" href="kapcsolat">Kapcsolat</a>
-								</li>
-                            
-							</ul><!-- /.nav -->
+                                    <!-- ÜZENETEK						  
+                                                            <div class="row">
+                                                                <div class="span12">
+                                                                    <div id="feedback_message">
+                                    <?php //$this->renderFeedbackMessages();  ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                    -->						
+
+                                    <div class="navbar">
+                                        <div class="navbar-inner">
+                                            <div class="row">
+                                                <div class="logo-wrapper span4">
+                                            <!--        <a href="#nav" class="hidden-desktop" id="btn-nav">Toggle navigation</a> -->
+
+<!-- ********************* mobil menu gomb ********************* -->
+                                                    <a class="hidden-desktop menu-toggle pull-right" href="#mobile_menu">
+                                                        <i class="fa fa-bars"></i>
+                                                    </a>                                                   
 
 
-<!--
-								<button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_login" id="modal_login_trigger">Bejelentkezés</button>
-								<button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_subscribe" id="modal_subscribe_trigger">Feliratkozás hírlevélre</button>
-								<button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_register" id="modal_register_trigger">Regisztrálj!</button>
--->                                  
-								<!-- <a style="margin-left:10px;" class="btn btn-secondary arrow-right pull-right" href="<?php //echo BASE_URL . 'feliratkozas';?>">Feliratkozás hírlevélre</a> -->
-                                <!-- <a class="btn btn-secondary arrow-right pull-right">Regisztrálj!</a> -->
+                                                    <div class="logo">
+                                                        <a href="" title="Kezdőoldal">
+                                                            <img src="<?php echo SITE_IMAGE; ?>logo.png" alt="Home">
+                                                        </a>
+                                                    </div><!-- /.logo -->
+
+                                                    <div class="site-slogan">
+                                                        <span>Munkalehetőségek<br>diákoknak</span>
+                                                    </div><!-- /.site-slogan -->
+                                                </div><!-- /.logo-wrapper -->
+
+                                                <div class="info">
+                                                    <div class="site-email">
+                                                        <?php echo Util::safe_mailto($settings['email']); ?>
+                                                    </div><!-- /.site-email -->
+
+                                                    <div class="site-phone">
+                                                        <span><?php echo $settings['tel'] ?></span>
+                                                    </div><!-- /.site-phone -->
+                                                </div><!-- /.info -->
+
+                                                <a class="btn btn-primary btn-large list-your-property arrow-right" href="munkak">Legfrissebb munkák!</a>
+                                            </div><!-- /.row -->
+                                        </div><!-- /.navbar-inner -->
+                                    </div><!-- /.navbar -->
+                                </div><!-- /.container -->
+                            </div><!-- /#header-inner -->
+                        </div><!-- /#header -->
+                    </div><!-- /#header-wrapper -->
 
 
-                        </div><!-- /.navigation -->
-                    </div><!-- /.navigation-wrapper -->
-                </div><!-- /.container -->
-            </div><!-- /.navigation -->
 
-			<!-- MODAL SUBSCRIBE -->	
-			<?php include('system/site/view/_template/tpl_subscribe_modal.php');?>
-			<!-- MODAL SUBSCRIBE END -->		
-			<!-- MODAL LOGIN -->	
-			<?php include('system/site/view/_template/tpl_login_modal.php');?>
-			<!-- MODAL LOGIN END -->
-			<!-- MODAL REGISTER -->	
-			<?php include('system/site/view/_template/tpl_register_modal.php');?>
-			<!-- MODAL REGISTER END -->
+
+
+
+
+
+                    <!-- The menu -->
+                    <div id="mobile_menu">     
+                        <ul>
+                            <li class="<?php echo ($this->registry->controller == 'home') ? 'Selected' : ''; ?>"><a href="<?php echo $this->registry->site_url; ?>"><i class="fa fa-home fa-fw"></i> Kezdőoldal</a></li>
+                            <li class="<?php echo ($this->registry->controller == 'vakacio') ? 'current_menu_item' : ''; ?>"><a href="#mm-2"><i class="fa fa-suitcase fa-fw"></i> Menu2</a>
+                                <ul class="Vertical">
+                                    <li><a href="<?php echo $this->registry->site_url; ?>vakacio/nyaralas">Menu 2.1</a></li>
+                                    <li><a href="<?php echo $this->registry->site_url; ?>vakacio/kirandulasok">Menu 2.2</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="<?php echo ($this->registry->controller == 'minden-mas') ? 'Selected' : ''; ?>"><a href="#mm-3"><i class="fa fa-anchor fa-fw"></i> Menu 3</a>
+                                <ul class="Vertical">
+                                    <li><a href="<?php echo $this->registry->site_url; ?>minden-mas/hosszu-pihenes">Menu 3-1</a></li>
+                                    <li><a href="<?php echo $this->registry->site_url; ?>minden-mas/uj-elet">Menu 3.2</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="<?php echo ($this->registry->controller == 'befektetes') ? 'Selected' : ''; ?>"><a href="#mm-4"><i class="fa fa-money fa-fw"></i> Menu 4</a>
+                                <ul class="Vertical">
+                                    <li><a href="<?php echo $this->registry->site_url; ?>befektetes/uzlet-es-pihenes">Menu 4.1</a></li>
+                                    <li><a href="<?php echo $this->registry->site_url; ?>befektetes/vallalkozas">menu 4.2</a></li>
+
+                                </ul>
+                            </li>   
+                            <li class="<?php echo ($this->registry->controller == 'blog') ? 'Selected' : ''; ?>"><a href="<?php echo $this->registry->site_url; ?>blog"><i class="fa fa-pencil fa-fw"></i> Menu valami</a></li>
+
+                            <li class="<?php echo ($this->registry->controller == 'galeria') ? 'Selected' : ''; ?>"><a href="#mm-5"><i class="fa fa-camera fa-fw"></i> Sqwfefe</a>
+                                <ul class="Vertical">
+                                    <li><a href="<?php echo $this->registry->site_url; ?>galeria/kepgaleria">dfdsfdf</a></li>
+                                    <li><a href="<?php echo $this->registry->site_url; ?>galeria/videok">sdfdsfdsf</a></li>
+                                </ul>
+                            </li>    
+
+                            <li class="<?php echo ($this->registry->controller == 'rolunk' || $this->registry->controller == 'elerhetosegek') ? 'Selected' : ''; ?>"><a href="#mm-6"><i class="fa fa-map-marker fa-fw"></i> Menu 5</a>
+                                <ul class="Vertical">
+                                    <li><a href="<?php echo $this->registry->site_url; ?>rolunk">Menu 5.1</a></li>
+                                    <li><a href="<?php echo $this->registry->site_url; ?>elerhetosegek">Menu 5.2</a></li>
+                                </ul>
+                            </li>    
+
+
+
+                        </ul>
+                    </div>                      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- NAVIGATION -->
+                    <div id="navigation">
+                        <div class="container">
+                            <div class="navigation-wrapper">
+                                <div class="navigation clearfix-normal">
+
+                                    <ul class="nav">
+                                        <li>
+                                            <a href="" class="no_arrow <?php echo ($this->registry->controller == 'home' && $this->registry->action == 'index') ? 'active' : ''; ?>">Kezdőoldal</a>
+                                        </li>
+                                        <li>
+                                            <a href="munkak" class="no_arrow <?php echo (($this->registry->controller == 'munkak' || $this->registry->controller == 'munka') && $this->registry->action == 'index') ? 'active' : ''; ?>">Munkák</a>
+                                        </li>
+                                        <li>
+                                            <a href="rolunk" class="no_arrow <?php echo ($this->registry->controller == 'rolunk' && $this->registry->action == 'index') ? 'active' : ''; ?>">Rólunk</a>
+                                        </li>
+                                        <li class="menuparent">
+                                            <span class="menuparent nolink <?php echo ($this->registry->controller == 'feltetelek') ? 'active' : ''; ?>">Feltételek</span>
+                                            <ul>
+                                                <li><a href="feltetelek/munkavallalas">Munkavállalási feltételek</a></li>
+                                                <li><a href="feltetelek/kilepes">Kilépési feltételek</a></li>
+                                                <li><a href="feltetelek/kifizetes">Pénzkifizetési feltételek</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="kollegak" class="no_arrow <?php echo ($this->registry->controller == 'kollegak' && $this->registry->action == 'index') ? 'active' : ''; ?>">Kollégáink</a>
+                                        </li>
+                                        <li>
+                                            <a href="irodak" class="no_arrow <?php echo ($this->registry->controller == 'irodak' && $this->registry->action == 'index') ? 'active' : ''; ?>">Irodáink</a>
+                                        </li>
+                                        <li class="menuparent">
+                                            <span class="menuparent nolink <?php echo ($this->registry->controller == 'cegek') ? 'active' : ''; ?>">Cégeknek</span>
+                                            <ul>
+                                                <li><a href="cegek/cegbemutato">Cégbemutató</a></li>
+                                                <li><a href="cegek/munkaero-kolcsonzes">Munkaerő-kölcsönzés</a></li>
+                                                <li><a href="cegek/rehabilitacios-uzletag">Rehabilitációs üzletág</a></li>
+                                                <li><a href="cegek/referenciak">Referenciák</a></li>
+                                                <li><a href="cegek/szolgaltatasaink">Szolgáltatásaink</a></li>
+                                                <li><a href="cegek/szemelyzeti-tanacsadas">Személyzeti tanácsadás</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a class="no_arrow <?php echo ($this->registry->controller == 'kapcsolat' && $this->registry->action == 'index') ? 'active' : ''; ?>" href="kapcsolat">Kapcsolat</a>
+                                        </li>
+
+                                    </ul><!-- /.nav -->
+
+
+                                    <!--
+                                                                                                    <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_login" id="modal_login_trigger">Bejelentkezés</button>
+                                                                                                    <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_subscribe" id="modal_subscribe_trigger">Feliratkozás hírlevélre</button>
+                                                                                                    <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_register" id="modal_register_trigger">Regisztrálj!</button>
+                                    -->                                  
+                                                                                                    <!-- <a style="margin-left:10px;" class="btn btn-secondary arrow-right pull-right" href="<?php //echo BASE_URL . 'feliratkozas';  ?>">Feliratkozás hírlevélre</a> -->
+                                    <!-- <a class="btn btn-secondary arrow-right pull-right">Regisztrálj!</a> -->
+
+
+                                </div><!-- /.navigation -->
+                            </div><!-- /.navigation-wrapper -->
+                        </div><!-- /.container -->
+                    </div><!-- /.navigation -->
+
+                    <!-- MODAL SUBSCRIBE -->	
+                    <?php include('system/site/view/_template/tpl_subscribe_modal.php'); ?>
+                    <!-- MODAL SUBSCRIBE END -->		
+                    <!-- MODAL LOGIN -->	
+                    <?php include('system/site/view/_template/tpl_login_modal.php'); ?>
+                    <!-- MODAL LOGIN END -->
+                    <!-- MODAL REGISTER -->	
+                    <?php include('system/site/view/_template/tpl_register_modal.php'); ?>
+                    <!-- MODAL REGISTER END -->
