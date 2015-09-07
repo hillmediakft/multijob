@@ -48,8 +48,8 @@
 		<dd><?php echo $content['job_create_timestamp'];?></dd>
 		<div style="border-top:1px solid #E5E5E5; margin: 8px 0px;"></div>
 
-		<dt style="font-size:100%; color:grey;">Módosítás dátuma:</dt>
-		<dd><?php echo $content['job_update_timestamp'];?></dd>
+		<dt style="font-size:100%; color:grey;">Referens:</dt>
+		<dd><?php echo $content['user_first_name'] . ' ' . $content['user_last_name'];?></dd>
 		<div style="border-top:1px solid #E5E5E5; margin: 8px 0px;"></div>
 
 		<dt style="font-size:100%; color:grey;">Státusz:</dt>

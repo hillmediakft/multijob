@@ -95,7 +95,7 @@
 											Létrehozva
 										</th>
 										<th width="15%">
-											Módosítva
+											Referens
 										</th>
 										<th width="10%">
 											Státusz
@@ -132,6 +132,12 @@
 										<td>
 										</td>
 										<td>
+                                            <select name="search_referens" class="form-control form-filter input-sm">
+												<option value="">Válasszon</option>
+												<?php foreach($user_list as $value) { ?>
+												<option value="<?php echo $value['user_id']; ?>"><?php echo $value['user_first_name'] . ' ' . $value['user_last_name']; ?></option>
+												<?php }	?>
+											</select>
 										</td>
 										<td>
 											<select name="search_status" class="form-control form-filter input-sm">

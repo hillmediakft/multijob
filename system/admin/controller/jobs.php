@@ -31,6 +31,7 @@ class Jobs extends Controller {
 		//$this->view->all_jobs = $this->jobs_model->all_jobs_query();
 		$this->view->job_list = $this->jobs_model->job_list_query();
 		$this->view->employer_list = $this->jobs_model->employer_list_query();
+		$this->view->user_list = $this->jobs_model->user_list_query();
 
 //$this->view->debug(true);
 		
@@ -131,6 +132,10 @@ class Jobs extends Controller {
 		// kerületek nevének és id-jének lekérdezése az option listához
 		$this->view->district_list = $this->jobs_model->district_list_query();
 
+        // userek lekérdezése
+        if(Session::get('user_role_id') == 1){
+            $this->view->user_list = $this->jobs_model->user_list_query(); 
+        }
 //$this->view->debug(true);
 
 		// template betöltése
@@ -187,8 +192,11 @@ class Jobs extends Controller {
 		$this->view->county_list = $this->jobs_model->county_list_query();	
 		// kerületek nevének és id-jének lekérdezése az option listához
 		$this->view->district_list = $this->jobs_model->district_list_query();	
-
-		
+        // userek lekérdezése
+        if(Session::get('user_role_id') == 1){
+            $this->view->user_list = $this->jobs_model->user_list_query();
+        }
+            
 //$this->view->debug(true);
 		
 		

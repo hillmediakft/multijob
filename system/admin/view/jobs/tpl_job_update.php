@@ -62,7 +62,20 @@
 
 								<div class="space10"></div>							
 								<div class="row">	
-									<div class="col-md-12">						
+									<div class="col-md-12">
+                                        
+                                    <?php if(Session::get('user_role_id') == 1){ ?>
+                                     <!-- REFERENS -->	
+										<div class="form-group">
+											<label for="job_ref_id" class="control-label">Referens</label>
+											<select name="job_ref_id" class="form-control input-xlarge">
+												<?php foreach($user_list as $value) { ?>
+												<option value="<?php echo $value['user_id']; ?>" <?php echo ($value['user_id'] == $actual_job[0]['job_ref_id']) ? 'selected' : ''; ?> ><?php echo $value['user_first_name'] . ' ' . $value['user_last_name']; ?></option>
+												<?php } ?>
+											</select>
+										</div>                                              
+                                    <?php } ?>                                        
+                                        
 									<!-- MUNKA MEGNEVEZÉSE -->	
 										<div class="form-group">
 											<label for="job_title" class="control-label">Megnevezés <span class="required">*</span></label>

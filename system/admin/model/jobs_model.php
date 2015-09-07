@@ -9,6 +9,19 @@ class Jobs_model extends Model {
 		parent::__construct();
 	}
 
+    
+    /**
+     * Userek lekérdezése
+     */
+    public function user_list_query()
+    {
+        $this->query->reset();
+        $this->query->set_table(array('users'));
+        $this->query->set_columns(array('user_id','user_name','user_first_name','user_last_name'));
+        return $this->query->select();
+    }
+    
+    
 	/**
 	 *	Egy munka minden adatát lekérdezi a részletek megjelenítéséhez
 	 */
@@ -71,13 +84,17 @@ class Jobs_model extends Model {
 			'jobs_list.job_list_name',
 			'county_list.county_name',
 			'district_list.district_name',
-			'city_list.city_name'
+			'city_list.city_name',
+            //'users.user_name',
+            'users.user_first_name',
+            'users.user_last_name'
 		)); 
 		$this->query->set_join('left', 'employer', 'jobs.job_employer_id', '=', 'employer.employer_id'); 
 		$this->query->set_join('left', 'jobs_list', 'jobs.job_category_id', '=', 'jobs_list.job_list_id'); 
 		$this->query->set_join('left', 'county_list', 'jobs.job_county_id', '=', 'county_list.county_id'); 
 		$this->query->set_join('left', 'city_list', 'jobs.job_city_id', '=', 'city_list.city_id'); 
 		$this->query->set_join('left', 'district_list', 'jobs.job_district_id', '=', 'district_list.district_id'); 
+		$this->query->set_join('left', 'users', 'jobs.job_ref_id', '=', 'users.user_id'); 
 		$this->query->set_where('job_id', '=', $id);
 		$result = $this->query->select();
 		
@@ -234,18 +251,13 @@ class Jobs_model extends Model {
 		
 		if($error_counter == 0) {
 				
-		 	// ha nincs lejárat: törli az adatot, ha van átalakítja timestamp-re
-			if(empty($data['job_expiry_timestamp'])) {
-				unset($data['job_expiry_timestamp']);
-			} else {
-				$data['job_expiry_timestamp'] = strtotime($data['job_expiry_timestamp']);
-			}	
-
-			// munkaadó ha nincs megadva
-			if($data['job_employer_id'] == ''){
-				$data['job_employer_id'] = NULL;
-			}
-			
+		 	// ha nincs lejárat NULL, ha van átalakítja timestamp-re
+            $data['job_expiry_timestamp'] = (empty($data['job_expiry_timestamp'])) ? NULL : strtotime($data['job_expiry_timestamp']);
+			// munkaadó azonosító megadása
+            $data['job_employer_id'] = ($data['job_employer_id'] == '') ? NULL : (int)$data['job_employer_id'];
+            // referens id megadása
+            $data['job_ref_id'] = (!isset($data['job_ref_id'])) ? (int)Session::get('user_id') : (int)$data['job_ref_id'];
+            
 			//létrehozás dátuma timestamp
 			$data['job_create_timestamp'] = time();
 			
@@ -298,16 +310,11 @@ class Jobs_model extends Model {
 		if($error_counter == 0) {
 			
 		 	// ha nincs lejárat: az adat NULL, ha van átalakítja timestamp-re
-			if(empty($data['job_expiry_timestamp'])) {
-				$data['job_expiry_timestamp'] = NULL;
-			} else {
-				$data['job_expiry_timestamp'] = strtotime($data['job_expiry_timestamp']);
-			}	
-
-			// munkaadó ha nincs megadva
-			if($data['job_employer_id'] == ''){
-				$data['job_employer_id'] = NULL;
-			}
+            $data['job_expiry_timestamp'] = (empty($data['job_expiry_timestamp'])) ? NULL : strtotime($data['job_expiry_timestamp']);
+			// munkaadó azonosító megadása
+            $data['job_employer_id'] = ($data['job_employer_id'] == '') ? NULL : (int)$data['job_employer_id'];
+            // referens id megadása
+            $data['job_ref_id'] = (!isset($data['job_ref_id'])) ? (int)Session::get('user_id') : (int)$data['job_ref_id'];
 			
 			// módosítás dátuma timestamp formátumban
 			$data['job_update_timestamp'] = time();
@@ -628,6 +635,8 @@ class Jobs_model extends Model {
 	{
 		// ebbe a tömbbe kerülnek a csoportos műveletek üzenetei
 		$messages = array();
+        
+        $user_role = Session::get('user_role_id');
 
 		if(isset($request_data['customActionType']) && isset($request_data['customActionName'])) {
 		
@@ -680,7 +689,6 @@ class Jobs_model extends Model {
 		$display_draw = intval($request_data['draw']);
 		
 		$this->query->reset();	
-		// a query tulajdonság ($this->query) tartalmazza a query objektumot
 		$this->query->set_table(array('jobs')); 
 		$this->query->set_columns('SQL_CALC_FOUND_ROWS 
 			`jobs`.`job_id`,
@@ -689,12 +697,16 @@ class Jobs_model extends Model {
 			`jobs`.`job_create_timestamp`,
 			`jobs`.`job_update_timestamp`,
 			`employer`.`employer_name`,
-			`jobs_list`.`job_list_name`'
+			`jobs_list`.`job_list_name`,
+            `users`.`user_id`,
+            `users`.`user_first_name`,
+            `users`.`user_last_name`'
 		); 		
 		
 		$this->query->set_join('left', 'employer', 'jobs.job_employer_id', '=', 'employer.employer_id'); 
 		$this->query->set_join('left', 'jobs_list', 'jobs.job_category_id', '=', 'jobs_list.job_list_id'); 
-		
+        $this->query->set_join('left', 'users', 'jobs.job_ref_id', '=', 'users.user_id'); 
+        
 		$this->query->set_offset($display_start); 
 		$this->query->set_limit($display_length); 
 		
@@ -708,6 +720,9 @@ class Jobs_model extends Model {
 			}
 			if(!empty($request_data['search_job_id'])){
 				$this->query->set_where('job_id', '=', (int)$request_data['search_job_id']);
+			}
+            if(!empty($request_data['search_referens'])){
+				$this->query->set_where('job_ref_id', '=', (int)$request_data['search_referens']);
 			}
 			if(!empty($request_data['search_job_title'])){
 				$this->query->set_where('job_title', 'LIKE', '%' . $request_data['search_job_title'] . '%');
@@ -744,38 +759,45 @@ class Jobs_model extends Model {
 				//$temp['DT_RowAttr'] = array('data-proba' => 'ertek_proba');
 		
 		
-			$temp['checkbox'] = (Session::get('user_role_id') < 3) ? '<input type="checkbox" class="checkboxes" name="job_id_' . $value['job_id'] . '" value="' . $value['job_id'] . '"/>' : ''; 
+			$temp['checkbox'] = ($user_role < 3) ? '<input type="checkbox" class="checkboxes" name="job_id_' . $value['job_id'] . '" value="' . $value['job_id'] . '"/>' : ''; 
 			$temp['id'] = '#' . $value['job_id'];
 			$temp['megnevezes'] = $value['job_title'];
 			$temp['kategoria'] = $value['job_list_name'];
 			$temp['ceg_neve'] = $value['employer_name'];
 			$temp['letrehozva'] = date('Y-m-d H:i', $value['job_create_timestamp']);
-			$temp['modositva'] = (empty($value['job_update_timestamp'])) ? '' : date('Y-m-d H:i', $value['job_update_timestamp']);
-			$temp['status'] = ($value['job_status'] == 1) ? '<span class="label label-sm label-success">Aktív</span>' : '<span class="label label-sm label-danger">Inaktív</span>';
+			
+            $temp['modositva'] = (empty($value['job_update_timestamp'])) ? '' : date('Y-m-d H:i', $value['job_update_timestamp']);
+            $temp['referens'] = $value['user_first_name'] . ' ' . $value['user_last_name'];
+			
+            $temp['status'] = ($value['job_status'] == 1) ? '<span class="label label-sm label-success">Aktív</span>' : '<span class="label label-sm label-danger">Inaktív</span>';
 
 			$temp['menu'] = '						
 			<div class="actions">
 				<div class="btn-group">';
 				
-				$disabled_menu = (Session::get('user_role_id') >= 2) ? 'disabled' : '';
-				$temp['menu'] .= '<a class="btn btn-sm grey-steel" title="Műveletek" href="#" data-toggle="dropdown" ' . $disabled_menu . '>
+                $temp['menu'] .= '<a class="btn btn-sm grey-steel" title="Műveletek" href="#" data-toggle="dropdown">
 						<i class="fa fa-cogs"></i>
 					</a>					
 					<ul class="dropdown-menu pull-right">
 						<li><a data-toggle="modal" data-target="#ajax_modal" href="' . $this->registry->site_url . 'jobs/view_job_ajax/' . $value['job_id'] . '"><i class="fa fa-eye"></i> Részletek</a></li>';
-		//'<li><a href="javascript:;" class="modal_trigger" rel="' . $value['job_id'] . '"><i class="fa fa-eye"></i> Részletek</a></li>';				
 						
-				$temp['menu'] .= (Session::get('user_role_id') < 3) ? '<li><a href="' . $this->registry->site_url . 'jobs/update_job/' . $value['job_id'] . '"><i class="fa fa-pencil"></i> Szerkeszt</a></li>' : ''; 		
-				$temp['menu'] .= (Session::get('user_role_id') < 3) ? '<li><a href="javascript:;" class="delete_job_class" data-id="' . $value['job_id'] . '"> <i class="fa fa-trash"></i> Töröl</a></li>' : '';		
+				// update
+                $temp['menu'] .= ($user_role < 3) ? '<li><a href="' . $this->registry->site_url . 'jobs/update_job/' . $value['job_id'] . '"><i class="fa fa-pencil"></i> Szerkeszt</a></li>' : ''; 		
 		
-				if ((Session::get('user_role_id') < 3)) {		
-					if($value['job_status'] == 1) {
-						$temp['menu'] .=	'<li><a data-id="' . $value['job_id']. '" href="javascript:;" class="change_status" data-action="make_inactive"><i class="fa fa-ban"></i> Blokkol</a></li>';
-					}
-					if($value['job_status'] == 0){
-						$temp['menu'] .=	'<li><a data-id="' . $value['job_id'] .'" href="javascript:;" class="change_status" data-action="make_active"><i class="fa fa-check"></i> Aktivál</a></li>';
-					}
-				};
+                // törlés
+                if($user_role == 1) {
+                    $temp['menu'] .= '<li><a href="javascript:;" class="delete_job_class" data-id="' . $value['job_id'] . '"> <i class="fa fa-trash"></i> Töröl</a></li>';
+                } else {
+                    $temp['menu'] .= '<li class="disabled-link"><a href="javascript:;" title="Nincs jogosultsága törölni" class="disable-target"><i class="fa fa-trash"></i> Töröl</a></li>';
+                }
+            
+                // status
+                if($value['job_status'] == 0){
+                    $temp['menu'] .= '<li><a data-id="' . $value['job_id'] .'" href="javascript:;" class="change_status" data-action="make_active"><i class="fa fa-check"></i> Aktivál</a></li>';
+                } else {
+                    $temp['menu'] .= '<li><a data-id="' . $value['job_id']. '" href="javascript:;" class="change_status" data-action="make_inactive"><i class="fa fa-ban"></i> Blokkol</a></li>';
+                }
+
 				$temp['menu'] .= '</ul></div></div>';
 
 			// adatok berakása a data tömbbe
