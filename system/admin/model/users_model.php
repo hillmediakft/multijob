@@ -19,15 +19,39 @@ class Users_model extends Model {
 		$this->email_verify = false;
 	}
 	
+    /*
+     * User referens id-k lekérdezése a jobs táblából
+     */
+    public function user_ref_id_query()
+    {
+		$this->query->reset();
+        $this->query->set_table(array('jobs')); 
+		$this->query->set_columns(array('job_ref_id'));
+        return $this->query->select();
+    }
+    
+    /*
+     * Felhsználók adatainak lekérdezése
+     */
 	public function all_user()
 	{
 		// a query tulajdonság ($this->query) tartalmazza a query objektumot
-		$this->query->set_table(array('users')); 
-		$this->query->set_columns(array('users.user_id', 'users.user_name', 'users.user_email', 'users.user_active', 'users.user_role_id', 'users.user_first_name', 'users.user_last_name', 'users.user_phone', 'users.user_photo', 'roles.role_name')); 
+		$this->query->reset();
+        $this->query->set_table(array('users')); 
+		$this->query->set_columns(array(
+            'users.user_id',
+            'users.user_name',
+            'users.user_email',
+            'users.user_active',
+            'users.user_role_id',
+            'users.user_first_name',
+            'users.user_last_name',
+            'users.user_phone',
+            'users.user_photo',
+            'roles.role_name'
+        )); 
 		$this->query->set_join('left', 'roles', 'users.user_role_id', '=', 'roles.role_id'); 
-		$result = $this->query->select(); 
-	
-		return $result;
+		return $this->query->select(); 
 	}
 	
 	public function new_user()

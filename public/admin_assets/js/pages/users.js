@@ -33,25 +33,18 @@ var Users = function () {
 
             "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
 
-            "columns": [{
-                "orderable": false
-            }, {
-                "orderable": false
-            }, {
-                "orderable": true
-            }, {
-                "orderable": true
-            }, {
-                "orderable": false
-            }, {
-                "orderable": true
-            }, {
-                "orderable": true
-            }, {
-                "orderable": true
-            }, {
-                "orderable": false
-            }],
+            "columns": [
+                {"orderable": false}, //chechkbox
+                {"orderable": false}, //kép
+                {"orderable": true}, //felhasználói név
+                {"orderable": true}, //név
+                {"orderable": false}, //e-mail
+                {"orderable": false}, //telefon
+                {"orderable": true}, //jogosultság
+                {"orderable": true}, //munkák száma
+                {"orderable": true}, //státusz
+                {"orderable": false} //menü
+            ],
             "lengthMenu": [
                 [5, 15, 20, -1],
                 [5, 15, 20, "All"] // change per page values here

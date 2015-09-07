@@ -71,12 +71,13 @@
 										<th class="table-checkbox">
 											<input type="checkbox" class="group-checkable" data-set="#users .checkboxes"/>
 										</th>
-										<th></th>
+										<th style="width:0px;"></th>
 										<th>Felh.</th>
 										<th>Név</th>
 										<th>E-mail</th>
 										<th>Telefon</th>
 										<th>Jogosultság</th>
+                                        <th>Munkák száma</th>
 										<th>Státusz</th>
 										<th style="width:0px;"></th>
 									</tr>
@@ -95,6 +96,7 @@
 										<td><a href="mailto:shuxer@gmail.com"><?php echo $value['user_email'];?> </a></td>
 										<td><?php echo $value['user_phone'];?></td>
 										<td><?php echo $value['role_name'];?></td>
+										<td><?php echo $user_ref[$value['user_id']]; ?></td>
 										<?php if($value['user_active'] == 1){ ?>
 											<td><span class="label label-sm label-success">Aktív</span></td>
 										<?php } ?>
