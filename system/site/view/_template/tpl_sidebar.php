@@ -69,7 +69,7 @@
 		data-adapt-container-width="true" 
 		data-hide-cover="false" 
 		data-show-facepile="true" 
-		data-show-posts="true"></div>
+		data-show-posts="false"></div>
 	<?php }?>
 </div>
 
