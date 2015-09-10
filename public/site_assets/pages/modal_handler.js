@@ -35,8 +35,8 @@ var modalHandler = function () {
                     $.each( respond.message, function( index, value ){
                         $error_messages += value + "<br />"; 
                     });
-                    $error_messages += '<br />';
-                    $("#message_login").html($error_messages);						
+//                    $error_messages += '<br />';
+                    $("#message_login").html('<div class="alert alert-danger">'+$error_messages+'</div>');						
                 }
             },
             error: function(result, status, e){
