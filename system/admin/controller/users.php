@@ -12,7 +12,7 @@ class Users extends Controller {
 	public function index()
 	{
 	// adatok bevitele a view objektumba
-		
+        
 		$this->view->title = 'Users oldal';
 		$this->view->description = 'Users oldal description';
 		
@@ -97,19 +97,21 @@ class Users extends Controller {
 	
 	
 	/**
-	 * Felhasználó adatainak megjelenítése és módosítása	
-	 *
+	 * Felhasználó adatainak megjelenítése és módosítása
+     *
+	 * A metódusnak szüksége van egy user id-jére amit módosítani akarunk ($this->registry->params['id'])
 	 */
 	public function profile()
 	{
 		if(isset($_POST['submit_edit_user'])) {
-			$result = $this->users_model->edit_user();
+            
+			$result = $this->users_model->edit_user($this->registry->params['id']);
 			
 			if($result) {
 				Util::redirect('users');
 			}
 			else {
-				Util::redirect('users/edit_user');
+				Util::redirect('users/profile/' . $this->registry->params['id']);
 			}
 		}
 		
@@ -125,9 +127,9 @@ class Users extends Controller {
 		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation/dist/jquery.validate.js');
 		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation/dist/additional-methods.min.js');
 		$this->view->js_link[] = $this->make_link('js', ADMIN_JS, 'pages/profile.js');
-		
+        
 		// visszadja a bejelentkezett user adatait egy tömbbe (id, név, telefon, password... stb.)
-		$this->view->data_arr = $this->users_model->user_data_query(Session::get('user_id'));
+		$this->view->data_arr = $this->users_model->user_data_query($this->registry->params['id']);
 		
 	// $this->view->debug(true);
 		
@@ -163,31 +165,17 @@ class Users extends Controller {
 	 */
 	public function delete_user()
 	{
-		$result = $this->users_model->delete_user();
-		Util::redirect('users');
+        if(Session::get('user_role_id') == 1){
+            $this->users_model->delete_user();
+        } else {
+            Message::set('error', 'Nincs engedélye a művelet végrehajtásához!');
+        }
+        
+        Util::redirect('users');
 	}
 
 	
-	/**
-	 *	Felhasználó adatainak módosítása
-	 *
-	 */
-	public function edit_user()
-	{
-		if(isset($_POST['submit_edit_user'])) {
-			$result = $this->users_model->edit_user();
-			
-			if($result) {
-				Util::redirect('users');
-			}
-			else {
-				Util::redirect('users/profile');
-			}
-		}	
-	}
-	
-	
-	/**
+    /**
 	 *	A felhasználó képét tölti fel a szerverre, és készít egy kisebb méretű képet is.
 	 *
 	 *	Ez a metódus kettő XHR kérést dolgoz fel.

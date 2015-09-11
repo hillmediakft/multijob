@@ -63,6 +63,7 @@ class Users_model extends Model {
 			Message::set('error', 'username_field_empty');
             $error_counter += 1;
         }
+    /*
 		if (strlen($_POST['name']) > 64 OR strlen($_POST['name']) < 2) {
             Message::set('error', 'username_too_short_or_too_long');
 			$error_counter += 1;
@@ -70,13 +71,15 @@ class Users_model extends Model {
 		if (!preg_match('/^[\_\sa-záöőüűóúéíÁÖŐÜŰÓÚÉÍ\d]{2,64}$/i', $_POST['name'])) {
 			Message::set('error', 'username_does_not_fit_pattern');
             $error_counter += 1;
-        }	
+        }
+    */
 		
 	// Vezetéknév ellenőrzés	
 		if(empty($_POST['first_name'])) {
 			Message::set('error', 'userfirstname_field_empty');
             $error_counter += 1;
 		}
+    /*    
 		if (strlen($_POST['first_name']) > 64 OR strlen($_POST['first_name']) < 2) {
 			Message::set('error', 'userfirstname_too_short_or_too_long');
             $error_counter += 1;
@@ -84,13 +87,15 @@ class Users_model extends Model {
 		if (!preg_match('/^[\_\sa-záöőüűóúéíÁÖŐÜŰÓÚÉÍ]{2,64}$/i', $_POST['first_name'])) {
 			Message::set('error', 'userfirstname_does_not_fit_pattern');
             $error_counter += 1;
-		}	
+		}
+    */    
 			
 	// Utónév ellenőrzés
 		if(empty($_POST['last_name'])) {
 			Message::set('error', 'userlastname_field_empty');
             $error_counter += 1;
 		}
+    /*    
 		if (strlen($_POST['last_name']) > 64 OR strlen($_POST['last_name']) < 2) {
 			Message::set('error', 'userlastname_too_short_or_too_long');
             $error_counter += 1;
@@ -98,9 +103,10 @@ class Users_model extends Model {
 		if (!preg_match('/^[\_\sa-záöőüűóúéíÁÖŐÜŰÓÚÉÍ]{2,64}$/i', $_POST['last_name'])) {
 			Message::set('error', 'userlastname_does_not_fit_pattern');
             $error_counter += 1;		
-		}		
+		}
 			
 	// Telefonszám ellenőrzés
+
 		if(empty($_POST['phone'])){
 			Message::set('error', 'userphone_field_empty');
             $error_counter += 1;
@@ -109,6 +115,7 @@ class Users_model extends Model {
 			Message::set('error', 'userphone_does_not_fit_pattern');
             $error_counter += 1;
 		}
+    */    
 		
 	// Jelszó ellenőrzés
 		if (empty($_POST['password']) OR empty($_POST['password_again'])) {
@@ -129,6 +136,7 @@ class Users_model extends Model {
 			Message::set('error', 'email_field_empty');
             $error_counter += 1;
         }
+    /*    
 		if (strlen($_POST['email']) > 64) {
 			Message::set('error', 'email_too_long');
             $error_counter += 1;
@@ -137,6 +145,7 @@ class Users_model extends Model {
 			Message::set('error', 'email_does_not_fit_pattern');
             $error_counter += 1;
         }
+    */    
 		
 	// végrehajtás, ha nincs hiba	
 		if ($error_counter == 0) {
@@ -266,7 +275,7 @@ class Users_model extends Model {
         }
 //            Message::set('error', 'unknown_error');
     }
-	
+    
 	/**
 	 *	Admin user törlése
 	 *
@@ -359,10 +368,11 @@ class Users_model extends Model {
 	}
 	
 	/**
-	 *	Felhsználó adatainak módosítása
-	 *
+	 *	Felhasználó adatainak módosítása
+     *
+	 * @param  integer $user_id
 	 */
-	public function edit_user()
+	public function edit_user($user_id)
 	{
 			$error_counter = 0;
 	
@@ -385,6 +395,7 @@ class Users_model extends Model {
 				Message::set('error', 'userfirstname_field_empty');
                 $error_counter += 1;
 			}
+        /*
 			if (strlen($_POST['first_name']) > 64 OR strlen($_POST['first_name']) < 2) {
 				Message::set('error', 'userfirstname_too_short_or_too_long');
                 $error_counter += 1;
@@ -392,13 +403,15 @@ class Users_model extends Model {
 			if (!preg_match('/^[a-záöőüűóúéíÁÖŐÜŰÓÚÉÍ]{2,64}$/i', $_POST['first_name'])) {
 				Message::set('error', 'userfirstname_does_not_fit_pattern');
                 $error_counter += 1;
-			}	
+			}
+        */    
 				
 		// Utónév ellenőrzés
 			if(empty($_POST['last_name'])) {
 				Message::set('error', 'userlastname_field_empty');
                 $error_counter += 1;
 			}
+        /*
 			if (strlen($_POST['last_name']) > 64 OR strlen($_POST['last_name']) < 2) {
 				Message::set('error', 'userlastname_too_short_or_too_long');
                 $error_counter += 1;
@@ -406,7 +419,7 @@ class Users_model extends Model {
 			if (!preg_match('/^[a-záöőüűóúéíÁÖŐÜŰÓÚÉÍ]{2,64}$/i', $_POST['last_name'])) {
 				Message::set('error', 'userlastname_does_not_fit_pattern');
                 $error_counter += 1;		
-			}		
+			}
 				
 		// Telefonszám ellenőrzés
 			if(empty($_POST['phone'])){
@@ -417,6 +430,7 @@ class Users_model extends Model {
 				Message::set('error', 'userphone_does_not_fit_pattern');
                 $error_counter += 1;
 			}
+        */    
 			
 		// Jelszó ellenőrzés
 			
@@ -444,6 +458,7 @@ class Users_model extends Model {
 				Message::set('error', 'email_field_empty');
                 $error_counter += 1;
 			}
+        /*
 			if (strlen($_POST['email']) > 64) {
 				Message::set('error', 'email_too_long');
                 $error_counter += 1;
@@ -452,6 +467,7 @@ class Users_model extends Model {
 				Message::set('error', 'email_does_not_fit_pattern');
                 $error_counter += 1;
 			}
+        */    
 
 			
 		// végrehajtás, ha nincs hiba	
@@ -486,9 +502,6 @@ class Users_model extends Model {
 					$path_parts = pathinfo($_POST['img_url']);
 					$data['user_photo'] = htmlentities($path_parts['filename'] . '.' . $path_parts['extension'], ENT_QUOTES, "UTF-8");
 				}
-				
-				//a $user_id változóhoz rendeljük a bejelentkezett user user_id-jét
-				$user_id = Session::get('user_id');	
 				
 			// Megvizsgáljuk, hogy van-e már ilyen nevű user (de nem az amit módosítani akarunk)
 				$this->query->reset();
@@ -532,14 +545,19 @@ class Users_model extends Model {
 				$result = $this->query->update($data);
 				
 				if($result) {
-                    Message::set('success', 'user_data_update_success');
-					// Módosítjuk a $_SESSION tömben is a user adatait!
-					Session::set('user_name', $data['user_name']);
-					Session::set('user_email', $data['user_email']);
-					Session::set('user_role_id', $data['user_role_id']);
-					if(isset($data['user_photo'])){
-						Session::set('user_photo', $data['user_photo']);
-					}
+                    
+                    // ha a bejelentkezett user adatait módosítjuk, akkor a session adataokat is frissíteni kell
+                    if(Session::get('user_id') == $user_id) {
+                        Message::set('success', 'user_data_update_success');
+                        // Módosítjuk a $_SESSION tömben is a user adatait!
+                        Session::set('user_name', $data['user_name']);
+                        Session::set('user_email', $data['user_email']);
+                        Session::set('user_role_id', $data['user_role_id']);
+                        if(isset($data['user_photo'])){
+                            Session::set('user_photo', $data['user_photo']);
+                        }
+                    }
+                    
 					return true;
 				}
 				else {
@@ -765,6 +783,7 @@ class Users_model extends Model {
 			return false;
 		}	
 	}
+    
 	
 				/**
 				 * Upgrades/downgrades the user's account (for DEFAULT and FACEBOOK users)
