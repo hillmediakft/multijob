@@ -47,15 +47,15 @@
 
                             <div class="account pull-right">
                                 <ul class="nav nav-pills">
-									<li><a data-toggle="modal" data-target="#modal_subscribe" href="javascript:;">Feliratkozás hírlevélre</a></li>
+									<li><a data-toggle="modal" data-target="#modal_subscribe" href="#">Feliratkozás hírlevélre</a></li>
 									
 									<?php if(!isset($logged_in) || $logged_in === false) { ?>
-										<li><a data-toggle="modal" data-target="#modal_register" href="javascript:;">Regisztráció</a></li>
+										<li><a data-toggle="modal" data-target="#modal_register" href="#">Regisztráció</a></li>
                                     <?php }?>
 									<?php if($logged_in === true){ ?>
 										<li><span>Bejelentkezve <?php echo Session::get('user_site_name');?>&nbsp; &raquo; </span><a style="float: left; padding-left: 0px;" href="felhasznalok/kijelentkezes">Kijelentkezés</a></li>
 									<?php } else { ?>
-										<li><a data-toggle="modal" data-target="#modal_login" href="javascript:;">Bejelentkezés</a></li>
+										<li><a data-toggle="modal" data-target="#modal_login" href="#">Bejelentkezés</a></li>
 									<?php } ?>	
 									
                                 </ul>
