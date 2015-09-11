@@ -365,7 +365,7 @@ class Jobs_model extends Model {
 				}
 				else {
 					//sikertelen törlés
-					$fail_counter += 1;
+					$error_counter += 1;
 				}
 			}
 			else {
