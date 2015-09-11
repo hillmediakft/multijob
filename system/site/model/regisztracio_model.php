@@ -158,7 +158,6 @@ class Regisztracio_model extends Site_model {
                 ));
             }
 
-
             // ellenőrző email küldése, (ha az ellenőrző email küldése sikertelen: töröljük a user adatait az adatbázisból)
             if ($this->sendVerificationEmail($data['user_name'], $user_id, $data['user_email'], $data['user_activation_hash'])) {
 
