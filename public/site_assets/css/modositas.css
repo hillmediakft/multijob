@@ -219,6 +219,11 @@ color: #06a7ea;
 color: #909090;
 }
 
+/* linkek körüli pontozott vonal eltüntetése Firefoxban */
+a:hover, a:focus, a:active {
+   outline: 0;
+}
+
 /* mobil menu */
 #header .menu-toggle {
     background: #022a3b;
