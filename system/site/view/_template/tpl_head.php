@@ -47,15 +47,15 @@
 
                             <div class="account pull-right">
                                 <ul class="nav nav-pills">
-									<li><a data-toggle="modal" data-target="#modal_subscribe" href="javascript:;">Feliratkozás hírlevélre</a></li>
+									<li><a data-toggle="modal" data-target="#modal_subscribe" href="#">Feliratkozás hírlevélre</a></li>
 									
 									<?php if(!isset($logged_in) || $logged_in === false) { ?>
-										<li><a data-toggle="modal" data-target="#modal_register" href="javascript:;">Regisztráció</a></li>
+										<li><a data-toggle="modal" data-target="#modal_register" href="#">Regisztráció</a></li>
                                     <?php }?>
 									<?php if($logged_in === true){ ?>
 										<li><span>Bejelentkezve <?php echo Session::get('user_site_name');?>&nbsp; &raquo; </span><a style="float: left; padding-left: 0px;" href="felhasznalok/kijelentkezes">Kijelentkezés</a></li>
 									<?php } else { ?>
-										<li><a data-toggle="modal" data-target="#modal_login" href="javascript:;">Bejelentkezés</a></li>
+										<li><a data-toggle="modal" data-target="#modal_login" href="#">Bejelentkezés</a></li>
 									<?php } ?>	
 									
                                 </ul>
@@ -139,9 +139,6 @@
 								<li>
                                     <a href="munkak" class="no_arrow <?php echo (($this->registry->controller == 'munkak' || $this->registry->controller == 'munka') && $this->registry->action == 'index') ? 'active' : ''; ?>">Munkák</a>
                                 </li>
-                                <li>
-                                    <a href="rolunk" class="no_arrow <?php echo ($this->registry->controller == 'rolunk' && $this->registry->action == 'index') ? 'active' : ''; ?>">Rólunk</a>
-                                </li>
                                 <li class="menuparent">
                                     <span class="menuparent nolink <?php echo ($this->registry->controller == 'feltetelek') ? 'active' : ''; ?>">Feltételek</span>
                                     <ul>
@@ -172,16 +169,6 @@
 								</li>
                             
 							</ul><!-- /.nav -->
-
-
-<!--
-								<button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_login" id="modal_login_trigger">Bejelentkezés</button>
-								<button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_subscribe" id="modal_subscribe_trigger">Feliratkozás hírlevélre</button>
-								<button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_register" id="modal_register_trigger">Regisztrálj!</button>
--->                                  
-								<!-- <a style="margin-left:10px;" class="btn btn-secondary arrow-right pull-right" href="<?php //echo BASE_URL . 'feliratkozas';?>">Feliratkozás hírlevélre</a> -->
-                                <!-- <a class="btn btn-secondary arrow-right pull-right">Regisztrálj!</a> -->
-
 
                         </div><!-- /.navigation -->
                     </div><!-- /.navigation-wrapper -->
