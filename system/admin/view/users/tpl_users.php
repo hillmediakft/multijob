@@ -43,8 +43,14 @@
 							<div class="caption"><i class="fa fa-user"></i>Felhasználók</div>
 							
 								<div class="actions">
+								    <?php
+                                        $loggedin_user_role = Session::get('user_role_id');
+                                        $loggedin_user_id = Session::get('user_id');
+
+                                        if ($loggedin_user_role == 1) { ?>
 									<a href="admin/users/new_user" class="btn blue-steel btn-sm"><i class="fa fa-plus"></i> Új felhasználó</a>
-									<button class="btn red btn-sm" name="del_user_submit" type="submit"><i class="fa fa-trash"></i> Csoportos törlés</button>
+                                    <?php }  ?>
+                         			<button class="btn red btn-sm" name="del_user_submit" type="submit"><i class="fa fa-trash"></i> Csoportos törlés</button>
 									<div class="btn-group">
 										<a data-toggle="dropdown" href="#" class="btn btn-sm default">
 											<i class="fa fa-wrench"></i> Eszközök <i class="fa fa-angle-down"></i>
@@ -86,7 +92,7 @@
 									<?php foreach($all_user as $value) { ?>
 									<tr class="odd gradeX">
 										<td>
-										<?php if (($value['user_role_id'] != 1) && Session::get('user_role_id') < $value['user_role_id']) { ?>
+										<?php if (($value['user_role_id'] != 1) && $loggedin_user_role < $value['user_role_id']) { ?>
 											<input type="checkbox" class="checkboxes" name="user_id_<?php echo $value['user_id']; ?>" value="<?php echo $value['user_id']; ?>"/>
 										<?php } ?>	
 										</td>
@@ -96,7 +102,7 @@
 										<td><a href="mailto:shuxer@gmail.com"><?php echo $value['user_email'];?> </a></td>
 										<td><?php echo $value['user_phone'];?></td>
 										<td><?php echo $value['role_name'];?></td>
-										<td><?php echo $user_ref[$value['user_id']]; ?></td>
+										<td><?php echo isset($user_ref[$value['user_id']]) ? $user_ref[$value['user_id']] : 0; ?></td>
 										<?php if($value['user_active'] == 1){ ?>
 											<td><span class="label label-sm label-success">Aktív</span></td>
 										<?php } ?>
@@ -106,29 +112,39 @@
 										<td>									
 											<div class="actions">
 												<div class="btn-group">
-													<a class="btn btn-sm grey-steel" href="#" title="műveletek" data-toggle="dropdown" <?php echo (($value['user_role_id'] == 1) || Session::get('user_role_id') == $value['user_role_id']) ? 'disabled' : '';?>>
-														<i class="fa fa-cogs"></i>
-													</a>
+													
+			
+             
+													<a class="btn btn-sm grey-steel" href="#" title="műveletek" data-toggle="dropdown"><i class="fa fa-cogs"></i></a>
 													<ul class="dropdown-menu pull-right">
 														
-														<?php if (($value['user_role_id'] != 1) && Session::get('user_role_id') < $value['user_role_id']) : ?>	
-														<li><a href="#"><i class="fa fa-pencil"></i> Szerkeszt</a></li>
-														<?php endif; ?>
-														
-														<?php if (($value['user_role_id'] != 1) && Session::get('user_role_id') < $value['user_role_id']) : ?>
-							
+														<?php if ( ($loggedin_user_id == $value['user_id']) || (($loggedin_user_role == 1) && ($value['user_role_id'] == 2)) ){ ?>	
+														<li><a href="admin/users/profile/<?php echo $value['user_id']; ?>"><i class="fa fa-pencil"></i> Szerkeszt</a></li>
+                                                        <?php } else { ?>
+														<li class="disabled-link"><a href="javascript:;" class="disable-target"><i class="fa fa-pencil"></i> Szerkeszt</a></li>
+                                                        <?php } ?>
+              														
+														<?php if (($loggedin_user_role == 1) && ($loggedin_user_id != $value['user_id']) && ($value['user_role_id'] == 2)) { ?>
 														<li><a href="<?php echo $this->registry->site_url . 'users/delete_user/' . $value['user_id'];?>" id="delete_user_<?php echo $value['user_id'];?>"> <i class="fa fa-trash"></i> Töröl</a></li>
-														<?php endif; ?>
+														<?php } else { ?>
+														<li class="disabled-link"><a href="javascript:;" class="disable-target"> <i class="fa fa-trash"></i> Töröl</a></li>
+                                                        <?php } ?>
 														
-													<?php if (($value['user_role_id'] != 1) && Session::get('user_role_id') < $value['user_role_id']) { ?>	
-														<?php if($value['user_active'] == 1){ ?>
-														<li><a rel="<?php echo $value['user_id'];?>" href="javascript:;" id="make_inactive_<?php echo $value['user_id'];?>" data-action="make_inactive"><i class="fa fa-ban"></i> Blokkol</a></li>
-														<?php } ?>
-														<?php if($value['user_active'] == 0){ ?>
-														<li><a rel="<?php echo $value['user_id'];?>" href="javascript:;" id="make_active_<?php echo $value['user_id'];?>" data-action="make_active"><i class="fa fa-check"></i> Aktivál</a></li>
-														<?php } ?>
-													<?php } ?>	
+                                                        <?php if (($loggedin_user_role == 1) && ($value['user_role_id'] == 2)) { ?>	
+                                                            <?php if($value['user_active'] == 1){ ?>
+                                                            <li><a rel="<?php echo $value['user_id'];?>" href="javascript:;" id="make_inactive_<?php echo $value['user_id'];?>" data-action="make_inactive"><i class="fa fa-ban"></i> Blokkol</a></li>
+                                                            <?php } ?>
+                                                            <?php if($value['user_active'] == 0){ ?>
+                                                            <li><a rel="<?php echo $value['user_id'];?>" href="javascript:;" id="make_active_<?php echo $value['user_id'];?>" data-action="make_active"><i class="fa fa-check"></i> Aktivál</a></li>
+                                                            <?php } ?>
+                                                        <?php } ?>	
 													</ul>
+
+                                                    
+                                                    
+                                                    
+                                                    
+             
 												</div>
 											</div>
 										</td>
