@@ -21,9 +21,13 @@
                
                     <hr/>   
                    
-                    <div style="margin-top:30px;">
-                        <form method="post" action="" id="kilepes_form">
-                            
+
+                    <div class="row">
+                    
+                  
+                    <div class="span5" style="margin-top:10px;">
+                        <form method="post" action="" id="kilepes_form" class="contact-form">
+
                             <div class="control-group">
                                 <label class="control-label" for="name">
                                     Név
@@ -74,12 +78,13 @@
                                 </div><!-- /.controls -->
                             </div><!-- /.control-group -->
                             
-                            <div class="form-actions">
+                            <div class="form-actions" style="margin-top:20px;">
                                 <input type="submit" class="btn btn-primary arrow-right" value="Kilépési adatok küldése">
                             </div><!-- /.form-actions -->
                             
                         </form>    
                     </div>
+                </div>    
                    
                 </div>
                 <div class="sidebar span3">
