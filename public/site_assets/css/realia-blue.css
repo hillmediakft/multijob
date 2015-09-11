@@ -381,7 +381,9 @@ iframe.map {
     padding-left: 0px;
     padding-right: 0px;
 }
-.accordion-group .accordion-heading a:hover {
+.accordion-group .accordion-heading a:hover, 
+.accordion-group .accordion-heading a:active,
+.accordion-group .accordion-heading a:focus {
     text-decoration: none;
 }
 .accordion-group .accordion-heading a.active .sign {
