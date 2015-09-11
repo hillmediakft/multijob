@@ -76,7 +76,7 @@
 					</a>
 					<ul class="dropdown-menu dropdown-menu-default">
 						<li>
-							<a href="extra_profile.html">
+							<a href="admin/users/profile/<?php echo Session::get('user_id'); ?>">
 							<i class="fa fa-user"></i> Profilom </a>
 						</li>
 						
@@ -180,15 +180,15 @@
 					</a>
 				</li>		
 			<!-- ELŐREGISZTRÁCIÓ VÉGE -->
-
-			<!-- SITE USERS tábla -->
+			
+			<!-- REGISZTRÁLTAK ÉS FELIRATKOZOTTAK -->
 				<li class="<?php echo ($this->registry->controller == 'register_subscribe') ? 'active' : '';?>">
 					<a href="admin/register_subscribe">
 						<i class="fa fa-cogs"></i> 
 						<span class="title">Regisztráltak</span>
 					</a>
 				</li>		
-			<!-- ELŐREGISZTRÁCIÓ VÉGE -->
+			<!-- REGISZTRÁLTAK ÉS FELIRATKOZOTTAK VÉGE -->
 			
 			<!-- SZERKESZTHETŐ OLDALAK -->
 				<li class="<?php echo ($this->registry->controller == 'pages' || $this->registry->controller == 'content') ? 'active' : '';?>">
@@ -220,22 +220,48 @@
 							<a href="admin/users">
 							Felhasználók listája</a>
 						</li>
-						<li class="<?php echo ($this->registry->action == 'new_user') ? 'active' : '';?>">
+						
+                        <?php if (Session::get('user_role_id') == 1) { ?>
+          				<li class="<?php echo ($this->registry->action == 'new_user') ? 'active' : '';?>">
 							<a href="admin/users/new_user">
 							Új felhasználó</a>
 						</li>
+                        <?php } ?>
+      
 						<li class="<?php echo ($this->registry->action == 'profile') ? 'active' : '';?>">
-							<a href="admin/users/profile">
+							<a href="admin/users/profile/<?php echo Session::get('user_id'); ?>">
 							Profilom</a>
 						</li>
 <!-- FELHASZNÁLÓI CSOPORTOK						
-	 					<li class="<?php echo ($this->registry->action == 'user_roles' || $this->registry->action == 'edit_roles') ? 'active' : '';?>">
+	 					<li class="<?php //echo ($this->registry->action == 'user_roles' || $this->registry->action == 'edit_roles') ? 'active' : '';?>">
 							<a href="admin/users/user_roles">
 							Csoportok</a>
 						</li>
 -->
 					</ul>
 				</li>
+				
+				
+                <!-- IRODÁK -->
+                <li class="<?php echo ($this->registry->controller == 'offices') ? 'active' : '';?>">
+                    <a href="javascript:;">
+                        <i class="fa fa-cogs"></i> 
+                        <span class="title">Irodák</span>
+                        <span class="arrow "></span>
+                    </a>                
+                    <ul class="sub-menu">
+                        <li class="<?php echo ($this->registry->controller == 'offices' && $this->registry->action == 'index') ? 'active' : '';?>">
+                            <a href="admin/offices">
+                            Irodák listája</a>
+                        </li>
+                        <li class="<?php echo ($this->registry->action == 'insert') ? 'active' : '';?>">
+                            <a href="admin/offices/insert">
+                            Új iroda hozzáadása</a>
+                        </li>
+                    </ul>                
+                </li>			
+                <!-- IRODÁK VÉGE -->				
+				
 
 <!--  GALÉRIÁK
 				<li class="<?php //echo ($this->registry->controller == 'photo_gallery' || $this->registry->controller == 'video_gallery') ? 'active' : '';?>">
@@ -276,9 +302,8 @@
 				</li>
 				<li class="<?php echo ($this->registry->controller == 'file_manager') ? 'active' : '';?>">
 					<a href="admin/file_manager">
-					<i class="fa fa-folder-open-o"></i> 
-					<span class="title">Fájlkezelő</span>
-					
+	    				<i class="fa fa-folder-open-o"></i> 
+    					<span class="title">Fájlkezelő</span>
 					</a>
 
 				</li>
@@ -295,7 +320,6 @@
 							<a href="admin/settings">
 							Oldal szintű beállítások</a>
 						</li>
-
 					</ul>
 				</li>
 				

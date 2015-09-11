@@ -35,8 +35,8 @@
 									<ul class="nav nav-pills">
 										<li>&nbsp;</li>		
 							<!-- 
-										<li><a data-toggle="modal" data-target="#modal_login" href="javascript:;">Bejelentkezés</a></li>
-										<li><a data-toggle="modal" data-target="#modal_register" href="javascript:;">Regisztráció</a></li>
+										<li><a data-toggle="modal" data-target="#modal_login" href="#">Bejelentkezés</a></li>
+										<li><a data-toggle="modal" data-target="#modal_register" href="#">Regisztráció</a></li>
 							-->
 									</ul>
 								</div>

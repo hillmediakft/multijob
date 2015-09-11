@@ -42,15 +42,22 @@ var userProfile = function () {
 					minlength: 2,
 					required: true
 				},
+                first_name: {
+					required: true
+				},
+                last_name: {
+					required: true
+				},
 				email: {
 					required: true,
 					email: true
 				},
 				password: {
-					minlength: 8,
+					minlength: 6,
+					required: true
 				},
 				password_again: {
-					minlength: 8,
+					required: true,
 					equalTo: "#password"
 				}
 			},

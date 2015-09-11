@@ -13,17 +13,28 @@ var Users = function () {
 
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
             "language": {
-                "aria": {
-                    "sortAscending": ": activate to sort column ascending",
-                    "sortDescending": ": activate to sort column descending"
+                //"decimal":        "",
+                "emptyTable":     "Nincs megjeleníthető adat!",
+                "info":           "_START_ - _END_ elem _TOTAL_ elemből",
+                "infoEmpty":      "Nincs megjeleníthető adat!",
+                "infoFiltered":   "(Szűrve _MAX_ elemből)",
+                //"infoPostFix":    "",
+                //"thousands":      ",",
+                "lengthMenu":     " _MENU_ elem/oldal",
+                "loadingRecords": "Betöltés...",
+                "processing":     "Feldolgozás...",
+                "search":         "Keresés:",
+                "zeroRecords":    "Nincs egyező elem",
+                "paginate": {
+                    "first":      "Első",
+                    "last":       "Utolsó",
+                    "next":       "Következő",
+                    "previous":   "Előző"
                 },
-                "emptyTable": "No data available in table",
-                "info": "_START_ - _END_ elem _TOTAL_ elemből",
-                "infoEmpty": "Nincs megjeleníthető adat!",
-                "infoFiltered": "(Szűrve _MAX_ elemből)",
-                "lengthMenu": "Show _MENU_ entries",
-                "search": "Search:",
-                "zeroRecords": "Nincs egyező elem"
+                "aria": {
+                    "sortAscending":  ": activate to sort column ascending",
+                    "sortDescending": ": activate to sort column descending"
+                }            
             },
 
             // Uncomment below line("dom" parameter) to fix the dropdown overflow issue in the datatable cells. The default datatable layout
@@ -45,30 +56,29 @@ var Users = function () {
                 {"orderable": true}, //státusz
                 {"orderable": false} //menü
             ],
+        
             "lengthMenu": [
                 [5, 15, 20, -1],
                 [5, 15, 20, "All"] // change per page values here
             ],
             // set the initial value
-            "pageLength": 15,            
+            "pageLength": 20,            
+
             "pagingType": "bootstrap_full_number",
-            "language": {
-                "search": "Keresés: ",
-                "lengthMenu": "  _MENU_ elem/oldal",
-                "paginate": {
-                    "previous": "Előző",
-                    "next": "Következő",
-                    "last": "Utolsó",
-                    "first": "Első"
-                }
-            },
-            "columnDefs": [{  // set default column settings
-                'orderable': false,
-                'targets': [0]
-            }, {
-                "searchable": false,
-                "targets": [0]
-            }],
+
+            "columnDefs": [
+                {'searchable': false, 'targets': 0},
+                {'searchable': false, 'targets': 1},
+                {'searchable': false, 'targets': 2},
+                {'searchable': false, 'targets': 3},
+                {'searchable': false, 'targets': 4},
+                {'searchable': false, 'targets': 5},
+                {'searchable': false, 'targets': 6},
+                {'searchable': false, 'targets': 7},
+                {'searchable': false, 'targets': 8},
+                {"searchable": false, "targets": 9}
+            ],
+            
             "order": [
                 [2, "asc"]
             ] // set column as a default sort by asc

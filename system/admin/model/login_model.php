@@ -78,7 +78,7 @@ class Login_model extends Model
 
 			// HA MÉG NINCS EMAILEN AKTIVÁLVA (a user_active -nak 1-nek lennie) 		
 			if ($result->user_active != 1) {
-                Message::set('error', 'account_not_activated_yet');
+                Message::set('error', 'Az ön belépési engedélye fel van függesztve!');
                 return false;
             }
 			

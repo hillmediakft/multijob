@@ -50,9 +50,9 @@
 					
 					<!-- ÜZENETEK -->
 					<?php $this->renderFeedbackMessages(); ?>
-					
+																				
 					<!-- BEGIN FORM-->			
-					<form action="admin/users/edit_user" method="POST" id="edit_user">
+					<form action="admin/users/profile/<?php echo $this->registry->params['id']; ?>" method="POST" id="edit_user">
 	
 						<!-- ÜZENETEK 2 -->
 						<div class="alert alert-danger display-hide">
@@ -102,11 +102,11 @@
 												<input type="text" name="name" id="name" value="<?php echo $data_arr[0]['user_name'];?>" placeholder="minimum hat karakter, ékezetek nélkül" class="form-control input-xlarge" />
 											</div>
 											<div class="form-group">
-												<label for="last_name" class="control-label">Vezetéknév</label>
+												<label for="last_name" class="control-label">Vezetéknév<span class="required">*</span></label>
 												<input type="text" name="first_name" id="last_name" value="<?php echo $data_arr[0]['user_first_name'];?>" placeholder="" class="form-control input-xlarge" />
 											</div>
 											<div class="form-group">
-												<label for="first_name" class="control-label">Keresztnév</label>
+												<label for="first_name" class="control-label">Keresztnév<span class="required">*</span></label>
 												<input type="text" name="last_name" id="first_name" value="<?php echo $data_arr[0]['user_last_name'];?>" placeholder="" class="form-control input-xlarge" />
 											</div>
 											<div class="form-group">
@@ -114,7 +114,7 @@
 												<input type="text" name="phone" value="<?php echo $data_arr[0]['user_phone'];?>" placeholder="országkód-körzetszám-xxx-xxx formátumban" class="form-control input-xlarge" />
 											</div>
 											<div class="form-group">
-												<label for="email" class="control-label">E-mail cím</label>
+												<label for="email" class="control-label">E-mail cím<span class="required">*</span></label>
 												<input type="text" value="<?php echo $data_arr[0]['user_email'];?>" placeholder="" name="email" id="email" class="form-control input-xlarge" />
 											</div>
 

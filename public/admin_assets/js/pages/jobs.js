@@ -169,7 +169,7 @@ var Jobs = function () {
                 });
             }
         });
-    }   
+    };   
 
     
 	/**
@@ -192,7 +192,7 @@ var Jobs = function () {
 			}); 
 
 		});	
-	}
+	};
 	
 	
 	/**
@@ -232,6 +232,7 @@ var Jobs = function () {
 						//icon: 'warning',
 						message: response.message,
 						container: $('#ajax_message'),
+                        closeInSeconds: 3,
 						place: 'prepend'
 					});
 					
@@ -245,6 +246,7 @@ var Jobs = function () {
 						//icon: 'warning',
 						message: response.message,
 						container: $('#ajax_message'),
+                        closeInSeconds: 3,
 						place: 'prepend'
 					});
 				}
@@ -255,7 +257,7 @@ var Jobs = function () {
 			} 
 		});		
 		
-	}	
+	};	
 	
 /*	
 	var enableDisableButtons = function () {
@@ -290,7 +292,7 @@ var Jobs = function () {
 
 	var hideAlert = function () {
 		$('div.alert').delay( 2500 ).slideUp( 750 );						 		
-	}
+	};
 
     var makeActiveConfirm = function () {
 		$('#jobs').on('click', '.change_status', function(e){
@@ -310,7 +312,7 @@ var Jobs = function () {
 				}
 			}); 
 		});	 		
-	}
+	};
 	
 	/**
 	 *	Egy munka státusz módosítását kezeli
@@ -386,7 +388,7 @@ var Jobs = function () {
 				} 
 		});
 
-	}	
+	};	
 	
 	var printTable = function () {
 		$('#print_jobs').on('click', function(e){
@@ -400,8 +402,7 @@ var Jobs = function () {
 		newWin.close();
 		})
 	
-	}
-
+	};
 
 	var handle_modal = function() {
 		// amikor megjelenik a modal
@@ -412,8 +413,7 @@ var Jobs = function () {
 		$('#ajax_modal').on('hidden.bs.modal', function () {
 			$('#modal_container').html('');    
 		});
-	}	
-	
+	};	
 	
     return {
 
@@ -433,7 +433,6 @@ var Jobs = function () {
 			handle_modal();
 	
         }
-
     };
 
 }();
@@ -447,5 +446,4 @@ $(document).ready(function() {
 
 	//másik kép nevet is megadhatunk a töltés jelzésre (kép, plugin elérési utakat is lehet így változtatni)
 	//Metronic.setLoaderImage('loader.gif');
-	
 });
