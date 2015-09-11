@@ -130,7 +130,7 @@ var modalHandler = function () {
                     boxed: true,
                     message: '<h3>Feldolgozás...</h3>',
                     baseZ: 5000
-                });
+                }); 
             },
             complete: function(){
                 $.unblockUI();
@@ -147,7 +147,7 @@ var modalHandler = function () {
 					//$success_messages += '<br />';
                     $("#register_submit").hide();
                     $("#register_form").hide();
-                    $("#message_register").html($success_messages);
+                    $("#message_register").html('<div class="alert alert-success">'+$success_messages+'</div>');
                 } 
                 if(respond.status == 'error') {
                     $error_messages = '';
@@ -156,7 +156,7 @@ var modalHandler = function () {
                         $error_messages += value + "<br />"; 
                     });
                     $error_messages += '<br />';
-                    $("#message_register").html($error_messages);
+                    $("#message_register").html('<div class="alert alert-danger">'+$error_messages+'</div>');
                 }
             },
             error: function(result, status, e){
@@ -285,7 +285,7 @@ var modalHandler = function () {
                     $("#subscribe_submit").hide();
                     $("#subscribe_form").hide();
                     $("#info_subscribe").hide();
-                    $("#message_subscribe").html($success_messages);
+                    $("#message_subscribe").html('<div class="alert alert-success">'+$success_messages+'</div>');
                 } 
                 if(respond.status == 'error') {
                     $error_messages = '';
@@ -294,7 +294,7 @@ var modalHandler = function () {
                         $error_messages += value + "<br />"; 
                     });
                     $error_messages += '<br />';
-                    $("#message_subscribe").html($error_messages);
+                    $("#message_subscribe").html('<div class="alert alert-danger">'+$error_messages+'</div>');
                 }				
             },
             error: function(result, status, e){
