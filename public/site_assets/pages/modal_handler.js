@@ -35,7 +35,6 @@ var modalHandler = function () {
                     $.each( respond.message, function( index, value ){
                         $error_messages += value + "<br />"; 
                     });
-//                    $error_messages += '<br />';
                     $("#message_login").html('<div class="alert alert-danger">'+$error_messages+'</div>');						
                 }
             },
@@ -155,7 +154,6 @@ var modalHandler = function () {
                         //console.log(index + ' : ' + value);
                         $error_messages += value + "<br />"; 
                     });
-                    $error_messages += '<br />';
                     $("#message_register").html('<div class="alert alert-danger">'+$error_messages+'</div>');
                 }
             },
@@ -293,7 +291,6 @@ var modalHandler = function () {
                         //console.log(index + ' : ' + value);
                         $error_messages += value + "<br />"; 
                     });
-                    $error_messages += '<br />';
                     $("#message_subscribe").html('<div class="alert alert-danger">'+$error_messages+'</div>');
                 }				
             },
