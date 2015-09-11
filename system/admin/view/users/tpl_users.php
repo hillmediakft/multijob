@@ -52,15 +52,15 @@
                                     <?php }  ?>
                          			<button class="btn red btn-sm" name="del_user_submit" type="submit"><i class="fa fa-trash"></i> Csoportos törlés</button>
 									<div class="btn-group">
-										<a data-toggle="dropdown" href="#" class="btn btn-sm default">
+										<a data-toggle="dropdown" class="btn btn-sm default">
 											<i class="fa fa-wrench"></i> Eszközök <i class="fa fa-angle-down"></i>
 										</a>
 											<ul class="dropdown-menu pull-right">
 												<li>
-													<a href="#" id="print_users"><i class="fa fa-print"></i> Nyomtat </a>
+													<a id="print_users"><i class="fa fa-print"></i> Nyomtat </a>
 												</li>
 												<li>
-													<a href="#" id="export_users"><i class="fa fa-file-excel-o"></i> Export CSV </a>
+													<a id="export_users"><i class="fa fa-file-excel-o"></i> Export CSV </a>
 												</li>
 											</ul>
 									</div>
@@ -92,7 +92,7 @@
 									<?php foreach($all_user as $value) { ?>
 									<tr class="odd gradeX">
 										<td>
-										<?php if (($value['user_role_id'] != 1) && $loggedin_user_role < $value['user_role_id']) { ?>
+										<?php if (($value['user_role_id'] != 1) && ($loggedin_user_role < $value['user_role_id']) && !isset($user_ref[$value['user_id']])) { ?>
 											<input type="checkbox" class="checkboxes" name="user_id_<?php echo $value['user_id']; ?>" value="<?php echo $value['user_id']; ?>"/>
 										<?php } ?>	
 										</td>
@@ -113,38 +113,32 @@
 											<div class="actions">
 												<div class="btn-group">
 													
-			
-             
-													<a class="btn btn-sm grey-steel" href="#" title="műveletek" data-toggle="dropdown"><i class="fa fa-cogs"></i></a>
+													<a class="btn btn-sm grey-steel" title="műveletek" data-toggle="dropdown"><i class="fa fa-cogs"></i></a>
 													<ul class="dropdown-menu pull-right">
-														
-														<?php if ( ($loggedin_user_id == $value['user_id']) || (($loggedin_user_role == 1) && ($value['user_role_id'] == 2)) ){ ?>	
+													    <?php if ( ($loggedin_user_id == $value['user_id']) || (($loggedin_user_role == 1) && ($value['user_role_id'] == 2)) ){ ?>	
 														<li><a href="admin/users/profile/<?php echo $value['user_id']; ?>"><i class="fa fa-pencil"></i> Szerkeszt</a></li>
                                                         <?php } else { ?>
-														<li class="disabled-link"><a href="javascript:;" class="disable-target"><i class="fa fa-pencil"></i> Szerkeszt</a></li>
+														<li class="disabled-link"><a class="disable-target"><i class="fa fa-pencil"></i> Szerkeszt</a></li>
                                                         <?php } ?>
               														
-														<?php if (($loggedin_user_role == 1) && ($loggedin_user_id != $value['user_id']) && ($value['user_role_id'] == 2)) { ?>
+														<?php if ( isset($user_ref[$value['user_id']]) ) { ?>
+														<li class="disabled-link"><a class="disable-target" title="A felhsználó nem törölhető amíg van munka hozzárendelve"><i class="fa fa-trash"></i> Töröl</a></li>
+														<?php } elseif (($loggedin_user_role == 1) && ($loggedin_user_id != $value['user_id']) && ($value['user_role_id'] == 2)) { ?>
 														<li><a href="<?php echo $this->registry->site_url . 'users/delete_user/' . $value['user_id'];?>" id="delete_user_<?php echo $value['user_id'];?>"> <i class="fa fa-trash"></i> Töröl</a></li>
 														<?php } else { ?>
-														<li class="disabled-link"><a href="javascript:;" class="disable-target"> <i class="fa fa-trash"></i> Töröl</a></li>
+														<li class="disabled-link"><a class="disable-target" title="Nem törölhető"><i class="fa fa-trash"></i> Töröl</a></li>
                                                         <?php } ?>
 														
                                                         <?php if (($loggedin_user_role == 1) && ($value['user_role_id'] == 2)) { ?>	
                                                             <?php if($value['user_active'] == 1){ ?>
-                                                            <li><a rel="<?php echo $value['user_id'];?>" href="javascript:;" id="make_inactive_<?php echo $value['user_id'];?>" data-action="make_inactive"><i class="fa fa-ban"></i> Blokkol</a></li>
+                                                            <li><a rel="<?php echo $value['user_id'];?>" id="make_inactive_<?php echo $value['user_id'];?>" data-action="make_inactive"><i class="fa fa-ban"></i> Blokkol</a></li>
                                                             <?php } ?>
                                                             <?php if($value['user_active'] == 0){ ?>
-                                                            <li><a rel="<?php echo $value['user_id'];?>" href="javascript:;" id="make_active_<?php echo $value['user_id'];?>" data-action="make_active"><i class="fa fa-check"></i> Aktivál</a></li>
+                                                            <li><a rel="<?php echo $value['user_id'];?>" id="make_active_<?php echo $value['user_id'];?>" data-action="make_active"><i class="fa fa-check"></i> Aktivál</a></li>
                                                             <?php } ?>
                                                         <?php } ?>	
 													</ul>
 
-                                                    
-                                                    
-                                                    
-                                                    
-             
 												</div>
 											</div>
 										</td>
