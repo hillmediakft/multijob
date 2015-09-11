@@ -52,7 +52,7 @@
 								}
 							} else { ?>
 								<div class="span9">
-									<h2 class="text-center">Nincs találat</h2>
+									<h3 class="text-center"><i class="fa fa-exclamation-triangle"></i> A megadott keresési feltételek mellett nincs találat</h3>
 								</div>
 							<?php } ?>
 							
