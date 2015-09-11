@@ -23,8 +23,11 @@
 						<div class="content-box">
 						    <?php echo $content['page_body']; ?>
 					    </div>
+                     
+                     
+                     <div id="map_canvas" style="height: 400px;"></div>
 						
-						<iframe class="map" width="425" height="350" src="https://maps.google.com/maps?q=47.513263,19.048415&amp;num=1&amp;ie=UTF8&amp;ll=47.513263,19.048415&amp;spn=0.041038,0.077162&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+					<!--	<iframe class="map" width="425" height="350" src="https://maps.google.com/maps?q=47.513263,19.048415&amp;num=1&amp;ie=UTF8&amp;ll=47.513263,19.048415&amp;spn=0.041038,0.077162&amp;t=m&amp;z=14&amp;output=embed"></iframe> -->
 
                         <h2>Küldj üzenetet!</h2>
 
