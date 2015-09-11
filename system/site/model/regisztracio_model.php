@@ -178,7 +178,7 @@ class Regisztracio_model extends Site_model {
 				$this->query->reset();
 				$this->query->set_table(array('site_users'));
 				$this->query->delete('user_id', '=', $user_id);
-				$message = Message::send('verification_mail_sending_failed');
+				$message[] = Message::send('verification_mail_sending_failed');
 				
 				return json_encode(array(
 					"status" => 'error',
