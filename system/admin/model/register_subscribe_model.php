@@ -156,7 +156,7 @@ class Register_subscribe_model extends Model {
 			$temp['id'] = '#' . $value['user_id'];
 			$temp['name'] = $value['user_name'];
 			$temp['email'] = $value['user_email'];
-			$temp['active'] = ($value['user_active'] == 1) ? '<span class="label label-sm label-success">Aktív</span>' : '<span class="label label-sm label-success">Inaktív</span>' ;
+			$temp['active'] = ($value['user_active'] == 1) ? '<span class="label label-sm label-success">Aktív</span>' : '<span class="label label-sm label-danger">Inaktív</span>' ;
 			$temp['provider_type'] = ($value['user_provider_type'] == 'default') ? 'Regisztrált' : 'Feliratkozott';
 			$temp['newsletter'] = ($value['user_newsletter'] == 1) ? '<span class="label label-sm label-success">Igen</span>' : '<span class="label label-sm label-danger">Nem</span>';
 
