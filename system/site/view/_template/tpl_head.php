@@ -139,9 +139,11 @@
 								<li>
                                     <a href="munkak" class="no_arrow <?php echo (($this->registry->controller == 'munkak' || $this->registry->controller == 'munka') && $this->registry->action == 'index') ? 'active' : ''; ?>">Munkák</a>
                                 </li>
+                                <!--
                                 <li>
-                                    <a href="rolunk" class="no_arrow <?php echo ($this->registry->controller == 'rolunk' && $this->registry->action == 'index') ? 'active' : ''; ?>">Rólunk</a>
+                                    <a href="rolunk" class="no_arrow <?php //echo ($this->registry->controller == 'rolunk' && $this->registry->action == 'index') ? 'active' : ''; ?>">Rólunk</a>
                                 </li>
+                                -->
                                 <li class="menuparent">
                                     <span class="menuparent nolink <?php echo ($this->registry->controller == 'feltetelek') ? 'active' : ''; ?>">Feltételek</span>
                                     <ul>
