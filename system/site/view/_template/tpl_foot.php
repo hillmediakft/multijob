@@ -179,7 +179,7 @@
 </div><!-- /#wrapper-outer -->
 
 
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=true"></script>
+
 <script type="text/javascript" src="<?php echo SITE_JS; ?>jquery.js"></script>
 <script type="text/javascript" src="<?php echo SITE_JS; ?>jquery.ezmark.js"></script>
 <script type="text/javascript" src="<?php echo SITE_JS; ?>jquery.currency.js"></script>
