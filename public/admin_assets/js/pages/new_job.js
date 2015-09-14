@@ -85,7 +85,9 @@ var NewJob = function () {
 				orientation: "left",
 				autoclose: true,
 				format:"yyyy-mm-dd",
-				language: "hu-HU"
+				language: "hu-HU",
+                                startDate: '0d',
+                                endDate: '+2m'
 			});
 			//$('body').removeClass("modal-open"); // fix bug when inline picker is used in modal
 		}
