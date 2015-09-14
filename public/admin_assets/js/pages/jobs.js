@@ -155,7 +155,7 @@ var Jobs = function () {
                 Metronic.alert({
                     type: 'danger',
                     //icon: 'warning',
-                    message: 'Please select an action',
+                    message: 'Válasszon csoportműveletet!',
                     container: grid.getTableWrapper(),
                     place: 'prepend'
                 });
@@ -163,7 +163,7 @@ var Jobs = function () {
                 Metronic.alert({
                     type: 'danger',
                     //icon: 'warning',
-                    message: 'No record selected',
+                    message: 'Nem jelölt ki semmit!',
                     container: grid.getTableWrapper(),
                     place: 'prepend'
                 });
