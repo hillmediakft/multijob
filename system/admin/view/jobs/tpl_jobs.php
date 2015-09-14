@@ -37,6 +37,7 @@
 						<div class="portlet-title">
 							<div class="caption"><i class="fa fa-cogs"></i>Munkák listája</div>
 							<div class="actions">
+                                                            <a href="admin/jobs" class="btn blue-madison btn-sm"><i class="fa fa-refresh"></i> Újratöltés</a>
 								<a href="admin/jobs/new_job" class="btn blue-steel btn-sm"><i class="fa fa-plus"></i> Új munka</a>
 								<!-- <button class="btn red btn-sm" name="delete_job_submit" value="submit" type="submit"><i class="fa fa-trash"></i> Csoportos törlés</button> -->
 								<div class="btn-group">
