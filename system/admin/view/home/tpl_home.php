@@ -59,17 +59,17 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="dashboard-stat green-haze">
                     <div class="visual">
-                        <i class="fa fa-picture-o"></i>
+                        <i class="fa fa-file"></i>
                     </div>
                     <div class="details">
                         <div class="number">
 
                         </div>
                         <div class="desc">
-                            Képgaléria
+                            Munkák
                         </div>
                     </div>
-                    <a href="admin/photo-gallery" class="more">
+                    <a href="admin/jobs" class="more">
                         Tovább <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -77,17 +77,17 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="dashboard-stat purple-plum">
                     <div class="visual">
-                        <i class="fa fa-cogs"></i>
+                        <i class="fa fa-file-archive-o"></i>
                     </div>
                     <div class="details">
                         <div class="number">
 
                         </div>
                         <div class="desc">
-                            Beállítások
+                            Munka kategóriák
                         </div>
                     </div>
-                    <a href="admin/settings" class="more">
+                    <a href="admin/jobs/category" class="more">
                         Tovább <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -101,17 +101,17 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="dashboard-stat blue-hoki">
                     <div class="visual">
-                        <i class="fa fa-desktop"></i>
+                        <i class="fa fa-file-text"></i>
                     </div>
                     <div class="details">
                         <div class="number">
 
                         </div>
                         <div class="desc">
-                            Kezdőoldali slider
+                            Előregisztráció
                         </div>
                     </div>
-                    <a href="admin/slider" class="more">
+                    <a href="admin/pre_register" class="more">
                         Tovább <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -119,17 +119,17 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="dashboard-stat green-seagreen">
                     <div class="visual">
-                        <i class="fa fa-tags"></i>
+                        <i class="fa fa-file-text-o"></i>
                     </div>
                     <div class="details">
                         <div class="number">
 
                         </div>
                         <div class="desc">
-                            Termékek kezelése
+                            Regisztráltak
                         </div>
                     </div>
-                    <a href="admin/products" class="more">
+                    <a href="admin/register_subscribe" class="more">
                         Tovább <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -137,17 +137,17 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="dashboard-stat yellow-casablanca">
                     <div class="visual">
-                        <i class="fa fa-folder-open-o"></i>
+                        <i class="fa fa-desktop"></i>
                     </div>
                     <div class="details">
                         <div class="number">
 
                         </div>
                         <div class="desc">
-                            Crew kezelése
+                            Irodák
                         </div>
                     </div>
-                    <a href="admin/crew-members" class="more">
+                    <a href="admin/offices" class="more">
                         Tovább <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -155,17 +155,17 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="dashboard-stat blue-chambray">
                     <div class="visual">
-                        <i class="fa fa-globe"></i>
+                        <i class="fa fa-cogs"></i>
                     </div>
                     <div class="details">
                         <div class="number">
 
                         </div>
                         <div class="desc">
-                            Nyelvi beállítások
+                            Beállítások
                         </div>
                     </div>
-                    <a href="admin/languages" class="more">
+                    <a href="admin/settings" class="more">
                         Tovább <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
