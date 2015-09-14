@@ -239,6 +239,31 @@ a:hover, a:focus, a:active {
     background: #000;
 }
 
+/* kapcsolat oldalon irodák doboz */
+.offices {
+    background-color: #fff;
+    padding: 10px;
+}
+
+.offices .accordion {
+    margin-bottom: 0px;
+}
+
+.offices .accordion-inner {
+    padding: 10px 0;
+}
+
+.offices .accordion-inner h3.address, h3.call-us, h3.email  {
+    margin: 10px 0 5px 0;
+    font-size: 16px;
+    line-height: 20px;
+    
+}
+
+/* focus állapotban a szürke háttér eltávolítása */
+.nav > li > a:hover, .nav > li > a:focus {
+    background: none;
+}
 
 
 

@@ -72,14 +72,14 @@
                 <div class="sidebar span4">
                     <div class="widget properties last">
     <div class="title">
-        <h2>Elérhetőségek</h2>
+        <h2>Irodáink</h2>
     </div><!-- /.title -->
 
     <div class="content">
                               
                               
                               
-<div class="property-detail">
+<div class="offices">
     <div class="accordion" id="accordion2">
         <div class="accordion-group">
             <div class="accordion-heading">
@@ -112,24 +112,52 @@
         <div class="accordion-group">
             <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                    <span class="sign"></span> Aliquam vestibulum, lorem at vehicula placerat
+                    <span class="sign"></span> Kelet-Magyarország
                 </a>
             </div>
             <div id="collapseTwo" class="accordion-body collapse">
                 <div class="accordion-inner">
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed laoreet scelerisque nisi nec iaculis. Maecenas sed enim neque. Duis semper libero ipsum, eget eleifend urna. Aliquam orci nisl, pulvinar a ornare sed, viverra ullamcorper quam. Etiam tristique lobortis condimentum. Donec at lacus nunc, eget dignissim enim. Maecenas justo erat, scelerisque vitae convallis quis, dignissim quis dui. Donec ultricies auctor purus nec sodales. Nullam rhoncus, mi sed facilisis tristique, metus est convallis erat, a porttitor est augue sed lectus. Sed aliquam mollis erat, lacinia tristique nibh elementum quis. Integer ut elit eu erat viverra fermentum nec vel augue. Donec vel lorem justo. Suspendisse eget ante dui, in mattis dui.</p>
+                                        <h3 class="address">Nyíregyháza</h3>
+                    <p class="content-icon-spacing">
+                        <?php echo $settings['cim'];?>
+                    </p>
+
+                    <h3 class="call-us">Telefon</h3>
+                    <p class="content-icon-spacing">
+                        <?php echo $settings['tel'];?>
+
+                    </p>
+
+                    <h3 class="email">E-mail</h3>
+                    <p class="content-icon-spacing">
+                        <?php echo Util::safe_mailto($settings['email']);?>
+                    </p>
                 </div>
             </div>
         </div>
         <div class="accordion-group">
             <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                    <span class="sign"></span> Nullam sed augue nec quam venenatis
+                    <span class="sign"></span> Észak-Magyarország
                 </a>
             </div>
             <div id="collapseThree" class="accordion-body collapse">
                 <div class="accordion-inner">
-                    <p>Praesent luctus pulvinar pretium. In lectus risus, pellentesque at cursus sed, tristique vitae odio. Nullam sed augue nec quam venenatis accumsan. Suspendisse arcu diam, gravida at imperdiet non, facilisis ut massa. Cras est neque, pellentesque vitae hendrerit quis, egestas nec odio. Aliquam in ipsum feugiat nunc accumsan ultrices. Nullam ac nibh est. Vivamus id est erat, eu mattis arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas tincidunt felis sed nibh elementum viverra. Nulla facilisis, turpis eget dapibus convallis, nunc justo ultrices eros, id congue dui metus at nisi. Suspendisse potenti. Aliquam vitae consectetur lectus. Nam fermentum ligula a tellus suscipit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut imperdiet, erat sed mattis consectetur, velit odio blandit nunc, ac molestie sapien nisi a ante.</p>
+                                        <h3 class="address">Egyéb iroda</h3>
+                    <p class="content-icon-spacing">
+                        <?php echo $settings['cim'];?>
+                    </p>
+
+                    <h3 class="call-us">Telefon</h3>
+                    <p class="content-icon-spacing">
+                        <?php echo $settings['tel'];?>
+
+                    </p>
+
+                    <h3 class="email">E-mail</h3>
+                    <p class="content-icon-spacing">
+                        <?php echo Util::safe_mailto($settings['email']);?>
+                    </p>
                 </div>
             </div>
         </div>
@@ -153,7 +181,7 @@
                               
                               
                               
-                              
+<!--                              
                          <div class="row">
                             <div class="span3">
                                 <h3 class="address">Központi iroda</h3>
@@ -174,7 +202,7 @@
                                     <?php echo Util::safe_mailto($settings['email']);?>
                                 </p>
                             </div>
-                        </div>
+                        </div>  -->
 
 
     </div><!-- /.content -->
