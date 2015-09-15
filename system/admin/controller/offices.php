@@ -22,6 +22,7 @@ class Offices extends Controller {
         
 		$this->view->js_link[] = $this->make_link('js', ADMIN_JS, 'pages/offices.js');
 		
+        // az összes iroda adatainak lekérdezése
         $this->view->offices = $this->offices_model->offices_data_query();
 		
 		$this->view->render('offices/tpl_offices');
@@ -29,28 +30,64 @@ class Offices extends Controller {
     
     public function insert()
 	{
+        if(!empty($_POST)){
+            $result = $this->offices_model->insert_office();
+        
+            if($result){
+                Util::redirect('offices');
+            } else {
+                Util::redirect('offices/insert');
+            }
+        }
+        
 		// adatok bevitele a view objektumba
 		$this->view->title = 'Admin irodák oldal';
 		$this->view->description = 'Admin irodák oldal description';
 		
+	//form validator	
+		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation-new/jquery.validate.min.js');
+		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation-new/additional-methods.min.js');
+		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation-new/localization/messages_hu.js');        
 		
-		$this->view->js_link[] = $this->make_link('js', ADMIN_JS, 'pages/common.js');
+        $this->view->js_link[] = $this->make_link('js', ADMIN_JS, 'pages/offices_insert_update.js');
 		
-		
-		$this->view->render('offices/tpl_offices_insert');
+		$this->view->render('offices/tpl_insert_office');
 	}
     
     public function update()
 	{
+        $id = (int)$this->registry->params['id'];
+        
+        //var_dump($id); die();
+        
+        if(!empty($_POST)){
+            $result = $this->offices_model->update_office($id);
+        
+            if($result){
+                Util::redirect('offices');
+            }
+            /*
+            else {
+                Util::redirect('offices/update/' . $id);
+            }
+            */
+        }        
+        
 		// adatok bevitele a view objektumba
 		$this->view->title = 'Admin irodák oldal';
 		$this->view->description = 'Admin irodák oldal description';
+        
+        //form validator	
+		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation-new/jquery.validate.min.js');
+		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation-new/additional-methods.min.js');
+		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/jquery-validation-new/localization/messages_hu.js');
 		
+		$this->view->js_link[] = $this->make_link('js', ADMIN_JS, 'pages/offices_insert_update.js');
+        
+        // egy iroda adatainak lekérdezése
+        $this->view->office = $this->offices_model->offices_data_query($id);
 		
-		$this->view->js_link[] = $this->make_link('js', ADMIN_JS, 'pages/common.js');
-		
-		
-		$this->view->render('offices/tpl_offices_update');
+		$this->view->render('offices/tpl_update_office');
 	}
     
 /* -------------------------- */

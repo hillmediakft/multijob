@@ -73,7 +73,7 @@
 									<li><a href="admin/offices/update/<?php echo $value['office_id'];?>"><i class="fa fa-pencil"></i> Szerkeszt</a></li>
 								<?php } ?>
 								
-								<li><a class="delete_office_class" href="javascript:;" data-id="<?php echo $value['office_id'];?>"><i class="fa fa-trash"></i> Töröl</a></li>
+								<li><a class="delete_office_class" href="" data-id="<?php echo $value['office_id'];?>"><i class="fa fa-trash"></i> Töröl</a></li>
 							</ul>
 						</div>
 					</div>
