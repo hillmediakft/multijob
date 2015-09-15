@@ -1,7 +1,28 @@
 var kapcsolat = function () {
 
+    var koordinates = {
+       // default:
+    };
+    
+    
+    var select_elemenet = function() {
+        var default_elem = $('a[href="#collapse_1"]');
+        
+        var lati = default_elem.attr('data-latitude');
+        var long = default_elem.attr('data-longitude');
+        
+        console.log(lati);
+        console.log(long);
+        
+        
+        //var lati = ;
+        //var long = ;
+    }
+    
+    
+    
     var googleMapsInit = function () {
-
+console.log('googleMapsInit_meghívva');
         var myLatlng = new google.maps.LatLng(47.498983, 19.058315);
         var map_canvas = document.getElementById('map_canvas');
         var map_options = {
@@ -51,7 +72,7 @@ var kapcsolat = function () {
     }
 
     var officeMap = function (office_lat, office_lng) {
-console.log('meghívva');
+console.log('officeMap_meghívva');
         var myLatlng = new google.maps.LatLng(office_lat, office_lng);
         var map_canvas = document.getElementById('map_canvas');
         var map_options = {
@@ -102,8 +123,8 @@ console.log('meghívva');
     
     var officeClick = function () { 
         
-        $('a[href="#collapseTwo"]').on('click', function () {
-            console.log("kattintva");
+        $('#accordion2').on('click', 'a[href*="#collapse_"]', function () {
+           console.log("kattintva");
            officeMap(47.949289, 21.682472);  
             
         });
@@ -113,6 +134,7 @@ console.log('meghívva');
         //main function to initiate the module
         init: function () {
 
+            select_elemenet();
             googleMapsInit();
             officeClick();
 

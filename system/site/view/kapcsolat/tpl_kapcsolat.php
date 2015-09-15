@@ -80,88 +80,44 @@
                               
                               
 <div class="offices">
+
+
     <div class="accordion" id="accordion2">
+        <?php
+        $counter = 1;
+        foreach($offices as $key => $value){ ?>
+
         <div class="accordion-group">
             <div class="accordion-heading">
-                <a class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                    <span class="sign"></span> Budapest
+                <a class="accordion-toggle <?php echo ($counter == 1) ? 'active' : ''; ?>" data-toggle="collapse" data-parent="#accordion2" href="#collapse_<?php echo $counter; ?>" data-latitude="<?php echo $value['office_latitude'];?>" data-longitude="<?php echo $value['office_longitude'];?>">
+                    <span class="sign"></span> <?php echo $value['office_name'];?>
                 </a>
             </div>
-            <div id="collapseOne" class="accordion-body collapse in">
+            <div id="collapse_<?php echo $counter; ?>" class="accordion-body collapse <?php echo ($counter == 1) ? 'in' : ''; ?>">
                 <div class="accordion-inner">
 
-                    <h3 class="address">Központi iroda</h3>
+                    <h3 class="address">Cím</h3>
                     <p class="content-icon-spacing">
-                        <?php echo $settings['cim'];?>
+                        <?php echo $value['office_address'];?>
                     </p>
 
                     <h3 class="call-us">Telefon</h3>
                     <p class="content-icon-spacing">
-                        <?php echo $settings['tel'];?>
-
+                        <?php echo $value['office_telefon'];?>
                     </p>
 
                     <h3 class="email">E-mail</h3>
                     <p class="content-icon-spacing">
-                        <?php echo Util::safe_mailto($settings['email']);?>
+                        <?php echo Util::safe_mailto($value['office_email']);?>
                     </p>
             
                 </div>
             </div>
         </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                    <span class="sign"></span> Kelet-Magyarország
-                </a>
-            </div>
-            <div id="collapseTwo" class="accordion-body collapse">
-                <div class="accordion-inner">
-                                        <h3 class="address">Nyíregyháza</h3>
-                    <p class="content-icon-spacing">
-                        <?php echo $settings['cim'];?>
-                    </p>
-
-                    <h3 class="call-us">Telefon</h3>
-                    <p class="content-icon-spacing">
-                        <?php echo $settings['tel'];?>
-
-                    </p>
-
-                    <h3 class="email">E-mail</h3>
-                    <p class="content-icon-spacing">
-                        <?php echo Util::safe_mailto($settings['email']);?>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                    <span class="sign"></span> Észak-Magyarország
-                </a>
-            </div>
-            <div id="collapseThree" class="accordion-body collapse">
-                <div class="accordion-inner">
-                                        <h3 class="address">Egyéb iroda</h3>
-                    <p class="content-icon-spacing">
-                        <?php echo $settings['cim'];?>
-                    </p>
-
-                    <h3 class="call-us">Telefon</h3>
-                    <p class="content-icon-spacing">
-                        <?php echo $settings['tel'];?>
-
-                    </p>
-
-                    <h3 class="email">E-mail</h3>
-                    <p class="content-icon-spacing">
-                        <?php echo Util::safe_mailto($settings['email']);?>
-                    </p>
-                </div>
-            </div>
-        </div>
+        <?php $counter++; } ?>
     </div>
+
+
 </div>                              
                               
                               
