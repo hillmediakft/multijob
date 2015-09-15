@@ -559,12 +559,10 @@ class Users_model extends Model {
 				$this->query->set_table(array('users'));
 				$this->query->set_where('user_id', '=', $user_id);
 				$result = $this->query->update($data);
-				
-				if($result) {
-                    
+                
+				if($result >= 0) {
                     // ha a bejelentkezett user adatait módosítjuk, akkor a session adataokat is frissíteni kell
                     if(Session::get('user_id') == $user_id) {
-                        Message::set('success', 'user_data_update_success');
                         // Módosítjuk a $_SESSION tömben is a user adatait!
                         Session::set('user_name', $data['user_name']);
                         Session::set('user_email', $data['user_email']);
@@ -573,7 +571,7 @@ class Users_model extends Model {
                             Session::set('user_photo', $data['user_photo']);
                         }
                     }
-                    
+                    Message::set('success', 'user_data_update_success');
 					return true;
 				}
 				else {
