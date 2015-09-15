@@ -53,11 +53,9 @@ var userProfile = function () {
 					email: true
 				},
 				password: {
-					minlength: 6,
-					required: true
+					minlength: 6					
 				},
 				password_again: {
-					required: true,
 					equalTo: "#password"
 				}
 			},
