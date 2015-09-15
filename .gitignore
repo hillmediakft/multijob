@@ -51,3 +51,6 @@ system/config/email.php
 system/libs/tfpdf/font/unifont/arial.mtx.php
 system/libs/tfpdf/font/unifont/arialb.mtx.php
 system/libs/tfpdf/font/unifont/arial_i.mtx.php
+system/libs/tfpdf/font/unifont/arial.cw127.php
+system/libs/tfpdf/font/unifont/arial_i.mtx.php
+system/libs/tfpdf/font/unifont/arialb.cw127.php

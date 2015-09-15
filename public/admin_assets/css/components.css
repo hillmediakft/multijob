@@ -12846,3 +12846,8 @@ cursor: move;
     position: absolute;
     top: 0px;
 }
+
+/* dokumentáció alsó margó */
+.documentation {
+    margin-bottom: 30px;
+}
