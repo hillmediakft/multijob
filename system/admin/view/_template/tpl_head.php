@@ -295,10 +295,10 @@
                                     <a href="admin/slider">
                                         Slider beállítások</a>
                                 </li>
-                                <li class="<?php echo ($this->registry->controller == 'testimonials') ? 'active' : ''; ?>">
+                     <!--           <li class="<?php echo ($this->registry->controller == 'testimonials') ? 'active' : ''; ?>">
                                     <a href="admin/testimonials">
                                         Rólunk mondták</a>
-                                </li>
+                                </li> -->
                             </ul>
 
                         </li>
