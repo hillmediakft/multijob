@@ -59,7 +59,7 @@ var Users = function () {
         
             "lengthMenu": [
                 [5, 15, 20, -1],
-                [5, 15, 20, "All"] // change per page values here
+                [5, 15, 20, "Összes"] // change per page values here
             ],
             // set the initial value
             "pageLength": 20,            
