@@ -148,13 +148,15 @@ class Jobs extends Controller {
 	 */
 	public function update_job()
 	{
+        $id = (int)$this->registry->params['id'];
+        
 		if(!empty($_POST)) {
-			$result = $this->jobs_model->update_job($this->registry->params['id']);
+			$result = $this->jobs_model->update_job($id);
 		
 			if($result) {
 				Util::redirect('jobs');
 			} else {
-				Util::redirect('jobs/update_job');
+				Util::redirect('jobs/update_job/' . $id);
 			}
 		}
 
@@ -179,7 +181,7 @@ class Jobs extends Controller {
       		
 		
 		// a módosítandó munka adatai
-		$this->view->actual_job = $this->jobs_model->one_job_query($this->registry->params['id']);
+		$this->view->actual_job = $this->jobs_model->one_job_query($id);
 		// a város vagy kerület beviteli mező megjelenjenítéséhez vagy eltüntetéséhez használjuk
 		$this->view->budapest = ($this->view->actual_job[0]['job_county_id'] == 5) ? true : false;
 		// városok nevének és id-jének lekérdezése egy megyéből (a paraméter adja meg, hogy melyik megye)
@@ -273,12 +275,14 @@ class Jobs extends Controller {
 	 */
 	public function category_update()
 	{
-		if(isset($_POST['job_list_name'])){
-			$result = $this->jobs_model->category_update($this->registry->params['id']);
+		$id = (int)$this->registry->params['id'];
+        
+        if(isset($_POST['job_list_name'])){
+			$result = $this->jobs_model->category_update($id);
 			if($result){
 				Util::redirect('jobs/category');
 			} else {
-				Util::redirect('jobs/category_update/'. $this->registry->params['id']);
+				Util::redirect('jobs/category_update/'. $id);
 			}
 		}
 
@@ -297,7 +301,7 @@ class Jobs extends Controller {
 		
 		//$this->view->js_link[] = $this->make_link('js', ADMIN_JS, 'pages/common.js');	   
 		
-		$this->view->category_content = $this->jobs_model->job_list_query($this->registry->params['id']);
+		$this->view->category_content = $this->jobs_model->job_list_query($id);
 		
 		$this->view->render('jobs/tpl_job_category_update');	
 	}
