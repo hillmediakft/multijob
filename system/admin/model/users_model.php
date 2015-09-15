@@ -283,7 +283,6 @@ class Users_model extends Model {
 	 */
 	public function delete_user()
 	{
-        
 		// a sikeres törlések számát tárolja
 		$success_counter = 0;
 		// a sikertelen törlések számát tárolja
@@ -316,28 +315,13 @@ class Users_model extends Model {
 			//átalakítjuk a integer-ré a kapott adatot
 			$value = (int)$value;
 			
-                // lekérdezzük, hogy kapcsolódik-e hozzá bevitt munka
-                $this->query->reset();
-                $this->query->set_table('jobs');
-                $this->query->set_columns('COUNT(*)');
-                $this->query->set_where('job_ref_id', '=', $value);
-                $job_number = $this->query->select();
-
-                //ha nem 0 a visszadott érték, akkor van munkája a usernek és nem törölhető
-                if($job_number[0]['COUNT(*)'] != '0') {
-                    Message::set('error', 'A felhasználó nem törölhető, mert kapcsolódik hozzá munka.'); 
-                    continue;
-                }
-            
-            
 				//lekérdezzük a törlendő user avatar képének a nevét, hogy törölhessük a szerverről
 				$this->query->reset();
 				$this->query->set_table('users');
 				$this->query->set_columns(array('user_photo'));
 				$this->query->set_where('user_id', '=', $value);
 				$photo_name = $this->query->select();
-            
-            
+				
 			//felhasználó törlése	
 			$this->query->reset();
 			$this->query->set_table(array('users'));
