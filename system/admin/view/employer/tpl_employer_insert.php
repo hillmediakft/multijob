@@ -97,7 +97,7 @@
 											<label for="employer_status">Státusz</label>
 											<select name="employer_status" class="form-control input-xlarge">
 												<option value="0">Inaktív</option>
-												<option value="1">Aktív</option>
+												<option value="1" selected>Aktív</option>
 											</select>
 										</div>
 											
