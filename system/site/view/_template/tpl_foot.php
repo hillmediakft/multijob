@@ -159,18 +159,9 @@
                     <p>© Copyright 2015 | Multijob Iskolaszövetkezet</p>
                 </div><!-- /.copyright -->
 
-                <div class="span6 share">
-                    <div class="content">
-                        <ul class="menu nav">
-                            <li class="first leaf"><a href="http://www.facebook.com" class="facebook">Facebook</a></li>
-                            <li class="leaf"><a href="http://flickr.net" class="flickr">Flickr</a></li>
-                            <li class="leaf"><a href="http://plus.google.com" class="google">Google+</a></li>
-                            <li class="leaf"><a href="http://www.linkedin.com" class="linkedin">LinkedIn</a></li>
-                            <li class="leaf"><a href="http://www.twitter.com" class="twitter">Twitter</a></li>
-                            <li class="last leaf"><a href="http://www.vimeo.com" class="vimeo">Vimeo</a></li>
-                        </ul>
-                    </div><!-- /.content -->
-                </div><!-- /.span6 -->
+                <div class="span6">
+                    <p class="pull-right">Webfejlesztés: <a href="http://www.onlinemarketingguru.hu/weboldal-keszites.html" target="_blank">OMG weboldal készítés</a></p>
+                </div><!<!-- /.span6 -->
             </div><!-- /.row -->
         </div><!-- /#footer-inner -->
     </div><!-- /#footer -->
@@ -181,21 +172,13 @@
 
 
 <script type="text/javascript" src="<?php echo SITE_JS; ?>jquery.js"></script>
-<script type="text/javascript" src="<?php echo SITE_JS; ?>jquery.ezmark.js"></script>
-<script type="text/javascript" src="<?php echo SITE_JS; ?>jquery.currency.js"></script>
-<script type="text/javascript" src="<?php echo SITE_JS; ?>jquery.cookie.js"></script>
+
+
+
 <script type="text/javascript" src="<?php echo SITE_JS; ?>retina.js"></script>
 <script type="text/javascript" src="<?php echo SITE_JS; ?>bootstrap.min.js"></script>
-<script type="text/javascript" src="<?php echo SITE_JS; ?>carousel.js"></script>
-<script type="text/javascript" src="<?php echo SITE_JS; ?>gmap3.min.js"></script>
-<script type="text/javascript" src="<?php echo SITE_JS; ?>gmap3.infobox.min.js"></script>
-<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-ui-1.10.2.custom/js/jquery-ui-1.10.2.custom.min.js"></script>
-<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/chosen/chosen.jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/iosslider/_src/jquery.iosslider.min.js"></script>
 
-<!--
-<script type="text/javascript" src="<?php //echo SITE_ASSETS;  ?>plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
--->
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/chosen/chosen.jquery.min.js"></script>
 
 <!-- Minden oldalon szükséges scriptek pl: hideAlert() -->
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>pages/common_functions.js"></script>
@@ -211,7 +194,7 @@
 <!-- üzenet küldés a footerből -->
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>pages/send_email_footer.js"></script>
 <script src="<?php echo SITE_ASSETS; ?>plugins/jQuery.mmenu-master/dist/js/jquery.mmenu.min.all.js"></script>
-<script type="text/javascript" src="<?php echo SITE_JS; ?>realia.js"></script>
+
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <?php
