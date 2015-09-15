@@ -70,14 +70,16 @@ class Employer extends Controller {
 	
 	public function update()
 	{
+        $id = (int)$this->registry->params['id'];
+        
 	// új munka hozzáadása
 		if(!empty($_POST)) {
-			$result = $this->employer_model->update_employer($this->registry->params['id']);
+			$result = $this->employer_model->update_employer($id);
 			if($result) {
 				Util::redirect('employer');
 			}
 			else {
-				Util::redirect('employer/update');
+				Util::redirect('employer/update/' . $id);
 			}
 		}
 
@@ -97,7 +99,7 @@ class Employer extends Controller {
 		$this->view->js_link[] = $this->make_link('js', ADMIN_ASSETS, 'plugins/ckeditor/ckeditor.js');
 		$this->view->js_link[] = $this->make_link('js', ADMIN_JS, 'pages/employer_update.js');
 
-		$this->view->employer_data = $this->employer_model->all_employer_query($this->registry->params['id']);
+		$this->view->employer_data = $this->employer_model->all_employer_query($id);
 
 //$this->view->debug(true);
 

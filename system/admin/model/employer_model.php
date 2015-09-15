@@ -13,7 +13,7 @@ class Employer_model extends Model {
 	 *	Az employer tábla minden adatát lekérdezi
 	 *	Ha van paraméter, akkor csak egy sort
 	 *
-	 *	@param integer	$id
+	 *	@param integer	$id  opcionális paraméter
 	 *	@return array
 	 */
 	public function all_employer_query($id = null)
@@ -21,10 +21,10 @@ class Employer_model extends Model {
 		$this->query->reset();
 		$this->query->set_table(array('employer'));
 		$this->query->set_columns('*');
-			if(!is_null($id)) {
-				$id = (int)$id;
-				$this->query->set_where('employer_id', '=', $id);
-			}
+        if(!is_null($id)) {
+            $this->query->set_where('employer_id', '=', $id);
+        }
+        
 		return $this->query->select();
 	}
 	
