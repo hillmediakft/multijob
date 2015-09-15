@@ -19,6 +19,8 @@ class Kapcsolat extends Controller {
         $this->view->latest_jobs = $this->kapcsolat_model->jobs_query(3);
         // oldal tartalmának lekérdezése (paraméter a pages tábla page_id)
         $this->view->content = $this->kapcsolat_model->get_page_data(13);
+        // Iroda adatok lejérdezése
+        $this->view->offices = $this->kapcsolat_model->offices_data_query();
 
 //$this->view->debug(true); 	
 
