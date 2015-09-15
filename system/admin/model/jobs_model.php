@@ -438,7 +438,6 @@ class Jobs_model extends Model {
 		// régi képek elérési útjának változókhoz rendelése (ezt használjuk a régi kép törléséhez, ha új kép lett feltöltve)
 		$old_img_name = $_POST['old_img'];
 		$old_category = $_POST['old_category'];
-		$id = (int)$id;		
 
 		//ha módosított a kategória nevén
 		if($old_category != $data['job_list_name']) {
