@@ -111,7 +111,7 @@
 										<?php if($logged_in) { ?>
 											<a class="btn btn-primary btn-large list-your-property arrow-right" href="eloregisztracio">Adatlap kitöltése</a>
 										<?php } else {?>
-											<a class="btn btn-primary btn-large list-your-property arrow-right" href="munkak">Legfrissebb munkák!</a>
+											<a class="btn btn-primary btn-large list-your-property arrow-right" href="munkak">Most akarok dolgozni</a>
 										<?php }?>
 										
 										
@@ -155,9 +155,7 @@
 								<li>
                                     <a href="kollegak" class="no_arrow <?php echo ($this->registry->controller == 'kollegak' && $this->registry->action == 'index') ? 'active' : ''; ?>">Kollégáink</a>
                                 </li>
-								<li>
-                                    <a href="irodak" class="no_arrow <?php echo ($this->registry->controller == 'irodak' && $this->registry->action == 'index') ? 'active' : ''; ?>">Irodáink</a>
-                                </li>
+								
                                 <li class="menuparent">
                                     <span class="menuparent nolink <?php echo ($this->registry->controller == 'cegek') ? 'active' : ''; ?>">Cégeknek</span>
                                     <ul>
