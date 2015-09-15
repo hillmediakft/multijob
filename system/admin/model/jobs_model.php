@@ -252,7 +252,7 @@ class Jobs_model extends Model {
 		if($error_counter == 0) {
 				
 		 	// ha nincs lejárat NULL, ha van átalakítja timestamp-re
-            $data['job_expiry_timestamp'] = (empty($data['job_expiry_timestamp'])) ? NULL : strtotime($data['job_expiry_timestamp']);
+            $data['job_expiry_timestamp'] = (empty($data['job_expiry_timestamp'])) ? time() + (14 * 24 * 60 * 60) : strtotime($data['job_expiry_timestamp']);
 			// munkaadó azonosító megadása
             $data['job_employer_id'] = ($data['job_employer_id'] == '') ? NULL : (int)$data['job_employer_id'];
             // referens id megadása
@@ -309,8 +309,8 @@ class Jobs_model extends Model {
 		
 		if($error_counter == 0) {
 			
-		 	// ha nincs lejárat: az adat NULL, ha van átalakítja timestamp-re
-            $data['job_expiry_timestamp'] = (empty($data['job_expiry_timestamp'])) ? NULL : strtotime($data['job_expiry_timestamp']);
+            // lejárat átalakítása timestamp-re
+            $data['job_expiry_timestamp'] = strtotime($data['job_expiry_timestamp']);
 			// munkaadó azonosító megadása
             $data['job_employer_id'] = ($data['job_employer_id'] == '') ? NULL : (int)$data['job_employer_id'];
             // referens id megadása
