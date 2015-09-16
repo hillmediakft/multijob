@@ -56,12 +56,13 @@
 
 <div class="clearfix"></div>
 
+<?php if(isset($settings['facebook_link']) && ((!empty($settings['facebook_link']) || $settings['facebook_link'] != ''))){ ?>
 <!-- FACEBOOK BOX -->
 <div class="title">
 	<h5>Csatlakozz hozzánk a Facebookon</h5>
 </div>
 <div class="facebook-frame">
-	<?php if(isset($settings['facebook_link']) && (!empty($settings['facebook_link']) || $settings['facebook_link'] != '')){ ?>
+
 		<div class="fb-page" data-href="<?php echo $settings['facebook_link']; ?>" 
 		data-width="270" 
 		data-height="320" 
@@ -70,9 +71,9 @@
 		data-hide-cover="false" 
 		data-show-facepile="true" 
 		data-show-posts="false"></div>
-	<?php }?>
+	
 </div>
-
+<?php }?>
 
 <div class="title">
 	<h5>Töltsd le a mobil applikációnkat</h5>
