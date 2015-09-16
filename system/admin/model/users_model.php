@@ -162,7 +162,6 @@ class Users_model extends Model {
 				$user_email = null;
 			}
 			
-			
 			if(empty($_POST['img_url'])){
 				$img_url = Config::get('user.default_photo');
 			} else {
@@ -170,6 +169,8 @@ class Users_model extends Model {
 				$img_url = htmlentities($path_parts['filename'] . '.' . $path_parts['extension'], ENT_QUOTES, "UTF-8");
 			}
 
+            $user_group = (int)$_POST['user_group'];
+            
             // crypt the user's password with the PHP 5.5's password_hash() function, results in a 60 character
             // hash string. the PASSWORD_DEFAULT constant is defined by the PHP 5.5, or if you are using PHP 5.3/5.4,
             // by the password hashing compatibility library. the third parameter looks a little bit shitty, but that's
@@ -226,7 +227,7 @@ class Users_model extends Model {
                                   ':user_password_hash' => $user_password_hash,
                                   ':user_email' => $user_email,
                                   ':user_active' => $user_active,
-                                  ':user_role_id' => $_POST['user_group'],
+                                  ':user_role_id' => $user_group,
                                   ':user_photo' => $img_url,
                                   ':user_creation_timestamp' => $user_creation_timestamp,
                                   ':user_activation_hash' => $user_activation_hash,
@@ -397,6 +398,7 @@ class Users_model extends Model {
 				Message::set('error', 'username_field_empty');
                 $error_counter += 1;
 			}
+        /*
 			if (strlen($_POST['name']) > 64 OR strlen($_POST['name']) < 2) {
 				Message::set('error', 'username_too_short_or_too_long');
                 $error_counter += 1;
@@ -404,7 +406,8 @@ class Users_model extends Model {
 			if (!preg_match('/^[\_a-záöőüűóúéíÁÖŐÜŰÓÚÉÍ\d]{2,64}$/i', $_POST['name'])) {
 				Message::set('error', 'username_does_not_fit_pattern');
                 $error_counter += 1;
-			}	
+			}
+        */    
 			
 		// Vezetéknév ellenőrzés	
 			if(empty($_POST['first_name'])) {
@@ -490,9 +493,9 @@ class Users_model extends Model {
 			if ($error_counter == 0) {
 				
 				// clean the input
-				$data['user_name'] = htmlentities($_POST['name'], ENT_QUOTES, "UTF-8");
-				$data['user_first_name'] = htmlentities($_POST['first_name'], ENT_QUOTES, "UTF-8");
-				$data['user_last_name'] = htmlentities($_POST['last_name'], ENT_QUOTES, "UTF-8");
+				$data['user_name'] = $_POST['name'];
+				$data['user_first_name'] = $_POST['first_name'];
+				$data['user_last_name'] = $_POST['last_name'];
 				$data['user_phone'] = $_POST['phone'];			
 
 				//ha nem létezik a $password_empty változó, vagyis nem üres mindkét password mező	
@@ -511,7 +514,9 @@ class Users_model extends Model {
 					$data['user_email'] = null;
 				}				
 				
-				$data['user_role_id'] = $_POST['user_group'];			
+                if(isset($_POST['user_group'])) {
+                    $data['user_role_id'] = $_POST['user_group'];			
+                }
 
 				//ha van feltöltve user kép
 				if(!empty($_POST['img_url'])){
@@ -566,7 +571,9 @@ class Users_model extends Model {
                         // Módosítjuk a $_SESSION tömben is a user adatait!
                         Session::set('user_name', $data['user_name']);
                         Session::set('user_email', $data['user_email']);
-                        Session::set('user_role_id', $data['user_role_id']);
+                        if(isset($data['user_role_id'])) {
+                            Session::set('user_role_id', $data['user_role_id']);
+                        }
                         if(isset($data['user_photo'])){
                             Session::set('user_photo', $data['user_photo']);
                         }
