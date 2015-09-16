@@ -119,26 +119,11 @@
     <div class="bottom-wrapper">
         <div class="bottom container">
             <div class="bottom-inner row">
-                <div class="item span4">
-                    <div class="address decoration"></div>
-                    <h2><a>Regisztrálj az oldalunkon</a></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan dui ac nunc imperdiet rhoncus. Aenean vitae imperdiet lectus</p>
-                    <a href="#" class="btn btn-primary">Regisztrálok</a>
-                </div><!-- /.item -->
-
-                <div class="item span4">
-                    <div class="gps decoration"></div>
-                    <h2><a>Figyeld a munkákat</a></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan dui ac nunc imperdiet rhoncus. Aenean vitae imperdiet lectus</p>
-                    <a href="#" class="btn btn-primary">Munkák</a>
-                </div><!-- /.item -->
-
-                <div class="item span4">
-                    <div class="key decoration"></div>
-                    <h2><a>Jelentkezz munkára</a></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan dui ac nunc imperdiet rhoncus. Aenean vitae imperdiet lectus</p>
-                    <a href="#" class="btn btn-primary">Jelentkezés</a>
-                </div><!-- /.item -->
+                
+                
+<?php echo $content['page_body']; ?>
+                
+                
             </div><!-- /.bottom-inner -->
         </div><!-- /.bottom -->
     </div><!-- /.bottom-wrapper -->    </div><!-- /#content -->
