@@ -27,8 +27,8 @@ class Feltetelek extends Controller {
                 }
 
                 $from_name = $data['name'];
-                $from_email = $this->view->settings['email_diak'];
-                $to_email = $this->view->settings['email_diak'];
+                $from_email = $this->view->settings['email_kilepes'];
+                $to_email = $this->view->settings['email_kilepes'];
                 $to_name = $from_name;
                 $subject = 'Kilépési szándék';
                 $message = <<<_msg
