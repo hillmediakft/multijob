@@ -85,7 +85,9 @@
 										<li class="active"><a data-toggle="tab" href="#tab_1_1"><i class="fa fa-cog"></i>Személyes adatok</a><span class="after"></span></li>
 										<li ><a data-toggle="tab" href="#tab_2_2"><i class="fa fa-picture-o"></i> Profil kép</a></li>
 										<li ><a data-toggle="tab" href="#tab_3_3"><i class="fa fa-lock"></i> Jelszó</a></li>
+										<?php if(Session::get('user_role_id') == 1) { ?>
 										<li ><a data-toggle="tab" href="#tab_4_4"><i class="fa fa-wrench"></i> Jogosultságok</a></li>
+										<?php } ?>
 									</ul>
 								</div>
 								
@@ -156,6 +158,8 @@
 										</div>
 										
 	<!-- ****************************** JOGOSULTSÁGOK ***************************** -->										
+										
+                                    <?php if(Session::get('user_role_id') == 1) { ?>
 										<div id="tab_4_4" class="tab-pane">
 										
 											<h3>Felhasználói jogosultság</h3>
@@ -185,6 +189,7 @@
 												</div>
 											</div>
 										</div>
+								    <?php } ?>		
 										
 										
 									</div> <!--END TAB-CONTENT-->
