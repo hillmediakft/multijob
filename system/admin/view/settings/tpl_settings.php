@@ -55,19 +55,24 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="settings_email">E-mail</label>	
+                                    <label for="settings_email">E-mail (lábléc e-mail űrlap)</label>	
                                     <input type='text' name='setting_email' class='form-control input-large' value="<?php echo (empty($settings['email'])) ? "" : $settings['email']; ?>"/>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="setting_email_ceges">E-mail céges</label>	
+                                    <label for="setting_email_ceges">E-mail céges (céges kapcsolat)</label>	
                                     <input type='text' name='setting_email_ceges' class='form-control input-large' value="<?php echo (empty($settings['email_ceges'])) ? "" : $settings['email_ceges']; ?>"/>
                                 </div>
                                    
                                 <div class="form-group">
-                                    <label for="setting_email_diak">E-mail diák</label>	
+                                    <label for="setting_email_diak">E-mail diák (kilépés)</label>	
                                     <input type='text' name='setting_email_diak' class='form-control input-large' value="<?php echo (empty($settings['email_diak'])) ? "" : $settings['email_diak']; ?>"/>
                                 </div>
+                                                            
+                                <div class="form-group">
+                                    <label for="setting_email_kilepes">E-mail kilépés</label>	
+                                    <input type='text' name='setting_email_kilepes' class='form-control input-large' value="<?php echo (empty($settings['email_kilepes'])) ? "" : $settings['email_kilepes']; ?>"/>
+                                </div>                                                            
 
                                 <div class="form-group">
                                     <label for="setting_email_diak">Facebook link</label>	
