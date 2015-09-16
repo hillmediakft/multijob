@@ -125,8 +125,34 @@ class Ajax_request extends Controller {
                 $to_email = $data['email'];
             }
             
-            $to_name = $data['ceg'];
-            $subject = 'Üzenet érkezett';
+            $to_name = $from_name;
+            $subject = 'Üzenet érkezett a Multijob weblaptól';
+            
+            
+            $message = <<<_msg
+
+            <html>    
+            <body>
+                <h2>Üzenet</h2>
+                <div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><strong>Név:</strong></td><td>$from_name </td>
+                            </tr>
+                            <tr>
+                                <td><strong>E-mail cím:</strong></td><td>$from_email </td>
+                            </tr>
+                            
+                            <tr>
+                                <td><strong>Üzenet:</strong></td><td>$message </td>
+                            </tr>
+                    </tbody>
+                    </table>
+                </div> 
+            </body>
+            </html>    
+_msg;
             
             $result = $this->ajax_request_model->send_email($from_email, $from_name, $subject, $message, $to_email, $to_name);    
         
