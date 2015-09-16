@@ -156,7 +156,7 @@
         <div id="footer-inner">
             <div class="row">
                 <div class="span6 copyright">
-                    <p>© Copyright 2015 | Multijob Iskolaszövetkezet</p>
+                    <p>© Copyright 2015 | <?php echo $settings['ceg']; ?></p>
                 </div><!-- /.copyright -->
 
                 <div class="span6">
