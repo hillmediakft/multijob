@@ -10,12 +10,7 @@
 					</div>
 				</div>
 			</div>		
-		
-		
-				
-
-    <div class="container">
-        <div id="main">
+           
             <div class="row">
                 <div class="span8">
                      <h1 class="page-header">Kapcsolat</h1>
@@ -70,122 +65,93 @@
                 </div>
 
                 <div class="sidebar span4">
+                   
                     <div class="widget properties last">
-    <div class="title">
-        <h2>Irodáink</h2>
-    </div><!-- /.title -->
+                        <div class="title">
+                            <h2>Irodáink</h2>
+                        </div><!-- /.title -->
 
-    <div class="content">
-                              
-                              
-                              
-<div class="offices">
+                        <div class="content">
 
+                            <div class="offices">
 
-    <div class="accordion" id="accordion2">
-        <?php
-        $counter = 1;
-        foreach($offices as $key => $value){ ?>
+                                <div class="accordion" id="accordion2">
+                                    <?php
+                                    $counter = 1;
+                                    foreach($offices as $key => $value){ ?>
 
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a class="accordion-toggle <?php echo ($counter == 1) ? 'active' : ''; ?>" data-toggle="collapse" data-parent="#accordion2" href="#collapse_<?php echo $counter; ?>" data-latitude="<?php echo $value['office_latitude'];?>" data-longitude="<?php echo $value['office_longitude'];?>">
-                    <span class="sign"></span> <?php echo $value['office_name'];?>
-                </a>
-            </div>
-            <div id="collapse_<?php echo $counter; ?>" class="accordion-body collapse <?php echo ($counter == 1) ? 'in' : ''; ?>">
-                <div class="accordion-inner">
+                                    <div class="accordion-group">
+                                        <div class="accordion-heading">
+                                            <a class="accordion-toggle <?php echo ($counter == 1) ? 'active' : ''; ?>" data-toggle="collapse" data-parent="#accordion2" href="#collapse_<?php echo $counter; ?>" data-latitude="<?php echo $value['office_latitude'];?>" data-longitude="<?php echo $value['office_longitude'];?>">
+                                                <span class="sign"></span> <?php echo $value['office_name'];?>
+                                            </a>
+                                        </div>
+                                        <div id="collapse_<?php echo $counter; ?>" class="accordion-body collapse <?php echo ($counter == 1) ? 'in' : ''; ?>">
+                                            <div class="accordion-inner">
 
-                    <h3 class="address">Cím</h3>
-                    <p class="content-icon-spacing">
-                        <?php echo $value['office_address'];?>
-                    </p>
+                                                <h3 class="address">Cím</h3>
+                                                <p class="content-icon-spacing">
+                                                    <?php echo $value['office_address'];?>
+                                                </p>
 
-                    <h3 class="call-us">Telefon</h3>
-                    <p class="content-icon-spacing">
-                        <?php echo $value['office_telefon'];?>
-                    </p>
+                                                <?php if(!empty($value['office_telefon'])){ ?>
+                                                    <h3 class="call-us">Telefon</h3>
+                                                    <p class="content-icon-spacing">
+                                                        <?php echo $value['office_telefon'];?>
+                                                    </p>
+                                                <?php } ?>
 
-                    <h3 class="email">E-mail</h3>
-                    <p class="content-icon-spacing">
-                        <?php echo Util::safe_mailto($value['office_email']);?>
-                    </p>
-            
-                </div>
-            </div>
-        </div>
-        <?php $counter++; } ?>
-    </div>
+                                                <?php if(!empty($value['office_mobil'])){ ?>
+                                                    <h3 class="call-us">Mobil</h3>
+                                                    <p class="content-icon-spacing">
+                                                        <?php echo $value['office_mobil'];?>
+                                                    </p>
+                                                <?php if(!empty($value['office_mobil_2'])){ ?>
+                                                    <p class="content-icon-spacing">
+                                                        <?php echo $value['office_mobil_2'];?>
+                                                    </p>
+                                                <?php } ?>
+                                                <?php } ?>
 
+                                                <?php if(!empty($value['office_email'])){ ?>
+                                                    <h3 class="email">E-mail</h3>
+                                                    <p class="content-icon-spacing">
+                                                        <?php echo Util::safe_mailto($value['office_email']);?>
+                                                    </p>
+                                                <?php if(!empty($value['office_email_2'])){ ?>
+                                                    <p class="content-icon-spacing">
+                                                        <?php echo Util::safe_mailto($value['office_email_2']);?>
+                                                    </p>
+                                                <?php } ?>
+                                                <?php } ?>
 
-</div>                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-<!--                              
-                         <div class="row">
-                            <div class="span3">
-                                <h3 class="address">Központi iroda</h3>
-                                <p class="content-icon-spacing">
-                                    <?php echo $settings['cim'];?>
-                                </p>
-                            </div>
-                            <div class="span3">
-                                <h3 class="call-us">Telefon</h3>
-                                <p class="content-icon-spacing">
-                                    <?php echo $settings['tel'];?>
-                                    
-                                </p>
-                            </div>
-                            <div class="span3">
-                                <h3 class="email">E-mail</h3>
-                                <p class="content-icon-spacing">
-                                    <?php echo Util::safe_mailto($settings['email']);?>
-                                </p>
-                            </div>
-                        </div>  -->
+                                                <?php if(!empty($value['office_opening'])){ ?>
+                                                    <h3 class="address">Nyitvatartás</h3>
+                                                    <p class="content-icon-spacing">
+                                                        <?php echo $value['office_opening'];?>
+                                                    </p>                    
+                                                <?php } ?>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php $counter++; } ?>
+                                </div>
+
+                            </div><!-- .offices end -->                              
+
+                        </div><!-- /.content -->
+                    </div><!-- /.properties -->
+                </div><!-- sidebar end -->
+            </div> <!-- row end -->
 
 
-    </div><!-- /.content -->
-</div><!-- /.properties -->
-
-                </div>
-           
-        </div>
-    </div>
-    </div><!-- /#content -->
-
-
-
-
-
-
-
-
-				
-
-            </div>
-    
-        </div>
-    </div>
+        </div><!-- #main -->
+    </div><!-- .container end -->
+</div><!-- #content end -->
 
 	
-</div><!-- /#content -->
+<!--</div> /#content -->
 	
 	
 </div><!-- /#wrapper-inner -->
