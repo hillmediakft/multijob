@@ -30,19 +30,6 @@ var kapcsolat = function () {
         };
 
         var map = new google.maps.Map(map_canvas, map_options);
-        map.set('styles', [
-            {
-                stylers: [
-                    {saturation: -100}
-                ]
-            }, {
-                featureType: 'poi.business',
-                elementType: 'labels',
-                stylers: [
-                    {visibility: 'off'}
-                ]
-            }
-        ]);
 
         var image = {
             url: 'public/site_assets/image/marker.png',
