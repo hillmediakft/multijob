@@ -87,6 +87,11 @@
 											<label for="office_mobil" class="control-label">Mobil</label>
 											<input type="text" name="office_mobil" id="office_mobil" class="form-control input-xlarge" value="<?php echo $office['office_mobil']; ?>"/>
 										</div>
+									<!-- MOBILTELEFON 2 -->	
+										<div class="form-group">
+											<label for="office_mobil_2" class="control-label">Mobil 2.</label>
+											<input type="text" name="office_mobil_2" id="office_mobil_2" class="form-control input-xlarge" value="<?php echo $office['office_mobil_2']; ?>"/>
+										</div>
 									<!-- FAX -->	
 										<div class="form-group">
 											<label for="office_fax" class="control-label">Fax</label>
@@ -96,6 +101,11 @@
 										<div class="form-group">
 											<label for="office_email" class="control-label">E-mail</label>
 											<input type="text" name="office_email" id="office_email" class="form-control input-xlarge" value="<?php echo $office['office_email']; ?>"/>
+										</div>
+									<!-- EMAIL 2 -->	
+										<div class="form-group">
+											<label for="office_email_2" class="control-label">E-mail 2.</label>
+											<input type="text" name="office_email_2" id="office_email_2" class="form-control input-xlarge" value="<?php echo $office['office_email_2']; ?>"/>
 										</div>										
 									<!-- NYITVATARTÁS -->	
 										<div class="form-group">
