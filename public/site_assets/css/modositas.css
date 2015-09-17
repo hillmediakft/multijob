@@ -265,6 +265,12 @@ a:hover, a:focus, a:active {
     background: none;
 }
 
+/*Google Maps conainer */
+#map_canvas {
+    border: 5px solid #fff;
+    
+}
+
 
 
 
