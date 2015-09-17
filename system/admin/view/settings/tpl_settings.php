@@ -65,7 +65,7 @@
                                 </div>
                                    
                                 <div class="form-group">
-                                    <label for="setting_email_diak">E-mail diák (kilépés)</label>	
+                                    <label for="setting_email_diak">E-mail diák</label>	
                                     <input type='text' name='setting_email_diak' class='form-control input-large' value="<?php echo (empty($settings['email_diak'])) ? "" : $settings['email_diak']; ?>"/>
                                 </div>
                                                             
