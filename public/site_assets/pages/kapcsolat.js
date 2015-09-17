@@ -47,8 +47,7 @@ var kapcsolat = function () {
         var image = {
             url: 'public/site_assets/image/marker.png',
             size: new google.maps.Size(60, 62),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(91, 145)
+            origin: new google.maps.Point(0, 0)
         };
 
         var marker = new google.maps.Marker({
