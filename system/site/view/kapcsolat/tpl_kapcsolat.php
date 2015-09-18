@@ -24,40 +24,38 @@
 						
 					<!--	<iframe class="map" width="425" height="350" src="https://maps.google.com/maps?q=47.513263,19.048415&amp;num=1&amp;ie=UTF8&amp;ll=47.513263,19.048415&amp;spn=0.041038,0.077162&amp;t=m&amp;z=14&amp;output=embed"></iframe> -->
 
+                       
+                        <div id="msg_send_message" style="margin-top:20px;">
+                            <div class="alert alert-success" style="display:none;"></div>
+                            <div class="alert alert-danger" style="display:none;"></div>
+                        </div>   
+                                              
                         <h2>Küldj üzenetet!</h2>
 
-                        <form method="post" class="contact-form" action="?">
+                        <form method="post" class="contact-form" action="" id="contact_email_send_form">
                             <div class="name control-group">
-                                <label class="control-label" for="inputContactName">
-                                    Név
-                                    <span class="form-required" title="This field is required.">*</span>
-                                </label>
+                                <label class="control-label" for="from_name">Név <span class="form-required" title="Kötelező kitölteni.">*</span></label>
                                 <div class="controls">
-                                    <input type="text" id="inputContactName">
+                                    <input type="text" name="from_name" id="from_name" required >
                                 </div><!-- /.controls -->
                             </div><!-- /.control-group -->
 
                             <div class="email control-group">
-                                <label class="control-label" for="inputContactEmail">
-                                    E-mail
-                                    <span class="form-required" title="Kötelező kitölteni.">*</span>
-                                </label>
+                                <label class="control-label" for="from_email">E-mail <span class="form-required" title="Kötelező kitölteni.">*</span></label>
                                 <div class="controls">
-                                    <input type="text" id="inputContactEmail">
+                                    <input type="text" name="from_email" id="from_email" required >
                                 </div><!-- /.controls -->
                             </div><!-- /.control-group -->
 
                             <div class="control-group">
-                                <label class="control-label" for="inputContactMessage">
-                                    Üzenet
-                                    <span class="form-required" title="Kötelező kitölteni.">*</span>
-                                </label>
-
+                                <label class="control-label" for="message">Üzenet <span class="form-required" title="Kötelező kitölteni.">*</span></label>
                                 <div class="controls">
-                                    <textarea id="inputContactMessage"></textarea>
+                                    <textarea id="message" name="message" required ></textarea>
                                 </div><!-- /.controls -->
                             </div><!-- /.control-group -->
 
+                            <input type="hidden" value="diak" name="area">
+                           
                             <div class="form-actions">
                                 <input type="submit" class="btn btn-primary arrow-right" value="Küldés">
                             </div><!-- /.form-actions -->
