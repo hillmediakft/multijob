@@ -109,13 +109,65 @@ var kapcsolat = function () {
                 current_coordinates.set_longitude(longitude);
             }            
         });
-    };  
+    };
+        
+    /*
+     * Kapcsolat - email üzenet küldése (a "diák" email címre {a html-ben van a rejtett mező, ami utal a küldés címére})
+     */
+    var send_contact_email = function() {
+
+        $("#contact_email_send_form").on('submit', function(e){
+            
+            e.preventDefault();
+            
+            var $data = $("#contact_email_send_form").serialize();
+           
+            $.ajax({
+                    url: "ajax_request/ajax_send_email",
+                    data: $data,
+                    type: "POST",
+                    dataType: "json",
+                    beforeSend: function(){
+                        $.blockUI({
+                            boxed: true,
+                            message: '<h3>Üzenet küldése...</h3>',
+                            baseZ: 5000
+                        });
+                    },
+                    complete: function(){
+                        $.unblockUI();
+                    },
+                    success: function(respond){
+
+                        if(respond.status == 'success'){
+                            document.getElementById("contact_email_send_form").reset();
+                            $("#msg_send_message > div.alert-success").html(respond.message).show();
+                            $("#msg_send_message > div.alert-success").delay(3000).fadeOut(500);
+                        } 
+                        if(respond.status == 'error') {
+                            $("#msg_send_message > div.alert-danger").html(respond.message).show();
+                            $("#msg_send_message > div.alert-danger").delay(3000).fadeOut(500);
+                        }
+
+                    },
+                    error: function(result, status, e){
+                        alert(e);
+                    } 
+                });	
+                
+
+        });  
+
+    };    
+    
+
 
     return {
         //main function to initiate the module
         init: function () {
             set_default_coordinate();
             set_new_coordinate();
+            send_contact_email();
         }
     };
 }();
