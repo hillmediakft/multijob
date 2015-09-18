@@ -10,6 +10,7 @@ class Munka extends Controller {
 
     public function index() {
         $this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/sidebar_search.js');
+        $this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/munka.js');
         $this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/common.js');
 
         // alapbeállítások lekérdezése

@@ -48,12 +48,12 @@
                                         ?></td>
                                 </tr>
 
-<?php if (!empty($job_data['job_conditions'])) { ?>	
+                                    <?php if (!empty($job_data['job_conditions'])) { ?>	
                                     <tr>                        
                                         <td> <i class="fa fa-exclamation-triangle fa-fw"></i> <strong>Feltételek: </strong></td>
                                         <td> <?php echo $job_data['job_conditions']; ?></td>
                                     </tr>
-<?php } ?>	
+                                    <?php } ?>	
 
 
 
@@ -73,26 +73,72 @@
 
                                     <p>A részletekkel kapcsolatban keresd kollégánkat:</p>
                                     <div class="image">
-                                        <img alt="" src="public/site_assets/image/photos/agent.png">
+                                        <img alt="" src="<?php echo Config::get('user.upload_path') . $job_data['user_photo']; ?>">
                                     </div><!-- /.image -->
-                                    <div class="name"> Gipsz jakab</div><!-- /.name -->
-                                    <div class="phone"><i class="fa fa-phone fa-fw"></i> 333-666-777</div><!-- /.phone -->
-                                    <div class="email"><i class="fa fa-envelope fa-fw"></i> <a href="mailto:jakab@example.com">jakab@example.com</a></div><!-- /.email -->
+                                    <div class="name"> <?php echo $job_data['user_first_name'] . ' ' . $job_data['user_last_name']; ?></div><!-- /.name -->
+                                    <div class="phone"><i class="fa fa-phone fa-fw"></i> <?php echo $job_data['user_phone']; ?></div><!-- /.phone -->
+                                    <div class="email"><i class="fa fa-envelope fa-fw"></i> <?php echo Util::safe_mailto($job_data['user_email']); ?></div><!-- /.email -->
                                 </div><!-- /.agent -->
 
 
                             </div>
                         </div>
 
-                        <br /><br />
-                        <button class="btn btn-primary" type="button" name="jelentkezes" <?php echo (Session::get('user_site_logged_in') === true) ? "" : "disabled"; ?>>Jelentkezés</button>
+                        <br />
+                        <button class="btn btn-primary" type="button" id="jelentkezes_button" name="jelentkezes" <?php //echo (Session::get('user_site_logged_in') === true) ? "" : "disabled"; ?>>Jelentkezés</button>
 
+                        <div id="jelentkezes_feedback">
+                            <div class="alert alert-success" style="display:none;"></div>
+                            <div class="alert alert-danger" style="display:none;"></div>
+                        </div>
+                       
+                        <div id="jelentkezes_box" style="display: none;">
+                        <br />
+                            <form method="post" class="contact-form" action="" id="jelentkezes_form">
+                                <div class="control-group">
+                                    <label class="control-label" for="from_name">Név <span class="form-required" title="Kötelező kitölteni.">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" name="from_name" id="from_name" required >
+                                    </div><!-- /.controls -->
+                                </div><!-- /.control-group -->
+
+                                <div class="control-group">
+                                    <label class="control-label" for="from_email">E-mail <span class="form-required" title="Kötelező kitölteni.">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" name="from_email" id="from_email" required >
+                                    </div><!-- /.controls -->
+                                </div><!-- /.control-group -->
+                                
+                                <div class="control-group">
+                                    <label class="control-label" for="from_telefon">Telefon</label>
+                                    <div class="controls">
+                                        <input type="text" name="from_telefon" id="from_telefon" >
+                                    </div><!-- /.controls -->
+                                </div><!-- /.control-group -->
+
+                                <div class="control-group">
+                                    <label class="control-label" for="message">Üzenet <span class="form-required" title="Kötelező kitölteni.">*</span></label>
+                                    <div class="controls">
+                                        <textarea id="message" name="message" required ></textarea>
+                                    </div><!-- /.controls -->
+                                </div><!-- /.control-group -->
+
+                                <input type="hidden" value="<?php echo $job_data['job_id']; ?>" name="job_id">
+                                <input type="hidden" value="<?php echo $job_data['user_email']; ?>" name="ref_email">
+
+                                <div class="form-actions">
+                                    <input type="submit" class="btn btn-primary arrow-right" value="Jelentkezés elküldése">
+                                </div><!-- /.form-actions -->
+                            </form>
+                       </div>
+                   
+                   
                     </div>	
 
 
                 </div>
                 <div class="sidebar span3">
-<?php include('system/site/view/_template/tpl_sidebar.php'); ?>                  
+                    <?php include('system/site/view/_template/tpl_sidebar.php'); ?>                  
                 </div>
             </div>
 

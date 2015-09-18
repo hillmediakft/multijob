@@ -24,6 +24,7 @@ class Munka_model extends Site_model {
 		$this->query->set_table(array('jobs')); 
 		$this->query->set_columns(array(
 			'jobs.job_id',
+			//'jobs.job_ref_id',
 			'jobs.job_title',
 			'jobs.job_description',
 			'jobs.job_pay',
@@ -37,9 +38,16 @@ class Munka_model extends Site_model {
 			'jobs_list.job_list_name',
 			'county_list.county_name',
 			'district_list.district_name',
-			'city_list.city_name'
+			'city_list.city_name',
+            'users.user_first_name',
+            'users.user_last_name',
+            'users.user_phone',
+            'users.user_email',
+            'users.user_photo'
 		)); 
-		$this->query->set_join('left', 'employer', 'jobs.job_employer_id', '=', 'employer.employer_id'); 
+		
+        $this->query->set_join('left', 'users', 'jobs.job_ref_id', '=', 'users.user_id'); 
+        $this->query->set_join('left', 'employer', 'jobs.job_employer_id', '=', 'employer.employer_id'); 
 		$this->query->set_join('left', 'jobs_list', 'jobs.job_category_id', '=', 'jobs_list.job_list_id'); 
 		$this->query->set_join('left', 'county_list', 'jobs.job_county_id', '=', 'county_list.county_id'); 
 		$this->query->set_join('left', 'city_list', 'jobs.job_city_id', '=', 'city_list.city_id'); 
