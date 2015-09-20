@@ -325,6 +325,10 @@ blockquote {
     padding: 0 0 0 15px;
 }
 
+.modal {
+    border-radius: 0px;
+}
+
 
 
 
