@@ -293,7 +293,37 @@ a:hover, a:focus, a:active {
     margin-bottom: 10px;
 }
 
+/*  alsó és felső margók */
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
 
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.margin-bottom-15 {
+    margin-bottom: 15px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.margin-top-15 {
+    margin-top: 15px;
+}
+
+/* kiemelés */
+blockquote {
+    border-left: 5px solid #4bafff;
+    margin: 0 0 20px;
+    padding: 0 0 0 15px;
+}
 
 
 
