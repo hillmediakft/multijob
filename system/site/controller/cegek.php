@@ -60,6 +60,9 @@ class Cegek extends Controller {
         $this->view->latest_jobs = $this->cegek_model->jobs_query(3);
         // oldal tartalmának lekérdezése (paraméter a pages tábla page_id)
         $this->view->content = $this->cegek_model->get_page_data(9);
+        $this->view->title = $this->view->content['page_metatitle'];
+        $this->view->description = $this->view->content['page_metadescription'];
+        $this->view->keywords = $this->view->content['page_metakeywords'];
 
 //$this->view->debug(true); 	
 
@@ -76,6 +79,9 @@ class Cegek extends Controller {
         $this->view->latest_jobs = $this->cegek_model->jobs_query(3);
         // oldal tartalmának lekérdezése (paraméter a pages tábla page_id)
         $this->view->content = $this->cegek_model->get_page_data(10);
+        $this->view->title = $this->view->content['page_metatitle'];
+        $this->view->description = $this->view->content['page_metadescription'];
+        $this->view->keywords = $this->view->content['page_metakeywords'];
 
 //$this->view->debug(true); 	
 
@@ -92,6 +98,9 @@ class Cegek extends Controller {
         $this->view->latest_jobs = $this->cegek_model->jobs_query(3);
         // oldal tartalmának lekérdezése (paraméter a pages tábla page_id)
         $this->view->content = $this->cegek_model->get_page_data(11);
+        $this->view->title = $this->view->content['page_metatitle'];
+        $this->view->description = $this->view->content['page_metadescription'];
+        $this->view->keywords = $this->view->content['page_metakeywords'];
 
 //$this->view->debug(true); 	
 
@@ -108,6 +117,9 @@ class Cegek extends Controller {
         $this->view->latest_jobs = $this->cegek_model->jobs_query(3);
         // oldal tartalmának lekérdezése (paraméter a pages tábla page_id)
         $this->view->content = $this->cegek_model->get_page_data(12);
+        $this->view->title = $this->view->content['page_metatitle'];
+        $this->view->description = $this->view->content['page_metadescription'];
+        $this->view->keywords = $this->view->content['page_metakeywords'];
 
 //$this->view->debug(true); 	
 
