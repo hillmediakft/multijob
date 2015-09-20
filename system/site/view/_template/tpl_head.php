@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="<?php echo SITE_ASSETS; ?>plugins/chosen/chosen.css" type="text/css">
         <link rel="stylesheet" href="<?php echo SITE_ASSETS; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.css" type="text/css">
         <link rel="stylesheet" href="<?php echo SITE_ASSETS; ?>plugins/jquery-ui-1.10.2.custom/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css">
-        <link rel="stylesheet" href="<?php echo SITE_CSS; ?>realia-blue.css" type="text/css" id="color-variant-default">
+        <link rel="stylesheet" href="<?php echo SITE_CSS; ?>multijob.css" type="text/css" id="color-variant-default">
         <link rel="stylesheet" href="<?php echo SITE_CSS; ?>modositas.css" type="text/css">
 
         <!-- OLDALSPECIFIKUS CSS LINKEK -->
@@ -164,7 +164,7 @@
                                         </li>
 
                                         <li>
-                                            <a href="cegek/cegbemutato" class="no_arrow <?php echo ($this->registry->controller == 'cegek' && $this->registry->action == 'index') ? 'active' : ''; ?>">Cégeknek</a>
+                                            <a href="cegek/cegbemutato" class="no_arrow <?php echo ($this->registry->controller == 'cegek' && ($this->registry->action == 'cegbemutato' || $this->registry->action == 'munkaero_kolcsonzes' || $this->registry->action == 'szolgaltatasaink')) ? 'active' : ''; ?>">Cégeknek</a>
 <!--                                            <ul>
                                                 <li><a href="cegek/cegbemutato">Cégbemutató</a></li>
                                                 <li><a href="cegek/munkaero-kolcsonzes">Munkaerő-kölcsönzés</a></li>
