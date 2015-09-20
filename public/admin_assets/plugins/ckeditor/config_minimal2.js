@@ -14,6 +14,7 @@ CKEDITOR.editorConfig = function( config ) {
 
 	//templates
 	config.templates_files = [ 'public/admin_assets/plugins/ckeditor/plugins/templates/my_templates/mytemplates.js' ];
+        config.templates_replaceContent = false;
 
 		//csak a 'kicseréli a jelenlegi tartalmat' checkbox állapotát állítja be
 		//config.templates_replaceContent = false;

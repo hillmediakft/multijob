@@ -9,6 +9,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
 	
 	config.templates_files = [ 'ckeditor/my_templates/mytemplates.js' ];
+        config.templates_replaceContent = false;
 	//csak a 'kicseréli a jelenlegi tartalmat' checkbox állapotát állítja be
 	//config.templates_replaceContent = false;
 //	config.templates_files = [ 'default.js' ];
