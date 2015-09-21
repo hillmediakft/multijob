@@ -51,10 +51,11 @@ class Eloregisztracio extends Controller {
         // 3 legfrissebb munka
         $this->view->latest_jobs = $this->eloregisztracio_model->jobs_query(3);
 
-
-        $this->view->title = 'Adatlap kitöltése | Multijob Iskolaszövetkezet';
-        $this->view->description = 'Töltsd ki részletes adatlapunkat, hogy egyszerűbben jelentkezhess munkára';
-        $this->view->keywords = 'adatlap kitöltés';
+        // oldal tartalmának lekérdezése (paraméter a pages tábla page_id)
+        $this->view->content = $this->eloregisztracio_model->get_page_data(15);
+        $this->view->title = $this->view->content['page_metatitle'];
+        $this->view->description = $this->view->content['page_metadescription'];
+        $this->view->keywords = $this->view->content['page_metakeywords'];
 
         if ($result_prereg) {
             $this->view->prereg_data = $this->eloregisztracio_model->get_prereg_data();

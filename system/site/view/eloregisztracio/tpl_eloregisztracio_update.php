@@ -10,9 +10,7 @@
 				
 					<div class="row">
 						<div class="span8">
-							<p>
-								Etiam ullamcorper libero sed ante auctor vel gravida nunc placerat. Suspendisse molestie posuere sem, in viverra dolor venenatis sit amet. Aliquam gravida nibh quis justo pulvinar luctus. Phasellus a malesuada massa.
-							</p>
+							<?php echo $content['page_body']; ?>
 						</div><!-- /.span8 -->
 					</div><!-- /.row -->				
 					
