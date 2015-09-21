@@ -1,10 +1,10 @@
-<div style="display:none;" class="modal fade" id="modal_email" tabindex="-1" role="dialog" aria-labelledby="modal_register_label">
+<div style="display:none;" class="modal fade" id="modal_email" tabindex="-1" role="dialog" aria-labelledby="modal_email_label">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="modal_register_label">Ajánlatot kérek</h4>
+                <h4 class="modal-title" id="modal_email_label">Ajánlatot kérek</h4>
 
             </div>
 
