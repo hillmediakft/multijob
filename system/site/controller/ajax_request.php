@@ -273,15 +273,15 @@ _msg;
             $from_email = strip_tags($_POST['from_email']);
             $from_name = strip_tags($_POST['from_name']);
             $from_telefon = strip_tags($_POST['from_telefon']);
-            $message = strip_tags($_POST['message']);
-            $to_email = $data['email_diak']);
+            $message = strip_tags($_POST['from_message']);
+            $to_email = $data['email_diak'];
             $to_name = $to_email;
-            $subject = '"Most akarok dolgozni" üzenet érkezett a Multijob weblaptól';
+            $subject = 'Üzenet érkezett a Multijob weblaptól';
             $message = <<<_msg
 
             <html>    
             <body>
-                <h2>Üzenet</h2>
+                <h2>Üzenet ("Most akarok dolgozni")</h2>
                 <div>
                     <table>
                         <tbody>

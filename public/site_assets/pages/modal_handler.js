@@ -399,7 +399,7 @@ var modalHandler = function () {
             beforeSend: function(){
                 $.blockUI({
                     boxed: true,
-                    message: '<h3>Feldolgozás...</h3>',
+                    message: '<h3>Üzenet küldése...</h3>',
                     baseZ: 5000
                 }); 
             },
@@ -409,8 +409,8 @@ var modalHandler = function () {
             success: function(respond){
                 if(respond.status == 'success'){
                     
-                    //$("#nowwork_submit").hide();
-                    //$("#nowwork_form").hide();
+                    $("#nowwork_submit").hide();
+                    $("#nowwork_form").hide();
                     $("#message_nowwork").html('<div class="alert alert-success">' + respond.message + '</div>');
                 } 
                 if(respond.status == 'error') {
@@ -475,7 +475,8 @@ var modalHandler = function () {
         
 	// amikor eltűnik a modal
 		$('#modal_nowwork').on('hidden.bs.modal', function () {
-			// form adatok törlése
+			
+            // form adatok törlése
 			document.getElementById("nowwork_form").reset();
 			// üzenetek törlése
 			$("#message_nowwork").html('');
