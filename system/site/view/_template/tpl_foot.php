@@ -179,9 +179,11 @@
 <script type="text/javascript" src="<?php echo SITE_JS; ?>bootstrap.min.js"></script>
 
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo SITE_ASSETS; ?>js/jquery.ezmark.js"></script>
 
 <!-- Minden oldalon szükséges scriptek pl: hideAlert() -->
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>pages/common_functions.js"></script>
+
 <!-- Form validátor -->
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/jquery-validation/additional-methods.min.js"></script>

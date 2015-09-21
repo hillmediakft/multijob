@@ -45,7 +45,7 @@
                         <p> FIGYELEM! A regisztráció nem azonos a szövetkezetbe való belépéssel!</p> 
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-primary" id="register_submit">Regisztrálok</button>
+			<button type="button" class="btn btn-primary" id="register_submit">Regisztrálok</button>
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Bezár</button>
 		</div>
 			

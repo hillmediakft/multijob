@@ -26,6 +26,10 @@ var common_functions = function () {
             disable_search_threshold: 10
         });
     }
+    
+    var InitEzmark = function () {
+        $('input[type="checkbox"]').ezMark();
+    }
 
 
     var mobileMenu = function () {
@@ -52,6 +56,7 @@ var common_functions = function () {
             InitTabs();
             InitAccordion();
             InitChosen();
+            InitEzmark();
             mobileMenu();
         }
     };
