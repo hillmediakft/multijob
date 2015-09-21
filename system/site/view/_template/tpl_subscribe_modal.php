@@ -30,7 +30,7 @@
 	  
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-primary" id="subscribe_submit">Feliratkozok</button>
+			<button type="button" class="btn btn-primary" id="subscribe_submit">Feliratkozok</button>
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Bezár</button>
 		</div>
 		

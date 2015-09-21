@@ -27,7 +27,7 @@
 			
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-primary" id="login_submit">Bejelentkezés</button>
+			<button type="button" class="btn btn-primary" id="login_submit">Bejelentkezés</button>
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Bezár</button>
 		</div>
 			
