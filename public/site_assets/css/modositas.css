@@ -329,7 +329,20 @@ blockquote {
     border-radius: 0px;
 }
 
+/* bejelentkezes doboz sidebar */
+.login-box {
+    background-color: #fff;
+    box-sizing: border-box;
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+}
 
+.login-box-inside {
+    background-color: rgba(5, 132, 184, 0.07);
+    padding: 10px;
+}
 
 
 

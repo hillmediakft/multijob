@@ -207,3 +207,6 @@
                     <!-- MODAL NOWWORK -->	
                     <?php include('system/site/view/_template/tpl_nowwork_modal.php'); ?>
                     <!-- MODAL NOWWORK END -->
+                    <!-- MODAL REGISTRATION INFO -->	
+                    <?php include('system/site/view/_template/tpl_registration_info_modal.php'); ?>
+                    <!-- MODAL REGISTRATION INFO END -->                    
