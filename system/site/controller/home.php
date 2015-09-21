@@ -12,7 +12,6 @@ class Home extends Controller {
         
         $this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'plugins/iosslider/_src/jquery.iosslider.min.js');
         $this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/sidebar_search.js');
-        //$this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/common.js');
         $this->view->js_link[] = $this->make_link('js', SITE_ASSETS, 'pages/home.js');
         // lekérdezések
         $this->view->settings = $this->home_model->get_settings();
