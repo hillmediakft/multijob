@@ -118,7 +118,7 @@
 <?php if ($logged_in) { ?>
                                                     <a class="btn btn-primary btn-large list-your-property arrow-right" href="eloregisztracio">Adatlap kitöltése</a>
 <?php } else { ?>
-                                                    <a class="btn btn-primary btn-large list-your-property arrow-right" href="munkak">Most akarok dolgozni</a>
+                                                    <a class="btn btn-primary btn-large list-your-property arrow-right" data-toggle="modal" data-target="#modal_nowwork" href="#">Most akarok dolgozni</a>
 <?php } ?>
 
 
@@ -199,8 +199,11 @@
                     <?php include('system/site/view/_template/tpl_subscribe_modal.php'); ?>
                     <!-- MODAL SUBSCRIBE END -->		
                     <!-- MODAL LOGIN -->	
-<?php include('system/site/view/_template/tpl_login_modal.php'); ?>
+                    <?php include('system/site/view/_template/tpl_login_modal.php'); ?>
                     <!-- MODAL LOGIN END -->
                     <!-- MODAL REGISTER -->	
-<?php include('system/site/view/_template/tpl_register_modal.php'); ?>
+                    <?php include('system/site/view/_template/tpl_register_modal.php'); ?>
                     <!-- MODAL REGISTER END -->
+                    <!-- MODAL NOWWORK -->	
+                    <?php include('system/site/view/_template/tpl_nowwork_modal.php'); ?>
+                    <!-- MODAL NOWWORK END -->

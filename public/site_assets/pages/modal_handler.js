@@ -381,6 +381,115 @@ var modalHandler = function () {
 			$("#subscribe_form").submit();
 		});
 	};
+    
+    
+    /**
+    *  nowwrok form adatok küldése
+    */    
+    var send_nowwork_data = function () {
+        console.log('hello send_nowwork_data');
+ 
+        var $data = $("#nowwork_form").serialize();
+				
+        $.ajax({
+            url: "ajax_request/ajax_send_email_nowwork",
+            data: $data,
+            type: "POST",
+            dataType: "json",
+            beforeSend: function(){
+                $.blockUI({
+                    boxed: true,
+                    message: '<h3>Feldolgozás...</h3>',
+                    baseZ: 5000
+                }); 
+            },
+            complete: function(){
+                $.unblockUI();
+            },
+            success: function(respond){
+                if(respond.status == 'success'){
+                    
+                    //$("#nowwork_submit").hide();
+                    //$("#nowwork_form").hide();
+                    $("#message_nowwork").html('<div class="alert alert-success">' + respond.message + '</div>');
+                } 
+                if(respond.status == 'error') {
+                    $("#message_nowwork").html('<div class="alert alert-danger">' + respond.message + '</div>');
+                }
+            },
+            error: function(result, status, e){
+                alert(e);
+            } 
+        });         
+        
+    };
+    
+    /*
+    * nowwork modal kezelése
+    */
+    var handle_nowwork_modal = function(){
+	// amikor megjelenik a modal
+		$('#modal_nowwork').on('shown.bs.modal', function () {
+
+            $('#nowwork_form').validate({
+                errorElement: 'span', //default input error message container
+                errorClass: 'help-block', // default input error message class
+                focusInvalid: true, // do not focus the last invalid input
+                //ignore: "", // validate all fields including form hidden input
+                rules: {
+                    from_name: {
+                        required: true
+                    },
+                    from_email: {
+                        required: true,
+                        email: true
+                    },
+                    from_message: {
+                        required: true
+                    }
+                },
+                // az invalidHandler akkor aktiválódik, ha elküldjük a formot és hiba van
+                invalidHandler: function (event, validator) { //display error alert on form submit              
+                    var errors = validator.numberOfInvalids();
+                    console.log(errors + ' hiba a formban');    
+                },
+                highlight: function (element) { // hightlight error inputs
+                    $(element).closest('.control-group').addClass('error'); // set error class to the control group                   
+                },
+
+                unhighlight: function (element) { // revert the change done by hightlight
+                    $(element).closest('.control-group').removeClass('error'); // set error class to the control group                   
+                },
+                success: function (label) {
+                    //label.closest('.form-group').removeClass('has-error').addClass("has-success"); // set success class to the control group
+                    label.closest('.control-group').removeClass('error'); // set success class to the control group
+                },
+                submitHandler: function (form) {
+                    console.log('form küldése!');	
+                    // form adatok küldése
+					send_nowwork_data();
+                }
+            });           
+			
+		});
+        
+	// amikor eltűnik a modal
+		$('#modal_nowwork').on('hidden.bs.modal', function () {
+			// form adatok törlése
+			document.getElementById("nowwork_form").reset();
+			// üzenetek törlése
+			$("#message_nowwork").html('');
+			// form láthatóságának visszaállítása
+			$("#nowwork_submit").show();
+			$("#nowwork_form").show();
+			
+		});
+
+	// Most akarok dolgozni form elküldése ha ráklikkelünk a nowwork_submit gombra
+		$("#nowwork_submit").on('click', function(){
+			$("#nowwork_form").submit();
+		});        
+    };    
 	
 	return {
  
@@ -389,6 +498,7 @@ var modalHandler = function () {
 			handle_login_modal();
 			handle_register_modal();
 			handle_subscribe_modal();
+            handle_nowwork_modal();
 		}
  
 	};

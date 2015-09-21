@@ -259,7 +259,70 @@ _msg;
         } else {
             Util::redirect('error');
         }
-    }    
+    }
+    
+    /**
+     *  AJAX Email küldés most akarok dolgozni üzenet
+     */
+    public function ajax_send_email_nowwork() {
+        if (Util::is_ajax()) {
+            
+            // settings adatok lekérdezése az adatbázisból
+            $data = $this->ajax_request_model->get_settings();
+
+            $from_email = strip_tags($_POST['from_email']);
+            $from_name = strip_tags($_POST['from_name']);
+            $from_telefon = strip_tags($_POST['from_telefon']);
+            $message = strip_tags($_POST['message']);
+            $to_email = $data['email_diak']);
+            $to_name = $to_email;
+            $subject = '"Most akarok dolgozni" üzenet érkezett a Multijob weblaptól';
+            $message = <<<_msg
+
+            <html>    
+            <body>
+                <h2>Üzenet</h2>
+                <div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><strong>Név:</strong></td><td>$from_name </td>
+                            </tr>
+                            <tr>
+                                <td><strong>E-mail cím:</strong></td><td>$from_email </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Telefonszám:</strong></td><td>$from_telefon </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Üzenet:</strong></td><td>$message </td>
+                            </tr>
+                    </tbody>
+                    </table>
+                </div> 
+            </body>
+            </html>    
+_msg;
+
+            $result = $this->ajax_request_model->send_email($from_email, $from_name, $subject, $message, $to_email, $to_name);
+
+            if ($result) {
+                $message = array(
+                  'status' => 'success',
+                  'message' => 'Üzenet elküldve!'
+                );
+                echo json_encode($message);
+            } else {
+                $message = array(
+                  'status' => 'error',
+                  'message' => 'Az üzenet elküldése sikertelen!'
+                );
+                echo json_encode($message);
+            }
+        } else {
+            Util::redirect('error');
+        }
+    }        
 
 }
 ?>
