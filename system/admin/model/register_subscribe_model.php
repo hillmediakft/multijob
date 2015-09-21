@@ -66,7 +66,7 @@ class Register_subscribe_model extends Model {
 			
 				case 'group_delete':
 					// az id-ket tartalmazó tömböt kapja paraméterként
-					$result = $this->delete_prereg($request_data['id']);
+					$result = $this->delete($request_data['id']);
 					
 					if($result['success'] > 0) {
 						$messages['success'] = $result['success'] . ' ' . Message::send('rekord sikeresen törölve.');	
