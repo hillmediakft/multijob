@@ -15,7 +15,6 @@
             </ul>
             <p><a class="margin-bottom-10" href="#" data-toggle="modal" data-target="#modal_registration_info"><i class="fa fa-info-circle"></i> Miért érdemes regisztrálni?</a></p>
         </div>
-
     </div>
 
 </div>
