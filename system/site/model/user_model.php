@@ -40,11 +40,14 @@ class user_model extends Site_model {
 		// User név ellenőrzés
 		if (empty($data['user_name'])) {
 			$messages[] = Message::send('username_field_empty');
-		} else {
+		}  
+    /*
+        else {
 			if (!preg_match('/^[\_a-záöőüűóúéíÁÖŐÜŰÓÚÉÍ\d]{2,64}$/i', $data['user_name'])) {
 				$messages[] = Message::send('username_does_not_fit_pattern');
-			}	
-		}
+			} 	
+		} 
+    */
 		// Jelszó ellenőrzés
 		if (empty($data['user_password'])) {
 			$messages[] = Message::send('password_field_empty');
@@ -75,7 +78,14 @@ class user_model extends Site_model {
 			));
 		}
 		
-	
+        // felhasználótól kapott adatok tisztítása
+        if(isset($_POST['user_name'])){
+            $_POST['user_name'] = strip_tags($_POST['user_name']);
+        }
+        if(isset($_POST['user_password'])){
+            $_POST['user_password'] = strip_tags($_POST['user_password']);
+        }
+        
 		$verify_result = $this->verify_user_data($_POST);
 	
 		if($verify_result === true){
@@ -102,7 +112,7 @@ class user_model extends Site_model {
 			if ($count != 1) {
 				// was USER_DOES_NOT_EXIST before, but has changed to LOGIN_FAILED
 				// to prevent potential attackers showing if the user exists
-				$message[] = Message::send('login_failed');
+				$message[] = Message::send('Hibás felhasználónév!');
 				return json_encode(array(
 					"status" => 'error',
 					"message" => $message

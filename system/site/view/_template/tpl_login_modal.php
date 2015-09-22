@@ -13,8 +13,8 @@
 			
 			<form action="" method="POST" id="login_form" name="login_form">	
 				<div class="control-group">
-					<label for="user_name" class="control-label">Felhasználó név</label>
-					<input type="text" name="user_name" placeholder="minimum hat karakter, ékezetek nélkül" class="form-control input-xlarge" />
+					<label for="user_name" class="control-label">Felhasználó név vagy E-mail cím</label>
+					<input type="text" name="user_name" class="form-control input-xlarge" />
 				</div>
 
 				<div class="control-group">
