@@ -26,27 +26,18 @@ var common_functions = function () {
             disable_search_threshold: 10
         });
     }
-    
+
     var InitEzmark = function () {
         $('input[type="checkbox"]').ezMark();
     }
 
-
-    var mobileMenu = function () {
-        $("#mobile_menu").mmenu({
-            // options
-            "offCanvas": {
-                "position": "right"
-            },
-            "extensions": ["widescreen", "border-full", "pageshadow"],
-        }, {
-            // configuration
-            classNames: {
-                vertical: "expand"
+    var InitOffCanvasNavigation = function () {
+        $('#btn-nav').on({
+            click: function () {
+                $('body').toggleClass('nav-open');
             }
-        });
+        })
     }
-
 
     return {
         //main function to initiate the module
@@ -57,7 +48,7 @@ var common_functions = function () {
             InitAccordion();
             InitChosen();
             InitEzmark();
-            mobileMenu();
+            InitOffCanvasNavigation();
         }
     };
 

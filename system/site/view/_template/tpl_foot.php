@@ -173,9 +173,6 @@
 
 <script type="text/javascript" src="<?php echo SITE_JS; ?>jquery.js"></script>
 
-
-
-<script type="text/javascript" src="<?php echo SITE_JS; ?>retina.js"></script>
 <script type="text/javascript" src="<?php echo SITE_JS; ?>bootstrap.min.js"></script>
 
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>plugins/chosen/chosen.jquery.min.js"></script>
@@ -195,8 +192,6 @@
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>pages/modal_handler.js"></script>
 <!-- üzenet küldés a footerből -->
 <script type="text/javascript" src="<?php echo SITE_ASSETS; ?>pages/send_email_footer.js"></script>
-<script src="<?php echo SITE_ASSETS; ?>plugins/jQuery.mmenu-master/dist/js/jquery.mmenu.min.all.js"></script>
-
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <?php

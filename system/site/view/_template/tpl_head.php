@@ -92,7 +92,7 @@
                                         <div class="navbar-inner">
                                             <div class="row">
                                                 <div class="logo-wrapper span4">
-                                                    <a href="#nav" class="hidden-desktop" id="btn-nav">Toggle navigation</a>
+                                                    <a href="<?php echo $this->registry->current_url; ?>#nav" class="hidden-desktop" id="btn-nav">Toggle navigation</a>
 
                                                     <div class="logo">
                                                         <a href="" title="Kezdőoldal">
@@ -148,7 +148,7 @@
                                         </li>
                                         <!--
                                         <li>
-                                            <a href="rolunk" class="no_arrow <?php //echo ($this->registry->controller == 'rolunk' && $this->registry->action == 'index') ? 'active' : '';   ?>">Rólunk</a>
+                                            <a href="rolunk" class="no_arrow <?php //echo ($this->registry->controller == 'rolunk' && $this->registry->action == 'index') ? 'active' : '';    ?>">Rólunk</a>
                                         </li>
                                         -->
                                         <li class="menuparent">
@@ -183,42 +183,42 @@
                                             <li class="menuparent">
                                                 <span class="menuparent nolink <?php echo (($this->registry->controller == 'profil' && $this->registry->action == 'index')) || ($this->registry->controller == 'eloregisztracio' && $this->registry->action == 'index') ? 'active' : ''; ?>"><i class="fa fa-user"></i> Fiókom</span>
                                                 <ul>
-                                                <li><a href="profil">Profilom</a></li>
-                                                <li><a href="eloregisztracio">Adatlap</a></li>
-                                                
-                                            </ul>
+                                                    <li><a href="profil">Profilom</a></li>
+                                                    <li><a href="eloregisztracio">Adatlap</a></li>
+
+                                                </ul>
                                             </li>
                                         <?php } ?> 
 
-                                        </ul><!-- /.nav -->
+                                    </ul><!-- /.nav -->
 
 
-                                        <!--
-                                                                                                        <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_login" id="modal_login_trigger">Bejelentkezés</button>
-                                                                                                        <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_subscribe" id="modal_subscribe_trigger">Feliratkozás hírlevélre</button>
-                                                                                                        <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_register" id="modal_register_trigger">Regisztrálj!</button>
-                                        -->                                  
-                                                                                                        <!-- <a style="margin-left:10px;" class="btn btn-secondary arrow-right pull-right" href="<?php //echo BASE_URL . 'feliratkozas';  ?>">Feliratkozás hírlevélre</a> -->
-                                        <!-- <a class="btn btn-secondary arrow-right pull-right">Regisztrálj!</a> -->
+                                    <!--
+                                                                                                    <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_login" id="modal_login_trigger">Bejelentkezés</button>
+                                                                                                    <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_subscribe" id="modal_subscribe_trigger">Feliratkozás hírlevélre</button>
+                                                                                                    <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_register" id="modal_register_trigger">Regisztrálj!</button>
+                                    -->                                  
+                                                                                                    <!-- <a style="margin-left:10px;" class="btn btn-secondary arrow-right pull-right" href="<?php //echo BASE_URL . 'feliratkozas';   ?>">Feliratkozás hírlevélre</a> -->
+                                    <!-- <a class="btn btn-secondary arrow-right pull-right">Regisztrálj!</a> -->
 
 
-                                    </div><!-- /.navigation -->
-                                </div><!-- /.navigation-wrapper -->
-                            </div><!-- /.container -->
-                        </div><!-- /.navigation -->
+                                </div><!-- /.navigation -->
+                            </div><!-- /.navigation-wrapper -->
+                        </div><!-- /.container -->
+                    </div><!-- /.navigation -->
 
-                        <!-- MODAL SUBSCRIBE -->	
-                        <?php include('system/site/view/_template/tpl_subscribe_modal.php'); ?>
-                        <!-- MODAL SUBSCRIBE END -->		
-                        <!-- MODAL LOGIN -->	
-                        <?php include('system/site/view/_template/tpl_login_modal.php'); ?>
-                        <!-- MODAL LOGIN END -->
-                        <!-- MODAL REGISTER -->	
-                        <?php include('system/site/view/_template/tpl_register_modal.php'); ?>
-                        <!-- MODAL REGISTER END -->
-                        <!-- MODAL NOWWORK -->	
-                        <?php include('system/site/view/_template/tpl_nowwork_modal.php'); ?>
-                        <!-- MODAL NOWWORK END -->
-                        <!-- MODAL REGISTRATION INFO -->	
-                        <?php include('system/site/view/_template/tpl_registration_info_modal.php'); ?>
+                    <!-- MODAL SUBSCRIBE -->	
+                    <?php include('system/site/view/_template/tpl_subscribe_modal.php'); ?>
+                    <!-- MODAL SUBSCRIBE END -->		
+                    <!-- MODAL LOGIN -->	
+                    <?php include('system/site/view/_template/tpl_login_modal.php'); ?>
+                    <!-- MODAL LOGIN END -->
+                    <!-- MODAL REGISTER -->	
+                    <?php include('system/site/view/_template/tpl_register_modal.php'); ?>
+                    <!-- MODAL REGISTER END -->
+                    <!-- MODAL NOWWORK -->	
+                    <?php include('system/site/view/_template/tpl_nowwork_modal.php'); ?>
+                    <!-- MODAL NOWWORK END -->
+                    <!-- MODAL REGISTRATION INFO -->	
+                    <?php include('system/site/view/_template/tpl_registration_info_modal.php'); ?>
                     <!-- MODAL REGISTRATION INFO END -->                    

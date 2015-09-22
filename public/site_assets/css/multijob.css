@@ -1454,20 +1454,51 @@ iframe.map {
     opacity: 0 !important;
     visibility: hidden;
 }
+#header-wrapper #header #header-inner .navbar .navbar-inner .logo {
+    float: right;
+    margin-right: 0px;
+}
+.navigation-wrapper .navigation .nav > li > span {
+    float: none;
+}
 }
 
 @media (max-width: 480px) {
     .slider-wrapper {
-    display: none;
+    margin-bottom: 10px;
 }
 .slider-wrapper .images .iosSlider .slider {
-    height: 180px;
+    height: 150px !important;
 }
 .slider-wrapper .images .iosSlider .slider-info {
     display: none !important;
     opacity: 0 !important;
     visibility: hidden;
 }
+.slider-wrapper .images {
+    float: none;
+    margin-bottom: 0px;
+    width: auto;
+}
+#header-wrapper #header #header-inner .navbar .navbar-inner .logo {
+    float: right;
+    margin-right: 0px;
+}
+
+.navigation-wrapper .navigation .nav li .nolink, .navigation-wrapper .navigation .nav li a {
+    background-image: none !important;
+    border: 0px !important;
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.navigation-wrapper .navigation .nav > li > span {
+    float: none;
+}
+
 }
 
 #navigation {
@@ -1571,7 +1602,7 @@ iframe.map {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
-    background-color: rgba(255, 255, 255, 0.8);
+/*    background-color: rgba(255, 255, 255, 0.8); */
     margin: 43px 0px 0px 0px;
     position: absolute;
     padding: 0px;
@@ -1579,7 +1610,7 @@ iframe.map {
     visibility: hidden;
     width: 220px;
     z-index: 999;
-    box-shadow: 1px 1px 3px #333;
+/*    box-shadow: 1px 1px 3px #333; */
 }
 .navigation-wrapper .navigation .nav li ul li {
     float: none;
@@ -1591,7 +1622,7 @@ iframe.map {
     -o-transition: background-color 0.2s ease-in, padding-left 0.1s ease-in;
     transition: background-color 0.2s ease-in, padding-left 0.1s ease-in;
     border-top: 0px !important;
-    color: #666 !important;
+    color: #fff !important;
     display: block;
     font-size: 14px;
     padding-right: 20px;
