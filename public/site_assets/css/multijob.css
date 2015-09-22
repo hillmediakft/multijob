@@ -1527,7 +1527,7 @@ iframe.map {
     background-position: 90% center;
     background-repeat: no-repeat;
     background-size: 11px 8px;
-    padding-right: 40px
+    padding-right: 25px
 }
 .navigation-wrapper .navigation .nav li .nolink.active, .navigation-wrapper .navigation .nav li a.active {
     border-top: 2px solid #f3c406;
