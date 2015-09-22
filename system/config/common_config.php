@@ -10,17 +10,17 @@ $config['email'] = array(
         'admin_url' => BASE_URL . 'admin/login/verifypasswordreset',
         'site_url' => BASE_URL . 'users/verifypasswordreset',
         'subject' => 'Új jelszó kérése.',
-        'link' => 'Please click on this link to reset your password: '
+        'link' => 'Kattints a linkre a jelszó reseteléséhez.'
     ),
     'verification' => array(
         'site_url' => BASE_URL . 'felhasznalok/ellenorzes',
         'subject' => 'Regisztráció hitelesítése.',
-        'link' => 'Kérem kattintson erre a linkre a regisztrációja aktiválásához.'
+        'link' => 'Kattints erre a linkre a regisztrációd aktiválásához.'
     ),
     'verification_newsletter' => array(
         'site_url' => BASE_URL . 'felhasznalok/ellenorzes_hirlevel',
         'subject' => 'Hírlevélre feliratkozás hitelesítése.',
-        'link' => 'Kérem kattintson erre a linkre a feliratkozás aktiválásához.'
+        'link' => 'Kattints erre a linkre a feliratkozás aktiválásához.'
     )    
 );
 
