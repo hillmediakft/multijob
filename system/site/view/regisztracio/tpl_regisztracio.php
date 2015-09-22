@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<?php echo SITE_CSS;?>bootstrap-responsive.css" type="text/css">
     <!-- <link rel="stylesheet" href="<?php //echo SITE_ASSETS;?>plugins/chosen/chosen.css" type="text/css"> -->
     <!-- <link rel="stylesheet" href="<?php //echo SITE_ASSETS;?>plugins/jquery-ui-1.10.2.custom/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css"> -->
-	<link rel="stylesheet" href="<?php echo SITE_CSS;?>realia-blue.css" type="text/css" id="color-variant-default">
+	<link rel="stylesheet" href="<?php echo SITE_CSS;?>multijob.css" type="text/css" id="color-variant-default">
   
 	<!-- OLDALSPECIFIKUS CSS LINKEK -->
 	<?php if(isset($this->css_link)){
@@ -101,7 +101,7 @@
 						<br />
 						<p><?php echo $message; ?></p>
 						<br />
-						<a href="<?php echo BASE_URL; ?>" class="btn btn-primary">Vissza a főoldalra</a>
+						<a href="<?php echo BASE_URL; ?>" class="btn btn-primary">Tovább a főoldalra</a>
 						<button type="button" name="login_button" class="btn btn-secondary" data-toggle="modal" data-target="#modal_login">Bejelentkezés</button>
 					</div>
 				</div>
