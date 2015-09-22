@@ -213,7 +213,7 @@ class Regisztracio_model extends Site_model {
 
 		$subject = Config::get('email.verification.subject');
 		$link = Config::get('email.verification.link');
-		$html = '<html><body><h3>Tisztelt ' . $user_name . '!</h3><p>Ön a ' . $user_email . ' e-mail címmel regisztrált az oldalunkra.</p><a href="' . BASE_URL . 'regisztracio/' . $user_id . '/' . $user_activation_hash . '">' . $link . '</a></body></html>';
+		$html = '<html><body><h3>Kedves ' . $user_name . '!</h3><p>A ' . $user_email . ' e-mail címmel regisztráltál a Multijob Diákszövetkezet weboldalán. Regisztrációd megtörtént, de jelenleg passzív.</p><a href="' . BASE_URL . 'regisztracio/' . $user_id . '/' . $user_activation_hash . '">' . $link . '</a><p>Az aktiválást követően a Multijob Diákszövetkezet oldalára jutsz, ahol bejelentkezhetsz a felhasználó neveddel és jelszavaddal. Annak érdekében, hogy segíthessünk a számodra leginkább megfelelő munka megtalálásában, töltsd ki a felhasználói profilodat. </p><p>Üdvözlettel:<br>A Multijob Diákszövetkezet csapata</p></body></html>';
 		
 		$from_email = Config::get('email.from_email');
 		$from_name = Config::get('email.from_name');
