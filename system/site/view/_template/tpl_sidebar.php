@@ -1,3 +1,4 @@
+<?php if (!isset($logged_in)) { ?>
 <div class="title">
     <h2><i class="fa fa-sign-in"></i> Bejelentkezés</h2>
 </div>
@@ -20,7 +21,7 @@
 </div>
 
 <div class="clearfix"></div>
-
+<?php } ?>
 
 <div class="title">
     <h2><i class="fa fa-search"></i> Keresés</h2>
