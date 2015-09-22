@@ -58,12 +58,12 @@
 
                                             <?php if (!isset($logged_in) || $logged_in === false) { ?>
                                                 <li><a data-toggle="modal" data-target="#modal_register" href="#">Regisztráció</a></li>
-<?php } ?>
-<?php if ($logged_in === true) { ?>
+                                            <?php } ?>
+                                            <?php if ($logged_in === true) { ?>
                                                 <li><span>Bejelentkezve <?php echo Session::get('user_site_name'); ?>&nbsp; &raquo; </span><a style="float: left; padding-left: 0px;" href="felhasznalok/kijelentkezes">Kijelentkezés</a></li>
-<?php } else { ?>
+                                            <?php } else { ?>
                                                 <li><a data-toggle="modal" data-target="#modal_login" href="#">Bejelentkezés</a></li>
-<?php } ?>	
+                                            <?php } ?>	
 
                                         </ul>
                                     </div>
@@ -82,7 +82,7 @@
                                                             <div class="row">
                                                                 <div class="span12">
                                                                     <div id="feedback_message">
-<?php //$this->renderFeedbackMessages();  ?>
+                                    <?php //$this->renderFeedbackMessages();  ?>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -107,7 +107,7 @@
 
                                                 <div class="info">
                                                     <div class="site-email">
-<?php echo Util::safe_mailto($settings['email']); ?>
+                                                        <?php echo Util::safe_mailto($settings['email']); ?>
                                                     </div><!-- /.site-email -->
 
                                                     <div class="site-phone">
@@ -115,11 +115,11 @@
                                                     </div><!-- /.site-phone -->
                                                 </div><!-- /.info -->
 
-<?php if ($logged_in) { ?>
+                                                <?php if ($logged_in) { ?>
                                                     <a class="btn btn-primary btn-large list-your-property arrow-right" href="eloregisztracio">Adatlap kitöltése</a>
-<?php } else { ?>
+                                                <?php } else { ?>
                                                     <a class="btn btn-primary btn-large list-your-property arrow-right" data-toggle="modal" data-target="#modal_nowwork" href="#">Most akarok dolgozni</a>
-<?php } ?>
+                                                <?php } ?>
 
 
 
@@ -148,7 +148,7 @@
                                         </li>
                                         <!--
                                         <li>
-                                            <a href="rolunk" class="no_arrow <?php //echo ($this->registry->controller == 'rolunk' && $this->registry->action == 'index') ? 'active' : '';  ?>">Rólunk</a>
+                                            <a href="rolunk" class="no_arrow <?php //echo ($this->registry->controller == 'rolunk' && $this->registry->action == 'index') ? 'active' : '';   ?>">Rólunk</a>
                                         </li>
                                         -->
                                         <li class="menuparent">
@@ -165,48 +165,60 @@
 
                                         <li>
                                             <a href="cegek/cegbemutato" class="no_arrow <?php echo ($this->registry->controller == 'cegek' && ($this->registry->action == 'cegbemutato' || $this->registry->action == 'munkaero_kolcsonzes' || $this->registry->action == 'szolgaltatasaink')) ? 'active' : ''; ?>">Cégeknek</a>
-<!--                                            <ul>
-                                                <li><a href="cegek/cegbemutato">Cégbemutató</a></li>
-                                                <li><a href="cegek/munkaero-kolcsonzes">Munkaerő-kölcsönzés</a></li>
-                                                <li><a href="cegek/rehabilitacios-uzletag">Rehabilitációs üzletág</a></li>
-                                                <li><a href="cegek/referenciak">Referenciák</a></li>
-                                                <li><a href="cegek/szolgaltatasaink">Szolgáltatásaink</a></li>
-                                                <li><a href="cegek/szemelyzeti-tanacsadas">Személyzeti tanácsadás</a></li>
-                                            </ul> -->
+                                            <!--                                            <ul>
+                                                                                            <li><a href="cegek/cegbemutato">Cégbemutató</a></li>
+                                                                                            <li><a href="cegek/munkaero-kolcsonzes">Munkaerő-kölcsönzés</a></li>
+                                                                                            <li><a href="cegek/rehabilitacios-uzletag">Rehabilitációs üzletág</a></li>
+                                                                                            <li><a href="cegek/referenciak">Referenciák</a></li>
+                                                                                            <li><a href="cegek/szolgaltatasaink">Szolgáltatásaink</a></li>
+                                                                                            <li><a href="cegek/szemelyzeti-tanacsadas">Személyzeti tanácsadás</a></li>
+                                                                                        </ul> -->
                                         </li>
                                         <li>
                                             <a class="no_arrow <?php echo ($this->registry->controller == 'kapcsolat' && $this->registry->action == 'index') ? 'active' : ''; ?>" href="kapcsolat">Kapcsolat</a>
                                         </li>
 
-                                    </ul><!-- /.nav -->
+
+                                        <?php if ($logged_in === true) { ?>
+                                            <li class="menuparent">
+                                                <span class="menuparent nolink <?php echo (($this->registry->controller == 'profil' && $this->registry->action == 'index')) || ($this->registry->controller == 'eloregisztracio' && $this->registry->action == 'index') ? 'active' : ''; ?>"><i class="fa fa-user"></i> Fiókom</span>
+                                                <ul>
+                                                <li><a href="profil">Profilom</a></li>
+                                                <li><a href="eloregisztracio">Adatlap</a></li>
+                                                
+                                            </ul>
+                                            </li>
+                                        <?php } ?> 
+
+                                        </ul><!-- /.nav -->
 
 
-                                    <!--
-                                                                                                    <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_login" id="modal_login_trigger">Bejelentkezés</button>
-                                                                                                    <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_subscribe" id="modal_subscribe_trigger">Feliratkozás hírlevélre</button>
-                                                                                                    <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_register" id="modal_register_trigger">Regisztrálj!</button>
-                                    -->                                  
-                                                                                                    <!-- <a style="margin-left:10px;" class="btn btn-secondary arrow-right pull-right" href="<?php //echo BASE_URL . 'feliratkozas'; ?>">Feliratkozás hírlevélre</a> -->
-                                    <!-- <a class="btn btn-secondary arrow-right pull-right">Regisztrálj!</a> -->
+                                        <!--
+                                                                                                        <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_login" id="modal_login_trigger">Bejelentkezés</button>
+                                                                                                        <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_subscribe" id="modal_subscribe_trigger">Feliratkozás hírlevélre</button>
+                                                                                                        <button type="button" class="btn btn-secondary arrow-right pull-right" data-toggle="modal" data-target="#modal_register" id="modal_register_trigger">Regisztrálj!</button>
+                                        -->                                  
+                                                                                                        <!-- <a style="margin-left:10px;" class="btn btn-secondary arrow-right pull-right" href="<?php //echo BASE_URL . 'feliratkozas';  ?>">Feliratkozás hírlevélre</a> -->
+                                        <!-- <a class="btn btn-secondary arrow-right pull-right">Regisztrálj!</a> -->
 
 
-                                </div><!-- /.navigation -->
-                            </div><!-- /.navigation-wrapper -->
-                        </div><!-- /.container -->
-                    </div><!-- /.navigation -->
+                                    </div><!-- /.navigation -->
+                                </div><!-- /.navigation-wrapper -->
+                            </div><!-- /.container -->
+                        </div><!-- /.navigation -->
 
-                    <!-- MODAL SUBSCRIBE -->	
-                    <?php include('system/site/view/_template/tpl_subscribe_modal.php'); ?>
-                    <!-- MODAL SUBSCRIBE END -->		
-                    <!-- MODAL LOGIN -->	
-                    <?php include('system/site/view/_template/tpl_login_modal.php'); ?>
-                    <!-- MODAL LOGIN END -->
-                    <!-- MODAL REGISTER -->	
-                    <?php include('system/site/view/_template/tpl_register_modal.php'); ?>
-                    <!-- MODAL REGISTER END -->
-                    <!-- MODAL NOWWORK -->	
-                    <?php include('system/site/view/_template/tpl_nowwork_modal.php'); ?>
-                    <!-- MODAL NOWWORK END -->
-                    <!-- MODAL REGISTRATION INFO -->	
-                    <?php include('system/site/view/_template/tpl_registration_info_modal.php'); ?>
+                        <!-- MODAL SUBSCRIBE -->	
+                        <?php include('system/site/view/_template/tpl_subscribe_modal.php'); ?>
+                        <!-- MODAL SUBSCRIBE END -->		
+                        <!-- MODAL LOGIN -->	
+                        <?php include('system/site/view/_template/tpl_login_modal.php'); ?>
+                        <!-- MODAL LOGIN END -->
+                        <!-- MODAL REGISTER -->	
+                        <?php include('system/site/view/_template/tpl_register_modal.php'); ?>
+                        <!-- MODAL REGISTER END -->
+                        <!-- MODAL NOWWORK -->	
+                        <?php include('system/site/view/_template/tpl_nowwork_modal.php'); ?>
+                        <!-- MODAL NOWWORK END -->
+                        <!-- MODAL REGISTRATION INFO -->	
+                        <?php include('system/site/view/_template/tpl_registration_info_modal.php'); ?>
                     <!-- MODAL REGISTRATION INFO END -->                    
