@@ -54,7 +54,6 @@
 
                                     <div class="account pull-right">
                                         <ul class="nav nav-pills">
-                                            <li><a data-toggle="modal" data-target="#modal_subscribe" href="#">Feliratkozás hírlevélre</a></li>
 
                                             <?php if (!isset($logged_in) || $logged_in === false) { ?>
                                                 <li><a data-toggle="modal" data-target="#modal_register" href="#">Regisztráció</a></li>
@@ -207,12 +206,12 @@
                         </div><!-- /.container -->
                     </div><!-- /.navigation -->
 
-                    <!-- MODAL SUBSCRIBE -->	
-                    <?php include('system/site/view/_template/tpl_subscribe_modal.php'); ?>
-                    <!-- MODAL SUBSCRIBE END -->		
                     <!-- MODAL LOGIN -->	
                     <?php include('system/site/view/_template/tpl_login_modal.php'); ?>
                     <!-- MODAL LOGIN END -->
+                    <!-- MODAL ÚJ JELSZÓ -->	
+                    <?php include('system/site/view/_template/tpl_forgottenpw_modal.php'); ?>
+                    <!-- MODAL ÚJ JELSZÓ END -->		
                     <!-- MODAL REGISTER -->	
                     <?php include('system/site/view/_template/tpl_register_modal.php'); ?>
                     <!-- MODAL REGISTER END -->
