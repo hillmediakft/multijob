@@ -41,14 +41,14 @@ class Register_subscribe extends Controller {
 			
 				// visszatérés üzenetekkel
 				if($result['success'] == 1) {
-					$message = Message::send('A rekord törlése sikerült.');	
+					$message = Message::send('A felhasználó törlése sikerült.');	
 					echo json_encode(array(
 						"status" => 'success',
 						"message" => $message
 						));
 				}
 				else {
-					$message = Message::send('A rekord törlése nem sikerült!');	
+					$message = Message::send('A felhasználó törlése nem sikerült!');	
 					echo json_encode(array(
 						"status" => 'error',
 						"message" => $message

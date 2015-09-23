@@ -22,7 +22,7 @@
 				
 					<div class="portlet">
 						<div class="portlet-title">
-							<div class="caption"><i class="fa fa-cogs"></i>Regisztrált és feliratkozott felhasználók</div>
+							<div class="caption"><i class="fa fa-cogs"></i>Regisztrált felhasználók</div>
 							<div class="actions">
 								<div class="btn-group">
 									<a data-toggle="dropdown" href="#" class="btn btn-sm default">
@@ -77,9 +77,6 @@
 											Status
 										</th>
 										<th width="10%">
-											Típus
-										</th>
-										<th width="10%">
 											Hírlevél
 										</th>
 										<th width="1%">
@@ -104,13 +101,6 @@
 												<option value="1">Aktív</option>
 												<option value="0">Inaktív</option>
 											</select>								
-										</td>
-										<td>
-											<select name="search_provider_type" class="form-control form-filter input-sm">
-												<option value="">Válasszon</option>
-												<option value="default">Regisztrált</option>
-												<option value="news_only">Feliratkozott</option>
-											</select>											
 										</td>
 										<td>
 											<select name="search_newsletter" class="form-control form-filter input-sm">
@@ -147,4 +137,3 @@
 		<!-- END PAGE CONTENT WRAPPER -->
 </div>
 <!-- END CONTAINER -->
-<div id="loadingDiv" style="display:none;"><img src="public/admin_assets/img/loader.gif"></div>	

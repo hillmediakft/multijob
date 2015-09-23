@@ -69,10 +69,10 @@ class Register_subscribe_model extends Model {
 					$result = $this->delete($request_data['id']);
 					
 					if($result['success'] > 0) {
-						$messages['success'] = $result['success'] . ' ' . Message::send('rekord sikeresen törölve.');	
+						$messages['success'] = $result['success'] . ' ' . Message::send('felhasználó sikeresen törölve.');	
 					}
 					if($result['error'] > 0){
-						$messages['error'] = $result['error'] . ' ' . Message::send('rekord törlése nem sikerült!');	
+						$messages['error'] = $result['error'] . ' ' . Message::send('felhasználó törlése nem sikerült!');	
 					}					
 					break;
 			}
@@ -117,9 +117,6 @@ class Register_subscribe_model extends Model {
 			if($request_data['search_status'] != ''){
 				$this->query->set_where('user_active', '=', (int)$request_data['search_status']);
 			}
-			if(!empty($request_data['search_provider_type'])){
-				$this->query->set_where('user_provider_type', '=', $request_data['search_provider_type']);
-			}
 			if($request_data['search_newsletter'] != ''){
 				$this->query->set_where('user_newsletter', '=', (int)$request_data['search_newsletter']);
 			}
@@ -157,21 +154,19 @@ class Register_subscribe_model extends Model {
 			$temp['name'] = $value['user_name'];
 			$temp['email'] = $value['user_email'];
 			$temp['active'] = ($value['user_active'] == 1) ? '<span class="label label-sm label-success">Aktív</span>' : '<span class="label label-sm label-danger">Inaktív</span>' ;
-			$temp['provider_type'] = ($value['user_provider_type'] == 'default') ? 'Regisztrált' : 'Feliratkozott';
 			$temp['newsletter'] = ($value['user_newsletter'] == 1) ? '<span class="label label-sm label-success">Igen</span>' : '<span class="label label-sm label-danger">Nem</span>';
 
 			$temp['menu'] = '						
 			<div class="actions">
-				<div class="btn-group">';
-				
-				$disabled_menu = (Session::get('user_role_id') >= 2) ? 'disabled' : '';
-				$temp['menu'] .= '<a class="btn btn-sm grey-steel" title="Műveletek" href="#" data-toggle="dropdown" ' . $disabled_menu . '>
+				<div class="btn-group">
+				    <a class="btn btn-sm grey-steel" title="Műveletek" href="#" data-toggle="dropdown">
 						<i class="fa fa-cogs"></i>
 					</a>					
-					<ul class="dropdown-menu pull-right">';
-				$temp['menu'] .= (Session::get('user_role_id') < 3) ? '<li><a href="' . $this->registry->site_url . 'pre_register/update/' . $value['user_id'] . '"><i class="fa fa-pencil"></i> Szerkeszt</a></li>' : ''; 		
-				$temp['menu'] .= (Session::get('user_role_id') < 3) ? '<li><a href="javascript:;" class="delete_item_class" data-id="' . $value['user_id'] . '"> <i class="fa fa-trash"></i> Töröl</a></li>' : '';		
-				$temp['menu'] .= '</ul></div></div>';
+					<ul class="dropdown-menu pull-right">
+				        <li><a href="javascript:;" class="delete_item_class" data-id="' . $value['user_id'] . '"> <i class="fa fa-trash"></i> Töröl</a></li>		
+				    </ul>
+                </div>
+            </div>';
 
 			// adatok berakása a data tömbbe
 			$data[] = $temp;

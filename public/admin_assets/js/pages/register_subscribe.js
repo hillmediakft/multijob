@@ -33,9 +33,8 @@ var RegisterSubscribe = function () {
 					{"name": "user_name", "searchable": true, "orderable": true, "targets": 2},
 					{"name": "user_email", "searchable": true, "orderable": true, "targets": 3},
 					{"name": "user_active", "searchable": true, "orderable": true, "targets": 4},
-					{"name": "user_provider_type", "searchable": true, "orderable": true, "targets": 5},
-					{"name": "user_newsletter", "searchable": true, "orderable": true, "targets": 6},
-					{"name": "menu", "searchable": false, "orderable": false, "targets": 7}
+					{"name": "user_newsletter", "searchable": true, "orderable": true, "targets": 5},
+					{"name": "menu", "searchable": false, "orderable": false, "targets": 6}
 				],
 				
 				// ha a php asszociatív tömböt ad vissza (pl.: 'name' => 'László', 'age' => '38', 'haircolor' => 'blonde' ...), akkor meg kell adni az egyes elem nevét!	
@@ -46,7 +45,6 @@ var RegisterSubscribe = function () {
 					{ "data": "name" },
 					{ "data": "email" },
 					{ "data": "active" },
-					{ "data": "provider_type" },
 					{ "data": "newsletter" },
 					{ "data": "menu" }
 				],		
