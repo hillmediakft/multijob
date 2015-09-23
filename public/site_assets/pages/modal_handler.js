@@ -108,9 +108,125 @@ var modalHandler = function () {
 		$("#new_pw_button").on('click', function(e){
 			e.preventDefault();
 			$("#modal_login").modal('hide');
+            handle_forgottenpw_modal();
 		});
 	};
 	
+    
+    /*
+     * Elfelejtett jelszó for adatok küldése ajaxal
+     */
+    var send_forgottenpw_data = function(){
+
+        var $data = $("#forgottenpw_form").serialize();
+				
+        $.ajax({
+            url: "users/ajax_forgottenpw",
+            data: $data,
+            type: "POST",
+            dataType: "json",
+            beforeSend: function(){
+                $.blockUI({
+                    boxed: true,
+                    message: '<h3>Feldolgozás...</h3>',
+                    baseZ: 5000
+                }); 
+            },
+            complete: function(){
+                $.unblockUI();
+            },
+            success: function(respond){
+                if(respond.status == 'success'){
+                    $("#forgottenpw_submit").hide();
+                    $("#forgottenpw_form").hide();
+                    $("#message_forgottenpw").html('<div class="alert alert-success">' + respond.message + '</div>');
+                } 
+                if(respond.status == 'error') {
+                    $("#message_forgottenpw").html('<div class="alert alert-danger">' + respond.message + '</div>');
+                }
+            },
+            error: function(result, status, e){
+                alert(e);
+            } 
+        });         
+        
+    };
+        
+    /*
+     * Elfelejtett jelszó modal kezelése
+     */
+    var handle_forgottenpw_modal = function(){
+        // megjelenítjük a modalt
+        $("#modal_forgottenpw").modal('show');
+        
+        // amikor megjelenik a modal
+		$('#modal_forgottenpw').on('shown.bs.modal', function () {
+
+            $('#forgottenpw_form').validate({
+                errorElement: 'span', //default input error message container
+                errorClass: 'help-block', // default input error message class
+                focusInvalid: true, // do not focus the last invalid input
+                //ignore: "", // validate all fields including form hidden input
+                rules: {
+                    user_email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                // az invalidHandler akkor aktiválódik, ha elküldjük a formot és hiba van
+                invalidHandler: function (event, validator) { //display error alert on form submit              
+                    var errors = validator.numberOfInvalids();
+                },
+                highlight: function (element) { // hightlight error inputs
+                    $(element).closest('.control-group').addClass('error'); // set error class to the control group                   
+                },
+
+                unhighlight: function (element) { // revert the change done by hightlight
+                    $(element).closest('.control-group').removeClass('error'); // set error class to the control group                   
+                },
+                success: function (label) {
+                    //label.closest('.form-group').removeClass('has-error').addClass("has-success"); // set success class to the control group
+                    label.closest('.control-group').removeClass('error'); // set success class to the control group
+                },
+                submitHandler: function (form) {
+                    send_forgottenpw_data();
+                }
+            });           
+
+		});
+        
+	    // amikor eltűnik a modal
+		$('#modal_forgottenpw').on('hidden.bs.modal', function () {
+			// form adatok törlése
+			document.getElementById("forgottenpw_form").reset();
+			// üzenetek törlése
+			$("#message_forgottenpw").html('');
+			// form láthatóságának visszaállítása
+			$("#forgottenpw_submit").show();
+			$("#forgottenpw_form").show();            
+		});
+        
+	    // forgottenpw form elküldése ha ráklikkelünk a login_submit gombra
+		$("#forgottenpw_submit").on('click', function(){
+			$("#forgottenpw_form").submit();
+		});        
+        
+        
+        
+    };
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
    /**
     *  Register form adatok küldése
@@ -248,143 +364,8 @@ var modalHandler = function () {
 	};
 
     
-   /**
-    *  Subscribe form adatok küldése
-    */    
-    var send_subscribe_data = function () {
-        
-        var $data = $("#subscribe_form").serialize();
-
-        $.ajax({
-            url: "feliratkozas/ajax_subscribe",
-            data: $data,
-            type: "POST",
-            dataType: "json",
-            beforeSend: function(){
-                $.blockUI({
-                    boxed: true,
-                    message: '<h3>Feldolgozás...</h3>',
-                    baseZ: 5000
-                });
-            },
-            complete: function(){
-                $.unblockUI();
-            },
-            success: function(respond){
-
-                if(respond.status == 'success'){
-                    console.log('success');
-
-                    $success_messages = '';
-                    $.each( respond.message, function( index, value ){
-                        //console.log(index + ' : ' + value);
-                        $success_messages += value + "<br />"; 
-                    });
-                    $("#subscribe_submit").hide();
-                    $("#subscribe_form").hide();
-                    $("#info_subscribe").hide();
-                    $("#message_subscribe").html('<div class="alert alert-success">'+$success_messages+'</div>');
-                } 
-                if(respond.status == 'error') {
-                    $error_messages = '';
-                    $.each( respond.message, function( index, value ){
-                        //console.log(index + ' : ' + value);
-                        $error_messages += value + "<br />"; 
-                    });
-                    $("#message_subscribe").html('<div class="alert alert-danger">'+$error_messages+'</div>');
-                }				
-            },
-            error: function(result, status, e){
-                alert(e);
-            } 
-        });        
-    };
-
-
-    /*
-     * Subscribe modal kezelése
-     */
-	var handle_subscribe_modal = function () {
-
-	// amikor megjelenik a modal
-		$('#modal_subscribe').on('shown.bs.modal', function () {
-			//$('#myInput').focus()
-			
-			/*
-			// a body scroll letiltása (a body szélesség megtartásával)
-			var oldWidth = $('body').innerWidth();
-			$('body').addClass('modal-open');
-			$('body').width(oldWidth);			
-			*/
-			
-            // register form validálás
-            console.log('subscribe validátor indul');
-
-            $('#subscribe_form').validate({
-                errorElement: 'span', //default input error message container
-                errorClass: 'help-block', // default input error message class
-                focusInvalid: true, // do not focus the last invalid input
-                //ignore: "", // validate all fields including form hidden input
-                rules: {
-                    user_email: {
-                        required: true,
-                        email: true
-                    }
-                },
-                // az invalidHandler akkor aktiválódik, ha elküldjük a formot és hiba van
-                invalidHandler: function (event, validator) { //display error alert on form submit              
-                    var errors = validator.numberOfInvalids();
-                    console.log(errors + ' hiba a formban');    
-                },
-                highlight: function (element) { // hightlight error inputs
-                    $(element).closest('.control-group').addClass('error'); // set error class to the control group                   
-                },
-
-                unhighlight: function (element) { // revert the change done by hightlight
-                    $(element).closest('.control-group').removeClass('error'); // set error class to the control group                   
-                },
-                success: function (label) {
-                    //label.closest('.form-group').removeClass('has-error').addClass("has-success"); // set success class to the control group
-                    label.closest('.control-group').removeClass('error'); // set success class to the control group
-                },
-                submitHandler: function (form) {
-                    console.log('form küldése!');	
-                    // form adatok küldése
-                    send_subscribe_data();
-                }
-            });           
-			
-		});            
-
-	// amikor eltűnik a modal
-		$('#modal_subscribe').on('hidden.bs.modal', function () {
-			//$('#modal_subscribe').focus()
-			
-			/*
-			// a body scroll engedélyezése
-			$('body').removeClass('modal-open');
-			$('body').width("auto");			
-			*/
-			
-			// form adatok törlése
-			document.getElementById("subscribe_form").reset();
-			// üzenetek törlése
-			$("#message_subscribe").html('');
-			// form, submit gomb, info láthatóságának visszaállítása
-			$("#subscribe_submit").show();
-			$("#subscribe_form").show();
-			$("#info_subscribe").show();
-		});		
-	
-	// Feliratkozás form elküldése ha ráklikkelünk a subscribe_submit gombra
-		$("#subscribe_submit").on('click', function(){
-			$("#subscribe_form").submit();
-		});
-	};
-    
-    
     /**
-    *  nowwrok form adatok küldése
+    *  nowwork form adatok küldése
     */    
     var send_nowwork_data = function () {
         console.log('hello send_nowwork_data');
@@ -498,7 +479,6 @@ var modalHandler = function () {
 		init: function () {
 			handle_login_modal();
 			handle_register_modal();
-			handle_subscribe_modal();
             handle_nowwork_modal();
 		}
  

@@ -33,32 +33,108 @@ class users extends Controller {
 		} else {
 			Util::redirect('error');
 		}
-
-	
-/*	
-		// ha elküldték a POST adatokat
-		if(isset($_POST['login_site_user'])) {
-			// perform the login method, put result (true or false) into $login_successful
-			$login_successful = $this->user_model->login();
-
-	
-			// check login status
-			if ($login_successful) {
-				// if YES, then move user to /admin (btw this is a browser-redirection, not a rendered view!)
-				header('location: ' . BASE_URL);
-				exit;
-			} else {
-				// if NO, then move user to /users/login (login form) again
-				header('location: ' . BASE_URL . 'users/login');
-				exit;
-			}
-		}	
-
-
-		$this->view->render('users/tpl_login_site');
-*/			
 	}
-	
+    
+    
+	/**
+	 *	Új jelszó küldése a felhasználónak (elfelejtett jelszó esetén)
+     *  - lekérdezi, hogy van-e a $_POST-ban kapott email címmel rendelkező felhasználó
+     *  - generál egy 8 karakter hosszú jelszót és egy new_password_hash-t
+     *  - az új password hash-t az adatbázisba írja
+     *  - elküldi email-ben az új jelszót a felhasználónak
+     *  - ha az email küldése sikertelen, visszaírja az adatbázisba a régi password hash-t
+	 */
+	public function ajax_forgottenpw()
+	{
+		if(Util::is_ajax()){
+            
+            // a felhasználó email címe, amire küldjük az új jelszót
+            $to_email = strip_tags($_POST['user_email']);
+            
+            // lekérdezzük, hogy ehhez az email címhez tartozik-e user (lekérdezzük a nevet, és a password hash-t)
+            $result = $this->user_model->user_name_pw_query($to_email);
+                // ha nincsen ilyen e-mail címmel regisztrált felhasználó 
+                if(empty($result)){
+                    $message = array(
+                      'status' => 'error',
+                      'message' => 'Nincsen ilyen e-mail címmel regisztrált felhasználó!'
+                    );
+                    echo json_encode($message);
+                    exit();                
+                }
+            
+            $to_name = $result[0]['user_name'];
+            $old_pw = $result[0]['user_password_hash'];
+                  
+                // 8 karakter hosszú új jelszó generálása (str_shuffle összekeveri a stringet, substr levágja az első 8 karaktert)
+                $new_password = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
+                $hash_cost_factor = (Config::get('hash_cost_factor') !== null) ? Config::get('hash_cost_factor') : null;
+                $new_password_hash = password_hash($new_password, PASSWORD_DEFAULT, array('cost' => $hash_cost_factor));            
+            
+            // új jelszó hash beírása az adatbázisba
+            $result = $this->user_model->set_user_password($to_email, $new_password_hash);
+                // ha hiba történt a adatbázisba íráskor
+                if(($result == 0) || ($result === false)){
+                    $message = array(
+                        'status' => 'error',
+                        'message' => 'Adatbázis hiba!'
+                    );
+                    echo json_encode($message);
+                    exit();    
+                }
+            
+            
+            // settings adatok lekérdezése az adatbázisból
+            $data = $this->user_model->get_settings();            
+            
+            $from_email = $data['email'];
+            $from_name = $data['ceg'];
+
+            $subject = 'Üzenet érkezett a Multijob weblaptól';
+            $msg = <<<_msg
+
+            <html>    
+            <body>
+                <h2>Új jelszó</h2>
+                <div>
+                    <p>
+                        Az ön új jelszava a Multijob weblaphoz.
+                    </p>
+                    <p>
+                        <strong>Az ön új jelszava: </strong> {$new_password}
+                    </p>
+                </div> 
+            </body>
+            </html>    
+_msg;
+            
+            $result = $this->user_model->send_email($from_email, $from_name, $subject, $msg, $to_email, $to_name);
+
+            if ($result) {
+                $message = array(
+                  'status' => 'success',
+                  'message' => 'Új jelszó elküldve!'
+                );
+                echo json_encode($message);
+                exit();
+            } else {
+                // régi password hash visszaírása az adatbázisba
+                $this->user_model->set_user_password($to_email, $old_pw);
+                
+                $message = array(
+                  'status' => 'error',
+                  'message' => 'Az új jelszó küldése sikertelen!'
+                );
+                echo json_encode($message);
+                exit();
+            }
+
+		} else {
+			Util::redirect('error');
+		}
+		
+	}    
+
 
     /**
      * The logout action, users/logout
@@ -71,51 +147,5 @@ class users extends Controller {
 		exit;
     }	
 
-
-    /**
-     * Request password reset page
-     */
-    public function requestPasswordReset()
-    {
-		//ha a form el lett küldve
-		if(isset($_POST['request_password_reset'])) {
-			$this->user_model->requestPasswordReset();
-			header('location:' . BASE_URL . 'users/register');
-			exit;
-		}
-		
-		// ha nincs még kitöltve és elküldve a form 
-        $this->view->render('users/tpl_requestpasswordreset');
-    }
-
-
-    /**
-     * Verify the verification token of that user (to show the user the password editing view or not)
-     * @param string $user_name username
-     * @param string $verification_code password reset verification token
-     */
-    public function verifyPasswordReset()
-    {
-        if ($this->user_model->verifyPasswordReset($this->registry->params['user_name'], $this->registry->params['verification_code'])) {
-            // get variables for the view
-            $this->view->user_name = $this->registry->params['user_name'];
-            $this->view->user_password_reset_hash = $this->registry->params['verification_code'];
-			$this->view->render('users/tpl_changepassword');
-        } else {
-            header('location: ' . BASE_URL . 'users/login');
-        }
-    }
-
-    /**
-     * Set the new password
-     */
-    public function setNewPassword()
-    {
-        // try the password reset (user identified via hidden form inputs ($user_name, $verification_code)), see
-        // verifyPasswordReset() for more
-        $this->user_model->setNewPassword();
-        // regardless of result: go to index page (user will get success/error result via feedback message)
-        header('location: ' . BASE_URL . 'users/register');
-    }	
 }
 ?>

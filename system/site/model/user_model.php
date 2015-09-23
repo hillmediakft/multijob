@@ -238,243 +238,34 @@ class user_model extends Site_model {
         Session::destroy();
     }
 	
-
-    /**
-     * Perform the necessary actions to send a password reset mail
-     * @return bool success status
+    /*
+     * Lekérdezzük egy bizonyos e-mail címmel rendelkező user nevét és password-ját (elfelejtett jelszó esetén)
+     *
+     *  @param  string  $email_address
      */
-    public function requestPasswordReset()
+    public function user_name_pw_query($email_address)
     {
-        if (!isset($_POST['user_name']) OR empty($_POST['user_name'])) {
-            Message::set('error', 'username_field_empty');
-            return false;
-        }
-
-        // generate integer-timestamp (to see when exactly the user (or an attacker) requested the password reset mail)
-        $temporary_timestamp = time();
-        // generate random hash for email password reset verification (40 char string)
-        $user_password_reset_hash = sha1(uniqid(mt_rand(), true));
-        // clean user input
-        $user_name = $_POST['user_name'];
-
-        // check if that username exists
-        $query = $this->connect->prepare("SELECT user_id, user_email FROM site_users
-                                     WHERE user_name = :user_name AND user_provider_type = :provider_type");
-        $query->execute(array(':user_name' => $user_name, ':provider_type' => 'default'));
-        $count = $query->rowCount();
-        if ($count != 1) {
-            Message::set('error', 'user_does_not_exist');
-            return false;
-        }
-
-        // get result
-        $result_user_row = $result = $query->fetch(PDO::FETCH_OBJ);
-        $user_email = $result_user_row->user_email;
-
-        // set token (= a random hash string and a timestamp) into database
-		// beír az adatbázisba egy user_password_reset_hash-t és egy user_password_reset_timestamp-et
-        if ($this->setPasswordResetDatabaseToken($user_name, $user_password_reset_hash, $temporary_timestamp) == true) {
-            // send a mail to the user, containing a link with username and token hash string
-            if ($this->sendPasswordResetMail($user_name, $user_password_reset_hash, $user_email)) {
-                return true;
-            }
-        }
-        // default return
-        return false;
+        $this->query->reset();
+        $this->query->set_table(array('site_users'));
+        $this->query->set_columns(array('user_name', 'user_password_hash'));
+        $this->query->set_where('user_email', '=', $email_address);
+        return $this->query->select();
     }
-
-    /**
-     * Set password reset token in database (for DEFAULT user accounts)
-     * @param string $user_name username
-     * @param string $user_password_reset_hash password reset hash
-     * @param int $temporary_timestamp timestamp
-     * @return bool success status
+    
+    /*
+     * Új jelszó adatbázisba írása (elfelejtett jelszó esetén)
+     *
+     *  @param  string  $email_address
+     *  @param  string  $password_hash
      */
-    public function setPasswordResetDatabaseToken($user_name, $user_password_reset_hash, $temporary_timestamp)
+    public function set_user_password($email_address, $password_hash)
     {
-        $query_two = $this->connect->prepare("UPDATE site_users
-                                            SET user_password_reset_hash = :user_password_reset_hash,
-                                                user_password_reset_timestamp = :user_password_reset_timestamp
-                                          WHERE user_name = :user_name AND user_provider_type = :provider_type");
-        $query_two->execute(array(':user_password_reset_hash' => $user_password_reset_hash,
-                                  ':user_password_reset_timestamp' => $temporary_timestamp,
-                                  ':user_name' => $user_name,
-                                  ':provider_type' => 'default'));
-
-        // check if exactly one row was successfully changed
-        $count =  $query_two->rowCount();
-        if ($count == 1) {
-            return true;
-        } else {
-            Message::set('error', 'password_reset_token_fail');
-            return false;
-        }
+        $this->query->reset();
+        $this->query->set_table(array('site_users'));
+        $this->query->set_where('user_email', '=', $email_address);
+        return $this->query->update(array('user_password_hash' => $password_hash));
     }
-
-    /**
-     * send the password reset mail
-     * @param string $user_name username
-     * @param string $user_password_reset_hash password reset hash
-     * @param string $user_email user email
-     * @return bool success status
-     */
-    public function sendPasswordResetMail($user_name, $user_password_reset_hash, $user_email)
-    {
-		// Email kezelő osztály behívása
-		include(LIBS . '/simple_mail_class.php');
-	
-        // Létrehozzuk a SimpleMail objektumot
-		$mail = new SimpleMail();
-		$mail->setTo($user_email, 'Recipient 1')
-			 ->setSubject(Config::get('email.password_reset.subject'))
-			 ->setFrom(Config::get('email.password_reset.from_email'), Config::get('email.password_reset.from_name'))
-			 ->addMailHeader('Reply-To', 'sender@gmail.com', 'Mail Bot')
-			 ->addGenericHeader('MIME-Version', '1.0')
-			 ->addGenericHeader('Content-Type', 'text/html; charset="utf-8"')
-			 ->addGenericHeader('X-Mailer', 'PHP/' . phpversion())
-			 ->setMessage('<html><body><a href="' . Config::get('email.password_reset.site_url') . '/' . urlencode($user_name) . '/' . urlencode($user_password_reset_hash) . '">' . Config::get('email.password_reset.content') . '</a></body></html>')
-			 ->setWrap(78);	
-	
-      // send the mail
-        if($mail->send()) {
-            Message::set('success', 'password_reset_mail_sending_successful');
-            return true;
-        } else {
-            Message::set('error', 'password_reset_mail_sending_error');
-            return false;
-        }
-    }
-
-    /**
-     * Verifies the password reset request via the verification hash token (that's only valid for one hour)
-     * @param string $user_name Username
-     * @param string $verification_code Hash token
-     * @return bool Success status
-     */
-    public function verifyPasswordReset($user_name, $verification_code)
-    {
-        // check if user-provided username + verification code combination exists
-        $query = $this->connect->prepare("SELECT user_id, user_password_reset_timestamp
-                                       FROM site_users
-                                      WHERE user_name = :user_name
-                                        AND user_password_reset_hash = :user_password_reset_hash
-                                        AND user_provider_type = :user_provider_type");
-        $query->execute(array(':user_password_reset_hash' => $verification_code,
-                              ':user_name' => $user_name,
-                              ':user_provider_type' => 'default'));
-
-        // if this user with exactly this verification hash code exists
-        if ($query->rowCount() != 1) {
-            Message::set('error', 'password_reset_combination_does_not_exist');
-            return false;
-        }
-
-        // get result row (as an object)
-        $result_user_row = $query->fetch(PDO::FETCH_OBJ);
-        // 3600 seconds are 1 hour
-        $timestamp_one_hour_ago = time() - 3600;
-        // if password reset request was sent within the last hour (this timeout is for security reasons)
-        if ($result_user_row->user_password_reset_timestamp > $timestamp_one_hour_ago) {
-            // verification was successful
-            Message::set('success', 'password_reset_link_valid');
-            return true;
-        } else {
-            Message::set('error', 'password_reset_link_expired');
-            return false;
-        }
-    }
-
-	
-	
-	
-	
-	
-	
-	
-	
-    /**
-     * Set the new password (for DEFAULT user, FACEBOOK-users don't have a password)
-     * Please note: At this point the user has already pre-verified via verifyPasswordReset() (within one hour),
-     * so we don't need to check again for the 60min-limit here. In this method we authenticate
-     * via username & password-reset-hash from (hidden) form fields.
-     * @return bool success state of the password reset
-     */
-    public function setNewPassword()
-    {
-        // basic checks
-        if (!isset($_POST['user_name']) OR empty($_POST['user_name'])) {
-            Message::set('error', 'username_field_empty');
-            return false;
-        }
-        if (!isset($_POST['user_password_reset_hash']) OR empty($_POST['user_password_reset_hash'])) {
-            Message::set('error', 'password_reset_token_missing');
-            return false;
-        }
-        if (!isset($_POST['user_password_new']) OR empty($_POST['user_password_new'])) {
-            Message::set('error', 'password_field_empty');
-            return false;
-        }
-        if (!isset($_POST['user_password_repeat']) OR empty($_POST['user_password_repeat'])) {
-            Message::set('error', 'password_field_empty');
-            return false;
-        }
-        // password does not match password repeat
-        if ($_POST['user_password_new'] !== $_POST['user_password_repeat']) {
-            Message::set('error', 'password_repeat_wrong');
-            return false;
-        }
-        // password too short
-        if (strlen($_POST['user_password_new']) < 6) {
-            Message::set('error', 'password_too_short');
-            return false;
-        }
-
-        // check if we have a constant HASH_COST_FACTOR defined
-        // if so: put the value into $hash_cost_factor, if not, make $hash_cost_factor = null
-		$hash_cost_factor = (Config::get('hash_cost_factor') !== null) ? Config::get('hash_cost_factor') : null;
-		
-		
-        // crypt the user's password with the PHP 5.5's password_hash() function, results in a 60 character hash string
-        // the PASSWORD_DEFAULT constant is defined by the PHP 5.5, or if you are using PHP 5.3/5.4, by the password hashing
-        // compatibility library. the third parameter looks a little bit shitty, but that's how those PHP 5.5 functions
-        // want the parameter: as an array with, currently only used with 'cost' => XX.
-        $user_password_hash = password_hash($_POST['user_password_new'], PASSWORD_DEFAULT, array('cost' => $hash_cost_factor));
-
-        // write users new password hash into database, reset user_password_reset_hash
-        $query = $this->connect->prepare("UPDATE site_users
-                                        SET user_password_hash = :user_password_hash,
-                                            user_password_reset_hash = NULL,
-                                            user_password_reset_timestamp = NULL
-                                      WHERE user_name = :user_name
-                                        AND user_password_reset_hash = :user_password_reset_hash
-                                        AND user_provider_type = :user_provider_type");
-
-        $query->execute(array(':user_password_hash' => $user_password_hash,
-                              ':user_name' => $_POST['user_name'],
-                              ':user_password_reset_hash' => $_POST['user_password_reset_hash'],
-                              ':user_provider_type' => 'default'));
-
-        // check if exactly one row was successfully changed:
-        if ($query->rowCount() == 1) {
-            // successful password change!
-            Message::set('success', 'password_change_successful');
-            return true;
-        }
-
-        // default return
-        Message::set('error', 'password_change_failed');
-        return false;
-    }
-
-
-
-
-
-
-
-
-	
-	
+    
     /**
      * performs the login via cookie (for DEFAULT user account, FACEBOOK-accounts are handled differently)
      * @return bool success state
